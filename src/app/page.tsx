@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div className="container">
-      <p className="mt-4 text-justify">
+      <p className="text-justify">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
         asperiores assumenda tenetur eos ratione perferendis quos! Mollitia sit
         voluptatem quis? Fugiat, fugit corporis. Perspiciatis dolores asperiores

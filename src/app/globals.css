@@ -5,11 +5,11 @@
 :root {
   --background: #ffffff;
   --foreground: #212121;
-  --primary: #FF6F00;
-  --secondary: #E65100;
-  --gradient: linear-gradient(to right, var(--primary), var(--secondary))
+  --primary: #ff6f00;
+  --secondary: #e65100;
+  --gradient: linear-gradient(to right, var(--primary), var(--secondary));
   --background-secondary: #e5e5e5;
-  --stroke: #BF360C;
+  --stroke: #bf360c;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -23,9 +23,9 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
-/* Custom Scrollbar Styles */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
 }
@@ -41,6 +41,19 @@ body {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: hsla(0, 0%, 100%, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--background-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #c2c2c2;
 }
 
 input[type="radio"] {

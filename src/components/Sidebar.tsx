@@ -32,11 +32,11 @@ const Sidebar = () => {
     >
       <div
         className={`flex ${
-          isExpanded ? "flex-row justify-around" : "flex-col gap-1"
-        } relative mb-3 items-center p-3`}
+          isExpanded ? "mb-3 h-14 flex-row shadow-md" : "flex-col gap-1"
+        } relative items-center p-3`}
       >
         {isExpanded ? (
-          <>
+          <div className="mx-auto flex gap-3">
             <a
               href="#"
               className="rounded border border-stroke bg-primary px-3 py-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
@@ -49,7 +49,7 @@ const Sidebar = () => {
             >
               Sports
             </a>
-          </>
+          </div>
         ) : (
           <>
             <a
@@ -84,6 +84,7 @@ const Sidebar = () => {
       </div>
 
       <nav className="custom-scrollbar flex-1 overflow-y-auto px-2 text-sm text-white/80">
+        {!isExpanded && <div className="m-3 h-0.5 rounded bg-white/80"></div>}
         {links.map((section, index) => (
           <div key={index}>
             {section.items.map((link) => (

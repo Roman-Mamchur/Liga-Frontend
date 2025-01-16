@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -21,17 +22,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${poppins.variable} font-[family-name:var(--font-poppins)] antialiased`}
+        className={`${poppins.variable} h-full font-[family-name:var(--font-poppins)] antialiased`}
       >
-        <div className="flex min-h-screen">
+        <div className="flex h-full">
           <div>
             <Sidebar />
           </div>
-          <div className="w-full">
+
+          <div className="flex h-full w-full flex-col">
             <Header />
-            {children}
+            <div className="flex flex-1 flex-col overflow-y-auto">
+              <div className="mt-5 flex-1">{children}</div>
+              <Footer />
+            </div>
           </div>
         </div>
       </body>
