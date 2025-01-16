@@ -48,11 +48,11 @@ const Footer = () => {
 
         <div className="my-2 h-0.5 w-full rounded-xl bg-foreground opacity-30"></div>
 
-        <div className="gap-5s flex flex-wrap justify-between">
+        <div className="gap-5 flex flex-wrap justify-between">
           {links.map((link, index) => (
             <div
               key={index}
-              className="mb-3 flex w-full flex-col rounded bg-secondBackground md:w-auto md:bg-transparent"
+              className="mb-3 flex w-full md:flex-1 flex-col rounded bg-secondBackground md:w-auto md:bg-transparent"
             >
               <h3
                 onClick={() => toggleDropdown(index)}

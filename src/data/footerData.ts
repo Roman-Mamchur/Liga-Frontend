@@ -13,12 +13,12 @@ export const links = [
   {
     label: "Sports",
     items: [
-      { name: "Sportsbook", href: "#sportsbook" },
+      { name: "Sports Book", href: "#sportsbook" },
       { name: "Live Sports", href: "#live-sports" },
       { name: "Soccer", href: "#soccer" },
       { name: "Basketball", href: "#basketball" },
       { name: "Tennis", href: "#tennis" },
-      { name: "eSports", href: "#esports" },
+      { name: "ESports", href: "#esports" },
     ],
   },
   {
