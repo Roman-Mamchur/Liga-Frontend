@@ -40,12 +40,12 @@ const Sidebar = () => {
         >
           {isExpanded ? (
             <div className="mx-auto flex gap-3">
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="rounded border border-stroke bg-primary px-3 py-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
               >
                 Casino
-              </a>
+              </Link>
               <a
                 href="#"
                 className="rounded border border-stroke bg-primary px-3 py-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
@@ -247,9 +247,9 @@ const Sidebar = () => {
         </nav>
       </div>
 
-      <nav className="fixed bottom-0 left-0 right-0 z-20 flex justify-around bg-gradient-to-r from-primary to-secondary text-white shadow md:hidden">
+      <nav className="fixed bottom-0 left-0 right-0 z-20 flex justify-around bg-gradient-to-r from-primary to-secondary text-white text-opacity-80 shadow md:hidden">
         <Link
-          href="#casino"
+          href="/"
           className="flex h-full w-full flex-col items-center justify-center p-2 transition duration-200 hover:bg-white/20"
         >
           <GiPokerHand size={24} />
