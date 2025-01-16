@@ -85,6 +85,7 @@ const Sidebar = () => {
 
       <nav className="custom-scrollbar flex-1 overflow-y-auto px-2 text-sm text-white/80">
         {!isExpanded && <div className="m-3 h-0.5 rounded bg-white/80"></div>}
+
         {links.map((section, index) => (
           <div key={index}>
             {section.items.map((link) => (
@@ -117,15 +118,30 @@ const Sidebar = () => {
                     </button>
                     {submenuOpen === link.name && isExpanded && (
                       <div className="mt-2 flex flex-col rounded bg-white/10 py-1">
-                        {link.items.map((item) => (
-                          <a
-                            href="#"
-                            key={item}
-                            className="p-2 hover:bg-white/20"
-                          >
-                            {item}
-                          </a>
-                        ))}
+                        {link.items &&
+                          link.items.map((item) => {
+                            if (typeof item === "object" && item.href) {
+                              return (
+                                <a
+                                  href={item.href}
+                                  key={item.name}
+                                  className="p-2 hover:bg-white/20"
+                                >
+                                  {item.name}
+                                </a>
+                              );
+                            }
+                            return (
+                              <div
+                                key={
+                                  typeof item === "string" ? item : item.name
+                                }
+                                className="p-2 hover:bg-white/20"
+                              >
+                                {typeof item === "string" ? item : item.name}
+                              </div>
+                            );
+                          })}
                       </div>
                     )}
                   </>
@@ -159,29 +175,51 @@ const Sidebar = () => {
                     </button>
                     {submenuOpen === link.name && isExpanded && (
                       <div className="mt-2 flex flex-col rounded bg-white/10 py-1">
-                        {link.items.map((item) => (
-                          <div key={item} className="flex items-center p-2">
-                            <input
-                              type="radio"
-                              id={item}
-                              name="language"
-                              value={item}
-                              checked={selectedLanguage === item}
-                              onChange={() => handleLanguageChange(item)}
-                              className="mr-2"
-                            />
-                            <label htmlFor={item} className="text-sm">
-                              {item}
-                            </label>
-                          </div>
-                        ))}
+                        {link.items &&
+                          link.items.map((item) => {
+                            if (typeof item === "string") {
+                              return (
+                                <div
+                                  key={item}
+                                  className="flex items-center p-2 hover:bg-white/20"
+                                >
+                                  <input
+                                    type="radio"
+                                    id={item}
+                                    name="language"
+                                    value={item}
+                                    checked={selectedLanguage === item}
+                                    onChange={() => handleLanguageChange(item)}
+                                    className="mr-2"
+                                  />
+                                  <label htmlFor={item} className="text-sm flex-1">
+                                    {item}
+                                  </label>
+                                </div>
+                              );
+                            }
+
+                            if (typeof item === "object" && item.href) {
+                              return (
+                                <a
+                                  href={item.href}
+                                  key={item.name}
+                                  className="p-2 hover:bg-white/20"
+                                >
+                                  {item.name}
+                                </a>
+                              );
+                            }
+
+                            return null;
+                          })}
                       </div>
                     )}
                   </>
                 ) : (
                   <div className="font-medium">
                     <a
-                      href="#"
+                      href={link.href}
                       className={`flex w-full items-center gap-3 rounded p-2 hover:bg-white/20 ${
                         !isExpanded ? "justify-center" : ""
                       }`}

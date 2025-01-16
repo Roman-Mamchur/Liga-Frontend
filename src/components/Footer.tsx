@@ -16,7 +16,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="mt-5 h-fit w-full bg-white py-4 pb-24">
+    <div className="mt-5 h-fit w-full bg-white py-4">
       <div className="container flex flex-col">
         <div className="w-fit">
           <Link href="/">

@@ -16,10 +16,10 @@ const Header = () => {
           />
         </Link>
         <div className="flex items-center space-x-4 text-sm font-bold">
-          <button className="rounded-md border border-foreground px-6 py-2">
+          <button className="rounded-md border border-foreground px-6 py-2 transition-transform duration-200 hover:scale-105">
             Sign in
           </button>
-          <button className="rounded-md border border-primary bg-primary px-6 py-2 text-white">
+          <button className="rounded-md border border-primary bg-primary px-6 py-2 text-white transition-transform duration-200 hover:scale-105">
             Register
           </button>
         </div>
