@@ -4,6 +4,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const images = [
   "/banner/image1.png",
@@ -68,16 +69,16 @@ const Banner = () => {
       </div>
 
       <button
-        className="absolute left-0 top-1/2 -translate-y-1/2 transform bg-black px-4 py-2 text-white opacity-50 hover:opacity-80"
+        className="absolute left-3 top-1/2 -translate-y-1/2 transform rounded bg-black px-4 py-2 text-white opacity-50 hover:opacity-80"
         onClick={prevSlide}
       >
-        Prev
+        <FaChevronLeft />
       </button>
       <button
-        className="absolute right-0 top-1/2 -translate-y-1/2 transform bg-black px-4 py-2 text-white opacity-50 hover:opacity-80"
+        className="absolute right-3 top-1/2 -translate-y-1/2 transform rounded bg-black px-4 py-2 text-white opacity-50 hover:opacity-80"
         onClick={nextSlide}
       >
-        Next
+        <FaChevronRight />
       </button>
 
       <div className="mt-2 flex justify-center space-x-2">
