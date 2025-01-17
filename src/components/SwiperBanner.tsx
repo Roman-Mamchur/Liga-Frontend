@@ -1,16 +1,8 @@
 "use client";
-import "flickity/css/flickity.css";
+import "swiper/swiper-bundle.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
-import Flickity from "react-flickity-component";
-
-const flickityOptions = {
-  autoPlay: 3000,
-  wrapAround: true,
-  prevNextButtons: false,
-  pageDots: true,
-  contain: false,
-  cellAlign: "left",
-};
 
 const images = [
   "/banner/image1.png",
@@ -20,27 +12,34 @@ const images = [
 
 function SwiperBanner() {
   return (
-    <Flickity
-      className="swiper-banner"
-      elementType="div"
-      options={flickityOptions}
-      disableImagesLoaded={false}
-      reloadOnUpdate
-      static
-    >
-      {images.map((src, index) => (
-        <Image
-          key={index}
-          src={src}
-          width={0}
-          height={0}
-          sizes="100vw"
-          alt={`Banner ${index + 1}`}
-          className="h-auto w-full object-contain"
-          priority={true}
-        />
-      ))}
-    </Flickity>
+    <div className="flex">
+      <div className="w-0 flex-1">
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={1}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          pagination={{ clickable: true }}
+          modules={[Autoplay, Pagination]}
+        >
+          {images.map((src, index) => (
+            <SwiperSlide key={index}>
+              <Image
+                src={src}
+                alt={`Banner ${index + 1}`}
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="h-auto w-full object-contain"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
   );
 }
 

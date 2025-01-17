@@ -10,6 +10,7 @@
   --gradient: linear-gradient(to right, var(--primary), var(--secondary));
   --background-secondary: #e5e5e5;
   --stroke: #bf360c;
+  --swiper-pagination-color: var(--background);
 }
 
 /* @media (prefers-color-scheme: dark) {

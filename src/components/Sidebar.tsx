@@ -7,7 +7,7 @@ import {
   FaChevronDown,
   FaChevronUp,
 } from "react-icons/fa";
-import { links } from "../data/sidebarData";
+import { links } from "@/data/sidebarData";
 import { GiPokerHand } from "react-icons/gi";
 import { MdSportsBasketball } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";

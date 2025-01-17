@@ -1,6 +1,7 @@
-import Banner from "@/components/Banner";
-// import SwiperBanner from "@/components/SwiperBanner";
+import SearchBar from "@/components/SearchBar";
+import SwiperBanner from "@/components/SwiperBanner";
 import { Metadata } from "next";
+import SelectorMenu from "@/components/Selector/SelectorMenu";
 
 export const metadata: Metadata = {
   title: "Online Casino Games - Slots, Classic Casino Games & Bonuses",
@@ -11,10 +12,16 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div>
-        <Banner />
-        {/* <SwiperBanner /> */}
-      </div>
+      <section>
+        <SwiperBanner />
+      </section>
+
+      <section className="my-8">
+        <div className="container">
+          <SearchBar />
+          <SelectorMenu display="both" />
+        </div>
+      </section>
     </>
   );
 }
