@@ -27,17 +27,17 @@ export default function RootLayout({
         className={`${poppins.variable} h-full font-[family-name:var(--font-poppins)] antialiased`}
       >
         <div className="flex h-full">
-          <div>
+          <aside>
             <Sidebar />
-          </div>
+          </aside>
 
-          <div className="flex h-full w-full flex-col">
+          <main className="flex h-full w-full flex-col">
             <Header />
             <div className="flex flex-1 flex-col overflow-y-auto pb-14 md:pb-0">
               <div className="flex-1">{children}</div>
               <Footer />
             </div>
-          </div>
+          </main>
         </div>
       </body>
     </html>
