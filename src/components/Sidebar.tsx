@@ -14,7 +14,7 @@ import { IoSearch } from "react-icons/io5";
 import Link from "next/link";
 
 const Sidebar = () => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<string>("English");
 
@@ -86,7 +86,7 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <nav className="custom-scrollbar flex-1 overflow-y-auto px-2 text-sm text-white/80">
+        <nav className="sidebar-scrollbar flex-1 overflow-y-auto px-2 text-sm text-white/80">
           {!isExpanded && <div className="m-3 h-0.5 rounded bg-white/80"></div>}
 
           {links.map((section, index) => (
