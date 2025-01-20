@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "@/store";
+import { setActiveCategory } from "@/store/slices/categorySlice";
 import { categories } from "@/data/selectorData";
 
 interface SelectorMenuProps {
@@ -8,12 +10,13 @@ interface SelectorMenuProps {
 }
 
 const SelectorMenu: React.FC<SelectorMenuProps> = ({ display }) => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const activeCategory = useSelector(
+    (state: RootState) => state.category.activeCategory,
+  );
+  const dispatch = useDispatch<AppDispatch>();
 
-  const handleCategoryClick = (index: number) => {
-    if (index !== activeIndex) {
-      setActiveIndex(index);
-    }
+  const handleCategoryClick = (category: string) => {
+    dispatch(setActiveCategory(category));
   };
 
   return (
@@ -21,12 +24,12 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display }) => {
       <div className="mt-4 w-0 flex-1 overflow-x-auto">
         <div className="mb-2 w-max rounded-full bg-gradient-to-r from-primary to-secondary p-2 text-sm font-medium text-white">
           <div className="flex gap-3">
-            {categories.map((category, index) => (
+            {categories.map((category) => (
               <div
-                key={index}
-                onClick={() => handleCategoryClick(index)}
-                className={`flex cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2 duration-200 hover:bg-white/30 ${
-                  activeIndex === index ? "bg-white/20" : ""
+                key={category.label}
+                onClick={() => handleCategoryClick(category.label)}
+                className={`flex cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2 duration-200 hover:scale-105 hover:bg-white/30 ${
+                  activeCategory === category.label ? "bg-white/20" : ""
                 }`}
               >
                 {display === "icon" && <category.icon className="text-lg" />}
