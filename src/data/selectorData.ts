@@ -13,3 +13,10 @@ export const categories = [
   { label: "Exclusives", icon: FaCrown },
   { label: "New Releases", icon: MdNewReleases },
 ];
+
+export const leaderboards = [
+  { label: "My Games", icon: null },
+  { label: "All Games", icon: null },
+  { label: "High Rollers", icon: null },
+  { label: "Race Leaderboard", icon: null },
+];

@@ -7,14 +7,14 @@ import Image from "next/image";
 import CollectionSwiper from "./CollectionSwiper";
 
 const GameList: React.FC = () => {
-  const activeCategory = useSelector(
-    (state: RootState) => state.category.activeCategory,
+  const activeCasinoGame = useSelector(
+    (state: RootState) => state.category.activeCasinoGame,
   );
 
   return (
     <div className="flex">
       <div className="w-0 flex-1">
-        {activeCategory === "Lobby"
+        {activeCasinoGame === "Lobby"
           ? allGames.map((categoryData, categoryIndex) => (
               <CollectionSwiper
                 key={categoryIndex}
@@ -24,7 +24,7 @@ const GameList: React.FC = () => {
             ))
           : allGames
               .filter(
-                (categoryData) => categoryData.category === activeCategory,
+                (categoryData) => categoryData.category === activeCasinoGame,
               )
               .map((categoryData) => (
                 <div key={categoryData.category}>

@@ -1,22 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CategoryState {
-  activeCategory: string;
+  activeCasinoGame: string;
+  // activeSportsGame: string;
+  activeCasinoLeaderboard: string;
 }
 
 const initialState: CategoryState = {
-  activeCategory: "Lobby",
+  activeCasinoGame: "Lobby",
+  activeCasinoLeaderboard: "My Games",
 };
 
 const categorySlice = createSlice({
   name: "category",
   initialState,
   reducers: {
-    setActiveCategory(state, action: PayloadAction<string>) {
-      state.activeCategory = action.payload;
+    setActiveCasinoGame(state, action: PayloadAction<string>) {
+      state.activeCasinoGame = action.payload;
+    },
+    setActiveCasinoLeaderboard(state, action: PayloadAction<string>) {
+      state.activeCasinoLeaderboard = action.payload;
     },
   },
 });
 
-export const { setActiveCategory } = categorySlice.actions;
+export const { setActiveCasinoGame, setActiveCasinoLeaderboard } =
+  categorySlice.actions;
 export default categorySlice.reducer;

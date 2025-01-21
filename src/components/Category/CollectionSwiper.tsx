@@ -4,7 +4,7 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { SwiperNavButtons } from "./SwiperNavButtons";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store";
-import { setActiveCategory } from "@/store/slices/categorySlice";
+import { setActiveCasinoGame } from "@/store/slices/categorySlice";
 
 interface CollectionSwiperProps {
   categoryData: {
@@ -30,7 +30,7 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
   };
 
   const handleCategoryClick = (category: string) => {
-    dispatch(setActiveCategory(category));
+    dispatch(setActiveCasinoGame(category));
   };
 
   const maxDisplay = 20;
