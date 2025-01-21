@@ -70,7 +70,7 @@ const Footer = () => {
               </h3>
 
               <div
-                className={`${openDropdown === index ? "block border-t border-gray-300" : "hidden"} md:block`}
+                className={`${openDropdown === index ? "block border-t border-gray-300" : "hidden"} md:block md:border-none`}
               >
                 <ul className="py-2 text-sm opacity-80">
                   {link.items.map((item, idx) => (
