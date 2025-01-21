@@ -180,3 +180,34 @@ export const allGames: Game[] = [
     ],
   },
 ];
+
+export const allSports: Game[] = [
+  {
+    category: "Top Sports",
+    icon: FaFire,
+    games: [
+      "Top sport 1",
+      "Top sport 2",
+      "Top sport 3",
+      "Top sport 4",
+      "Top sport 5",
+      "Top sport 6",
+      "Top sport 7",
+      "Top sport 8",
+      "Top sport 9",
+      "Top sport 10",
+      "Top sport 11",
+      "Top sport 12",
+      "Top sport 13",
+      "Top sport 14",
+      "Top sport 15",
+      "Top sport 16",
+      "Top sport 17",
+      "Top sport 18",
+      "Top sport 19",
+      "Top sport 20",
+      "Top sport 21",
+      "Top sport 22",
+    ],
+  },
+];

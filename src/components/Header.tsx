@@ -15,11 +15,11 @@ const Header = () => {
             style={{ width: "auto", height: 40 }}
           />
         </Link>
-        <div className="flex items-center space-x-4 text-xs md:text-sm md:font-bold">
-          <button className="rounded-md border border-foreground p-2 transition-transform duration-200 hover:scale-105 md:px-6 md:py-2">
+        <div className="flex items-center space-x-4 text-xs font-bold md:text-sm">
+          <button className="rounded-md border-2 border-foreground p-2 transition-transform duration-200 hover:scale-105 md:px-6 md:py-2">
             Sign in
           </button>
-          <button className="rounded-md border border-primary bg-primary p-2 text-white transition-transform duration-200 hover:scale-105 md:px-6 md:py-2">
+          <button className="rounded-md border-2 border-primary bg-primary p-2 text-white transition-transform duration-200 hover:scale-105 md:px-6 md:py-2">
             Register
           </button>
         </div>

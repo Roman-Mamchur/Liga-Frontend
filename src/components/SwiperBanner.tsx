@@ -33,6 +33,7 @@ function SwiperBanner() {
                 width={0}
                 height={0}
                 sizes="100vw"
+                priority={index === 0}
                 className="h-auto w-full object-contain"
               />
             </SwiperSlide>

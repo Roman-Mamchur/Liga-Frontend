@@ -1,80 +1,26 @@
 "use client";
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/grid";
-import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
-import { SwiperNavButtons } from "@/components/Category/SwiperNavButtons";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { allGames } from "@/data/gamesData";
+import { allGames } from "@/data/collectionData";
 import Image from "next/image";
-import { useState } from "react";
+import CollectionSwiper from "./CollectionSwiper";
 
 const GameList: React.FC = () => {
   const activeCategory = useSelector(
     (state: RootState) => state.category.activeCategory,
   );
 
-  const [swiperRefs, setSwiperRefs] = useState<
-    Record<string, SwiperClass | null>
-  >({});
-
-  const handleSwiperInit = (swiper: SwiperClass, category: string) => {
-    setSwiperRefs((prevRefs) => ({ ...prevRefs, [category]: swiper }));
-  };
-
   return (
     <div className="flex">
       <div className="w-0 flex-1">
         {activeCategory === "Lobby"
           ? allGames.map((categoryData, categoryIndex) => (
-              <div key={categoryIndex}>
-                <div className="flex items-center justify-between">
-                  <h3 className="flex items-center gap-2 text-xl font-bold text-foreground opacity-80">
-                    <categoryData.icon />
-                    {categoryData.category}
-                  </h3>
-
-                  <div>
-                    <SwiperNavButtons
-                      swiperRef={swiperRefs[categoryData.category]}
-                    />
-                  </div>
-                </div>
-                <Swiper
-                  onSwiper={(swiper) =>
-                    handleSwiperInit(swiper, categoryData.category)
-                  }
-                  slidesPerView="auto"
-                  spaceBetween={10}
-                  slidesPerGroupAuto={true}
-                  className="my-4"
-                >
-                  <div className="my-4 flex flex-nowrap gap-1 overflow-x-hidden md:gap-4">
-                    {categoryData.games.map((game, gameIndex) => (
-                      <SwiperSlide key={gameIndex} className="min-w-36 flex-1">
-                        <Image
-                          src={`https://placehold.co/600x800.png?text=${encodeURIComponent(game)}&font=montserrat`}
-                          alt={game}
-                          width={150}
-                          height={200}
-                          className="rounded object-contain duration-300 ease-in-out hover:-translate-y-2"
-                        />
-                        <p className="mb-3 mt-1 flex items-center">
-                          <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-600"></span>
-                          </span>
-                          <span className="ml-1 text-xs text-foreground opacity-60 md:ml-2 md:text-sm">
-                            1,413 playing
-                          </span>
-                        </p>
-                      </SwiperSlide>
-                    ))}
-                  </div>
-                </Swiper>
-              </div>
+              <CollectionSwiper
+                key={categoryIndex}
+                categoryData={categoryData}
+                showOnline={true}
+              />
             ))
           : allGames
               .filter(
@@ -86,15 +32,16 @@ const GameList: React.FC = () => {
                     <categoryData.icon />
                     {categoryData.category}
                   </h3>
-                  <div className="my-4 flex flex-wrap gap-1 md:gap-2">
+                  <div className="my-4 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8">
                     {categoryData.games.map((game, gameIndex) => (
-                      <div key={gameIndex} className="min-w-36">
+                      <div key={gameIndex} className="w-full">
                         <Image
                           src={`https://placehold.co/600x800.png?text=${encodeURIComponent(game)}&font=montserrat`}
                           alt={game}
                           width={150}
                           height={200}
-                          className="rounded object-contain duration-300 ease-in-out hover:-translate-y-2"
+                          priority={gameIndex === 0}
+                          className="rounded object-contain duration-300 ease-in-out hover:-translate-y-2 hover:shadow-md"
                         />
                         <p className="mb-3 mt-1 flex items-center">
                           <span className="relative flex h-2 w-2">
