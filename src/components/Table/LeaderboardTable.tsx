@@ -8,7 +8,7 @@ const LeaderboardTable = () => {
         <div className="flex-1">
           <SelectorMenu display="label" type="leaderboards" />
         </div>
-        <div>
+        <div className="hidden md:block">
           <RowsDropdown />
         </div>
       </div>
