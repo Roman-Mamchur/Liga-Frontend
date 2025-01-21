@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <div className="mt-5 h-fit w-full bg-white py-4">
       <div className="container flex flex-col">
-        <div className="w-fit">
+        <div className="mx-auto mb-2 w-fit md:mx-0 md:mb-0">
           <Link href="/">
             <Image
               src="/logo.png"
@@ -31,9 +31,9 @@ const Footer = () => {
           </Link>
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col items-center justify-between gap-3 md:flex-row">
           <p className="text-sm">&copy; 2025 FaFa878 | All Rights Reserved.</p>
-          <div className="flex gap-3 text-foreground">
+          <div className="flex gap-3 opacity-80">
             <Link href="#">
               <FaLine size={24} />
             </Link>
