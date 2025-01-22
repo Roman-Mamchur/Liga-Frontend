@@ -8,7 +8,7 @@ interface CategoryState {
 
 const initialState: CategoryState = {
   activeCasinoGame: "Lobby",
-  activeCasinoLeaderboard: "My Games",
+  activeCasinoLeaderboard: "High Rollers",
 };
 
 const categorySlice = createSlice({

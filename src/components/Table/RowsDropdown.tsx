@@ -1,38 +1,47 @@
+"use client";
+
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { FaChevronDown } from "react-icons/fa6";
 
-const RowsDropdown = () => {
+interface RowsDropdownProps {
+  rowsPerPage: number;
+  setRowsPerPage: (rows: number) => void;
+}
+
+const RowsDropdown: React.FC<RowsDropdownProps> = ({
+  rowsPerPage,
+  setRowsPerPage,
+}) => {
+  const options = [0, 10, 20, 30, 40];
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <MenuButton className="inline-flex w-full items-center justify-center gap-x-1.5 rounded bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm">
-          10
+          {rowsPerPage}
           <FaChevronDown aria-hidden="true" className="size-3" />
         </MenuButton>
       </div>
 
       <MenuItems
         transition
-        className="absolute right-0 z-10 mt-2 w-14 origin-top-right divide-y rounded bg-secondBackground shadow-md transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+        className="absolute right-0 z-10 mt-2 w-14 origin-top-right divide-y rounded bg-secondBackground shadow-md"
       >
-        <div className="py-1">
-          <MenuItem>
-            <p className="cursor-pointer px-4 py-2 text-sm">0</p>
-          </MenuItem>
-          <MenuItem>
-            <p className="cursor-pointer bg-gray-500/20 px-4 py-2 text-sm">
-              10
-            </p>
-          </MenuItem>
-          <MenuItem>
-            <p className="cursor-pointer px-4 py-2 text-sm">20</p>
-          </MenuItem>
-          <MenuItem>
-            <p className="cursor-pointer px-4 py-2 text-sm">30</p>
-          </MenuItem>
-          <MenuItem>
-            <p className="cursor-pointer px-4 py-2 text-sm">40</p>
-          </MenuItem>
+        <div className="py-1 text-sm">
+          {options.map((option) => (
+            <MenuItem key={option}>
+              <p
+                className={`cursor-pointer px-4 py-2 duration-200 ${
+                  rowsPerPage === option
+                    ? "bg-gray-500/20"
+                    : "hover:bg-gray-500/10"
+                }`}
+                onClick={() => setRowsPerPage(option)}
+              >
+                {option}
+              </p>
+            </MenuItem>
+          ))}
         </div>
       </MenuItems>
     </Menu>
