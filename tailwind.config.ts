@@ -21,7 +21,7 @@ export default {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
-                secondBackground: "var(--background-secondary)",
+                card: "var(--card)",
                 gradient: "var(--gradient)",
                 primary: "var(--primary)",
                 secondary: "var(--secondary)",

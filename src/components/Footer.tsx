@@ -26,6 +26,8 @@ const Footer = () => {
               width={0}
               height={0}
               sizes="100vw"
+              priority={true}
+              className="h-14 w-auto"
               style={{ width: "auto", height: 60 }}
             />
           </Link>
@@ -52,7 +54,7 @@ const Footer = () => {
           {links.map((link, index) => (
             <div
               key={index}
-              className="mb-3 flex w-full flex-col rounded bg-secondBackground md:w-auto md:flex-1 md:bg-transparent"
+              className="bg-card mb-3 flex w-full flex-col rounded md:w-auto md:flex-1 md:bg-transparent"
             >
               <h3
                 onClick={() => toggleDropdown(index)}
@@ -76,7 +78,7 @@ const Footer = () => {
                   {link.items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="w-full transition duration-200 hover:bg-white/60 md:rounded md:hover:bg-secondBackground"
+                      className="md:hover:bg-card w-full transition duration-200 hover:bg-white/60 md:rounded"
                     >
                       <Link href={item.href}>
                         <p className="px-3 py-1 md:px-1">{item.name}</p>

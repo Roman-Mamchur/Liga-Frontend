@@ -6,7 +6,7 @@ import RowsDropdown from "./RowsDropdown";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { leaderboardData } from "@/data/mockData/leaderboardsData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const LeaderboardTable = () => {
   const activeCasinoLeaderboard = useSelector(
@@ -14,11 +14,21 @@ const LeaderboardTable = () => {
   );
 
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const selectedLeaderboard = leaderboardData.find(
     (leaderboard) => leaderboard.set === activeCasinoLeaderboard,
   ) || { data: [] };
 
   const displayedRows = selectedLeaderboard.data.slice(0, rowsPerPage);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <>
@@ -62,7 +72,7 @@ const LeaderboardTable = () => {
           {displayedRows.map((row, index) => (
             <tr
               key={index}
-              className="h-14 text-center odd:bg-secondBackground even:bg-white"
+              className="odd:bg-card h-14 text-center even:bg-white"
             >
               {activeCasinoLeaderboard === "Race Leaderboard" ? (
                 <>

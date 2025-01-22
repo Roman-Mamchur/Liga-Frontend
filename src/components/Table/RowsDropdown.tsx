@@ -25,7 +25,7 @@ const RowsDropdown: React.FC<RowsDropdownProps> = ({
 
       <MenuItems
         transition
-        className="absolute right-0 z-10 mt-2 w-14 origin-top-right divide-y rounded bg-secondBackground shadow-md"
+        className="absolute right-0 z-10 mt-2 w-14 origin-top-right divide-y rounded bg-card shadow-md"
       >
         <div className="py-1 text-sm">
           {options.map((option) => (
