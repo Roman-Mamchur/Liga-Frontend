@@ -1,19 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaBell,
-  FaBitcoin,
-  FaChevronDown,
-  FaUser,
-  FaWallet,
-} from "react-icons/fa6";
+import { FaBitcoin, FaChevronDown, FaWallet } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
+import ProfileDropdown from "./Dropdown/ProfileDropdown";
+import NotificationDropdown from "./Dropdown/NotificationDropdown";
 
 const Header = () => {
   const mockLogin = true;
 
   return (
-    <header className="sticky top-0 flex h-14 w-full justify-center bg-white shadow-md">
+    <header className="sticky top-0 z-10 flex h-14 w-full justify-center bg-white shadow-md">
       <div className="container flex items-center justify-between gap-5 align-middle">
         <Link href="/">
           <Image
@@ -29,7 +25,7 @@ const Header = () => {
         {mockLogin ? (
           <>
             <div className="hidden w-fit text-sm font-semibold md:flex">
-              <div className="bg-card flex flex-1 cursor-pointer items-center justify-between gap-5 rounded-l p-2.5 duration-200 hover:bg-black/20">
+              <div className="flex flex-1 cursor-pointer items-center justify-between gap-5 rounded-l bg-card p-2.5 duration-200 hover:bg-black/20">
                 <span>0.00000000</span>
                 <span className="flex gap-2">
                   <FaBitcoin className="text-primary" />
@@ -43,16 +39,12 @@ const Header = () => {
                 </span>
               </div>
             </div>
-            <div className="flex items-center justify-end gap-1 text-sm font-semibold opacity-80">
-              <span className="hover:bg-card hidden cursor-pointer items-center gap-2 rounded-full p-3 duration-200 md:flex">
-                <FaSearch /> Search
+            <div className="flex items-center justify-end gap-1 text-sm">
+              <span className="hidden cursor-pointer items-center gap-2 rounded-full p-3 duration-200 hover:bg-card md:flex">
+                <FaSearch className="opacity-80" /> Search
               </span>
-              <span className="hover:bg-card cursor-pointer rounded-full p-3 duration-200">
-                <FaUser />
-              </span>
-              <span className="hover:bg-card cursor-pointer rounded-full p-3 duration-200">
-                <FaBell />
-              </span>
+              <ProfileDropdown />
+              <NotificationDropdown />
             </div>
           </>
         ) : (

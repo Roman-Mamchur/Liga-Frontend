@@ -2,7 +2,7 @@
 
 import { BiSolidDollarCircle } from "react-icons/bi";
 import SelectorMenu from "../Selector/SelectorMenu";
-import RowsDropdown from "./RowsDropdown";
+import RowsDropdown from "../Dropdown/TableRowsDropdown";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { leaderboardData } from "@/data/mockData/leaderboardsData";
@@ -51,8 +51,8 @@ const LeaderboardTable = () => {
               {activeCasinoLeaderboard === "Race Leaderboard" ? (
                 <>
                   <th className="px-4 py-2 text-start">Rank</th>
-                  <th className="px-4 py-2">User</th>
-                  <th className="px-4 py-2">Wagered</th>
+                  <th className="px-4 py-2 text-start">User</th>
+                  <th className="px-4 py-2 text-end">Wagered</th>
                   <th className="px-4 py-2 text-end">Prize</th>
                 </>
               ) : (
@@ -72,30 +72,34 @@ const LeaderboardTable = () => {
           {displayedRows.map((row, index) => (
             <tr
               key={index}
-              className="odd:bg-card h-14 text-center even:bg-white"
+              className="h-14 text-center odd:bg-card even:bg-white"
             >
               {activeCasinoLeaderboard === "Race Leaderboard" ? (
                 <>
                   <td className="max-w-14 overflow-hidden text-ellipsis whitespace-nowrap rounded-l px-4 py-2 text-start font-medium">
                     {row.rank}
                   </td>
-                  <td className="max-w-14 overflow-hidden text-ellipsis whitespace-nowrap px-4 py-2">
+                  <td className="max-w-14 overflow-hidden text-ellipsis whitespace-nowrap px-4 py-2 text-start">
                     {row.user}
                   </td>
-                  <td className="max-w-14 overflow-hidden text-ellipsis whitespace-nowrap px-4 py-2">
-                    <div className="flex items-center justify-center gap-1">
-                      <span>{row.wagered}</span>
+                  <td className="max-w-14 overflow-hidden rounded-r px-4 py-2">
+                    <div className="flex items-center justify-end gap-1">
+                      <span className="text-ellipsis whitespace-nowrap">
+                        {row.wagered}
+                      </span>
                       <BiSolidDollarCircle
-                        className="text-green-600"
+                        className="flex-shrink-0 text-green-600"
                         size={14}
                       />
                     </div>
                   </td>
-                  <td className="max-w-14 overflow-hidden text-ellipsis whitespace-nowrap rounded-r px-4 py-2">
+                  <td className="max-w-14 overflow-hidden rounded-r px-4 py-2">
                     <div className="flex items-center justify-end gap-1">
-                      <span>{row.prize}</span>
+                      <span className="text-ellipsis whitespace-nowrap">
+                        {row.prize}
+                      </span>
                       <BiSolidDollarCircle
-                        className="text-green-600"
+                        className="flex-shrink-0 text-green-600"
                         size={14}
                       />
                     </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import ActiveSearch from "./ActiveSearch";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,7 +13,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="mx-auto">
+    <div className="relative mx-auto">
       <form
         onSubmit={handleSearch}
         className="mx-auto flex items-center justify-center"
@@ -23,7 +24,7 @@ const SearchBar = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search your game"
-            className="w-full rounded-full border-2 border-gray-300 px-4 py-2 pr-10 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full rounded-full px-4 py-2 pr-10 ring-2 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <button
             type="submit"
@@ -33,6 +34,8 @@ const SearchBar = () => {
           </button>
         </div>
       </form>
+
+      <ActiveSearch />
     </div>
   );
 };

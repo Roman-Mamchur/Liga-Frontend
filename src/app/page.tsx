@@ -1,4 +1,4 @@
-import SearchBar from "@/components/SearchBar";
+import SearchBar from "@/components/Search/SearchBar";
 import SwiperBanner from "@/components/SwiperBanner";
 import { Metadata } from "next";
 import SelectorMenu from "@/components/Selector/SelectorMenu";
