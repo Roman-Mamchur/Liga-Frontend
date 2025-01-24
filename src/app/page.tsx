@@ -18,8 +18,10 @@ export default function Home() {
         <SwiperBanner />
       </section>
       <div className="container">
-        <section className="mt-8">
-          <SearchBar />
+        <section className="md:mt-8">
+          <div className="hidden md:block">
+            <SearchBar triggerType="page" />
+          </div>
           <SelectorMenu display="both" type="casino" />
         </section>
         <section className="mt-8">
