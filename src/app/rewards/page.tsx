@@ -1,24 +1,19 @@
+import HeroBanner from "@/components/HeroBanner";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa6";
 
+export const metadata: Metadata = {
+  title: "Exciting Casino Rewards & Bonuses - FaFa878",
+  description:
+    "Unlock exclusive rewards and bonuses at FaFa878. Join our loyalty program to earn free spins, cashback, and VIP perks. Experience the best online casino incentives today!",
+};
+
 const RewardsPage = () => {
   return (
     <div>
-      <div className="h-28 bg-card">
-        <div className="container flex h-full items-center justify-between">
-          <h1 className="text-xl font-bold opacity-80">Rewards</h1>
-          <Image
-            src={"/page/page-banner.png"}
-            alt="Banner image"
-            width={0}
-            height={0}
-            sizes="100vw"
-            priority={true}
-            className="h-full w-auto"
-          />
-        </div>
-      </div>
+      <HeroBanner title="Rewards" />
       <div className="container">
         <div className="my-8 flex flex-col gap-3 font-bold">
           {/* Link 1 */}

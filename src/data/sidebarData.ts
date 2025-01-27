@@ -61,7 +61,7 @@ export const links = [
         type: "link",
         icon: FaGift({ size: 20 }),
         label: "Promotions",
-        href: "#promotions",
+        href: "/promotions",
       },
       {
         name: "rewards",
