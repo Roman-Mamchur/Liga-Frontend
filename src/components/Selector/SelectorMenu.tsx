@@ -6,11 +6,15 @@ import {
   setActiveCasinoGame,
   setActiveCasinoLeaderboard,
 } from "@/store/slices/categorySlice";
-import { categories, leaderboards } from "@/data/selectorData";
+import {
+  casinoCategories,
+  casinoLeaderboards,
+  sportsCategories,
+} from "@/data/selectorData";
 
 interface SelectorMenuProps {
   display: "label" | "icon" | "both";
-  type: "casino" | "leaderboards";
+  type: "casino" | "sports" | "leaderboards";
 }
 
 const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
@@ -30,7 +34,13 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
     }
   };
 
-  const items = type === "casino" ? categories : leaderboards;
+  const categoryMap = {
+    casino: casinoCategories,
+    leaderboards: casinoLeaderboards,
+    sports: sportsCategories,
+  };
+
+  const items = categoryMap[type] || [];
 
   return (
     <div className="flex">

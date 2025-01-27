@@ -13,11 +13,13 @@ interface CollectionSwiperProps {
     games: string[];
   };
   showOnline: boolean;
+  showCategoryLink: boolean;
 }
 
 const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
   categoryData,
   showOnline,
+  showCategoryLink,
 }) => {
   const [swiperRefs, setSwiperRefs] = useState<
     Record<string, SwiperClass | null>
@@ -34,8 +36,12 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
   };
 
   const maxDisplay = 20;
-  const allGames = categoryData.games.slice(0, maxDisplay);
-  const showPlaceholder = categoryData.games.length > maxDisplay;
+  const allGames = showCategoryLink
+    ? categoryData.games.slice(0, maxDisplay)
+    : categoryData.games;
+
+  const showPlaceholder =
+    showCategoryLink && categoryData.games.length > maxDisplay;
 
   return (
     <>
@@ -58,16 +64,23 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
         <div className="my-4 flex flex-nowrap gap-1 overflow-x-hidden md:gap-4">
           {allGames.map((game, gameIndex) => (
             <SwiperSlide key={gameIndex} className="min-w-36 flex-1 pt-2">
-              <Image
-                src={`https://placehold.co/600x800.png?text=${encodeURIComponent(
-                  game,
-                )}&font=montserrat`}
-                alt={game}
-                width={150}
-                height={200}
-                priority={gameIndex === 0}
-                className="rounded object-contain duration-300 ease-in-out hover:-translate-y-2 hover:shadow-md"
-              />
+              <div className="group relative">
+                <Image
+                  src={`https://placehold.co/600x800.png?text=${encodeURIComponent(
+                    game,
+                  )}&font=montserrat`}
+                  alt={game}
+                  width={150}
+                  height={200}
+                  priority={gameIndex === 0}
+                  className="relative rounded object-contain duration-300 ease-in-out hover:shadow-md group-hover:-translate-y-2"
+                />
+                {!showCategoryLink && (
+                  <div className="absolute left-0 top-10 flex w-8 items-center justify-center rounded-r bg-gradient-to-r from-primary to-secondary px-3 py-1 text-xs font-semibold tabular-nums text-white shadow-sm duration-300 group-hover:-translate-y-2">
+                    {gameIndex + 1}
+                  </div>
+                )}
+              </div>
               {showOnline && (
                 <p className="mb-3 mt-1 flex items-center">
                   <span className="relative flex h-2 w-2">

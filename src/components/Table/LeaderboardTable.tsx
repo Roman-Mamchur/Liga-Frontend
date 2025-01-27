@@ -82,7 +82,7 @@ const LeaderboardTable = () => {
                   <td className="max-w-14 overflow-hidden text-ellipsis whitespace-nowrap px-4 py-2 text-start">
                     {row.user}
                   </td>
-                  <td className="max-w-14 overflow-hidden rounded-r px-4 py-2">
+                  <td className="max-w-14 overflow-hidden px-4 py-2">
                     <div className="flex items-center justify-end gap-1">
                       <span className="text-ellipsis whitespace-nowrap">
                         {row.wagered}

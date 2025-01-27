@@ -1,17 +1,34 @@
 import { Metadata } from "next";
+import SearchBar from "@/components/Search/SearchBar";
+import SelectorMenu from "@/components/Selector/SelectorMenu";
+import SwiperBanner from "@/components/SwiperBanner";
+import SportList from "@/components/Category/SportList";
 
 export const metadata: Metadata = {
-  title: "Online Casino Games - Slots, Classic Casino Games & Bonuses",
+  title: "Sports Betting - Online Sportsbook - Bet Online At FaFa878",
   description:
-    "Discover an exciting selection of online casino games at FaFa878. Play slots, table games, and live dealer games while enjoying unbeatable bonuses and thrilling gameplay. Start your casino adventure today!",
+    "Experience the thrill of sports betting at FaFa878. Bet on your favorite sports, enjoy live betting options, and take advantage of exciting odds and promotions. Start placing your bets today!",
 };
 
 const SportsPage = () => {
   return (
     <div>
-      <div>
-        Sports Page
-      </div>
+      <>
+        <section>
+          <SwiperBanner />
+        </section>
+        <div className="container">
+          <section className="md:mt-8">
+            <div className="hidden md:block">
+              <SearchBar triggerType="page" />
+            </div>
+            <SelectorMenu display="both" type="sports" />
+          </section>
+          <section className="mt-8">
+            <SportList />
+          </section>
+        </div>
+      </>
     </div>
   );
 };

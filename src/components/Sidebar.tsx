@@ -203,7 +203,7 @@ const Sidebar = () => {
                 Casino
               </Link>
               <Link
-                href="#"
+                href="/sports"
                 className="rounded border border-stroke bg-primary px-3 py-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
               >
                 Sports
@@ -212,13 +212,13 @@ const Sidebar = () => {
           ) : (
             <>
               <Link
-                href="#"
+                href="/"
                 className="rounded border border-stroke bg-primary p-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
               >
                 <GiPokerHand size={30} />
               </Link>
               <Link
-                href="#"
+                href="/sports"
                 className="rounded border border-stroke bg-primary p-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
               >
                 <MdSportsBasketball size={30} />
@@ -269,7 +269,7 @@ const Sidebar = () => {
       </div>
 
       {/* Mobile Sidebar */}
-      <nav className="fixed bottom-0 left-0 right-0 z-20 flex justify-around bg-gradient-to-r from-primary to-secondary text-white text-opacity-80 shadow md:hidden">
+      <nav className="fixed bottom-0 left-0 right-0 z-20 flex justify-around bg-gradient-to-r from-primary to-secondary text-white shadow md:hidden">
         <Link
           href="/"
           className="flex h-full w-full flex-col items-center justify-center p-2 transition duration-200 hover:bg-white/20"
@@ -285,7 +285,7 @@ const Sidebar = () => {
           <span className="text-xs">Search</span>
         </button>
         <Link
-          href="/"
+          href="/sports"
           className="flex h-full w-full flex-col items-center justify-center p-2 transition duration-200 hover:bg-white/20"
         >
           <MdSportsBasketball size={24} />

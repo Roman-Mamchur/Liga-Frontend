@@ -20,6 +20,7 @@ const GameList: React.FC = () => {
                 key={categoryIndex}
                 categoryData={categoryData}
                 showOnline={true}
+                showCategoryLink={true}
               />
             ))
           : allGames

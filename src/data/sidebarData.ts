@@ -68,7 +68,7 @@ export const links = [
         type: "link",
         icon: GiReceiveMoney({ size: 20 }),
         label: "Rewards",
-        href: "#rewards",
+        href: "/rewards",
       },
       {
         name: "affiliate",
