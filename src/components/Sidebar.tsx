@@ -296,7 +296,7 @@ const Sidebar = () => {
       {/* Search Menu */}
       {searchMenuOpen && (
         <div className="sidebar-scrollbar absolute left-0 z-10 my-14 h-screen w-screen overflow-auto bg-primary md:hidden">
-          <div className="container my-4 pb-28">
+          <div className="container my-4 mb-36">
             <SearchBar triggerType="mobile" />
             <div className="mt-4 text-white">
               {links.map((section, index) => (
