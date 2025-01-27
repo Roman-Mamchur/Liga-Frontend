@@ -12,7 +12,7 @@ import { GiPokerHand } from "react-icons/gi";
 import { MdSportsBasketball } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
 import Link from "next/link";
-// import SearchBar from "./Search/SearchBar";
+import SearchBar from "./Search/SearchBar";
 
 // Component for Menu Link rendering
 interface MenuLinkProps {
@@ -302,7 +302,7 @@ const Sidebar = () => {
             bottom: "calc(var(--bottom-menubar-height, 56px))",
           }}
         >
-          {/* <div className="container my-5">
+          <div className="container my-5">
             <SearchBar triggerType="mobile" />
             <div className="mt-4 text-white">
               {links.map((section, index) => (
@@ -325,68 +325,6 @@ const Sidebar = () => {
                 </div>
               ))}
             </div>
-          </div> */}
-
-          <div className="container my-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos at
-            ipsam cum quae sunt itaque hic nam dolore laboriosam quibusdam
-            maiores quidem, velit quam necessitatibus voluptatem sed alias
-            consectetur cupiditate dolorem ex quas nostrum provident molestiae
-            harum? Deleniti fuga dolore soluta, quo neque fugit iste
-            perspiciatis mollitia in suscipit quod exercitationem obcaecati
-            libero corrupti, alias omnis eligendi itaque sed eos. Ex animi amet,
-            nostrum consectetur commodi odit expedita laudantium laboriosam
-            assumenda ipsa quo ipsam provident deserunt vitae cupiditate
-            repellat architecto explicabo aperiam voluptas. Ipsa iure non
-            minima? Optio exercitationem inventore culpa eos deserunt natus
-            voluptatibus repellendus rem mollitia ipsam, voluptatem, libero,
-            maxime aperiam consequatur quas asperiores aspernatur incidunt?
-            Perspiciatis necessitatibus tempore similique voluptates quas
-            officiis minus quam deserunt, dolorem possimus molestiae dolor
-            aspernatur nemo! Earum quis quaerat tenetur! Eaque, ratione
-            voluptatum quisquam blanditiis iure doloremque similique atque culpa
-            tempora eum ea dolor cum neque quidem consequatur pariatur!
-            Molestias assumenda corrupti a soluta ea officia illo, sit quasi
-            quos quis, ad, debitis vitae dolorum sed? Optio earum tenetur velit
-            neque ducimus accusantium? Minus quasi praesentium fugiat atque
-            optio veniam dolor molestiae, aliquam, debitis consequuntur aperiam
-            quidem, est inventore nemo ex beatae voluptatum distinctio amet
-            voluptates sit dolorum asperiores doloribus neque? Atque et, dolores
-            doloribus inventore optio laboriosam non praesentium voluptate
-            architecto iste eaque iusto quo ducimus minima sit fuga numquam
-            accusamus facilis nam dolore quisquam! Nesciunt ut nemo nihil
-            commodi, aut aliquam recusandae molestias voluptatum quaerat? Illum
-            dolor hic magnam asperiores iste dolores, possimus consequatur
-            doloremque, cum quibusdam minus! Corrupti qui hic sunt at
-            laboriosam, vitae illum inventore odit debitis sint eum id, fuga
-            autem optio accusamus voluptas provident ut laudantium earum
-            voluptatem vel. Autem quasi tempore at nobis ut ducimus voluptatem
-            reiciendis molestias earum officiis aliquam odio dignissimos dolores
-            mollitia aspernatur deserunt ab quae, officia est assumenda unde
-            voluptatum? Accusantium ex suscipit officia veniam sapiente enim
-            minima quas quo molestiae ducimus labore ea, reprehenderit eius eum
-            quia obcaecati, quis facilis inventore non mollitia voluptatum.
-            Magnam modi animi quia aperiam id nobis impedit natus distinctio
-            commodi delectus soluta consectetur dolor, dicta rerum! Harum
-            quibusdam sed cum excepturi porro molestias voluptatem quasi
-            numquam, eos unde praesentium placeat sunt debitis minima similique.
-            Suscipit, sed quis accusamus, corporis sunt praesentium reiciendis
-            nostrum deserunt recusandae natus ad illum eveniet vitae aperiam hic
-            voluptatibus. Ullam inventore quos dolorem obcaecati doloribus
-            molestias. Eligendi ipsam, cupiditate cum praesentium, hic quaerat
-            libero officiis magnam, quibusdam inventore quisquam dignissimos
-            quod sequi temporibus corporis delectus facilis aliquid
-            exercitationem reprehenderit. Quas itaque minima consectetur est.
-            Voluptas ullam sapiente doloribus laborum odit eveniet maiores
-            voluptatibus quae odio sunt assumenda eligendi saepe nisi laboriosam
-            maxime, dolor consequuntur ea est reiciendis nostrum, quam repellat
-            obcaecati facere quibusdam? Placeat impedit ex vero quia ipsam unde
-            sequi itaque temporibus quasi cupiditate voluptatem voluptatum
-            exercitationem, sapiente nisi soluta, eaque odit quas dolore nobis
-            ea quae? Optio natus nesciunt porro eveniet fuga velit hic fugit
-            ullam quae quo. Alias perferendis, accusantium odit et molestiae
-            hic? Impedit eos quaerat iure optio ea similique nihil! Impedit iste
-            nesciunt fuga libero ducimus.
           </div>
         </div>
       )}
