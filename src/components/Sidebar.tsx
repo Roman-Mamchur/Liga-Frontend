@@ -295,13 +295,7 @@ const Sidebar = () => {
 
       {/* Search Menu */}
       {searchMenuOpen && (
-        <div
-          className="sidebar-scrollbar absolute z-10 w-screen overflow-y-auto bg-primary md:hidden"
-          style={{
-            top: "calc(var(--top-navbar-height, 56px))",
-            bottom: "calc(var(--bottom-menubar-height, 56px))",
-          }}
-        >
+        <div className="sidebar-scrollbar absolute bottom-14 top-14 z-10 w-screen overflow-y-auto bg-primary md:hidden">
           <div className="container my-5">
             <SearchBar triggerType="mobile" />
             <div className="mt-4 text-white">
