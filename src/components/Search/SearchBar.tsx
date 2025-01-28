@@ -14,31 +14,46 @@ const SearchBar = ({ triggerType, onClose }: SearchBarProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isActive, setIsActive] = useState(triggerType === "header");
   const searchContainerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
+  // Handle outside click
   const handleOutsideClick = (event: MouseEvent) => {
     if (
       searchContainerRef.current &&
       !searchContainerRef.current.contains(event.target as Node)
     ) {
-      if (triggerType === "header") {
-        onClose?.();
-      }
-      setIsActive(false);
+      closeSearch();
     }
   };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  });
+  // Handle ESC key press
+  const handleEscPress = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      closeSearch();
+    }
+  };
 
-  const clearSearch = () => {
+  // Close the search, clear input, and unfocus
+  const closeSearch = () => {
     setSearchTerm("");
     setIsActive(false);
+    inputRef.current?.blur();
     onClose?.();
   };
+
+  useEffect(() => {
+    if (!isActive) return;
+
+    // Add listeners for outside click and ESC key
+    document.addEventListener("mousedown", handleOutsideClick);
+    window.addEventListener("keydown", handleEscPress);
+
+    // Clean up listeners
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      window.removeEventListener("keydown", handleEscPress);
+    };
+  });
 
   return (
     <>
@@ -66,6 +81,7 @@ const SearchBar = ({ triggerType, onClose }: SearchBarProps) => {
           <div className="relative w-full">
             <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500" />
             <input
+              ref={inputRef}
               type="text"
               value={searchTerm}
               onFocus={() => setIsActive(true)}
@@ -76,7 +92,7 @@ const SearchBar = ({ triggerType, onClose }: SearchBarProps) => {
             {isActive && (
               <button
                 type="button"
-                onClick={clearSearch}
+                onClick={closeSearch}
                 className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-500 hover:text-primary"
               >
                 <FaXmark />
