@@ -1,8 +1,8 @@
 import SearchBar from "@/components/Search/SearchBar";
-import SwiperBanner from "@/components/SwiperBanner";
+import SwiperBanner from "@/components/Swiper/SwiperBanner";
 import { Metadata } from "next";
 import SelectorMenu from "@/components/Selector/SelectorMenu";
-import GameList from "@/components/Category/GameList";
+import GameList from "@/components/Section/GameList";
 import LeaderboardTable from "@/components/Table/LeaderboardTable";
 
 export const metadata: Metadata = {

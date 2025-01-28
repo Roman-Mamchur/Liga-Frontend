@@ -12,7 +12,7 @@ import { GiPokerHand } from "react-icons/gi";
 import { MdSportsBasketball } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
 import Link from "next/link";
-import SearchBar from "./Search/SearchBar";
+import SearchBar from "../Search/SearchBar";
 
 // Component for Menu Link rendering
 interface MenuLinkProps {

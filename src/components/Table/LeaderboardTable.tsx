@@ -5,7 +5,7 @@ import SelectorMenu from "../Selector/SelectorMenu";
 import RowsDropdown from "../Dropdown/TableRowsDropdown";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { leaderboardData } from "@/data/mockData/leaderboardsData";
+import { leaderboardData } from "@/data/leaderboardsData";
 import { useState, useEffect } from "react";
 
 const LeaderboardTable = () => {

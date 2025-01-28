@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaBitcoin, FaChevronDown, FaWallet } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
-import ProfileDropdown from "./Dropdown/ProfileDropdown";
-import NotificationDropdown from "./Dropdown/NotificationDropdown";
-import SearchBar from "./Search/SearchBar";
+import ProfileDropdown from "../Dropdown/ProfileDropdown";
+import NotificationDropdown from "../Dropdown/NotificationDropdown";
+import SearchBar from "../Search/SearchBar";
 
 const Header = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);

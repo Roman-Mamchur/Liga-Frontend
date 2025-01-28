@@ -1,7 +1,7 @@
 "use client";
 
 import { allSports } from "@/data/collectionData";
-import CollectionSwiper from "./CollectionSwiper";
+import CollectionSwiper from "../Swiper/CollectionSwiper";
 
 const SportList = () => {
   return (

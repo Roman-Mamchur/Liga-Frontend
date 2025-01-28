@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { allGames } from "@/data/collectionData";
 import Image from "next/image";
-import CollectionSwiper from "./CollectionSwiper";
+import CollectionSwiper from "../Swiper/CollectionSwiper";
 
 const GameList: React.FC = () => {
   const activeCasinoGame = useSelector(

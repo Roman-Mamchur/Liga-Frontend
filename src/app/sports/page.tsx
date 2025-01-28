@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import SearchBar from "@/components/Search/SearchBar";
 import SelectorMenu from "@/components/Selector/SelectorMenu";
-import SwiperBanner from "@/components/SwiperBanner";
-import SportList from "@/components/Category/SportList";
+import SwiperBanner from "@/components/Swiper/SwiperBanner";
+import SportList from "@/components/Section/SportList";
 
 export const metadata: Metadata = {
   title: "Sports Betting - Online Sportsbook - Bet Online At FaFa878",

@@ -1,4 +1,6 @@
-import HeroBanner from "@/components/HeroBanner";
+import PromotionCard from "@/components/Card/PromotionCard";
+import HeroBanner from "@/components/Layout/HeroBanner";
+import { promotions } from "@/data/promotionData";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +19,6 @@ const RewardsPage = () => {
       <div className="container">
         <div className="my-8 flex flex-col gap-6">
           <div className="flex flex-col gap-3 font-bold md:flex-row">
-            {/* Link 1 */}
             <Link href="/" className="flex-1">
               <div className="flex h-24 items-center justify-center rounded-md shadow-md duration-200 hover:-translate-y-1">
                 <div className="h-24 w-24">
@@ -41,7 +42,6 @@ const RewardsPage = () => {
                 </div>
               </div>
             </Link>
-            {/* Link 2 */}
             <Link href="/sports" className="flex-1">
               <div className="flex h-24 items-center justify-center rounded-md shadow-md duration-200 hover:-translate-y-1">
                 <div className="h-24 w-24">
@@ -69,31 +69,14 @@ const RewardsPage = () => {
 
           <h3 className="text-lg font-bold opacity-80">Latest Promotions</h3>
 
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-            {/* Example Card */}
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={i}
-                className="h- mx-auto h-[240px] w-[315px] rounded-lg bg-card shadow-md"
-              >
-                <div className="flex flex-col gap-2 p-2">
-                  <div className="h-[160px]">
-                    <Image
-                      src={"/banner/image1.png"}
-                      alt="Promo image"
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                      priority={true}
-                      className="h-full w-full rounded object-cover"
-                    />
-                  </div>
-                  <div className="text-xs opacity-80">
-                    Ends at 6:00 PM 12/31/2025
-                  </div>
-                  <div className="text-lg">Promotion A</div>
-                </div>
-              </div>
+          <div className="flex flex-wrap justify-center gap-4 md:justify-between">
+            {promotions.map((promotion, index) => (
+              <PromotionCard
+                key={index}
+                title={promotion.title}
+                date={promotion.date}
+                image={promotion.image}
+              />
             ))}
           </div>
         </div>

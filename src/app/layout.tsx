@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ReduxProvider from "@/components/ReduxProvider";
+import Sidebar from "@/components/Layout/Sidebar";
+import Header from "@/components/Layout/Header";
+import Footer from "@/components/Layout/Footer";
+import ReduxProvider from "@/components/Redux/ReduxProvider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
