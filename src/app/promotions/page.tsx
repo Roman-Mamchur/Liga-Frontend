@@ -70,12 +70,13 @@ const RewardsPage = () => {
           <h3 className="text-lg font-bold opacity-80">Latest Promotions</h3>
 
           <div className="flex flex-wrap justify-center gap-4 md:justify-between">
-            {promotions.map((promotion, index) => (
+            {promotions.map((promotion) => (
               <PromotionCard
-                key={index}
+                key={promotion.id}
                 title={promotion.title}
                 date={promotion.date}
                 image={promotion.image}
+                description={promotion.description}
               />
             ))}
           </div>

@@ -1,23 +1,38 @@
+"use client";
+
+import { useDispatch } from "react-redux";
+import { openModal } from "@/store/slices/promotionModalSlice";
 import Image from "next/image";
 
 interface PromotionCardProps {
   title: string;
   date: string;
   image: string;
+  description: string;
 }
 
 const PromotionCard: React.FC<PromotionCardProps> = ({
   title,
   date,
   image,
+  description,
 }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(openModal({ title, date, image, description }));
+  };
+
   return (
-    <div className="mx-auto h-fit cursor-pointer rounded-lg bg-card shadow-md duration-200 hover:-translate-y-1">
-      <div className="flex flex-col gap-2 p-3">
+    <div
+      onClick={handleClick}
+      className="mx-auto h-60 w-80 cursor-pointer rounded-lg bg-card shadow-md duration-200 hover:-translate-y-1"
+    >
+      <div className="flex flex-col gap-2 p-2">
         <div className="h-40">
           <Image
             src={image}
-            alt="Promo image"
+            alt="Promotion image"
             width={0}
             height={0}
             sizes="100vw"

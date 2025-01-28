@@ -5,6 +5,7 @@ import Sidebar from "@/components/Layout/Sidebar";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import ReduxProvider from "@/components/Redux/ReduxProvider";
+import PromotionModal from "@/components/Modal/PromotionModal";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -40,6 +41,8 @@ export default function RootLayout({
                 <Footer />
               </div>
             </main>
+
+            <PromotionModal />
           </div>
         </ReduxProvider>
       </body>

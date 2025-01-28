@@ -1,5 +1,6 @@
 export const promotions = [
   {
+    id: 1,
     title: "Welcome Bonus Extravaganza",
     date: "Ends at 11:59 PM 06/30/2025",
     description:
@@ -7,6 +8,7 @@ export const promotions = [
     image: "/banner/image1.png",
   },
   {
+    id: 2,
     title: "Spin to Win Sundays",
     date: "Every Sunday",
     description:
@@ -14,6 +16,7 @@ export const promotions = [
     image: "/banner/image2.png",
   },
   {
+    id: 3,
     title: "Midweek Cashback Madness",
     date: "Every Wednesday",
     description:
@@ -21,6 +24,7 @@ export const promotions = [
     image: "/banner/image3.png",
   },
   {
+    id: 4,
     title: "Jackpot Fever Fridays",
     date: "Ends at 11:59 PM 12/31/2025",
     description:
@@ -28,6 +32,7 @@ export const promotions = [
     image: "/banner/image1.png",
   },
   {
+    id: 5,
     title: "High Roller Heaven",
     date: "Ends at 11:59 PM 03/31/2025",
     description:
@@ -35,6 +40,7 @@ export const promotions = [
     image: "/banner/image2.png",
   },
   {
+    id: 6,
     title: "Weekend Slot Showdown",
     date: "Every Weekend",
     description:
