@@ -7,7 +7,7 @@ interface FaqDropdownProps {
 
 const FaqDropdown = ({ question, answer }: FaqDropdownProps) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col rounded shadow-md">
       <div className="flex items-center justify-between rounded-t border-b border-black/20 bg-card px-6 py-2">
         <h3 className="text-sm font-bold">{question}</h3>
         <div className="cursor-pointer">

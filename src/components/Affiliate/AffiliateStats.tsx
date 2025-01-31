@@ -11,7 +11,7 @@ const AffiliateStats = () => {
           Earn commission for all bets placed by your referrals across Casino
           and Sportsbook.
         </p>
-        <div className="w-fit rounded bg-primary px-4 py-2 text-white">
+        <div className="w-fit rounded bg-primary px-4 py-2 text-white shadow-md">
           <div className="flex items-center justify-between gap-3">
             <div className="flex flex-col">
               <p className="text-lg font-bold">21.6M</p>
