@@ -36,7 +36,7 @@ const AffiliateStats = () => {
           width={0}
           sizes="100vw"
           priority={true}
-          className="h-full w-40 rounded-r-lg object-cover"
+          className="h-full w-40 rounded-r object-cover shadow-md"
         />
       </div>
     </div>
