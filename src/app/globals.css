@@ -11,14 +11,8 @@
   --card: #e5e5e5;
   --stroke: #bf360c;
   --swiper-pagination-color: var(--background);
+  --toastify-font-family: inherit;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #212121;
-    --foreground: #ffffff;
-  }
-} */
 
 body {
   color: var(--foreground);
@@ -72,4 +66,8 @@ input[type="radio"] {
 
 input[type="radio"]:checked {
   background-color: transparent;
+}
+
+.primary-toast {
+  --toastify-color-progress-light: var(--primary);
 }

@@ -73,7 +73,7 @@ const PromotionModal = () => {
             sizes="100vw"
             className="h-full w-full rounded object-cover"
           />
-          <p className="text-xs opacity-80">{promotion.date}</p>
+          <p className="mt-4 text-xs opacity-60">{promotion.date}</p>
           <h2 className="text-2xl font-bold">{promotion.title}</h2>
           <p className="text-justify opacity-80 md:text-left">
             {promotion.description}

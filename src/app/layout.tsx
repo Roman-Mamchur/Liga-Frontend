@@ -6,6 +6,7 @@ import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import ReduxProvider from "@/components/Redux/ReduxProvider";
 import PromotionModal from "@/components/Modal/PromotionModal";
+import { ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -44,6 +45,11 @@ export default function RootLayout({
 
             <PromotionModal />
           </div>
+          <ToastContainer
+            autoClose={2000}
+            draggable={true}
+            position="top-right"
+          />
         </ReduxProvider>
       </body>
     </html>
