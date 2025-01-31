@@ -14,7 +14,7 @@ const SidebarNav = () => {
   ];
 
   return (
-    <div className="h-fit w-full flex-grow-0 rounded-lg bg-card py-2 shadow-md md:w-fit">
+    <div className="h-fit w-full flex-grow-0 rounded bg-card py-2 shadow-md md:w-fit">
       <ul className="font-bold">
         {navItems.map((item) => (
           <Link key={item.path} href={item.path}>

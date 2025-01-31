@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const AffiliateStats = () => {
   return (
-    <div className="flex rounded-lg shadow-md">
-      <div className="flex flex-1 flex-col gap-3 rounded-lg bg-card p-4 md:rounded-r-none">
+    <div className="flex rounded shadow-md">
+      <div className="flex flex-1 flex-col gap-3 rounded bg-card p-4 md:rounded-r-none">
         <h3 className="text-2xl font-bold opacity-80">
           Refer and earn big with our Affiliate Program
         </h3>
