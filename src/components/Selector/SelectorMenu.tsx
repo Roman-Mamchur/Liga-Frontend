@@ -5,16 +5,18 @@ import { RootState, AppDispatch } from "@/store";
 import {
   setActiveCasinoGame,
   setActiveCasinoLeaderboard,
+  setActiveFaqGroup,
 } from "@/store/slices/categorySlice";
 import {
   casinoCategories,
   casinoLeaderboards,
   sportsCategories,
+  faqCategories,
 } from "@/data/selectorData";
 
 interface SelectorMenuProps {
   display: "label" | "icon" | "both";
-  type: "casino" | "sports" | "leaderboards";
+  type: "casino" | "sports" | "leaderboards" | "faq";
 }
 
 const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
@@ -24,6 +26,9 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
   const activeCasinoLeaderboard = useSelector(
     (state: RootState) => state.category.activeCasinoLeaderboard,
   );
+  const activeFaqGroup = useSelector(
+    (state: RootState) => state.category.activeFaqGroup,
+  );
   const dispatch = useDispatch<AppDispatch>();
 
   const handleCategoryClick = (category: string) => {
@@ -31,6 +36,8 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
       dispatch(setActiveCasinoGame(category));
     } else if (type === "leaderboards") {
       dispatch(setActiveCasinoLeaderboard(category));
+    } else if (type === "faq") {
+      dispatch(setActiveFaqGroup(category));
     }
   };
 
@@ -38,6 +45,7 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
     casino: casinoCategories,
     leaderboards: casinoLeaderboards,
     sports: sportsCategories,
+    faq: faqCategories,
   };
 
   const items = categoryMap[type] || [];
@@ -54,7 +62,8 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
                 className={`flex cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2 duration-200 hover:scale-105 hover:bg-white/30 ${
                   (type === "casino" && activeCasinoGame === item.label) ||
                   (type === "leaderboards" &&
-                    activeCasinoLeaderboard === item.label)
+                    activeCasinoLeaderboard === item.label) ||
+                  (type === "faq" && activeFaqGroup === item.label)
                     ? "bg-white/20"
                     : ""
                 }`}

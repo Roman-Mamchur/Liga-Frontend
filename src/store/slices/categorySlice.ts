@@ -4,11 +4,13 @@ interface CategoryState {
   activeCasinoGame: string;
   // activeSportsGame: string;
   activeCasinoLeaderboard: string;
+  activeFaqGroup: string;
 }
 
 const initialState: CategoryState = {
   activeCasinoGame: "Lobby",
   activeCasinoLeaderboard: "High Rollers",
+  activeFaqGroup: "General",
 };
 
 const categorySlice = createSlice({
@@ -21,9 +23,15 @@ const categorySlice = createSlice({
     setActiveCasinoLeaderboard(state, action: PayloadAction<string>) {
       state.activeCasinoLeaderboard = action.payload;
     },
+    setActiveFaqGroup(state, action: PayloadAction<string>) {
+      state.activeFaqGroup = action.payload;
+    },
   },
 });
 
-export const { setActiveCasinoGame, setActiveCasinoLeaderboard } =
-  categorySlice.actions;
+export const {
+  setActiveCasinoGame,
+  setActiveCasinoLeaderboard,
+  setActiveFaqGroup,
+} = categorySlice.actions;
 export default categorySlice.reducer;

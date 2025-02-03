@@ -1,4 +1,4 @@
-const CampaignsPage = () => {
+const AffiliateCampaignsPage = () => {
   return (
     <div>
       <h2 className="text-2xl font-bold">Affiliate Campaigns</h2>
@@ -7,4 +7,4 @@ const CampaignsPage = () => {
   );
 };
 
-export default CampaignsPage;
+export default AffiliateCampaignsPage;

@@ -1,4 +1,4 @@
-const ReferredUsersPage = () => {
+const AffiliateReferredUsersPage = () => {
   return (
     <div>
       <h2 className="text-2xl font-bold">Referred Users</h2>
@@ -7,4 +7,4 @@ const ReferredUsersPage = () => {
   );
 };
 
-export default ReferredUsersPage;
+export default AffiliateReferredUsersPage;

@@ -34,3 +34,9 @@ export const sportsCategories = [
   { label: "Favorites", icon: FaStar },
   { label: "Starting Soon", icon: IoTimer },
 ];
+
+export const faqCategories = [
+  { label: "General", icon: null },
+  { label: "Affiliate program", icon: null },
+  { label: "Earnings", icon: null },
+];

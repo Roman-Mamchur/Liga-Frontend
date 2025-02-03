@@ -1,4 +1,4 @@
-const FundsPage = () => {
+const AffiliateFundsPage = () => {
   return (
     <div>
       <h2 className="text-2xl font-bold">Funds & Payouts</h2>
@@ -7,4 +7,4 @@ const FundsPage = () => {
   );
 };
 
-export default FundsPage;
+export default AffiliateFundsPage;
