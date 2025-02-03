@@ -54,7 +54,7 @@ const Footer = () => {
           {links.map((link, index) => (
             <div
               key={index}
-              className="bg-card mb-3 flex w-full flex-col rounded md:w-auto md:flex-1 md:bg-transparent"
+              className="mb-3 flex w-full flex-col rounded bg-card shadow-md md:w-auto md:flex-1 md:bg-transparent md:shadow-none"
             >
               <h3
                 onClick={() => toggleDropdown(index)}
@@ -78,7 +78,7 @@ const Footer = () => {
                   {link.items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="md:hover:bg-card w-full transition duration-200 hover:bg-white/60 md:rounded"
+                      className="w-full transition duration-200 hover:bg-white/60 md:rounded md:hover:bg-card"
                     >
                       <Link href={item.href}>
                         <p className="px-3 py-1 md:px-1">{item.name}</p>
