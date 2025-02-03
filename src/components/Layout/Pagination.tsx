@@ -26,7 +26,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <span className="hidden md:block">First page</span>
           <span className="flex items-center md:hidden">
             <FaChevronLeft />
-            <FaChevronLeft />
+            <FaChevronLeft className="-ml-2" />
           </span>
         </button>
         <button
@@ -61,7 +61,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <span className="hidden md:block">Last page</span>
           <span className="flex items-center md:hidden">
             <FaChevronRight />
-            <FaChevronRight />
+            <FaChevronRight className="-ml-2" />
           </span>
         </button>
       </div>
