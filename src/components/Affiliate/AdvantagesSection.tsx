@@ -50,7 +50,7 @@ const AdvantagesSection = () => {
     <section className="flex flex-col gap-4">
       <h2 className="text-2xl font-bold">Exclusive advantages</h2>
 
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
         {ADVANTAGES.map((rule, index) => (
           <RuleCard
             key={index}

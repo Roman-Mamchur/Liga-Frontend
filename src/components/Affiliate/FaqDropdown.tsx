@@ -1,21 +1,25 @@
 "use client";
 
-import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 
 interface FaqDropdownProps {
   question: string;
   answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
 }
 
-const FaqDropdown = ({ question, answer }: FaqDropdownProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const FaqDropdown = ({
+  question,
+  answer,
+  isOpen,
+  onToggle,
+}: FaqDropdownProps) => {
   return (
     <div className="flex flex-col rounded shadow-md">
       <div
         className={`flex cursor-pointer items-center justify-between rounded bg-card px-6 py-3 ${isOpen && "rounded-b-none border-b border-black/20"}`}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
       >
         <h3 className="text-sm font-bold">{question}</h3>
         <div

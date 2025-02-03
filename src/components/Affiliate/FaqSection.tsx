@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import FaqDropdown from "./FaqDropdown";
 import { faq } from "@/data/faqData";
+import { useEffect, useState } from "react";
 
 interface FaqSectionProps {
   defaultCategory?: string;
@@ -19,6 +20,21 @@ const FaqSection: React.FC<FaqSectionProps> = ({ defaultCategory }) => {
   const activeFaqs =
     faq.find((group) => group.category === selectedCategory)?.questions || [];
 
+  const [openQuestions, setOpenQuestions] = useState<Record<number, boolean>>(
+    {},
+  );
+
+  useEffect(() => {
+    setOpenQuestions({});
+  }, [selectedCategory]);
+
+  const toggleQuestion = (index: number) => {
+    setOpenQuestions((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   return (
     <section className="flex flex-col gap-4">
       {activeFaqs.map((faqItem, index) => (
@@ -26,6 +42,8 @@ const FaqSection: React.FC<FaqSectionProps> = ({ defaultCategory }) => {
           key={index}
           question={faqItem.question}
           answer={faqItem.answer}
+          isOpen={openQuestions[index] || false}
+          onToggle={() => toggleQuestion(index)}
         />
       ))}
     </section>

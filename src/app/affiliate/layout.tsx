@@ -13,7 +13,10 @@ const AffiliateLayout = ({ children }: { children: React.ReactNode }) => {
     <div>
       <HeroBanner title="Affiliate Program" />
       <div className="container my-8 flex flex-col justify-between gap-6 md:flex-row">
-        <SidebarNav />
+        <div className="md:sticky md:top-4 md:h-fit">
+          <SidebarNav />
+        </div>
+
         <div className="flex-1">{children}</div>
       </div>
     </div>
