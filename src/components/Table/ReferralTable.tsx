@@ -4,7 +4,8 @@ import { referralsMockData } from "@/data/referralsMockData";
 import { BiSolidDollarCircle } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import SortByDropdown from "../Dropdown/SortByDropdown";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import Pagination from "../Layout/Pagination";
+import { sortReferralData } from "@/utils/referralTableSortingUtil";
 
 const ReferralTable = () => {
   const [isClient, setIsClient] = useState(false);
@@ -33,29 +34,11 @@ const ReferralTable = () => {
     }
   };
 
-  const sortedRows = [...referralsMockData].sort((a, b) => {
-    let result = 0;
-
-    if (sortOption === "Username") {
-      result = a.username?.localeCompare(b.username ?? "") ?? 0;
-    } else if (sortOption === "Registration") {
-      result = new Date(a.registered).getTime() - new Date(b.registered).getTime();
-    } else if (sortOption === "Total Deposits") {
-      result = (a.totalDeposits ?? 0) - (b.totalDeposits ?? 0);
-    } else if (sortOption === "Last Deposit") {
-      result = (a.lastDeposit ?? 0) - (b.lastDeposit ?? 0);
-    } else if (sortOption === "Wagered") {
-      result = (a.wagered ?? 0) - (b.wagered ?? 0);
-    } else if (sortOption === "Commission") {
-      result = (a.commission ?? 0) - (b.commission ?? 0);
-    }
-
-    return sortOrder === "asc" ? result : -result;
-  });
+  const sortedRows = sortReferralData(referralsMockData, sortOption, sortOrder);
 
   const currentRows = sortedRows.slice(
     (currentPage - 1) * rowsPerPage,
-    currentPage * rowsPerPage
+    currentPage * rowsPerPage,
   );
 
   return (
@@ -64,7 +47,14 @@ const ReferralTable = () => {
         {/* Sorting */}
         <div className="hidden md:flex">
           <SortByDropdown
-            options={["Username", "Registration", "Total Deposits", "Last Deposit", "Wagered", "Commission"]}
+            options={[
+              "Username",
+              "Registration",
+              "Total Deposits",
+              "Last Deposit",
+              "Wagered",
+              "Commission",
+            ]}
             selectedOption={sortOption}
             sortOrder={sortOrder}
             setSortOption={handleSortChange}
@@ -78,7 +68,9 @@ const ReferralTable = () => {
               <tr className="h-14 opacity-80">
                 <th className="px-4 py-2">Username</th>
                 <th className="hidden px-4 py-2 sm:table-cell">Registered</th>
-                <th className="hidden px-4 py-2 md:table-cell">Total Deposits</th>
+                <th className="hidden px-4 py-2 md:table-cell">
+                  Total Deposits
+                </th>
                 <th className="hidden px-4 py-2 md:table-cell">Last Deposit</th>
                 <th className="hidden px-4 py-2 sm:table-cell">Wagered</th>
                 <th className="px-4 py-2">Commission</th>
@@ -86,7 +78,10 @@ const ReferralTable = () => {
             </thead>
             <tbody>
               {currentRows.map((referral) => (
-                <tr key={referral.id} className="h-14 text-center odd:bg-card even:bg-white">
+                <tr
+                  key={referral.id}
+                  className="h-14 text-center odd:bg-card even:bg-white"
+                >
                   <td className="max-w-14 overflow-hidden text-ellipsis whitespace-nowrap rounded-l px-4 py-2">
                     {referral.username}
                   </td>
@@ -96,25 +91,37 @@ const ReferralTable = () => {
                   <td className="hidden max-w-14 px-4 py-2 md:table-cell">
                     <div className="flex items-center justify-center gap-1">
                       <span>{referral.totalDeposits ?? "N/A"}</span>
-                      <BiSolidDollarCircle className="text-green-600" size={14} />
+                      <BiSolidDollarCircle
+                        className="text-green-600"
+                        size={14}
+                      />
                     </div>
                   </td>
                   <td className="hidden max-w-14 px-4 py-2 md:table-cell">
                     <div className="flex items-center justify-center gap-1">
                       <span>{referral.lastDeposit ?? "N/A"}</span>
-                      <BiSolidDollarCircle className="text-green-600" size={14} />
+                      <BiSolidDollarCircle
+                        className="text-green-600"
+                        size={14}
+                      />
                     </div>
                   </td>
                   <td className="hidden max-w-14 px-4 py-2 sm:table-cell">
                     <div className="flex items-center justify-center gap-1">
                       <span>{referral.wagered ?? "N/A"}</span>
-                      <BiSolidDollarCircle className="text-green-600" size={14} />
+                      <BiSolidDollarCircle
+                        className="text-green-600"
+                        size={14}
+                      />
                     </div>
                   </td>
                   <td className="max-w-14 rounded-r px-4 py-2">
                     <div className="flex items-center justify-center gap-1">
                       <span>{referral.commission ?? "N/A"}</span>
-                      <BiSolidDollarCircle className="text-green-600" size={14} />
+                      <BiSolidDollarCircle
+                        className="text-green-600"
+                        size={14}
+                      />
                     </div>
                   </td>
                 </tr>
@@ -124,50 +131,11 @@ const ReferralTable = () => {
         </div>
 
         {/* Pagination */}
-        <div className="mt-4 flex items-center justify-between">
-          <div className="flex gap-1 md:gap-3">
-            <button
-              className={`rounded bg-primary px-4 py-2 font-semibold text-white duration-200 hover:bg-secondary ${currentPage === 1 ? "opacity-50" : ""}`}
-              onClick={() => setCurrentPage(1)}
-              disabled={currentPage === 1}
-            >
-              <span className="hidden md:block">First page</span>
-              <span className="flex items-center md:hidden">
-                <FaChevronLeft />
-                <FaChevronLeft />
-              </span>
-            </button>
-            <button
-              className={`rounded bg-primary px-4 py-2 font-semibold text-white duration-200 hover:bg-secondary ${currentPage === 1 ? "opacity-50" : ""}`}
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-            >
-              <FaChevronLeft />
-            </button>
-          </div>
-          <span className="hidden md:block">Page {currentPage} of {totalPages}</span>
-          <span className="md:hidden">{currentPage} / {totalPages}</span>
-          <div className="flex gap-1 md:gap-3">
-            <button
-              className={`rounded bg-primary px-4 py-2 font-semibold text-white duration-200 hover:bg-secondary ${currentPage === totalPages ? "opacity-50" : ""}`}
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-            >
-              <FaChevronRight />
-            </button>
-            <button
-              className={`rounded bg-primary px-4 py-2 font-semibold text-white duration-200 hover:bg-secondary ${currentPage === totalPages ? "opacity-50" : ""}`}
-              onClick={() => setCurrentPage(totalPages)}
-              disabled={currentPage === totalPages}
-            >
-              <span className="hidden md:block">Last page</span>
-              <span className="flex items-center md:hidden">
-                <FaChevronRight />
-                <FaChevronRight />
-              </span>
-            </button>
-          </div>
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
       </div>
     </div>
   );
