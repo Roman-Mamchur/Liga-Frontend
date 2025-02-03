@@ -1,8 +1,9 @@
+import ReferralTable from "@/components/Table/ReferralTable";
+
 const AffiliateReferredUsersPage = () => {
   return (
     <div>
-      <h2 className="text-2xl font-bold">Referred Users</h2>
-      <p>Referred Users Page</p>
+      <ReferralTable />
     </div>
   );
 };

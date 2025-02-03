@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 const AffiliateLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <HeroBanner title="Affiliate Program" />
+      <HeroBanner title="Affiliate" />
       <div className="container my-8 flex flex-col justify-between gap-6 md:flex-row">
         <div className="md:sticky md:top-4 md:h-fit">
           <SidebarNav />
         </div>
 
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 overflow-hidden">{children}</div>
       </div>
     </div>
   );
