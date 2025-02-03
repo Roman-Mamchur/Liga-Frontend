@@ -17,7 +17,7 @@ const AffiliateLayout = ({ children }: { children: React.ReactNode }) => {
           <SidebarNav />
         </div>
 
-        <div className="flex-1 overflow-hidden">{children}</div>
+        <div className="flex-1">{children}</div>
       </div>
     </div>
   );
