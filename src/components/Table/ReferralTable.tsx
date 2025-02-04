@@ -41,20 +41,23 @@ const ReferralTable = () => {
     currentPage * rowsPerPage,
   );
 
+  // Options to be passed to the SortByDropdown component
+  const sortOptions = [
+    "Username",
+    "Registration",
+    "Total Deposits",
+    "Last Deposit",
+    "Wagered",
+    "Commission",
+  ];
+
   return (
     <div className="flex">
       <div className="flex w-0 flex-1 flex-col">
         {/* Sorting */}
         <div className="hidden md:flex">
           <SortByDropdown
-            options={[
-              "Username",
-              "Registration",
-              "Total Deposits",
-              "Last Deposit",
-              "Wagered",
-              "Commission",
-            ]}
+            options={sortOptions}
             selectedOption={sortOption}
             sortOrder={sortOrder}
             setSortOption={handleSortChange}

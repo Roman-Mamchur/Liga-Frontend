@@ -16,10 +16,10 @@ export const links = [
         icon: MdCasino({ size: 20 }),
         label: "Casino",
         items: [
-          { name: "Casino A", href: "#casino-a" },
-          { name: "Casino B", href: "#casino-b" },
-          { name: "Casino C", href: "#casino-c" },
-          { name: "Casino D", href: "#casino-d" },
+          { name: "Casino A", href: "/casino-a" },
+          { name: "Casino B", href: "/casino-b" },
+          { name: "Casino C", href: "/casino-c" },
+          { name: "Casino D", href: "/casino-d" },
         ],
       },
       {
@@ -28,8 +28,8 @@ export const links = [
         icon: FaBasketballBall({ size: 20 }),
         label: "Sports",
         items: [
-          { name: "Sports A", href: "#sports-a" },
-          { name: "Sports B", href: "#sports-b" },
+          { name: "Sports A", href: "/sports-a" },
+          { name: "Sports B", href: "/sports-b" },
         ],
       },
       {
@@ -38,8 +38,8 @@ export const links = [
         icon: GiChicken({ size: 20 }),
         label: "Cockfight",
         items: [
-          { name: "Cockfight A", href: "#cockfight-a" },
-          { name: "Cockfight B", href: "#cockfight-b" },
+          { name: "Cockfight A", href: "/cockfight-a" },
+          { name: "Cockfight B", href: "/cockfight-b" },
         ],
       },
       {
@@ -48,8 +48,8 @@ export const links = [
         icon: GoGoal({ size: 20 }),
         label: "Lottery",
         items: [
-          { name: "Lottery A", href: "#lottery-a" },
-          { name: "Lottery B", href: "#lottery-b" },
+          { name: "Lottery A", href: "/lottery-a" },
+          { name: "Lottery B", href: "/lottery-b" },
         ],
       },
     ],
@@ -94,8 +94,8 @@ export const links = [
         icon: FaHandshakeSimple({ size: 20 }),
         label: "Sponsorships",
         items: [
-          { name: "Sponsorships A", href: "#sponsorships-a" },
-          { name: "Sponsorships B", href: "#sponsorships-b" },
+          { name: "Sponsorships A", href: "/sponsorships-a" },
+          { name: "Sponsorships B", href: "/sponsorships-b" },
         ],
       },
       {

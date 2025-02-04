@@ -23,8 +23,8 @@ const Pagination: React.FC<PaginationProps> = ({
           onClick={() => handlePageChange(1)}
           disabled={currentPage === 1}
         >
-          <span className="hidden md:block">First page</span>
-          <span className="flex items-center md:hidden">
+          <span className="hidden text-sm lg:block">First page</span>
+          <span className="flex items-center lg:hidden">
             <FaChevronLeft />
             <FaChevronLeft className="-ml-2" />
           </span>
@@ -37,12 +37,14 @@ const Pagination: React.FC<PaginationProps> = ({
           <FaChevronLeft />
         </button>
       </div>
-      <span className="hidden md:block">
-        Page {currentPage} of {totalPages}
-      </span>
-      <span className="md:hidden">
-        {currentPage} / {totalPages}
-      </span>
+      <div className="text-sm">
+        <span className="hidden lg:block">
+          Page {currentPage} of {totalPages}
+        </span>
+        <span className="lg:hidden">
+          {currentPage} / {totalPages}
+        </span>
+      </div>
       <div className="flex gap-1 md:gap-3">
         <button
           className={`rounded bg-primary px-4 py-2 font-semibold text-white duration-200 hover:bg-secondary ${currentPage === totalPages ? "opacity-50" : ""}`}
@@ -58,8 +60,8 @@ const Pagination: React.FC<PaginationProps> = ({
           onClick={() => handlePageChange(totalPages)}
           disabled={currentPage === totalPages}
         >
-          <span className="hidden md:block">Last page</span>
-          <span className="flex items-center md:hidden">
+          <span className="hidden text-sm lg:block">Last page</span>
+          <span className="flex items-center lg:hidden">
             <FaChevronRight />
             <FaChevronRight className="-ml-2" />
           </span>

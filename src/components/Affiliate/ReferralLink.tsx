@@ -3,7 +3,12 @@
 import { FaCopy } from "react-icons/fa6";
 import { toast } from "react-toastify";
 
-const ReferralLink = () => {
+interface ReferralLinkProps {
+  desc: string;
+  type: 1 | 2;
+}
+
+const ReferralLink = ({ desc, type }: ReferralLinkProps) => {
   const referralLink = "fafa.com/?c=GjsUVhQJ";
 
   const handleCopy = () => {
@@ -23,26 +28,41 @@ const ReferralLink = () => {
   return (
     <div className="flex">
       <div className="w-0 flex-1">
-        <div className="flex flex-col items-center gap-6 rounded bg-card p-4 shadow-md">
-          <p className="w-full opacity-80">
-            Ready to earn commission? Tap the &apos;Copy Referral Link&apos;
-            button and share your default campaign.
-          </p>
-          <div className="flex w-full items-center gap-3">
-            <input
-              type="text"
-              value={referralLink}
-              readOnly
-              onClick={handleCopy}
-              className="h-fit min-w-0 max-w-40 flex-1 cursor-pointer truncate rounded px-4 py-2 text-sm shadow-md"
-            />
-            <button
-              onClick={handleCopy}
-              className="text-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary"
-            >
-              Copy Referral Link
-            </button>
-          </div>
+        <div
+          className={`flex flex-col items-center ${type === 1 ? "gap-6 p-4" : "gap-1"}`}
+        >
+          <p className="w-full opacity-80">{desc}</p>
+          {type === 1 ? (
+            <div className="flex w-full items-center gap-3">
+              <input
+                type="text"
+                value={referralLink}
+                readOnly
+                onClick={handleCopy}
+                className="h-fit min-w-0 max-w-40 flex-1 cursor-pointer truncate rounded px-4 py-2 text-sm shadow-md"
+              />
+              <button
+                onClick={handleCopy}
+                className="text-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary"
+              >
+                Copy Referral Link
+              </button>
+            </div>
+          ) : (
+            <div className="relative w-full">
+              <input
+                type="text"
+                value={referralLink}
+                readOnly
+                onClick={handleCopy}
+                className="h-fit w-full cursor-pointer truncate rounded px-4 py-2 pr-10 text-sm shadow-md"
+              />
+              <FaCopy
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 hover:text-black"
+                onClick={handleCopy}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
