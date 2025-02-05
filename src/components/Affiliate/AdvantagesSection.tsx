@@ -6,7 +6,7 @@ import {
   FaInfinity,
   FaSliders,
 } from "react-icons/fa6";
-import RuleCard from "./AffiliateInfoCard";
+import InfoCard from "@/components/Card/InfoCard";
 
 const ADVANTAGES = [
   {
@@ -52,7 +52,7 @@ const AdvantagesSection = () => {
 
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
         {ADVANTAGES.map((rule, index) => (
-          <RuleCard
+          <InfoCard
             key={index}
             icon={rule.icon}
             title={rule.title}

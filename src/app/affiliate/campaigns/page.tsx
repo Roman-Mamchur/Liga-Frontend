@@ -5,24 +5,24 @@ import { SiBitcoin } from "react-icons/si";
 const AffiliateCampaignsPage = () => {
   return (
     <>
-      <div className="mb-3 flex items-center justify-between gap-3 text-sm">
-        <div className="flex flex-col items-center justify-center">
+      <div className="mb-6 flex flex-wrap items-start justify-center gap-6 text-sm md:justify-start">
+        <div className="flex flex-col items-center justify-start">
           <p className="font-medium">Campaign Hits</p>
           <p className="opacity-60">0</p>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-start">
           <p className="font-medium">Referrals</p>
           <p className="opacity-60">0</p>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-start">
           <p className="font-medium">Total Deposits</p>
           <p className="opacity-60">0</p>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-start">
           <p className="font-medium">Unique Deposits</p>
           <p className="opacity-60">0</p>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-start">
           <p className="font-medium">Available</p>
           <div className="flex items-center justify-center gap-1">
             <span className="overflow-hidden text-ellipsis whitespace-nowrap opacity-60">

@@ -5,7 +5,7 @@ import {
   FaRotateRight,
   FaSackDollar,
 } from "react-icons/fa6";
-import RuleCard from "./AffiliateInfoCard";
+import InfoCard from "@/components/Card/InfoCard";
 
 const COMMISSION_RULES = [
   {
@@ -46,7 +46,7 @@ const RulesSection = () => {
       <p>Invite friends and earn 3% daily</p>
 
       {COMMISSION_RULES.map((rule, index) => (
-        <RuleCard
+        <InfoCard
           key={index}
           icon={rule.icon}
           title={rule.title}

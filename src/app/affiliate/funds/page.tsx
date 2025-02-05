@@ -10,7 +10,7 @@ const AffiliateFundsPage = () => {
           Withdraw available commission
         </button>
 
-        <p className="opacity-60">
+        <p className="text-center opacity-60">
           Transfers affiliate commission to your available balance.
         </p>
       </div>

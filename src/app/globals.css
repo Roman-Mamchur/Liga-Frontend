@@ -10,6 +10,11 @@
   --gradient: linear-gradient(to right, var(--primary), var(--secondary));
   --card: #e5e5e5;
   --stroke: #bf360c;
+  --bronze: #cd7f32;
+  --silver: #c0c0c0;
+  --gold: #ffd700;
+  --platinum: #e5e4e2;
+  --dark: #4b4b4b;
   --swiper-pagination-color: var(--background);
   --toastify-font-family: inherit;
 }
@@ -50,6 +55,15 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--secondary);
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--foreground);
+  border-radius: 10px;
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--dark);
 }
 
 input[type="radio"] {
