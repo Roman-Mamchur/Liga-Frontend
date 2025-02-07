@@ -3,15 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const SidebarNav = () => {
+interface SidebarNavProps {
+  navItems: Array<{ name: string; path: string }>;
+}
+
+const SidebarNav = ({ navItems }: SidebarNavProps) => {
   const pathname = usePathname();
-  const navItems = [
-    { name: "Overview", path: "/affiliate" },
-    { name: "Campaigns", path: "/affiliate/campaigns" },
-    { name: "Funds", path: "/affiliate/funds" },
-    { name: "Referred Users", path: "/affiliate/referred-users" },
-    { name: "FAQ", path: "/affiliate/faq" },
-  ];
 
   return (
     <div className="h-fit w-full flex-grow-0 rounded bg-card py-2 shadow-md md:w-fit">

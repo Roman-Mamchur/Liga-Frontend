@@ -34,5 +34,17 @@ export default {
       },
     },
   },
+  safelist: [
+    "text-bronze",
+    "text-silver",
+    "text-gold",
+    "text-platinum",
+    "text-dark",
+    "bg-bronze",
+    "bg-silver",
+    "bg-gold",
+    "bg-platinum",
+    "bg-dark",
+  ],
   plugins: [],
 } satisfies Config;

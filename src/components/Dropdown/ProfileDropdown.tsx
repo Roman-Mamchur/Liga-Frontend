@@ -30,7 +30,16 @@ export default function ProfileDropdown() {
         <div className="py-1 font-semibold">
           <MenuItem>
             <Link
-              href="#"
+              href="/profile"
+              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
+            >
+              <FaUser />
+              <span>Profile</span>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link
+              href="/wallet"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaWallet />
@@ -39,7 +48,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="#"
+              href="/vault"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaVault />
@@ -48,7 +57,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="#"
+              href="/vip"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaCrown />
@@ -57,7 +66,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="#"
+              href="/affiliate"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <TbAffiliateFilled />
@@ -66,7 +75,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="#"
+              href="statistics"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <IoStatsChart />
@@ -75,7 +84,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="#"
+              href="/transactions"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaMoneyBill />
@@ -84,7 +93,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="#"
+              href="/bets"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaTicket />
@@ -93,7 +102,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="#"
+              href="/settings"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaGear />
@@ -102,7 +111,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="#"
+              href="support"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaHeadset />
@@ -111,7 +120,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="#"
+              href="/logout"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaRightFromBracket />

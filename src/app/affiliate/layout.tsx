@@ -9,12 +9,20 @@ export const metadata: Metadata = {
 };
 
 const AffiliateLayout = ({ children }: { children: React.ReactNode }) => {
+  const navItems = [
+    { name: "Overview", path: "/affiliate" },
+    { name: "Campaigns", path: "/affiliate/campaigns" },
+    { name: "Funds", path: "/affiliate/funds" },
+    { name: "Referred Users", path: "/affiliate/referred-users" },
+    { name: "FAQ", path: "/affiliate/faq" },
+  ];
+
   return (
     <div>
       <HeroBanner title="Affiliate" />
       <div className="container my-8 flex flex-col justify-between gap-6 md:flex-row">
         <div className="md:sticky md:top-4 md:h-fit">
-          <SidebarNav />
+          <SidebarNav navItems={navItems} />
         </div>
 
         <div className="flex-1">{children}</div>
