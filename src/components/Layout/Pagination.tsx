@@ -16,7 +16,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="mt-4 flex items-center justify-between">
+    <div className="flex items-center justify-between">
       <div className="flex gap-1 md:gap-3">
         <button
           className={`rounded bg-primary px-4 py-2 font-semibold text-white duration-200 hover:bg-secondary ${currentPage === 1 ? "opacity-50" : ""}`}
