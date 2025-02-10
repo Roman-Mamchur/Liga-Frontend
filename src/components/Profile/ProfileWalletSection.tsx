@@ -39,7 +39,7 @@ const ProfileWalletSection = () => {
 
   return (
     <section className="flex flex-col gap-3">
-      <div className="flex items-center gap-3 text-xl font-bold">
+      <div className="flex items-center gap-3 text-xl font-bold opacity-80">
         <FaWallet />
         <h2>Wallet</h2>
       </div>

@@ -15,7 +15,7 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
     { name: "History", path: "/profile/history" },
     { name: "Rebate", path: "/profile/rebate" },
     { name: "Cashback", path: "/profile/cashback" },
-    { name: "Total Bet", path: "/profile/total-bet" },
+    { name: "Total Bet", path: "/profile/bets" },
     { name: "Redeems", path: "/profile/redeems" },
     { name: "Points", path: "/profile/points" },
     { name: "Messages", path: "/profile/messages" },

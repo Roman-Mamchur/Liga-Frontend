@@ -17,7 +17,7 @@ const ProfileStatsSection = () => {
 
   return (
     <section className="flex flex-col gap-3">
-      <div className="flex items-center gap-3 text-xl font-bold">
+      <div className="flex items-center gap-3 text-xl font-bold opacity-80">
         <IoStatsChart />
         <h2>Statistics</h2>
       </div>
