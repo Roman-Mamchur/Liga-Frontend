@@ -8,7 +8,7 @@ import { sortRebateAndCashbackData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
 import DateRangeDropdown from "../Dropdown/DateRangeDropdown";
 
-const RebateTable = () => {
+const CashbackTable = () => {
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOption, setSortOption] = useState<string>("Transaction Date");
@@ -60,7 +60,7 @@ const RebateTable = () => {
   );
 
   // Options to be passed to the SortByDropdown component
-  const sortOptions = ["Rebate Amount", "Transaction Date"];
+  const sortOptions = ["Cashback Amount", "Transaction Date"];
 
   return (
     <div className="flex">
@@ -92,7 +92,7 @@ const RebateTable = () => {
             <thead>
               <tr className="h-14 opacity-80">
                 <th className="text-nowrap px-4 py-2 text-left">
-                  Rebate Amount
+                  Cashback Amount
                 </th>
                 <th className="text-nowrap px-4 py-2 text-right">
                   Transaction Date
@@ -101,16 +101,16 @@ const RebateTable = () => {
             </thead>
             <tbody>
               {currentRows.length > 0 ? (
-                currentRows.map((rebate) => (
+                currentRows.map((cashback) => (
                   <tr
-                    key={rebate.id}
+                    key={cashback.id}
                     className="h-14 odd:bg-card even:bg-white"
                   >
                     <td className="max-w-14 rounded-l px-4 py-2 text-left">
-                      {rebate.amount}
+                      {cashback.amount}
                     </td>
                     <td className="max-w-14 whitespace-nowrap rounded-r px-4 py-2 text-right">
-                      {rebate.transactionDate}
+                      {cashback.transactionDate}
                     </td>
                   </tr>
                 ))
@@ -157,4 +157,4 @@ const RebateTable = () => {
   );
 };
 
-export default RebateTable;
+export default CashbackTable;

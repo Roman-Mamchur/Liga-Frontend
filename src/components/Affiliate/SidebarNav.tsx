@@ -18,7 +18,7 @@ const SidebarNav = ({ navItems }: SidebarNavProps) => {
             <li
               className={`border-l-[3px] px-4 py-2 duration-200 ${
                 pathname === item.path
-                  ? "border-primary bg-orange-500/20"
+                  ? "bg-accentOpacity border-primary"
                   : "border-transparent hover:bg-black/10"
               }`}
             >

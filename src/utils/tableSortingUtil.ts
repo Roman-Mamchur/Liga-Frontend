@@ -18,9 +18,16 @@ type History = {
   statusDate: string;
 };
 
-type Rebate = {
+type RebateAndCashback = {
   id: number;
   amount: number;
+  transactionDate: string;
+};
+
+type TotalBets = {
+  id: number;
+  bet: number;
+  winLose: number;
   transactionDate: string;
 };
 
@@ -79,16 +86,38 @@ export const sortHistoryData = (
   });
 };
 
-export const sortRebateData = (
-  data: Rebate[],
+export const sortRebateAndCashbackData = (
+  data: RebateAndCashback[],
   sortOption: string,
   sortOrder: "asc" | "desc",
-): Rebate[] => {
+): RebateAndCashback[] => {
   return data.sort((a, b) => {
     let result = 0;
 
-    if (sortOption === "Rebate Amount") {
+    if (sortOption === "Rebate Amount" || sortOption === "Cashback Amount") {
       result = a.amount - b.amount;
+    } else if (sortOption === "Transaction Date") {
+      result =
+        new Date(a.transactionDate).getTime() -
+        new Date(b.transactionDate).getTime();
+    }
+
+    return sortOrder === "asc" ? result : -result;
+  });
+};
+
+export const sortTotalBetsData = (
+  data: TotalBets[],
+  sortOption: string,
+  sortOrder: "asc" | "desc",
+): TotalBets[] => {
+  return data.sort((a, b) => {
+    let result = 0;
+
+    if (sortOption === "Total Bets") {
+      result = a.bet - b.bet;
+    } else if (sortOption === "Total Win/Lose") {
+      result = a.winLose - b.winLose;
     } else if (sortOption === "Transaction Date") {
       result =
         new Date(a.transactionDate).getTime() -

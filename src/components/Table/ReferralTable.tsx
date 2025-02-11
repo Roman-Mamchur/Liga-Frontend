@@ -7,13 +7,17 @@ import SortByDropdown from "../Dropdown/SortByDropdown";
 import Pagination from "../Layout/Pagination";
 import { sortReferralData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
+import DateRangeDropdown from "../Dropdown/DateRangeDropdown";
 
 const ReferralTable = () => {
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOption, setSortOption] = useState<string>("Registration");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
-  const rowsPerPage = 5;
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
+    null,
+    null,
+  ]);
 
   useEffect(() => {
     setIsClient(true);
@@ -22,9 +26,6 @@ const ReferralTable = () => {
   if (!isClient) {
     return null;
   }
-
-  const totalRows = referralsMockData.length;
-  const totalPages = Math.ceil(totalRows / rowsPerPage);
 
   const handleSortChange = (option: string) => {
     if (option === sortOption) {
@@ -35,13 +36,22 @@ const ReferralTable = () => {
     }
   };
 
-  // Mock existing data
+  // Mock existing or empty data
   const sortedRows = sortReferralData(referralsMockData, sortOption, sortOrder);
-
-  // Mock empty data
   // const sortedRows = sortReferralData([], sortOption, sortOrder);
 
-  const currentRows = sortedRows.slice(
+  // Filter by date range
+  const filteredRows = sortedRows.filter((referral) => {
+    if (!dateRange[0] || !dateRange[1]) return true;
+    const date = new Date(referral.registered);
+    return date >= dateRange[0] && date <= dateRange[1];
+  });
+
+  const rowsPerPage = 5;
+  const totalRows = filteredRows.length;
+  const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+  const currentRows = filteredRows.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage,
   );
@@ -60,16 +70,25 @@ const ReferralTable = () => {
     <div className="flex">
       <div className="flex w-0 flex-1 flex-col">
         {/* Sorting */}
-        {currentRows.length > 0 && (
-          <div className="hidden md:flex">
-            <SortByDropdown
-              options={sortOptions}
-              selectedOption={sortOption}
-              sortOrder={sortOrder}
-              setSortOption={handleSortChange}
+        <div className="hidden mb-4 justify-between gap-3 md:flex md:flex-col lg:flex-row">
+          <div>
+            {currentRows.length > 0 && (
+              <SortByDropdown
+                options={sortOptions}
+                selectedOption={sortOption}
+                sortOrder={sortOrder}
+                setSortOption={handleSortChange}
+              />
+            )}
+          </div>
+          <div>
+            <DateRangeDropdown
+              dateInfo="Registration Date"
+              dateRange={dateRange}
+              setDateRange={setDateRange}
             />
           </div>
-        )}
+        </div>
 
         {/* Table */}
         <div className="overflow-x-auto pb-1">

@@ -1,14 +1,14 @@
 "use client";
 
-import { rebateAndCashbackMockData } from "@/data/tableMockData";
+import { totalBetsMockData } from "@/data/tableMockData";
 import { useEffect, useState } from "react";
 import SortByDropdown from "../Dropdown/SortByDropdown";
 import Pagination from "../Layout/Pagination";
-import { sortRebateAndCashbackData } from "@/utils/tableSortingUtil";
+import { sortTotalBetsData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
 import DateRangeDropdown from "../Dropdown/DateRangeDropdown";
 
-const RebateTable = () => {
+const TotalBetsTable = () => {
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOption, setSortOption] = useState<string>("Transaction Date");
@@ -36,12 +36,12 @@ const RebateTable = () => {
   };
 
   // Mock existing or empty data
-  const sortedRows = sortRebateAndCashbackData(
-    rebateAndCashbackMockData,
+  const sortedRows = sortTotalBetsData(
+    totalBetsMockData,
     sortOption,
     sortOrder,
   );
-  // const sortedRows = sortRebateAndCashbackData([], sortOption, sortOrder);
+  // const sortedRows = sortTotalBetsData([], sortOption, sortOrder);
 
   // Filter by date range
   const filteredRows = sortedRows.filter((rebate) => {
@@ -60,7 +60,7 @@ const RebateTable = () => {
   );
 
   // Options to be passed to the SortByDropdown component
-  const sortOptions = ["Rebate Amount", "Transaction Date"];
+  const sortOptions = ["Cashback Amount", "Transaction Date"];
 
   return (
     <div className="flex">
@@ -91,9 +91,8 @@ const RebateTable = () => {
           <table className="w-full table-auto text-sm">
             <thead>
               <tr className="h-14 opacity-80">
-                <th className="text-nowrap px-4 py-2 text-left">
-                  Rebate Amount
-                </th>
+                <th className="text-nowrap px-4 py-2 text-left">Total Bets</th>
+                <th className="text-nowrap px-4 py-2">Total Win/Lose</th>
                 <th className="text-nowrap px-4 py-2 text-right">
                   Transaction Date
                 </th>
@@ -101,22 +100,26 @@ const RebateTable = () => {
             </thead>
             <tbody>
               {currentRows.length > 0 ? (
-                currentRows.map((rebate) => (
-                  <tr
-                    key={rebate.id}
-                    className="h-14 odd:bg-card even:bg-white"
-                  >
+                currentRows.map((bets) => (
+                  <tr key={bets.id} className="h-14 odd:bg-card even:bg-white">
                     <td className="max-w-14 rounded-l px-4 py-2 text-left">
-                      {rebate.amount}
+                      {bets.bet}
+                    </td>
+                    <td className="max-w-14 px-4 py-2 text-center font-semibold">
+                      {bets.winLose >= 0 ? (
+                        <span className="text-green-500">+{bets.winLose}%</span>
+                      ) : (
+                        <span className="text-red-500">{bets.winLose}%</span>
+                      )}
                     </td>
                     <td className="max-w-14 whitespace-nowrap rounded-r px-4 py-2 text-right">
-                      {rebate.transactionDate}
+                      {bets.transactionDate}
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr className="h-14 text-center odd:bg-card even:bg-white">
-                  <td colSpan={2} className="rounded py-4">
+                  <td colSpan={3} className="rounded py-4">
                     <div className="flex items-center justify-center gap-3 opacity-60">
                       <FaBoxOpen className="size-8" />
                       <span className="text-sm">Nothing in here yet!</span>
@@ -135,8 +138,8 @@ const RebateTable = () => {
               <span className="text-sm font-semibold opacity-80">
                 Total Rebate:{" "}
                 {filteredRows.length > 0
-                  ? filteredRows.reduce((acc, row) => acc + row.amount, 0)
-                  : sortedRows.reduce((acc, row) => acc + row.amount, 0)}
+                  ? filteredRows.reduce((acc, row) => acc + row.bet, 0)
+                  : sortedRows.reduce((acc, row) => acc + row.bet, 0)}
               </span>
             </div>
           </div>
@@ -157,4 +160,4 @@ const RebateTable = () => {
   );
 };
 
-export default RebateTable;
+export default TotalBetsTable;

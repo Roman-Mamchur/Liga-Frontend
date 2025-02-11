@@ -40,8 +40,18 @@ export const historyMockData = Array.from({ length: 40 }, (_, index) => ({
   statusDate: getRandomDate(),
 }));
 
-export const rebateMockData = Array.from({ length: 6 }, (_, index) => ({
+export const rebateAndCashbackMockData = Array.from(
+  { length: 6 },
+  (_, index) => ({
+    id: index + 1,
+    amount: getRandomNumber(50, 500),
+    transactionDate: getRandomDate(),
+  }),
+);
+
+export const totalBetsMockData = Array.from({ length: 12 }, (_, index) => ({
   id: index + 1,
-  amount: getRandomNumber(50, 500),
+  bet: getRandomNumber(50, 500),
+  winLose: getRandomNumber(-100, 100),
   transactionDate: getRandomDate(),
 }));

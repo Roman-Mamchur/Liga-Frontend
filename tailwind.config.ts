@@ -25,6 +25,8 @@ export default {
         gradient: "var(--gradient)",
         primary: "var(--primary)",
         secondary: "var(--secondary)",
+        tertiary: "var(--tertiary)",
+        accentOpacity: "var(--accent-opacity)",
         stroke: "var(--stroke)",
         bronze: "var(--bronze)",
         silver: "var(--silver)",

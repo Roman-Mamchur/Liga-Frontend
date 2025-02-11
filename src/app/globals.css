@@ -7,6 +7,8 @@
   --foreground: #212121;
   --primary: #ff6f00;
   --secondary: #e65100;
+  --tertiary: #ffab40;
+  --accent-opacity: rgb(249 115 22 / 0.2);
   --gradient: linear-gradient(to right, var(--primary), var(--secondary));
   --card: #e5e5e5;
   --stroke: #bf360c;
