@@ -1,0 +1,58 @@
+export const messages = [
+  {
+    id: 1,
+    title: "New Feature Launched!",
+    description: "Check out the latest feature in your dashboard.",
+    date: "1 hour ago",
+    seen: false,
+  },
+  {
+    id: 2,
+    title: "Account Update",
+    description: "Your profile has been successfully updated.",
+    date: "Yesterday",
+    seen: false,
+  },
+  {
+    id: 3,
+    title: "Payment Received",
+    description: "We've received your subscription payment.",
+    date: "2 days ago",
+    seen: true,
+  },
+  {
+    id: 4,
+    title: "Security Alert",
+    description: "A new login was detected from an unrecognized device.",
+    date: "3 days ago",
+    seen: true,
+  },
+  {
+    id: 5,
+    title: "Exclusive Offer!",
+    description: "Limited-time discount available on your next purchase.",
+    date: "5 days ago",
+    seen: true,
+  },
+  {
+    id: 6,
+    title: "Weekly Summary",
+    description: "Your weekly activity summary is now available.",
+    date: "6 days ago",
+    seen: true,
+  },
+  {
+    id: 7,
+    title: "System Maintenance",
+    description: "Scheduled maintenance will take place this weekend.",
+    date: "1 week ago",
+    seen: true,
+  },
+  {
+    id: 8,
+    title: "Friend Request",
+    description: "You have a new friend request pending approval.",
+    date: "1 week ago",
+    seen: true,
+  },
+];

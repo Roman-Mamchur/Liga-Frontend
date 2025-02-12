@@ -31,6 +31,25 @@ type TotalBets = {
   transactionDate: string;
 };
 
+type Redeems = {
+  id: number;
+  number: number;
+  transactionDate: string;
+  rewardType: string;
+  reward: string;
+  status: string;
+  points: number;
+  spins: number;
+};
+
+type Points = {
+  id: number;
+  amount: number;
+  type: string;
+  turnover: number;
+  transactionDate: string;
+};
+
 export const sortReferralData = (
   data: Referral[],
   sortOption: string,
@@ -118,6 +137,60 @@ export const sortTotalBetsData = (
       result = a.bet - b.bet;
     } else if (sortOption === "Total Win/Lose") {
       result = a.winLose - b.winLose;
+    } else if (sortOption === "Transaction Date") {
+      result =
+        new Date(a.transactionDate).getTime() -
+        new Date(b.transactionDate).getTime();
+    }
+
+    return sortOrder === "asc" ? result : -result;
+  });
+};
+
+export const sortRedeemsData = (
+  data: Redeems[],
+  sortOption: string,
+  sortOrder: "asc" | "desc",
+): Redeems[] => {
+  return data.sort((a, b) => {
+    let result = 0;
+
+    if (sortOption === "No.") {
+      result = a.number - b.number;
+    } else if (sortOption === "Transaction Date") {
+      result =
+        new Date(a.transactionDate).getTime() -
+        new Date(b.transactionDate).getTime();
+    } else if (sortOption === "Reward Type") {
+      result = a.rewardType.localeCompare(b.rewardType);
+    } else if (sortOption === "Reward") {
+      result = a.reward.localeCompare(b.reward);
+    } else if (sortOption === "Status") {
+      result = a.status.localeCompare(b.status);
+    } else if (sortOption === "Used Points") {
+      result = a.points - b.points;
+    } else if (sortOption === "Free Spins") {
+      result = a.spins - b.spins;
+    }
+
+    return sortOrder === "asc" ? result : -result;
+  });
+};
+
+export const sortPointsData = (
+  data: Points[],
+  sortOption: string,
+  sortOrder: "asc" | "desc",
+): Points[] => {
+  return data.sort((a, b) => {
+    let result = 0;
+
+    if (sortOption === "Points") {
+      result = a.amount - b.amount;
+    } else if (sortOption === "Type") {
+      result = a.type.localeCompare(b.type);
+    } else if (sortOption === "Turnover") {
+      result = a.turnover - b.turnover;
     } else if (sortOption === "Transaction Date") {
       result =
         new Date(a.transactionDate).getTime() -

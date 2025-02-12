@@ -70,7 +70,7 @@ const ReferralTable = () => {
     <div className="flex">
       <div className="flex w-0 flex-1 flex-col">
         {/* Sorting */}
-        <div className="hidden mb-4 justify-between gap-3 md:flex md:flex-col lg:flex-row">
+        <div className="mb-4 hidden justify-between gap-3 md:flex md:flex-col lg:flex-row">
           <div>
             {currentRows.length > 0 && (
               <SortByDropdown
