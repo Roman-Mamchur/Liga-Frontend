@@ -91,7 +91,7 @@ const SecuritySettingsDropdown = () => {
               </div>
 
               <div className="flex justify-end py-3">
-                <button className="rounded bg-primary px-4 py-2 text-sm text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary">
+                <button className="w-full rounded bg-primary px-4 py-2 text-sm text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary md:w-auto">
                   Save
                 </button>
               </div>
@@ -172,7 +172,7 @@ const SecuritySettingsDropdown = () => {
               </div>
 
               <div className="flex justify-end py-3">
-                <button className="rounded bg-primary px-4 py-2 text-sm text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary">
+                <button className="w-full rounded bg-primary px-4 py-2 text-sm text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary md:w-auto">
                   Submit
                 </button>
               </div>

@@ -50,6 +50,15 @@ type Points = {
   transactionDate: string;
 };
 
+type Sessions = {
+  id: number;
+  browser: string;
+  location: string;
+  ip: string;
+  usedDate: string;
+  action: string;
+};
+
 export const sortReferralData = (
   data: Referral[],
   sortOption: string,
@@ -195,6 +204,30 @@ export const sortPointsData = (
       result =
         new Date(a.transactionDate).getTime() -
         new Date(b.transactionDate).getTime();
+    }
+
+    return sortOrder === "asc" ? result : -result;
+  });
+};
+
+export const sortSessionsData = (
+  data: Sessions[],
+  sortOption: string,
+  sortOrder: "asc" | "desc",
+): Sessions[] => {
+  return data.sort((a, b) => {
+    let result = 0;
+
+    if (sortOption === "Browser") {
+      result = a.browser.localeCompare(b.browser);
+    } else if (sortOption === "Near") {
+      result = a.location.localeCompare(b.location);
+    } else if (sortOption === "IP Address") {
+      result = a.ip.localeCompare(b.ip);
+    } else if (sortOption === "Last Used") {
+      result = new Date(a.usedDate).getTime() - new Date(b.usedDate).getTime();
+    } else if (sortOption === "Action") {
+      result = a.action.localeCompare(b.action);
     }
 
     return sortOrder === "asc" ? result : -result;

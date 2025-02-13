@@ -1,5 +1,7 @@
 import GeneralSettingsDropdown from "@/components/Dropdown/GeneralSettingsDropdown";
+import PreferencesSettingsDropdown from "@/components/Dropdown/PreferencesSettingsDropdown";
 import SecuritySettingsDropdown from "@/components/Dropdown/SecuritySettingsDropdown";
+import SessionSettingsDropdown from "@/components/Dropdown/SessionSettingsDropdown";
 import { FaGear } from "react-icons/fa6";
 
 const ProfileSettingsPage = () => {
@@ -12,6 +14,8 @@ const ProfileSettingsPage = () => {
       <div className="flex flex-col gap-6">
         <GeneralSettingsDropdown />
         <SecuritySettingsDropdown />
+        <PreferencesSettingsDropdown />
+        <SessionSettingsDropdown />
       </div>
     </div>
   );

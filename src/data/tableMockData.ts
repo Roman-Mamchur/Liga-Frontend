@@ -19,6 +19,7 @@ const getRandomStatus = (type: number) => {
   const statusMap: Record<number, string[]> = {
     1: ["Completed", "Processing", "Declined"],
     2: ["Claimed", "Pending"],
+    3: ["Current", "Removed", "Remove Session"],
   };
 
   const statuses = statusMap[type] || [];
@@ -80,4 +81,13 @@ export const pointsMockData = Array.from({ length: 8 }, (_, index) => ({
   type: `Type ${index + 1}`,
   turnover: getRandomNumber(1, 1000),
   transactionDate: getRandomDate(),
+}));
+
+export const sessionsMockData = Array.from({ length: 8 }, (_, index) => ({
+  id: index + 1,
+  browser: `Chrome`,
+  location: `Location ${index + 1}`,
+  ip: `192.168.1.${index + 1}`,
+  usedDate: getRandomDate(),
+  action: getRandomStatus(3),
 }));
