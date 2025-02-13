@@ -33,7 +33,7 @@ const SessionSettingsDropdown = () => {
       {isOpen && (
         <div className="flex flex-col gap-6 rounded-b bg-card p-6">
           {/* Sessions Section */}
-          <div className="rounded bg-white/50 px-6 py-3">
+          <div className="rounded bg-white/50 px-1 py-3 sm:px-3 md:px-6">
             <SessionsTable />
           </div>
         </div>

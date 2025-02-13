@@ -82,7 +82,7 @@ const SessionsTable = () => {
         </div>
 
         {/* Table */}
-        <div className="my-4 overflow-x-auto pb-1">
+        <div className="mb-4 overflow-x-auto pb-1 md:my-4">
           <table className="w-full table-auto text-sm">
             <thead>
               <tr className="h-14 text-nowrap opacity-80">

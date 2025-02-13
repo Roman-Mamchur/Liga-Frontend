@@ -129,7 +129,7 @@ const PreferencesSettingsDropdown = () => {
               </div>
 
               <div className="flex flex-col justify-between gap-3 py-3 text-sm md:flex-row md:items-center">
-                <p className="opacity-60">
+                <p className="text-center opacity-60 sm:text-left">
                   Please allow up to 30 seconds for update to take effect.
                 </p>
                 <button className="rounded bg-primary px-4 py-2 text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary">
@@ -198,7 +198,7 @@ const PreferencesSettingsDropdown = () => {
               </div>
 
               <div className="flex flex-col justify-between gap-3 py-3 text-sm md:flex-row md:items-center">
-                <p className="opacity-60">
+                <p className="text-center opacity-60 sm:text-left">
                   Please allow up to 30 seconds for update to take effect.
                 </p>
                 <button className="rounded bg-primary px-4 py-2 text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary">
