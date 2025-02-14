@@ -20,15 +20,15 @@ const LeaderboardTable = () => {
     setIsClient(true);
   }, []);
 
+  if (!isClient) {
+    return null;
+  }
+
   const selectedLeaderboard = leaderboardData.find(
     (leaderboard) => leaderboard.set === activeCasinoLeaderboard,
   ) || { data: [] };
 
   const displayedRows = selectedLeaderboard.data.slice(0, rowsPerPage);
-
-  if (!isClient) {
-    return null;
-  }
 
   return (
     <>

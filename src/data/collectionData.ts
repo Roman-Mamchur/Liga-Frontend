@@ -5,209 +5,75 @@ import { RiPokerClubsFill } from "react-icons/ri";
 import { MdNewReleases } from "react-icons/md";
 
 interface Game {
-  category: string;
-  games: string[];
-  icon: React.ComponentType;
+  id: string;
+  name: string;
+  description: string;
+  tags: string[];
+  image: string;
+  onlinePlayers: number;
 }
 
-export const allGames: Game[] = [
+export interface Category {
+  category: string;
+  icon: React.ComponentType;
+  games: Game[];
+}
+
+const generateGames = (
+  category: string,
+  count: number,
+  tags: string[],
+): Game[] =>
+  Array.from({ length: count }, (_, i) => {
+    const gameName = `${category} Game ${i + 1}`;
+    const gameId = `${category.toLowerCase().replace(" ", "-")}-game-${i + 1}`;
+    return {
+      id: gameId,
+      name: gameName,
+      description: `Experience the thrill of ${gameName}.`,
+      tags,
+      image: `https://placehold.co/600x800.png?text=${encodeURIComponent(gameName)}&font=montserrat`,
+      onlinePlayers: Math.floor(Math.random() * 5000),
+    };
+  });
+
+export const allCasinoGames: Category[] = [
   {
     category: "Popular",
     icon: FaFire,
-    games: [
-      "Popular game 1",
-      "Popular game 2",
-      "Popular game 3",
-      "Popular game 4",
-      "Popular game 5",
-      "Popular game 6",
-      "Popular game 7",
-      "Popular game 8",
-      "Popular game 9",
-      "Popular game 10",
-      "Popular game 11",
-      "Popular game 12",
-      "Popular game 13",
-      "Popular game 14",
-      "Popular game 15",
-      "Popular game 16",
-      "Popular game 17",
-      "Popular game 18",
-      "Popular game 19",
-      "Popular game 20",
-      "Popular game 21",
-      "Popular game 22",
-    ],
+    games: generateGames("Popular", 22, ["top", "trending"]),
   },
   {
     category: "Slot Games",
     icon: PiNumberCircleSevenFill,
-    games: [
-      "Slot game 1",
-      "Slot game 2",
-      "Slot game 3",
-      "Slot game 4",
-      "Slot game 5",
-      "Slot game 6",
-      "Slot game 7",
-      "Slot game 8",
-      "Slot game 9",
-      "Slot game 10",
-      "Slot game 11",
-      "Slot game 12",
-      "Slot game 13",
-      "Slot game 14",
-      "Slot game 15",
-      "Slot game 16",
-      "Slot game 17",
-      "Slot game 18",
-      "Slot game 19",
-      "Slot game 20",
-      "Slot game 21",
-      "Slot game 22",
-    ],
+    games: generateGames("Slot", 15, ["slots", "jackpot"]),
   },
   {
     category: "Live Dealers",
     icon: IoMdBowtie,
-    games: [
-      "Live dealers 1",
-      "Live dealers 2",
-      "Live dealers 3",
-      "Live dealers 4",
-      "Live dealers 5",
-      "Live dealers 6",
-      "Live dealers 7",
-      "Live dealers 8",
-      "Live dealers 9",
-      "Live dealers 10",
-      "Live dealers 11",
-      "Live dealers 12",
-      "Live dealers 13",
-      "Live dealers 14",
-      "Live dealers 15",
-      "Live dealers 16",
-      "Live dealers 17",
-      "Live dealers 18",
-      "Live dealers 19",
-      "Live dealers 20",
-      "Live dealers 21",
-      "Live dealers 22",
-    ],
+    games: generateGames("Live Dealer", 10, ["live", "real-dealer"]),
   },
   {
     category: "Table Games",
     icon: RiPokerClubsFill,
-    games: [
-      "Table game 1",
-      "Table game 2",
-      "Table game 3",
-      "Table game 4",
-      "Table game 5",
-      "Table game 6",
-      "Table game 7",
-      "Table game 8",
-      "Table game 9",
-      "Table game 10",
-      "Table game 11",
-      "Table game 12",
-      "Table game 13",
-      "Table game 14",
-      "Table game 15",
-      "Table game 16",
-      "Table game 17",
-      "Table game 18",
-      "Table game 19",
-      "Table game 20",
-      "Table game 21",
-      "Table game 22",
-    ],
+    games: generateGames("Table", 12, ["blackjack", "poker"]),
   },
   {
     category: "Exclusives",
     icon: FaCrown,
-    games: [
-      "Exclusive game 1",
-      "Exclusive game 2",
-      "Exclusive game 3",
-      "Exclusive game 4",
-      "Exclusive game 5",
-      "Exclusive game 6",
-      "Exclusive game 7",
-      "Exclusive game 8",
-      "Exclusive game 9",
-      "Exclusive game 10",
-      "Exclusive game 11",
-      "Exclusive game 12",
-      "Exclusive game 13",
-      "Exclusive game 14",
-      "Exclusive game 15",
-      "Exclusive game 16",
-      "Exclusive game 17",
-      "Exclusive game 18",
-      "Exclusive game 19",
-      "Exclusive game 20",
-      "Exclusive game 21",
-      "Exclusive game 22",
-    ],
+    games: generateGames("Exclusive", 8, ["vip", "members-only"]),
   },
   {
     category: "New Releases",
     icon: MdNewReleases,
-    games: [
-      "New releases 1",
-      "New releases 2",
-      "New releases 3",
-      "New releases 4",
-      "New releases 5",
-      "New releases 6",
-      "New releases 7",
-      "New releases 8",
-      "New releases 9",
-      "New releases 10",
-      "New releases 11",
-      "New releases 12",
-      "New releases 13",
-      "New releases 14",
-      "New releases 15",
-      "New releases 16",
-      "New releases 17",
-      "New releases 18",
-      "New releases 19",
-      "New releases 20",
-      "New releases 21",
-      "New releases 22",
-    ],
+    games: generateGames("New Release", 10, ["new", "hot"]),
   },
 ];
 
-export const allSports: Game[] = [
+export const allSportsGames: Category[] = [
   {
     category: "Top Sports",
     icon: FaFire,
-    games: [
-      "Top sport 1",
-      "Top sport 2",
-      "Top sport 3",
-      "Top sport 4",
-      "Top sport 5",
-      "Top sport 6",
-      "Top sport 7",
-      "Top sport 8",
-      "Top sport 9",
-      "Top sport 10",
-      "Top sport 11",
-      "Top sport 12",
-      "Top sport 13",
-      "Top sport 14",
-      "Top sport 15",
-      "Top sport 16",
-      "Top sport 17",
-      "Top sport 18",
-      "Top sport 19",
-      "Top sport 20",
-      "Top sport 21",
-      "Top sport 22",
-    ],
+    games: generateGames("Top Sport", 10, ["trending", "popular"]),
   },
 ];

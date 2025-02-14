@@ -1,4 +1,5 @@
 import GeneralSettingsDropdown from "@/components/Dropdown/GeneralSettingsDropdown";
+import OfferSettingsDropdown from "@/components/Dropdown/OfferSettingsDropdown";
 import PreferencesSettingsDropdown from "@/components/Dropdown/PreferencesSettingsDropdown";
 import SecuritySettingsDropdown from "@/components/Dropdown/SecuritySettingsDropdown";
 import SessionSettingsDropdown from "@/components/Dropdown/SessionSettingsDropdown";
@@ -16,6 +17,7 @@ const ProfileSettingsPage = () => {
         <SecuritySettingsDropdown />
         <PreferencesSettingsDropdown />
         <SessionSettingsDropdown />
+        <OfferSettingsDropdown />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { allSports } from "@/data/collectionData";
+import { allSportsGames } from "@/data/collectionData";
 import CollectionSwiper from "../Swiper/CollectionSwiper";
 
 const SportList = () => {
@@ -8,9 +8,9 @@ const SportList = () => {
     <div className="flex">
       <div className="w-0 flex-1">
         <section>
-          {allSports.map((categoryData, categoryIndex) => (
+          {allSportsGames.map((categoryData) => (
             <CollectionSwiper
-              key={categoryIndex}
+              key={categoryData.category}
               categoryData={categoryData}
               showOnline={false}
               showCategoryLink={false}

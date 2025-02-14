@@ -58,7 +58,7 @@ const SecuritySettingsDropdown = () => {
       {isOpen && (
         <div className="flex flex-col gap-6 rounded-b bg-card p-6">
           {/* Password Section */}
-          <div className="rounded bg-white/50 px-6 py-3">
+          <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
               <div className="py-3">
                 <h3 className="text-xl font-bold opacity-80">Password</h3>
@@ -69,7 +69,10 @@ const SecuritySettingsDropdown = () => {
                 {[
                   { label: "Old Password", field: "old" as const },
                   { label: "New Password", field: "new" as const },
-                  { label: "Confirm New Password", field: "confirm" as const },
+                  {
+                    label: "Confirm New Password",
+                    field: "confirm" as const,
+                  },
                 ].map(({ label, field }) => (
                   <div key={field} className="flex flex-col gap-2">
                     <label className="text-sm">{label}</label>
@@ -96,10 +99,10 @@ const SecuritySettingsDropdown = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </form>
 
           {/* Two Factor Section */}
-          <div className="rounded bg-white/50 px-6 py-3">
+          <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
               <div className="flex flex-col gap-2 py-3">
                 <h3 className="text-xl font-bold opacity-80">Two Factor</h3>
@@ -177,7 +180,7 @@ const SecuritySettingsDropdown = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       )}
     </div>

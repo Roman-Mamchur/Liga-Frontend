@@ -42,7 +42,7 @@ const GeneralSettingsDropdown = () => {
       {isOpen && (
         <div className="flex flex-col gap-6 rounded-b bg-card p-6">
           {/* Email Section */}
-          <div className="rounded bg-white/50 px-6 py-3">
+          <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
               <div className="flex items-center gap-3 py-3">
                 <h3 className="text-xl font-bold opacity-80">Email</h3>
@@ -64,10 +64,10 @@ const GeneralSettingsDropdown = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </form>
 
           {/* Phone Number Section */}
-          <div className="rounded bg-white/50 px-6 py-3">
+          <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
               <div className="flex flex-col gap-2 py-3">
                 <h3 className="text-xl font-bold opacity-80">Phone Number</h3>
@@ -118,7 +118,7 @@ const GeneralSettingsDropdown = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       )}
     </div>

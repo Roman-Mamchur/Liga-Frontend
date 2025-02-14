@@ -5,13 +5,12 @@ import { SwiperNavButtons } from "./SwiperNavButtons";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store";
 import { setActiveCasinoGame } from "@/store/slices/categorySlice";
+import GameCard from "../Card/GameCard";
+import { Category } from "@/data/collectionData";
+import { usePathname } from "next/navigation";
 
 interface CollectionSwiperProps {
-  categoryData: {
-    icon: React.ComponentType;
-    category: string;
-    games: string[];
-  };
+  categoryData: Category;
   showOnline: boolean;
   showCategoryLink: boolean;
 }
@@ -43,6 +42,9 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
   const showPlaceholder =
     showCategoryLink && categoryData.games.length > maxDisplay;
 
+  const pathname = usePathname();
+  const currentCategory = pathname?.startsWith("/sports") ? "sports" : "casino";
+
   return (
     <>
       <div className="flex items-center justify-between">
@@ -62,36 +64,24 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
         className="my-2"
       >
         <div className="my-4 flex flex-nowrap gap-1 overflow-x-hidden md:gap-4">
-          {allGames.map((game, gameIndex) => (
-            <SwiperSlide key={gameIndex} className="min-w-36 flex-1 pt-2">
+          {allGames.map((game, index) => (
+            <SwiperSlide key={game.id} className="min-w-36 flex-1 pt-2">
               <div className="group relative">
-                <Image
-                  src={`https://placehold.co/600x800.png?text=${encodeURIComponent(
-                    game,
-                  )}&font=montserrat`}
-                  alt={game}
-                  width={150}
-                  height={200}
-                  priority={gameIndex === 0}
-                  className="relative rounded object-contain duration-300 ease-in-out hover:shadow-md group-hover:-translate-y-2"
+                <GameCard
+                  key={game.id}
+                  id={game.id}
+                  name={game.name}
+                  image={game.image}
+                  category={currentCategory}
+                  onlinePlayers={showOnline ? game.onlinePlayers : undefined}
+                  showOnline={true}
                 />
                 {!showCategoryLink && (
                   <div className="absolute left-0 top-10 flex w-8 items-center justify-center rounded-r bg-gradient-to-r from-primary to-secondary px-3 py-1 text-xs font-semibold tabular-nums text-white shadow-sm duration-300 group-hover:-translate-y-2">
-                    {gameIndex + 1}
+                    {index + 1}
                   </div>
                 )}
               </div>
-              {showOnline && (
-                <p className="mb-3 mt-1 flex items-center">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-green-600"></span>
-                  </span>
-                  <span className="ml-1 text-xs text-foreground opacity-60 md:ml-2 md:text-sm">
-                    1,413 playing
-                  </span>
-                </p>
-              )}
             </SwiperSlide>
           ))}
           {showPlaceholder && (

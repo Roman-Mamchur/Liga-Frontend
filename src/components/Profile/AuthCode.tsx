@@ -13,7 +13,7 @@ const AuthCode = ({ authCode }: AuthCodeProps) => {
     toast(
       <div className="flex items-center gap-2 font-semibold text-primary">
         <FaCopy />
-        <span>Referral link copied!</span>
+        <span>Authenticator code copied!</span>
       </div>,
       {
         className: "primary-toast",
