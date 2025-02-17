@@ -6,12 +6,9 @@ import {
   FaHeadset,
   FaMoneyBill,
   FaRightFromBracket,
-  FaTicket,
   FaUser,
-  FaVault,
   FaWallet,
 } from "react-icons/fa6";
-import { IoStatsChart } from "react-icons/io5";
 import { TbAffiliateFilled } from "react-icons/tb";
 
 export default function ProfileDropdown() {
@@ -48,15 +45,6 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="/vault"
-              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
-            >
-              <FaVault />
-              <span>Vault</span>
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
               href="/vip"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
@@ -75,16 +63,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="statistics"
-              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
-            >
-              <IoStatsChart />
-              <span>Statistics</span>
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
-              href="/transactions"
+              href="/profile/history"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaMoneyBill />
@@ -93,16 +72,7 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <Link
-              href="/bets"
-              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
-            >
-              <FaTicket />
-              <span>My Bets</span>
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
-              href="/settings"
+              href="/profile/settings"
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
             >
               <FaGear />
@@ -121,7 +91,7 @@ export default function ProfileDropdown() {
           <MenuItem>
             <Link
               href="/logout"
-              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
+              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-red-500 duration-200 hover:bg-black/10"
             >
               <FaRightFromBracket />
               <span>Logout</span>

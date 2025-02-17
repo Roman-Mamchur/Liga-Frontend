@@ -133,7 +133,7 @@ const CashbackTable = () => {
           <div className="flex justify-end">
             <div className="my-4 w-fit rounded bg-card p-2">
               <span className="text-sm font-semibold opacity-80">
-                Total Rebate:{" "}
+                Total Cashback:{" "}
                 {filteredRows.length > 0
                   ? filteredRows.reduce((acc, row) => acc + row.amount, 0)
                   : sortedRows.reduce((acc, row) => acc + row.amount, 0)}
