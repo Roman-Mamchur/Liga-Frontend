@@ -52,8 +52,8 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
 
   return (
     <div className="flex">
-      <div className="mt-4 w-0 flex-1 overflow-x-auto">
-        <div className="mb-2 w-max rounded-full bg-gradient-to-r from-primary to-secondary p-2 text-sm font-medium text-white">
+      <div className="w-0 flex-1 overflow-x-auto py-1">
+        <div className="w-max rounded-full bg-gradient-to-r from-primary to-secondary p-2 text-sm font-medium text-white">
           <div className="flex gap-3">
             {items.map((item) => (
               <div

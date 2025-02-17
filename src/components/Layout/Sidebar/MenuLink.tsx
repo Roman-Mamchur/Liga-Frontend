@@ -35,7 +35,7 @@ const MenuLink = ({
   const isActive = link.href && pathname.startsWith(link.href);
 
   return (
-    <div className="mb-2">
+    <div className="mb-2 text-nowrap">
       {link.type === "dropdown" ? (
         <>
           <button
@@ -48,7 +48,7 @@ const MenuLink = ({
             <div
               className={`flex items-center gap-3 font-medium ${!isExpanded ? "w-full justify-center" : ""}`}
             >
-              {link.icon}
+              <span>{link.icon}</span>
               {isExpanded && <span>{link.label}</span>}
             </div>
             {isExpanded &&
@@ -92,12 +92,8 @@ const MenuLink = ({
             <div
               className={`flex items-center gap-3 font-medium ${!isExpanded ? "w-full justify-center" : ""}`}
             >
-              {link.icon}
-              {isExpanded && (
-                <span className="text-nowrap">
-                  Language: {selectedLanguage}
-                </span>
-              )}
+              <span>{link.icon}</span>
+              {isExpanded && <span>Language: {selectedLanguage}</span>}
             </div>
             {isExpanded &&
               (submenuOpen === link.name ? (
@@ -143,7 +139,7 @@ const MenuLink = ({
           href={link.href || "#"}
           className={`flex w-full items-center gap-3 rounded p-2 duration-200 hover:bg-white/20 ${isExpanded ? "" : "md:justify-center"} ${isActive ? "bg-white/40" : ""}`}
         >
-          {link.icon}
+          <span>{link.icon}</span>
           {isExpanded && <span>{link.label}</span>}
         </Link>
       )}

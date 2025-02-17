@@ -8,6 +8,7 @@ import { setActiveCasinoGame } from "@/store/slices/categorySlice";
 import GameCard from "../Card/GameCard";
 import { Category } from "@/data/collectionData";
 import { usePathname } from "next/navigation";
+import "swiper/css";
 
 interface CollectionSwiperProps {
   categoryData: Category;

@@ -22,7 +22,9 @@ const SportsPage = () => {
             <div className="hidden md:block">
               <SearchBar triggerType="page" />
             </div>
-            <SelectorMenu display="both" type="sports" />
+            <div className="mt-4">
+              <SelectorMenu display="both" type="sports" />
+            </div>
           </section>
           <section className="mt-8">
             <SportList />

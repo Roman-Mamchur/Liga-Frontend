@@ -51,7 +51,7 @@ export default function NotificationDropdown() {
                   className={`block p-4 text-sm transition ${
                     notification.seen
                       ? "text-gray-800 hover:bg-gray-100"
-                      : "font-semibold text-primary hover:bg-orange-100"
+                      : "font-semibold text-primary hover:bg-accentOpacity"
                   }`}
                 >
                   <div className="flex items-center gap-1">
