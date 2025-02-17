@@ -10,9 +10,9 @@ interface MenuLinkProps {
     name: string;
     label?: string;
     type: "dropdown" | "radio" | "link" | string;
-    icon?: JSX.Element;
+    icon: JSX.Element;
     href?: string;
-    items?: Array<string | { name: string; href?: string }>;
+    items?: Array<string | { name: string; href: string }>;
   };
   isExpanded: boolean;
   submenuOpen: string | null;
@@ -63,14 +63,14 @@ const MenuLink = ({
               {link.items?.map((item) => (
                 <div
                   key={typeof item === "object" ? item.name : item}
-                  className="p-2 duration-200 hover:bg-white/20"
+                  className={`p-2 duration-200 hover:bg-white/20 ${typeof item === "object" && pathname === item.href ? "bg-white/40" : ""}`}
                 >
                   {typeof item === "string" ? (
                     item
                   ) : (
                     <Link
                       href={item.href || "#"}
-                      className={`flex items-center gap-3 ${pathname === item.href ? "bg-white/40" : ""}`}
+                      className="flex items-center gap-3"
                     >
                       {item.name}
                     </Link>
