@@ -4,7 +4,10 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { SwiperNavButtons } from "./SwiperNavButtons";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store";
-import { setActiveCasinoGame } from "@/store/slices/categorySlice";
+import {
+  setActiveCasinoGame,
+  setActiveSportsGame,
+} from "@/store/slices/categorySlice";
 import GameCard from "../Card/GameCard";
 import { Category } from "@/data/collectionData";
 import { usePathname } from "next/navigation";
@@ -15,12 +18,14 @@ interface CollectionSwiperProps {
   categoryData: Category;
   showOnline: boolean;
   showCategoryLink: boolean;
+  showIndex?: boolean;
 }
 
 const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
   categoryData,
   showOnline,
   showCategoryLink,
+  showIndex = false,
 }) => {
   const [swiperRefs, setSwiperRefs] = useState<
     Record<string, SwiperClass | null>
@@ -36,6 +41,7 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
 
   const handleCategoryClick = (category: string) => {
     dispatch(setActiveCasinoGame(category));
+    dispatch(setActiveSportsGame(category));
   };
 
   const maxDisplay = 20;
@@ -64,7 +70,7 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
         slidesPerView="auto"
         spaceBetween={8}
         slidesPerGroupAuto={true}
-        className="my-2"
+        className="mb-8 mt-2"
       >
         <div className="my-4 flex flex-nowrap gap-1 overflow-x-hidden md:gap-4">
           {!isSwiperReady
@@ -87,7 +93,7 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
                       }
                       showOnline={true}
                     />
-                    {!showCategoryLink && (
+                    {showIndex && (
                       <div className="absolute left-0 top-10 flex w-8 items-center justify-center rounded-r bg-gradient-to-r from-primary to-secondary px-3 py-1 text-xs font-semibold tabular-nums text-white shadow-sm duration-300 group-hover:-translate-y-2">
                         {index + 1}
                       </div>

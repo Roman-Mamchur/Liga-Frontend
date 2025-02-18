@@ -1,15 +1,23 @@
 "use client";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { allCasinoGames } from "@/data/collectionData";
 import GameCard from "../Card/GameCard";
 import CollectionSwiper from "../Swiper/CollectionSwiper";
+import { useEffect } from "react";
+import { resetCasinoGame } from "@/store/slices/categorySlice";
 
 const GameList: React.FC = () => {
   const activeCasinoGame = useSelector(
     (state: RootState) => state.category.activeCasinoGame,
   );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetCasinoGame());
+  }, [dispatch]);
 
   return (
     <div className="flex">

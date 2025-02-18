@@ -1,15 +1,9 @@
-import {
-  FaNetworkWired,
-  FaFire,
-  FaCrown,
-  FaReceipt,
-  FaStar,
-} from "react-icons/fa6";
+import { FaNetworkWired, FaFire, FaCrown } from "react-icons/fa6";
 import { PiNumberCircleSevenFill } from "react-icons/pi";
 import { IoMdBowtie } from "react-icons/io";
 import { RiPokerClubsFill } from "react-icons/ri";
-import { MdNewReleases } from "react-icons/md";
-import { IoTimer } from "react-icons/io5";
+import { MdNewReleases, MdSportsEsports } from "react-icons/md";
+import { IoBasketball, IoFootball, IoTennisball } from "react-icons/io5";
 
 export const casinoCategories = [
   { label: "Lobby", icon: FaNetworkWired },
@@ -30,9 +24,11 @@ export const casinoLeaderboards = [
 
 export const sportsCategories = [
   { label: "Lobby", icon: FaNetworkWired },
-  { label: "My Bets", icon: FaReceipt },
-  { label: "Favorites", icon: FaStar },
-  { label: "Starting Soon", icon: IoTimer },
+  { label: "Top Sports", icon: FaFire },
+  { label: "Tennis", icon: IoTennisball },
+  { label: "Soccer", icon: IoFootball },
+  { label: "Basketball", icon: IoBasketball },
+  { label: "Esports", icon: MdSportsEsports },
 ];
 
 export const faqCategories = [

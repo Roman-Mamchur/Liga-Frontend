@@ -8,10 +8,13 @@ import { FaSearch } from "react-icons/fa";
 import ProfileDropdown from "../Dropdown/ProfileDropdown";
 import NotificationDropdown from "../Dropdown/NotificationDropdown";
 import SearchBar from "../Search/SearchBar";
+import { useDispatch } from "react-redux";
+import { openModal } from "@/store/slices/authModalSlice";
 
 const Header = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const mockLogin = true;
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -58,10 +61,16 @@ const Header = () => {
             </>
           ) : (
             <div className="flex items-center space-x-4 text-xs font-bold md:text-sm">
-              <button className="rounded-md border-2 border-foreground p-2 transition-transform duration-200 hover:scale-105 md:px-6 md:py-2">
+              <button
+                onClick={() => dispatch(openModal("login"))}
+                className="rounded border-2 border-foreground p-2 transition-transform duration-200 hover:scale-105 md:px-6 md:py-2"
+              >
                 Sign in
               </button>
-              <button className="rounded-md border-2 border-primary bg-primary p-2 text-white transition-transform duration-200 hover:scale-105 md:px-6 md:py-2">
+              <button
+                onClick={() => dispatch(openModal("register"))}
+                className="rounded border-2 border-primary bg-primary p-2 text-white transition-transform duration-200 hover:scale-105 md:px-6 md:py-2"
+              >
                 Register
               </button>
             </div>

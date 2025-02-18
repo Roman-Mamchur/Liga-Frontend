@@ -1,16 +1,9 @@
 "use client";
 
+import { countryCodes } from "@/data/countryCodeData";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { MdTune } from "react-icons/md";
-
-const countryCodes = [
-  { code: "+1", country: "United States" },
-  { code: "+44", country: "United Kingdom" },
-  { code: "+60", country: "Malaysia" },
-  { code: "+61", country: "Australia" },
-  { code: "+91", country: "India" },
-];
 
 const GeneralSettingsDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);

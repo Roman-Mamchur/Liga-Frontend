@@ -2,7 +2,8 @@ import { FaFire, FaCrown } from "react-icons/fa6";
 import { PiNumberCircleSevenFill } from "react-icons/pi";
 import { IoMdBowtie } from "react-icons/io";
 import { RiPokerClubsFill } from "react-icons/ri";
-import { MdNewReleases } from "react-icons/md";
+import { MdNewReleases, MdSportsEsports } from "react-icons/md";
+import { IoBasketball, IoFootball, IoTennisball } from "react-icons/io5";
 
 interface Game {
   id: string;
@@ -75,5 +76,25 @@ export const allSportsGames: Category[] = [
     category: "Top Sports",
     icon: FaFire,
     games: generateGames("Top Sport", 10, ["trending", "popular"]),
+  },
+  {
+    category: "Tennis",
+    icon: IoTennisball,
+    games: generateGames("Tennis", 15, ["tennis", "grand-slam"]),
+  },
+  {
+    category: "Soccer",
+    icon: IoFootball,
+    games: generateGames("Soccer", 25, ["soccer", "football"]),
+  },
+  {
+    category: "Basketball",
+    icon: IoBasketball,
+    games: generateGames("Basketball", 14, ["basketball", "nba"]),
+  },
+  {
+    category: "Esports",
+    icon: MdSportsEsports,
+    games: generateGames("Esports", 30, ["esports", "gaming"]),
   },
 ];

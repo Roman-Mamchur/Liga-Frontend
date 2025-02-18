@@ -6,6 +6,7 @@ import {
   setActiveCasinoGame,
   setActiveCasinoLeaderboard,
   setActiveFaqGroup,
+  setActiveSportsGame,
 } from "@/store/slices/categorySlice";
 import {
   casinoCategories,
@@ -23,6 +24,9 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
   const activeCasinoGame = useSelector(
     (state: RootState) => state.category.activeCasinoGame,
   );
+  const activeSportsGame = useSelector(
+    (state: RootState) => state.category.activeSportsGame,
+  );
   const activeCasinoLeaderboard = useSelector(
     (state: RootState) => state.category.activeCasinoLeaderboard,
   );
@@ -34,6 +38,8 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
   const handleCategoryClick = (category: string) => {
     if (type === "casino") {
       dispatch(setActiveCasinoGame(category));
+    } else if (type === "sports") {
+      dispatch(setActiveSportsGame(category));
     } else if (type === "leaderboards") {
       dispatch(setActiveCasinoLeaderboard(category));
     } else if (type === "faq") {
@@ -43,8 +49,8 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
 
   const categoryMap = {
     casino: casinoCategories,
-    leaderboards: casinoLeaderboards,
     sports: sportsCategories,
+    leaderboards: casinoLeaderboards,
     faq: faqCategories,
   };
 
@@ -61,6 +67,7 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
                 onClick={() => handleCategoryClick(item.label)}
                 className={`flex cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2 duration-200 hover:scale-105 hover:bg-white/30 ${
                   (type === "casino" && activeCasinoGame === item.label) ||
+                  (type === "sports" && activeSportsGame === item.label) ||
                   (type === "leaderboards" &&
                     activeCasinoLeaderboard === item.label) ||
                   (type === "faq" && activeFaqGroup === item.label)
