@@ -23,7 +23,12 @@ export default function Home() {
             <SearchBar triggerType="page" />
           </div>
           <div className="mt-4">
-            <SelectorMenu display="both" type="casino" />
+            <div className="hidden md:block">
+              <SelectorMenu display="both" type="casino" />
+            </div>
+            <div className="block md:hidden">
+              <SelectorMenu display="icon" type="casino" />
+            </div>
           </div>
         </section>
         <section className="mt-8">

@@ -109,7 +109,7 @@ export const links = [
         name: "language",
         type: "radio",
         icon: MdLanguage({ size: 20 }),
-        items: ["English", "Chinese", "Japanese", "Korean"],
+        items: ["English", "French"],
       },
     ],
   },
