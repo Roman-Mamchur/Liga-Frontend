@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
 import { GiPokerHand } from "react-icons/gi";
 import { MdSportsBasketball } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";

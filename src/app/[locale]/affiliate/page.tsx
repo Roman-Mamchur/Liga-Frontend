@@ -3,7 +3,7 @@ import AffiliateStats from "@/components/Affiliate/AffiliateStats";
 import FaqSection from "@/components/Affiliate/FaqSection";
 import ReferralLink from "@/components/Affiliate/ReferralLink";
 import RulesSection from "@/components/Affiliate/RulesSection";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { FaArrowRight } from "react-icons/fa6";
 
 const AffiliateOverviewPage = () => {

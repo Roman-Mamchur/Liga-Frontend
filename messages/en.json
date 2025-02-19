@@ -1,5 +1,11 @@
 {
-  "Test": {
-    "test": "Text for Translation"
+  "LocaleSwitcher": {
+    "label": "Language",
+    "locale": "{locale, select, en {English} fr {Français} other {Unknown}}"
+  },
+  "NotFoundPage": {
+    "message": "404 - Page Not Found",
+    "description": "Sorry, the page you're looking for doesn't exist.",
+    "link": "Go Back Home"
   }
 }

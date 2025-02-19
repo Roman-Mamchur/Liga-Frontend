@@ -1,6 +1,6 @@
 import { FaChevronRight, FaGift } from "react-icons/fa6";
 import GiftIcon from "./GiftIcon";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 const ProfilePromotions = () => {
   return (

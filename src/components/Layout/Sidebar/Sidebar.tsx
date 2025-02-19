@@ -5,23 +5,19 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { links } from "@/data/sidebarData";
 import { GiPokerHand } from "react-icons/gi";
 import { MdSportsBasketball } from "react-icons/md";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import SearchBar from "../../Search/SearchBar";
 import MenuLink from "./MenuLink";
 import MobileSidebar from "./MobileSidebar";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState<string | null>(null);
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("English");
   const [searchMenuOpen, setSearchMenuOpen] = useState(false);
 
   const toggleSubmenu = (item: string) => {
     setSubmenuOpen((prev) => (prev === item ? null : item));
-  };
-
-  const handleLanguageChange = (language: string) => {
-    setSelectedLanguage(language);
   };
 
   const toggleSearchMenu = () => {
@@ -98,8 +94,6 @@ const Sidebar = () => {
                   isExpanded={isExpanded}
                   submenuOpen={submenuOpen}
                   toggleSubmenu={toggleSubmenu}
-                  selectedLanguage={selectedLanguage}
-                  handleLanguageChange={handleLanguageChange}
                   setIsExpanded={setIsExpanded}
                 />
               ))}
@@ -108,6 +102,10 @@ const Sidebar = () => {
               )}
             </div>
           ))}
+          <LocaleSwitcher
+            isExpanded={isExpanded}
+            setIsExpanded={setIsExpanded}
+          />
         </nav>
       </div>
 
@@ -133,8 +131,6 @@ const Sidebar = () => {
                       isExpanded={true}
                       submenuOpen={submenuOpen}
                       toggleSubmenu={toggleSubmenu}
-                      selectedLanguage={selectedLanguage}
-                      handleLanguageChange={handleLanguageChange}
                       setIsExpanded={setIsExpanded}
                     />
                   ))}

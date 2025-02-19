@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
 
 interface SidebarNavProps {
   navItems: Array<{ name: string; path: string }>;
@@ -18,7 +17,7 @@ const SidebarNav = ({ navItems }: SidebarNavProps) => {
             <li
               className={`border-l-[3px] px-4 py-2 duration-200 ${
                 pathname === item.path
-                  ? "bg-accentOpacity border-primary"
+                  ? "border-primary bg-accentOpacity"
                   : "border-transparent hover:bg-black/10"
               }`}
             >

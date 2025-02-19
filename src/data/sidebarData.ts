@@ -1,5 +1,5 @@
 import { FaBasketballBall, FaGift } from "react-icons/fa";
-import { MdCasino, MdLanguage } from "react-icons/md";
+import { MdCasino } from "react-icons/md";
 import { GiChicken, GiReceiveMoney } from "react-icons/gi";
 import { GoGoal } from "react-icons/go";
 import { FaHandshakeSimple } from "react-icons/fa6";
@@ -104,12 +104,6 @@ export const links = [
         icon: BiSupport({ size: 20 }),
         label: "Live Support",
         href: "/support",
-      },
-      {
-        name: "language",
-        type: "radio",
-        icon: MdLanguage({ size: 20 }),
-        items: ["English", "French"],
       },
     ],
   },

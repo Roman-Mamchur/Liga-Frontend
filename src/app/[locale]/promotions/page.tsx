@@ -3,7 +3,7 @@ import HeroBanner from "@/components/Layout/HeroBanner";
 import { promotions } from "@/data/promotionData";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { FaChevronRight } from "react-icons/fa6";
 
 export const metadata: Metadata = {

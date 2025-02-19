@@ -10,7 +10,7 @@ import {
 } from "@/store/slices/categorySlice";
 import GameCard from "../Card/GameCard";
 import { Category } from "@/data/collectionData";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/routing";
 import "swiper/css";
 import GameCardSkeleton from "../Skeleton/GameCardSkeleton";
 

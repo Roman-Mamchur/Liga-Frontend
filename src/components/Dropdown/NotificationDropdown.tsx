@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { BsMegaphone } from "react-icons/bs";
 import { FaBell, FaRegBell, FaXmark } from "react-icons/fa6";
 import { useRef } from "react";

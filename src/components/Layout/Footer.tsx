@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { links } from "@/data/footerData";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { FaLine, FaTelegram } from "react-icons/fa6";
 import { IoLogoWechat } from "react-icons/io5";
 import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
