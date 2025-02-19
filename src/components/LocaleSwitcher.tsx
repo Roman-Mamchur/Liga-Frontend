@@ -11,9 +11,14 @@ import { useParams } from "next/navigation";
 interface LocaleSwitcherProps {
   isExpanded: boolean;
   setIsExpanded: (expanded: boolean) => void;
+  device: "desktop" | "mobile";
 }
 
-const LocaleSwitcher = ({ isExpanded, setIsExpanded }: LocaleSwitcherProps) => {
+const LocaleSwitcher = ({
+  isExpanded,
+  setIsExpanded,
+  device,
+}: LocaleSwitcherProps) => {
   const t = useTranslations("LocaleSwitcher");
   const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
@@ -46,26 +51,26 @@ const LocaleSwitcher = ({ isExpanded, setIsExpanded }: LocaleSwitcherProps) => {
   }
 
   return (
-    <div className="relative w-full text-nowrap">
+    <div className="w-full text-nowrap">
       <button
         onClick={toggleDropdown}
         className={`flex w-full items-center justify-between rounded p-2 duration-200 hover:bg-white/20 ${
-          isExpanded ? "" : "md:justify-center"
+          device === "mobile" || isExpanded ? "" : "md:justify-center"
         } ${isOpen && isExpanded ? "bg-white/10" : ""}`}
       >
         <div className="flex items-center gap-3">
           <MdLanguage className="size-5" />
-          {isExpanded && (
+          {(device === "mobile" || isExpanded) && (
             <span>
               {t("label")}: {t("locale", { locale })}
             </span>
           )}
         </div>
-        {isExpanded &&
+        {(isExpanded || device === "mobile") &&
           (isOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />)}
       </button>
       {isOpen && isExpanded && (
-        <div className="absolute left-0 mt-2 w-full rounded bg-white/10 py-1">
+        <div className="mt-2 w-full rounded bg-white/10 py-1">
           {routing.locales.map((current) => (
             <button
               key={current}
