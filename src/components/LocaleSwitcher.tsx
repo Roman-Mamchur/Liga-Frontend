@@ -39,7 +39,8 @@ const LocaleSwitcher = ({ isExpanded, setIsExpanded }: LocaleSwitcherProps) => {
   function changeLocale(nextLocale: string) {
     setPendingLocale(nextLocale);
     startTransition(() => {
-      router.replace({ pathname, query: params }, { locale: nextLocale });
+      // @ts-expect-error to suppress the TypeScript error in the router.replace() method
+      router.replace({ pathname, params }, { locale: nextLocale });
       setPendingLocale(null);
     });
   }
