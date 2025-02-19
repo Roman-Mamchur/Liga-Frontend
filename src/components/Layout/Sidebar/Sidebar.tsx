@@ -10,11 +10,14 @@ import SearchBar from "../../Search/SearchBar";
 import MenuLink from "./MenuLink";
 import MobileSidebar from "./MobileSidebar";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { useTranslations } from "next-intl";
 
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState<string | null>(null);
   const [searchMenuOpen, setSearchMenuOpen] = useState(false);
+
+  const t = useTranslations("Sidebar");
 
   const toggleSubmenu = (item: string) => {
     setSubmenuOpen((prev) => (prev === item ? null : item));
@@ -39,13 +42,13 @@ const Sidebar = () => {
                 href="/"
                 className="rounded border border-stroke bg-primary px-3 py-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
               >
-                Casino
+                {t("casinoButton")}
               </Link>
               <Link
                 href="/sports"
                 className="rounded border border-stroke bg-primary px-3 py-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
               >
-                Sports
+                {t("sportsButton")}
               </Link>
             </div>
           ) : (

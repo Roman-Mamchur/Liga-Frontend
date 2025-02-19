@@ -5,6 +5,7 @@ import { Link, usePathname } from "@/i18n/routing";
 import { GiPokerHand } from "react-icons/gi";
 import { MdSportsBasketball } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
+import { useTranslations } from "next-intl";
 
 interface MobileSidebarProps {
   toggleSearchMenu: () => void;
@@ -17,6 +18,8 @@ const MobileSidebar = ({
   setSearchMenuOpen,
 }: MobileSidebarProps) => {
   const pathname = usePathname();
+
+  const t = useTranslations("Sidebar");
 
   useEffect(() => {
     setSearchMenuOpen(false);
@@ -31,7 +34,7 @@ const MobileSidebar = ({
         }`}
       >
         <GiPokerHand size={24} />
-        <span className="text-xs">Casino</span>
+        <span className="text-xs">{t("casinoButton")}</span>
       </Link>
 
       <button
@@ -39,7 +42,7 @@ const MobileSidebar = ({
         className="flex h-full w-full flex-col items-center justify-center p-2 transition duration-200 hover:bg-white/20"
       >
         <IoSearch size={24} />
-        <span className="text-xs">Search</span>
+        <span className="text-xs">{t("search")}</span>
       </button>
 
       <Link
@@ -49,7 +52,7 @@ const MobileSidebar = ({
         }`}
       >
         <MdSportsBasketball size={24} />
-        <span className="text-xs">Sports</span>
+        <span className="text-xs">{t("sportsButton")}</span>
       </Link>
     </nav>
   );

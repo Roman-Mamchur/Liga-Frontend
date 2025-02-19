@@ -3,6 +3,7 @@
 import { JSX } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 import { Link, usePathname } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 interface MenuLinkProps {
   link: {
@@ -26,6 +27,7 @@ const MenuLink = ({
   toggleSubmenu,
   setIsExpanded,
 }: MenuLinkProps) => {
+  const t = useTranslations();
   const pathname = usePathname();
   const isActive = link.href && pathname.startsWith(link.href);
 
@@ -44,7 +46,7 @@ const MenuLink = ({
               className={`flex items-center gap-3 ${!isExpanded ? "w-full justify-center" : ""}`}
             >
               <span>{link.icon}</span>
-              {isExpanded && <span>{link.label}</span>}
+              {isExpanded && <span>{t(link.label)}</span>}
             </div>
             {isExpanded &&
               (submenuOpen === link.name ? (
@@ -81,7 +83,7 @@ const MenuLink = ({
           className={`flex w-full items-center gap-3 rounded p-2 duration-200 hover:bg-white/20 ${isExpanded ? "" : "md:justify-center"} ${isActive ? "bg-white/40" : ""}`}
         >
           <span>{link.icon}</span>
-          {isExpanded && <span>{link.label}</span>}
+          {isExpanded && <span>{t(link.label)}</span>}
         </Link>
       )}
     </div>

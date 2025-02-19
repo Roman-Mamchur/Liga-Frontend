@@ -7,5 +7,25 @@
     "message": "404 - Page non trouvée",
     "description": "Désolé, la page que vous recherchez n'existe pas.",
     "link": "Retour à l'accueil"
+  },
+  "Sidebar": {
+    "casinoButton": "Casino",
+    "sportsButton": "Sports",
+    "search": "Rechercher",
+    "searchPlaceholder": "Recherchez votre jeu ou sport",
+    "casino": "Casino",
+    "sports": "Sports",
+    "cockfight": "Combat de coqs",
+    "lottery": "Loterie",
+    "promotions": "Promotions",
+    "rewards": "Récompenses",
+    "affiliate": "Affilié",
+    "vip": "Club VIP",
+    "sponsorships": "Sponsoring",
+    "support": "Support en direct"
+  },
+  "SearchBar": {
+    "search": "Rechercher",
+    "searchPlaceholder": "Recherchez votre jeu ou sport"
   }
 }

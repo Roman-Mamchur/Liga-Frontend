@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import SearchResults from "./SearchResults";
+import { useTranslations } from "next-intl";
 
 interface SearchBarProps {
   triggerType: "header" | "page" | "mobile";
@@ -15,6 +16,8 @@ const SearchBar = ({ triggerType, onClose }: SearchBarProps) => {
   const [isActive, setIsActive] = useState(triggerType === "header");
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const t = useTranslations("SearchBar");
 
   // Handle outside click
   const handleOutsideClick = (event: MouseEvent) => {
@@ -86,7 +89,7 @@ const SearchBar = ({ triggerType, onClose }: SearchBarProps) => {
               value={searchTerm}
               onFocus={() => setIsActive(true)}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search your game or sports"
+              placeholder={t("searchPlaceholder")}
               className="w-full rounded-full px-10 py-2 ring-2 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
             />
             {isActive && (
