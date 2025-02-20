@@ -22,7 +22,7 @@ const VipTable: React.FC<VipTableProps> = ({ title, tiers, data }) => (
             {tiers.map((tier) => (
               <th key={tier} className="px-4 py-2">
                 <div className="flex items-center justify-center">
-                  <span className="hidden font-medium opacity-60 md:block">
+                  <span className="hidden font-medium capitalize opacity-60 md:block">
                     {tier}
                   </span>
                   <MedalIcon className={`size-7 ${getTextColorClass(tier)}`} />

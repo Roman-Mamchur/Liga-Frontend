@@ -1,35 +1,23 @@
-import {
-  vipBenefitsInfo,
-  vipRebatesInfo,
-  vipLevelUpRequirementsInfo,
-  vipRetentionRequirementsInfo,
-  tiers,
-} from "@/data/vipData";
+import { useTranslations } from "next-intl";
 import VipTable from "./VipTable";
+import { vipTables, tiers } from "@/data/vipData";
 
 const VipTableSection = () => {
+  const t = useTranslations("VipPage.Tables");
+
   return (
     <section className="flex flex-col gap-12">
-      <VipTable
-        title="VIP Benefits"
-        tiers={tiers}
-        data={vipBenefitsInfo.data}
-      />
-      <VipTable
-        title="Daily Cash Rebate"
-        tiers={tiers}
-        data={vipRebatesInfo.data}
-      />
-      <VipTable
-        title="Level Up Requirements"
-        tiers={tiers}
-        data={vipLevelUpRequirementsInfo.data}
-      />
-      <VipTable
-        title="Monthly Tier Retention Requirements"
-        tiers={tiers}
-        data={vipRetentionRequirementsInfo.data}
-      />
+      {vipTables.map((table) => (
+        <VipTable
+          key={table.key}
+          title={t(`${table.key}.label`)}
+          tiers={tiers}
+          data={table.dataKeys.map((key) => ({
+            name: t(`${table.key}.data.${key}.name`),
+            values: t.raw(`${table.key}.data.${key}.values`) as string[],
+          }))}
+        />
+      ))}
     </section>
   );
 };

@@ -3,6 +3,7 @@ import BenefitsSection from "@/components/Vip/BenefitsSection";
 import VipCardsSection from "@/components/Vip/VipCardsSection";
 import VipTableSection from "@/components/Vip/VipTableSection";
 import { Metadata } from "next";
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
   title: "VIP Casino Rewards & Exclusive Perks - FaFa878",
@@ -11,9 +12,11 @@ export const metadata: Metadata = {
 };
 
 const VipPage = () => {
+  const t = useTranslations("VipPage");
+
   return (
     <>
-      <HeroBanner title="VIP Club" />
+      <HeroBanner title={t("hero")} />
       <div className="container my-8">
         <div className="flex flex-col gap-10">
           {/* VIP Ranking Cards Section */}

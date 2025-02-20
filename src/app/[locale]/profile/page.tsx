@@ -2,6 +2,7 @@ import ProfilePromotions from "@/components/Profile/ProfilePromotions";
 import ProfileStatsSection from "@/components/Profile/ProfileStatsSection";
 import ProfileTotalBets from "@/components/Profile/ProfileTotalBets";
 import ProfileWalletSection from "@/components/Profile/ProfileWalletSection";
+
 const ProfileOverviewPage = () => {
   return (
     <div className="flex flex-col gap-10">

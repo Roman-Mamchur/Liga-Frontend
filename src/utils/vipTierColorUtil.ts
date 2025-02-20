@@ -16,7 +16,7 @@ export const getBgColorClass = (tier: string) => {
     silver: "bg-silver text-foreground",
     gold: "bg-gold text-foreground",
     platinum: "bg-platinum text-foreground",
-    black: "bg-dark",
+    black: "bg-dark text-white",
   };
 
   return colors[tier.toLowerCase()] || "bg-transparent";

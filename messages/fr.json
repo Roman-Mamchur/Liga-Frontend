@@ -116,5 +116,228 @@
   "SearchBar": {
     "search": "Rechercher",
     "searchPlaceholder": "Recherchez votre jeu ou sport"
+  },
+  "ProfilePage": {
+    "Layout": {
+      "hero": "Profil",
+      "overview": "Aperçu",
+      "history": "Historique",
+      "rebate": "Remise",
+      "cashback": "Cashback",
+      "totalBets": "Mises Totales",
+      "redeems": "Échanges",
+      "points": "Points",
+      "messages": "Messages",
+      "settings": "Paramètres"
+    },
+    "Overview": {
+      "Stats": {
+        "label": "Statistiques",
+        "joined": "Inscrit le",
+        "upgrade": "Améliorer VIP",
+        "currentPoint": "Points Actuels",
+        "maxTierReached": "Niveau Max Atteint"
+      },
+      "Wallet": {
+        "label": "Portefeuille",
+        "yourWallet": "Votre Portefeuille",
+        "rebateBalance": "Solde de Remise",
+        "cashbackBalance": "Solde de Cashback",
+        "referralBalance": "Solde de Parrainage"
+      },
+      "TotalBets": {
+        "label": "Mises Totales",
+        "depositTurnover": "Roulement des Dépôts",
+        "totalBets": "Mises Totales",
+        "totalWins": "Gains Totaux"
+      },
+      "Promotions": {
+        "label": "Mes Promotions",
+        "cashback": "Cashback",
+        "rebate": "Remise"
+      }
+    }
+  },
+  "VipInfo": {
+    "Tiers": {
+      "bronze": "Bronze",
+      "silver": "Argent",
+      "gold": "Or",
+      "platinum": "Platine",
+      "black": "Noir"
+    },
+    "Benefits": {
+      "upgradeBonus": "Bonus de Mise à Niveau",
+      "dailyWithdrawAmount": "Montant de Retrait Quotidien",
+      "dailyWithdrawLimit": "Limite de Retrait Quotidien",
+      "birthdayBonus": "Bonus d'Anniversaire",
+      "weeklyRescueBonus": "Bonus de Sauvetage Hebdomadaire",
+      "referralFriendBonus": "Bonus de Parrainage",
+      "festivalCash": "Cash de Festival",
+      "specialBirthdayGift": "Cadeau d'Anniversaire Spécial",
+      "Details": {
+        "bronze": {
+          "amount": "30 000 $",
+          "upgradeBonus": "128",
+          "dailyWithdrawLimit": "5",
+          "birthdayBonus": "188",
+          "weeklyRescueBonus": "888",
+          "referralFriendBonus": "Disponible",
+          "festivalCash": "50",
+          "specialBirthdayGift": "Oui"
+        },
+        "silver": {
+          "amount": "50 000 $",
+          "upgradeBonus": "288",
+          "dailyWithdrawLimit": "10",
+          "birthdayBonus": "388",
+          "weeklyRescueBonus": "1 888",
+          "referralFriendBonus": "Disponible",
+          "festivalCash": "75",
+          "specialBirthdayGift": "Oui"
+        },
+        "gold": {
+          "amount": "150 000 $",
+          "upgradeBonus": "688",
+          "dailyWithdrawLimit": "20",
+          "birthdayBonus": "588",
+          "weeklyRescueBonus": "2 888",
+          "referralFriendBonus": "Disponible",
+          "festivalCash": "100",
+          "specialBirthdayGift": "Oui"
+        },
+        "platinum": {
+          "amount": "Illimité",
+          "upgradeBonus": "1 288",
+          "dailyWithdrawLimit": "Illimité",
+          "birthdayBonus": "888",
+          "weeklyRescueBonus": "3 888",
+          "referralFriendBonus": "Disponible",
+          "festivalCash": "300",
+          "specialBirthdayGift": "Oui"
+        },
+        "black": {
+          "amount": "Illimité",
+          "upgradeBonus": "1 888",
+          "dailyWithdrawLimit": "Illimité",
+          "birthdayBonus": "2 888",
+          "weeklyRescueBonus": "6 888",
+          "referralFriendBonus": "Disponible",
+          "festivalCash": "500",
+          "specialBirthdayGift": "Oui"
+        }
+      }
+    }
+  },
+  "VipPage": {
+    "hero": "Club VIP",
+    "title": "Système de classement VIP",
+    "Tables": {
+      "vipBenefits": {
+        "label": "Avantages VIP",
+        "data": {
+          "upgradeBonus": {
+            "name": "Bonus de mise à niveau",
+            "values": ["128", "288", "688", "1,288", "1,888"]
+          },
+          "dailyWithdrawAmount": {
+            "name": "Montant de retrait quotidien",
+            "values": ["30,000", "50,000", "150,000", "Illimité", "Illimité"]
+          },
+          "dailyWithdrawLimit": {
+            "name": "Limite de retrait quotidien",
+            "values": ["5", "10", "20", "Illimité", "Illimité"]
+          },
+          "birthdayBonus": {
+            "name": "Bonus d'anniversaire",
+            "values": ["188", "388", "588", "888", "2,888"]
+          },
+          "weeklyRescueBonus": {
+            "name": "Bonus de secours hebdomadaire",
+            "values": ["888", "1,888", "2,888", "3,888", "6,888"]
+          },
+          "referralFriendBonus": {
+            "name": "Parrainage d'amis",
+            "values": ["Oui", "Oui", "Oui", "Oui", "Oui"]
+          },
+          "festivalCash": {
+            "name": "Argent de festival",
+            "values": ["50", "75", "100", "300", "500"]
+          },
+          "specialBirthdayGift": {
+            "name": "Cadeau d'anniversaire spécial",
+            "values": ["Oui", "Oui", "Oui", "Oui", "Oui"]
+          }
+        }
+      },
+      "vipRebates": {
+        "label": "Remboursement quotidien en espèces",
+        "data": {
+          "esports": {
+            "name": "Esports",
+            "values": ["0.50%", "0.60%", "0.70%", "0.80%", "1%"]
+          },
+          "liveCasino": {
+            "name": "Casino en direct",
+            "values": ["0.40%", "0.50%", "0.65%", "0.80%", "1%"]
+          },
+          "slot": {
+            "name": "Machines à sous",
+            "values": ["0.50%", "0.60%", "0.70%", "0.85%", "1%"]
+          },
+          "sportsbook": {
+            "name": "Pari sportif",
+            "values": ["0.50%", "0.60%", "0.70%", "0.80%", "1%"]
+          }
+        }
+      },
+      "vipLevelUpRequirements": {
+        "label": "Conditions de niveau supérieur",
+        "data": {
+          "accumulatedDeposit": {
+            "name": "Dépôt cumulé (mensuel)",
+            "values": [
+              "30,000",
+              "100,000",
+              "200,000",
+              "500,000",
+              "Sur invitation"
+            ]
+          }
+        }
+      },
+      "vipRetentionRequirements": {
+        "label": "Conditions de maintien du niveau mensuel",
+        "data": {
+          "membershipRenewal": {
+            "name": "Renouvellement d'adhésion",
+            "values": ["2 mois", "2 mois", "À vie", "À vie", "À vie"]
+          }
+        }
+      }
+    },
+    "Benefits": {
+      "label": "Avantages du Club VIP FaFa878",
+      "boost": {
+        "title": "Boost",
+        "description": "Chaque semaine et chaque mois, recevez un bonus basé sur vos jeux récents. Plus vous jouez, plus les bonus sont élevés."
+      },
+      "dedicatedVipHost": {
+        "title": "Hôte VIP dédié",
+        "description": "Bénéficiez d'un hôte VIP personnel qui vous accompagnera et répondra à vos besoins en paris."
+      },
+      "recentPlayBonuses": {
+        "title": "Bonus de jeu récents",
+        "description": "Une série de malchance ? Nous vous remboursons une partie de vos pertes à chaque montée de niveau."
+      },
+      "levelUps": {
+        "title": "Montées de niveau",
+        "description": "Atteignez un nouveau niveau et recevez une récompense. Plus votre niveau est élevé, meilleures sont les récompenses."
+      },
+      "bespokeBenefits": {
+        "title": "Avantages personnalisés",
+        "description": "Collaborez avec votre hôte VIP dédié pour adapter les avantages à vos besoins de jeu."
+      }
+    }
   }
 }
