@@ -85,7 +85,7 @@ const Sidebar = () => {
         </div>
 
         {/* Sidebar Links */}
-        <nav className="sidebar-scrollbar flex-1 overflow-y-auto px-2 text-sm text-white/80">
+        <nav className="sidebar-scrollbar mb-3 flex-1 overflow-y-auto px-2 text-sm text-white/80">
           {!isExpanded && <div className="m-3 h-0.5 rounded bg-white/80"></div>}
 
           {links.map((section, index) => (

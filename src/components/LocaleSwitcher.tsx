@@ -7,6 +7,8 @@ import { MdLanguage } from "react-icons/md";
 import { ImSpinner } from "react-icons/im";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 import { useParams } from "next/navigation";
+import flags from "@/utils/flagsUtil";
+import Image from "next/image";
 
 interface LocaleSwitcherProps {
   isExpanded: boolean;
@@ -61,9 +63,10 @@ const LocaleSwitcher = ({
         <div className="flex items-center gap-3">
           <MdLanguage className="size-5" />
           {(device === "mobile" || isExpanded) && (
-            <span>
-              {t("label")}: {t("locale", { locale })}
-            </span>
+            <div className="flex items-center gap-1">
+              <span>{t("label")}:</span>
+              <span>{t("locale", { locale })}</span>
+            </div>
           )}
         </div>
         {(isExpanded || device === "mobile") &&
@@ -88,6 +91,13 @@ const LocaleSwitcher = ({
                     }`}
                   />
                 </div>
+                <Image
+                  src={flags[current] || flags.en}
+                  alt={`${current} flag`}
+                  width={20}
+                  height={20}
+                  unoptimized
+                />
                 <div className="flex w-full items-center justify-between gap-3">
                   {t("locale", { locale: current })}
                   {isPending && pendingLocale === current && (

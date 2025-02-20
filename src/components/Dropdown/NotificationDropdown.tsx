@@ -6,11 +6,14 @@ import { BsMegaphone } from "react-icons/bs";
 import { FaBell, FaRegBell, FaXmark } from "react-icons/fa6";
 import { useRef } from "react";
 import { messages } from "@/data/messagesMockData";
+import { useTranslations } from "next-intl";
 
 export default function NotificationDropdown() {
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
-  const maxNotifications = 5;
+  const maxNotifications = 5; // set to 0 to display no notifications, 5 default
   const displayedNotifications = messages.slice(0, maxNotifications);
+
+  const t = useTranslations("Header.notificationsDropdown");
 
   return (
     <Menu as="div" className="relative">
@@ -31,7 +34,7 @@ export default function NotificationDropdown() {
           <span className="flex items-center gap-2">
             <FaRegBell size={20} className="text-gray-600" />
             <h3 className="text-lg font-semibold text-gray-800">
-              Notifications
+              {t("label")}
             </h3>
           </span>
           <FaXmark
@@ -78,10 +81,8 @@ export default function NotificationDropdown() {
           // No Notifications Message
           <div className="flex flex-col items-center p-4 text-center text-gray-500">
             <BsMegaphone size={40} className="mb-3 text-gray-300" />
-            <p className="font-semibold">No Notifications Available</p>
-            <span className="text-sm">
-              Your interactions will be visible here
-            </span>
+            <p className="font-semibold">{t("empty")}</p>
+            <span className="text-sm">{t("description")}</span>
           </div>
         )}
 
@@ -90,8 +91,9 @@ export default function NotificationDropdown() {
           <Link
             href="/profile/messages"
             className="text-sm font-medium text-primary hover:underline"
+            onClick={() => menuButtonRef.current?.click()}
           >
-            View All Notifications
+            {t("seeAll")}
           </Link>
         </div>
       </MenuItems>

@@ -27,7 +27,7 @@ const MenuLink = ({
   toggleSubmenu,
   setIsExpanded,
 }: MenuLinkProps) => {
-  const t = useTranslations();
+  const t = useTranslations("Sidebar");
   const pathname = usePathname();
   const isActive = link.href && pathname.startsWith(link.href);
 
@@ -46,7 +46,7 @@ const MenuLink = ({
               className={`flex items-center gap-3 ${!isExpanded ? "w-full justify-center" : ""}`}
             >
               <span>{link.icon}</span>
-              {isExpanded && <span>{t(link.label)}</span>}
+              {isExpanded && <span>{t(link.name)}</span>}
             </div>
             {isExpanded &&
               (submenuOpen === link.name ? (
@@ -83,7 +83,7 @@ const MenuLink = ({
           className={`flex w-full items-center gap-3 rounded p-2 duration-200 hover:bg-white/20 ${isExpanded ? "" : "md:justify-center"} ${isActive ? "bg-white/40" : ""}`}
         >
           <span>{link.icon}</span>
-          {isExpanded && <span>{t(link.label)}</span>}
+          {isExpanded && <span>{t(link.name)}</span>}
         </Link>
       )}
     </div>

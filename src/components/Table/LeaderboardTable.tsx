@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { leaderboardData } from "@/data/leaderboardsData";
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 const LeaderboardTable = () => {
   const activeCasinoLeaderboard = useSelector(
@@ -15,6 +16,7 @@ const LeaderboardTable = () => {
 
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [isClient, setIsClient] = useState(false);
+  const t = useTranslations("Leaderboards");
 
   useEffect(() => {
     setIsClient(true);
@@ -50,19 +52,27 @@ const LeaderboardTable = () => {
             <tr className="h-14 opacity-80">
               {activeCasinoLeaderboard === "Race Leaderboard" ? (
                 <>
-                  <th className="px-4 py-2 text-start">Rank</th>
-                  <th className="px-4 py-2 text-start">User</th>
-                  <th className="px-4 py-2 text-end">Wagered</th>
-                  <th className="px-4 py-2 text-end">Prize</th>
+                  <th className="px-4 py-2 text-start">{t("rank")}</th>
+                  <th className="px-4 py-2 text-start">{t("user")}</th>
+                  <th className="px-4 py-2 text-end">{t("wagered")}</th>
+                  <th className="px-4 py-2 text-end">{t("prize")}</th>
                 </>
               ) : (
                 <>
-                  <th className="px-4 py-2 text-start">Game</th>
-                  <th className="hidden px-4 py-2 sm:table-cell">User</th>
-                  <th className="hidden px-4 py-2 md:table-cell">Time</th>
-                  <th className="hidden px-4 py-2 md:table-cell">Bet Amount</th>
-                  <th className="hidden px-4 py-2 sm:table-cell">Multiplier</th>
-                  <th className="px-4 py-2 text-end">Payout</th>
+                  <th className="px-4 py-2 text-start">{t("game")}</th>
+                  <th className="hidden px-4 py-2 sm:table-cell">
+                    {t("user")}
+                  </th>
+                  <th className="hidden px-4 py-2 md:table-cell">
+                    {t("time")}
+                  </th>
+                  <th className="hidden px-4 py-2 md:table-cell">
+                    {t("betAmount")}
+                  </th>
+                  <th className="hidden px-4 py-2 sm:table-cell">
+                    {t("multiplier")}
+                  </th>
+                  <th className="px-4 py-2 text-end">{t("payout")}</th>
                 </>
               )}
             </tr>

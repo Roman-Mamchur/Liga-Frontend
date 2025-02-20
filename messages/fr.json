@@ -24,6 +24,95 @@
     "sponsorships": "Sponsoring",
     "support": "Support en direct"
   },
+  "Header": {
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "wallet": "Portefeuille",
+    "search": "Recherche",
+    "profileDropdown": {
+      "profile": "Profil",
+      "wallet": "Portefeuille",
+      "vip": "VIP",
+      "affiliate": "Affilié",
+      "transactions": "Transactions",
+      "settings": "Paramètres",
+      "support": "Support en direct",
+      "logout": "Se déconnecter"
+    },
+    "notificationsDropdown": {
+      "label": "Notifications",
+      "seeAll": "Voir toutes les notifications",
+      "empty": "Aucune notification disponible",
+      "description": "Vos interactions seront visibles ici"
+    }
+  },
+  "Footer": {
+    "copyright": "2025 FaFa878 | Tous droits réservés.",
+    "categories": {
+      "casino": "Casino",
+      "sports": "Sports",
+      "about": "À propos de nous"
+    },
+
+    "items": {
+      "casinoGames": "Jeux de casino",
+      "slots": "Machines à sous",
+      "liveCasino": "Casino en direct",
+      "roulette": "Roulette",
+      "blackjack": "Blackjack",
+      "sportsBook": "Pari sportif",
+      "soccer": "Football",
+      "basketball": "Basket-ball",
+      "tennis": "Tennis",
+      "esports": "E-Sports",
+      "vip": "Club VIP",
+      "affiliate": "Affilié",
+      "support": "Support en direct",
+      "promos": "Promotions et compétitions"
+    }
+  },
+  "Categories": {
+    "casino": {
+      "Lobby": "Hall",
+      "Popular": "Populaire",
+      "Slot Games": "Jeux de machines à sous",
+      "Live Dealers": "Croupiers en direct",
+      "Table Games": "Jeux de table",
+      "Exclusives": "Exclusivités",
+      "New Releases": "Nouveautés"
+    },
+    "sports": {
+      "Lobby": "Hall",
+      "Top Sports": "Sports populaires",
+      "Tennis": "Tennis",
+      "Soccer": "Football",
+      "Basketball": "Basket-ball",
+      "Esports": "Esports"
+    },
+    "leaderboards": {
+      "My Games": "Mes jeux",
+      "All Games": "Tous les jeux",
+      "High Rollers": "Grands joueurs",
+      "Race Leaderboard": "Tableau des leaders de la course"
+    },
+    "faq": {
+      "General": "Général",
+      "Affiliate program": "Programme d'affiliation",
+      "Earnings": "Gains"
+    },
+    "seeAll": "Voir tout"
+  },
+  "Leaderboards": {
+    "rank": "Rang",
+    "user": "Utilisateur",
+    "wagered": "Misé",
+    "prize": "Prix",
+    "game": "Jeu",
+    "time": "Temps",
+    "betAmount": "Montant parier",
+    "multiplier": "Multiplicateur",
+    "payout": "Gain"
+  },
   "SearchBar": {
     "search": "Rechercher",
     "searchPlaceholder": "Recherchez votre jeu ou sport"

@@ -23,6 +23,94 @@
     "sponsorships": "Sponsorships",
     "support": "Live Support"
   },
+  "Header": {
+    "login": "Sign In",
+    "register": "Register",
+    "wallet": "Wallet",
+    "search": "Search",
+    "profileDropdown": {
+      "profile": "Profile",
+      "wallet": "Wallet",
+      "vip": "VIP",
+      "affiliate": "Affiliate",
+      "transactions": "Transactions",
+      "settings": "Settings",
+      "support": "Live Support",
+      "logout": "Logout"
+    },
+    "notificationsDropdown": {
+      "label": "Notifications",
+      "seeAll": "View All Notifications",
+      "empty": "No Notifications Available",
+      "description": "Your interactions will be visible here"
+    }
+  },
+  "Footer": {
+    "copyright": "2025 FaFa878 | All Rights Reserved.",
+    "categories": {
+      "casino": "Casino",
+      "sports": "Sports",
+      "about": "About Us"
+    },
+    "items": {
+      "casinoGames": "Casino Games",
+      "slots": "Slots",
+      "liveCasino": "Live Casino",
+      "roulette": "Roulette",
+      "blackjack": "Blackjack",
+      "sportsBook": "Sports Book",
+      "soccer": "Soccer",
+      "basketball": "Basketball",
+      "tennis": "Tennis",
+      "esports": "E-Sports",
+      "vip": "VIP Club",
+      "affiliate": "Affiliate",
+      "support": "Live Support",
+      "promos": "Promos & Competitions"
+    }
+  },
+  "Categories": {
+    "casino": {
+      "Lobby": "Lobby",
+      "Popular": "Popular",
+      "Slot Games": "Slot Games",
+      "Live Dealers": "Live Dealers",
+      "Table Games": "Table Games",
+      "Exclusives": "Exclusives",
+      "New Releases": "New Releases"
+    },
+    "sports": {
+      "Lobby": "Lobby",
+      "Top Sports": "Top Sports",
+      "Tennis": "Tennis",
+      "Soccer": "Soccer",
+      "Basketball": "Basketball",
+      "Esports": "Esports"
+    },
+    "leaderboards": {
+      "My Games": "My Games",
+      "All Games": "All Games",
+      "High Rollers": "High Rollers",
+      "Race Leaderboard": "Race Leaderboard"
+    },
+    "faq": {
+      "General": "General",
+      "Affiliate program": "Affiliate program",
+      "Earnings": "Earnings"
+    },
+    "seeAll": "See All"
+  },
+  "Leaderboards": {
+    "rank": "Rank",
+    "user": "User",
+    "wagered": "Wagered",
+    "prize": "Prize",
+    "game": "Game",
+    "time": "Time",
+    "betAmount": "Bet Amount",
+    "multiplier": "Multiplier",
+    "payout": "Payout"
+  },
   "SearchBar": {
     "search": "Search",
     "searchPlaceholder": "Search your game or sports"

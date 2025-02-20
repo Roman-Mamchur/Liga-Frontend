@@ -7,6 +7,7 @@ import GameCard from "../Card/GameCard";
 import CollectionSwiper from "../Swiper/CollectionSwiper";
 import { useEffect } from "react";
 import { resetCasinoGame } from "@/store/slices/categorySlice";
+import { useTranslations } from "next-intl";
 
 const GameList: React.FC = () => {
   const activeCasinoGame = useSelector(
@@ -19,6 +20,8 @@ const GameList: React.FC = () => {
     dispatch(resetCasinoGame());
   }, [dispatch]);
 
+  const t = useTranslations("Categories");
+
   return (
     <div className="flex">
       <div className="w-0 flex-1">
@@ -29,6 +32,7 @@ const GameList: React.FC = () => {
                 categoryData={categoryData}
                 showOnline={true}
                 showCategoryLink={true}
+                type="casino"
               />
             ))
           : allCasinoGames
@@ -39,7 +43,7 @@ const GameList: React.FC = () => {
                 <div key={categoryData.category}>
                   <h3 className="flex items-center gap-2 text-xl font-bold text-foreground opacity-80">
                     <categoryData.icon />
-                    {categoryData.category}
+                    {t(`casino.${categoryData.category}`)}
                   </h3>
                   <div className="my-4 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8">
                     {categoryData.games.map((game) => (

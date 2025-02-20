@@ -13,12 +13,14 @@ import { Category } from "@/data/collectionData";
 import { usePathname } from "@/i18n/routing";
 import "swiper/css";
 import GameCardSkeleton from "../Skeleton/GameCardSkeleton";
+import { useTranslations } from "next-intl";
 
 interface CollectionSwiperProps {
   categoryData: Category;
   showOnline: boolean;
   showCategoryLink: boolean;
   showIndex?: boolean;
+  type: "casino" | "sports";
 }
 
 const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
@@ -26,6 +28,7 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
   showOnline,
   showCategoryLink,
   showIndex = false,
+  type,
 }) => {
   const [swiperRefs, setSwiperRefs] = useState<
     Record<string, SwiperClass | null>
@@ -53,12 +56,14 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
   const pathname = usePathname();
   const currentCategory = pathname?.startsWith("/sports") ? "sports" : "casino";
 
+  const t = useTranslations("Categories");
+
   return (
     <>
       <div className="flex items-center justify-between">
         <h3 className="flex items-center gap-2 text-xl font-bold text-foreground opacity-80">
           <categoryData.icon />
-          {categoryData.category}
+          {t(`${type}.${categoryData.category}`)}
         </h3>
         <div>
           <SwiperNavButtons swiperRef={swiperRefs[categoryData.category]} />
@@ -104,8 +109,8 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
           {showPlaceholder && isSwiperReady && (
             <SwiperSlide className="min-w-36 flex-1 cursor-pointer pt-2">
               <Image
-                src={`https://placehold.co/600x800.png?text=${encodeURIComponent(
-                  "See all\n" + categoryData.category,
+                src={`https://placehold.co/600x800/ff6f00/white.png?text=${encodeURIComponent(
+                  t("seeAll") + "\n" + t(`${type}.${categoryData.category}`),
                 )}&font=montserrat`}
                 alt={categoryData.category}
                 width={150}

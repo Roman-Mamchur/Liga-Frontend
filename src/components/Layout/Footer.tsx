@@ -7,8 +7,11 @@ import { Link } from "@/i18n/routing";
 import { FaLine, FaTelegram } from "react-icons/fa6";
 import { IoLogoWechat } from "react-icons/io5";
 import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("Footer");
+
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   const toggleDropdown = (index: number) => {
@@ -34,7 +37,7 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-3 md:flex-row">
-          <p className="text-sm">&copy; 2025 FaFa878 | All Rights Reserved.</p>
+          <p className="text-sm">&copy; {t("copyright")}</p>
           <div className="flex gap-3 opacity-80">
             <Link href="#">
               <FaLine size={24} />
@@ -60,7 +63,7 @@ const Footer = () => {
                 onClick={() => toggleDropdown(index)}
                 className="flex cursor-pointer items-center justify-between rounded p-3 font-bold md:block md:cursor-default md:p-1"
               >
-                <span>{link.label}</span>
+                <span>{t(`categories.${link.label}`)}</span>
 
                 <span className="ml-2 md:hidden">
                   {openDropdown === index ? (
@@ -81,7 +84,9 @@ const Footer = () => {
                       className="w-full transition duration-200 hover:bg-white/60 md:rounded md:hover:bg-card"
                     >
                       <Link href={item.href}>
-                        <p className="px-3 py-1 md:px-1">{item.name}</p>
+                        <p className="px-3 py-1 md:px-1">
+                          {t(`items.${item.name}`)}
+                        </p>
                       </Link>
                     </li>
                   ))}

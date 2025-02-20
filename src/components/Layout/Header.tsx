@@ -10,11 +10,14 @@ import NotificationDropdown from "../Dropdown/NotificationDropdown";
 import SearchBar from "../Search/SearchBar";
 import { useDispatch } from "react-redux";
 import { openModal } from "@/store/slices/authModalSlice";
+import { useTranslations } from "next-intl";
 
 const Header = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const mockLogin = true;
   const dispatch = useDispatch();
+
+  const t = useTranslations("Header");
 
   return (
     <>
@@ -42,7 +45,7 @@ const Header = () => {
                   </span>
                 </div>
                 <div className="flex cursor-pointer items-center justify-center rounded-r bg-primary p-2.5 text-white duration-200 hover:bg-secondary">
-                  <span className="hidden md:block">Wallet</span>
+                  <span className="hidden md:block">{t("wallet")}</span>
                   <span className="md:hidden">
                     <FaWallet />
                   </span>
@@ -53,7 +56,7 @@ const Header = () => {
                   onClick={() => setIsSearchVisible((prev) => !prev)}
                   className="hidden cursor-pointer items-center gap-2 rounded-full p-3 duration-200 hover:bg-card md:flex"
                 >
-                  <FaSearch className="opacity-80" /> Search
+                  <FaSearch className="opacity-80" /> {t("search")}
                 </span>
                 <ProfileDropdown />
                 <NotificationDropdown />
@@ -65,13 +68,13 @@ const Header = () => {
                 onClick={() => dispatch(openModal("login"))}
                 className="rounded border-2 border-foreground p-2 transition-transform duration-200 hover:scale-105 md:px-6 md:py-2"
               >
-                Sign in
+                {t("login")}
               </button>
               <button
                 onClick={() => dispatch(openModal("register"))}
                 className="rounded border-2 border-primary bg-primary p-2 text-white transition-transform duration-200 hover:scale-105 md:px-6 md:py-2"
               >
-                Register
+                {t("register")}
               </button>
             </div>
           )}

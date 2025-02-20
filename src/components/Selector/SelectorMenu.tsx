@@ -14,6 +14,7 @@ import {
   sportsCategories,
   faqCategories,
 } from "@/data/selectorData";
+import { useTranslations } from "next-intl";
 
 interface SelectorMenuProps {
   display: "label" | "icon" | "both";
@@ -56,6 +57,8 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
 
   const items = categoryMap[type] || [];
 
+  const t = useTranslations("Categories");
+
   return (
     <div className="flex">
       <div className="w-0 flex-1 overflow-x-auto py-1">
@@ -78,11 +81,13 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
                 {display === "icon" && item.icon && (
                   <item.icon className="text-lg" />
                 )}
-                {display === "label" && <span>{item.label}</span>}
+                {display === "label" && (
+                  <span>{t(`${type}.${item.label}`)}</span>
+                )}
                 {display === "both" && item.icon && (
                   <>
                     <item.icon className="text-lg" />
-                    <span>{item.label}</span>
+                    <span>{t(`${type}.${item.label}`)}</span>
                   </>
                 )}
               </div>
