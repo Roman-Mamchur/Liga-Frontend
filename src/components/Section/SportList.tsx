@@ -34,6 +34,7 @@ const SportList: React.FC = () => {
                 showCategoryLink={true}
                 showIndex={index === 0}
                 type="sports"
+                showMore
               />
             ))
           : allSportsGames

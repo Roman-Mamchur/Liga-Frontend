@@ -18,12 +18,14 @@ const GameDetailsPopularGamesList = () => {
             categoryData={categoryData}
             showOnline={true}
             showCategoryLink={true}
+            type="casino"
           />
         ) : (
           <CollectionSwiper
             categoryData={categoryData}
             showOnline={false}
             showCategoryLink={false}
+            type="sports"
           />
         )}
       </div>

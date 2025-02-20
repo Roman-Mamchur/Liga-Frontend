@@ -33,6 +33,7 @@ const GameList: React.FC = () => {
                 showOnline={true}
                 showCategoryLink={true}
                 type="casino"
+                showMore
               />
             ))
           : allCasinoGames

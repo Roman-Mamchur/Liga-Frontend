@@ -20,6 +20,7 @@ interface CollectionSwiperProps {
   showOnline: boolean;
   showCategoryLink: boolean;
   showIndex?: boolean;
+  showMore?: boolean;
   type: "casino" | "sports";
 }
 
@@ -29,6 +30,7 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
   showCategoryLink,
   showIndex = false,
   type,
+  showMore = false,
 }) => {
   const [swiperRefs, setSwiperRefs] = useState<
     Record<string, SwiperClass | null>
@@ -106,7 +108,7 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
                   </div>
                 </SwiperSlide>
               ))}
-          {showPlaceholder && isSwiperReady && (
+          {showPlaceholder && showMore && isSwiperReady && (
             <SwiperSlide className="min-w-36 flex-1 cursor-pointer pt-2">
               <Image
                 src={`https://placehold.co/600x800/ff6f00/white.png?text=${encodeURIComponent(
