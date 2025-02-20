@@ -36,6 +36,7 @@ const Header = () => {
           </Link>
           {mockLogin ? (
             <>
+            {/* Wallet box */}
               <div className="hidden w-fit text-sm font-semibold md:flex">
                 <div className="flex flex-1 cursor-pointer items-center justify-between gap-5 rounded-l bg-card p-2.5 duration-200 hover:bg-black/20">
                   <span>0.00000000</span>
@@ -45,18 +46,20 @@ const Header = () => {
                   </span>
                 </div>
                 <div className="flex cursor-pointer items-center justify-center rounded-r bg-primary p-2.5 text-white duration-200 hover:bg-secondary">
-                  <span className="hidden md:block">{t("wallet")}</span>
-                  <span className="md:hidden">
+                  <span className="hidden lg:block">{t("wallet")}</span>
+                  <span className="lg:hidden">
                     <FaWallet />
                   </span>
                 </div>
               </div>
+              {/* Menu buttons */}
               <div className="flex items-center justify-end gap-1 text-sm">
                 <span
                   onClick={() => setIsSearchVisible((prev) => !prev)}
                   className="hidden cursor-pointer items-center gap-2 rounded-full p-3 duration-200 hover:bg-card md:flex"
                 >
-                  <FaSearch className="opacity-80" /> {t("search")}
+                  <FaSearch className="opacity-80" />
+                  <span className="hidden lg:block">{t("search")}</span>
                 </span>
                 <ProfileDropdown />
                 <NotificationDropdown />
