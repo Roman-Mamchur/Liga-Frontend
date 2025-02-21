@@ -1,8 +1,11 @@
 import ReferralLink from "@/components/Affiliate/ReferralLink";
+import { useTranslations } from "next-intl";
 import { FaChevronDown } from "react-icons/fa6";
 import { SiBitcoin } from "react-icons/si";
 
 const AffiliateCampaignsPage = () => {
+  const linkT = useTranslations("AffiliatePage.ReferralLink");
+
   return (
     <>
       <div className="mb-6 flex flex-wrap items-start justify-center gap-6 text-sm md:justify-start">
@@ -83,7 +86,7 @@ const AffiliateCampaignsPage = () => {
               </div>
             </div>
             <div className="mt-6 md:w-1/2">
-              <ReferralLink type={2} desc="Link" />
+              <ReferralLink type={2} desc={linkT("link")} />
             </div>
           </div>
         </div>

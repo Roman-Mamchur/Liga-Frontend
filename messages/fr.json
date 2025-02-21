@@ -536,10 +536,7 @@
         "languagesNumber": "16",
         "languagesLabel": "Langues prises en charge"
       },
-      "ReferralLink": {
-        "description": "Prêt à gagner une commission ? Appuyez sur le bouton 'Copier le lien de parrainage' et partagez votre campagne par défaut.",
-        "button": "Copier le lien de parrainage"
-      },
+
       "CommissionRules": {
         "label": "Règles de commission",
         "description": "Invitez des amis et gagnez 3 % par jour",
@@ -640,6 +637,11 @@
         "question4": "Comment puis-je suivre mes gains ?",
         "answer4": "Vous pouvez suivre vos gains et vos statistiques de référence via le tableau de bord affilié, qui fournit des informations en temps réel sur vos commissions et votre performance."
       }
+    },
+    "ReferralLink": {
+      "description": "Prêt à gagner une commission ? Appuyez sur le bouton 'Copier le lien de parrainage' et partagez votre campagne par défaut.",
+      "link": "Lien",
+      "button": "Copier le lien de parrainage"
     }
   }
 }

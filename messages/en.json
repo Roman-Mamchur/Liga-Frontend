@@ -540,10 +540,6 @@
         "languagesNumber": "16",
         "languagesLabel": "Languages Supported"
       },
-      "ReferralLink": {
-        "description": "Ready to earn commission? Tap the 'Copy Referral Link' button and share your default campaign.",
-        "button": "Copy Referral Link"
-      },
       "CommissionRules": {
         "label": "Commission Rules",
         "description": "Invite friends and earn 3% daily",
@@ -644,6 +640,11 @@
         "question4": "How can I track my earnings?",
         "answer4": "You can track your earnings and referral statistics through the affiliate dashboard, which provides real-time insights into your commissions and performance."
       }
+    },
+    "ReferralLink": {
+      "description": "Ready to earn commission? Tap the 'Copy Referral Link' button and share your default campaign.",
+      "link": "Link",
+      "button": "Copy Referral Link"
     }
   }
 }

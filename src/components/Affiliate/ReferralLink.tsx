@@ -6,10 +6,11 @@ import { toast } from "react-toastify";
 
 interface ReferralLinkProps {
   type: 1 | 2;
+  desc: string;
 }
 
-const ReferralLink = ({ type }: ReferralLinkProps) => {
-  const t = useTranslations("AffiliatePage.Overview.ReferralLink");
+const ReferralLink = ({ type, desc }: ReferralLinkProps) => {
+  const t = useTranslations("AffiliatePage.ReferralLink");
   const toastT = useTranslations("Toast");
 
   const referralLink = "fafa.com/?c=GjsUVhQJ";
@@ -34,7 +35,7 @@ const ReferralLink = ({ type }: ReferralLinkProps) => {
         <div
           className={`flex flex-col items-center ${type === 1 ? "gap-6 p-4" : "gap-1"}`}
         >
-          <p className="w-full opacity-80">{t("description")}</p>
+          <p className="w-full opacity-80">{desc}</p>
           {type === 1 ? (
             <div className="flex w-full items-center gap-3">
               <input

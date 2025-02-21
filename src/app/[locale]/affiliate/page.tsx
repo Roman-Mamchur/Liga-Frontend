@@ -9,17 +9,18 @@ import { FaArrowRight } from "react-icons/fa6";
 
 const AffiliateOverviewPage = () => {
   const t = useTranslations("AffiliatePage.Overview");
+  const linkT = useTranslations("AffiliatePage.ReferralLink");
 
   return (
     <div className="flex flex-col gap-6">
       <AffiliateStats />
       <div className="rounded bg-card shadow-md">
-        <ReferralLink type={1} />
+        <ReferralLink type={1} desc={linkT("description")} />
       </div>
       <RulesSection />
       <AdvantagesSection />
       <div className="rounded bg-card shadow-md">
-        <ReferralLink type={1} />
+        <ReferralLink type={1} desc={linkT("description")} />
       </div>
       <section className="flex flex-col gap-4">
         <h2 className="text-2xl font-bold">{t("faq")}</h2>
