@@ -1,4 +1,42 @@
 {
+  "Metadata": {
+    "RootLayout": {
+      "title": "FaFa878",
+      "description": "Jeux de Casino en Ligne et Paris Sportifs"
+    },
+    "CasinoPage": {
+      "title": "Jeux de Casino en Ligne - Machines à Sous, Jeux Classiques & Bonus",
+      "description": "Découvrez une sélection passionnante de jeux de casino en ligne sur FaFa878. Jouez à des machines à sous, des jeux de table et des jeux avec croupiers en direct tout en profitant de bonus imbattables et d'un gameplay palpitant. Commencez votre aventure de casino dès aujourd'hui !"
+    },
+    "SportsPage": {
+      "title": "Paris Sportifs - Bookmaker en Ligne - Pariez en Ligne sur FaFa878",
+      "description": "Vivez l'excitation des paris sportifs sur FaFa878. Pariez sur vos sports préférés, profitez des options de paris en direct et bénéficiez de cotes et promotions attractives. Commencez à placer vos paris dès aujourd'hui !"
+    },
+    "AffiliatePage": {
+      "title": "Rejoignez le Programme d'Affiliation FaFa878 - Gagnez de Hautes Commissions",
+      "description": "Devenez partenaire de FaFa878 et maximisez vos gains grâce à notre programme d'affiliation lucratif. Profitez de commissions élevées, d'un suivi en temps réel et de promotions exclusives. Inscrivez-vous dès maintenant !"
+    },
+    "PromotionsPage": {
+      "title": "Promotions et Offres Exclusives de Casino - FaFa878",
+      "description": "Découvrez des promotions de casino en ligne imbattables sur FaFa878. Profitez de bonus quotidiens, de tours gratuits, d'offres de cashback et de promotions limitées. Ne manquez pas l'occasion d'augmenter vos gains dès aujourd'hui !"
+    },
+    "RewardsPage": {
+      "title": "Récompenses et Bonus de Casino Excitants - FaFa878",
+      "description": "Débloquez des récompenses et des bonus exclusifs sur FaFa878. Rejoignez notre programme de fidélité pour gagner des tours gratuits, du cashback et des avantages VIP. Profitez des meilleures offres de casino en ligne dès aujourd'hui !"
+    },
+    "VipPage": {
+      "title": "Récompenses VIP et Avantages Exclusifs - FaFa878",
+      "description": "Rejoignez le Club VIP de FaFa878 pour des récompenses de casino prestigieuses ! Profitez de bonus personnalisés, d'un cashback supérieur, d'une assistance prioritaire et de promotions exclusives. Élevez votre expérience de jeu dès aujourd'hui !"
+    },
+    "ProfilePage": {
+      "title": "Votre Profil - Gérez votre Compte et Suivez vos Progrès | Programme d'Affiliation FaFa878",
+      "description": "Accédez à votre profil d'affilié FaFa878 pour gérer les paramètres de votre compte, suivre vos gains et surveiller vos progrès. Consultez à tout moment votre niveau d'affiliation, vos avantages et vos performances. Restez à jour avec votre succès dans le programme !"
+    },
+    "GamePage": {
+      "title": "Jouez aux Meilleurs Jeux de Casino et de Sport - Détails du Jeu & Joueurs en Direct | FaFa878",
+      "description": "Explorez en détail vos jeux de casino et de sport préférés sur FaFa878. Consultez les descriptions des jeux, les statistiques des joueurs et l'activité en direct. Rejoignez l'action et commencez à jouer dès maintenant !"
+    }
+  },
   "LocaleSwitcher": {
     "label": "Langue",
     "locale": "{locale, select, en {English} fr {Français} other {Unknown}}"

@@ -1,13 +1,23 @@
-import { Metadata } from "next";
 import HeroBanner from "@/components/Layout/HeroBanner";
 import SidebarNav from "@/components/Affiliate/SidebarNav";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Join FaFa878 Affiliate Program - Earn High Commissions",
-  description:
-    "Partner with FaFa878 and maximize your earnings through our high-paying affiliate program. Get top commissions, real-time tracking, and exclusive promotions. Join now!",
-};
+interface Params {
+  locale: string;
+}
+
+export async function generateMetadata({ locale }: Params) {
+  const t = await getTranslations({
+    locale,
+    namespace: "Metadata.AffiliatePage",
+  });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const AffiliateLayout = ({ children }: { children: React.ReactNode }) => {
   const t = useTranslations("AffiliatePage.Layout");

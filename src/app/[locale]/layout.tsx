@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Layout/Sidebar/Sidebar";
@@ -10,7 +9,7 @@ import { ToastContainer } from "react-toastify";
 import LoginModal from "@/components/Modal/Auth/LoginModal";
 import RegisterModal from "@/components/Modal/Auth/RegisterModal";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Locale } from "@/i18n/request";
@@ -21,10 +20,21 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "FaFa878",
-  description: "Online Casino Games and Sports Betting",
-};
+interface Params {
+  locale: string;
+}
+
+export async function generateMetadata({ locale }: Params) {
+  const t = await getTranslations({
+    locale,
+    namespace: "Metadata.RootLayout",
+  });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default async function RootLayout({
   children,

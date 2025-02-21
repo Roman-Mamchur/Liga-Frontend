@@ -1,14 +1,23 @@
-import { Metadata } from "next";
 import SidebarNav from "@/components/Affiliate/SidebarNav";
 import HeroBanner from "@/components/Layout/HeroBanner";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title:
-    "Your Profile - Manage Account and View Progress | FaFa878 Affiliate Program",
-  description:
-    "Access your FaFa878 affiliate profile to manage account settings, track your earnings, and monitor your progress. View your affiliate tier, benefits, and performance at any time. Stay up-to-date with your success in the program!",
-};
+interface Params {
+  locale: string;
+}
+
+export async function generateMetadata({ locale }: Params) {
+  const t = await getTranslations({
+    locale,
+    namespace: "Metadata.ProfilePage",
+  });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
   const t = useTranslations("ProfilePage.Layout");

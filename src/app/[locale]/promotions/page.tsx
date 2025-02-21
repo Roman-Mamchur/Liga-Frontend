@@ -1,17 +1,27 @@
 import PromotionCard from "@/components/Card/PromotionCard";
 import HeroBanner from "@/components/Layout/HeroBanner";
 import { promotions } from "@/data/promotionData";
-import { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { FaChevronRight } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Exclusive Casino Promotions & Offers - FaFa878",
-  description:
-    "Discover unbeatable online casino promotions at FaFa878. Enjoy daily bonuses, free spins, cashback deals, and limited-time offers. Don't miss out—boost your winnings today!",
-};
+interface Params {
+  locale: string;
+}
+
+export async function generateMetadata({ locale }: Params) {
+  const t = await getTranslations({
+    locale,
+    namespace: "Metadata.PromotionsPage",
+  });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const RewardsPage = () => {
   const t = useTranslations("PromotionsPage");

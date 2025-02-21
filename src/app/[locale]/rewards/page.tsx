@@ -1,15 +1,25 @@
 import HeroBanner from "@/components/Layout/HeroBanner";
-import { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { FaChevronRight } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Exciting Casino Rewards & Bonuses - FaFa878",
-  description:
-    "Unlock exclusive rewards and bonuses at FaFa878. Join our loyalty program to earn free spins, cashback, and VIP perks. Experience the best online casino incentives today!",
-};
+interface Params {
+  locale: string;
+}
+
+export async function generateMetadata({ locale }: Params) {
+  const t = await getTranslations({
+    locale,
+    namespace: "Metadata.RewardsPage",
+  });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const RewardsPage = () => {
   const t = useTranslations("RewardsPage");

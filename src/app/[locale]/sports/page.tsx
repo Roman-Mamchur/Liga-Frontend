@@ -1,15 +1,22 @@
-import { Metadata } from "next";
 import SearchBar from "@/components/Search/SearchBar";
 import SelectorMenu from "@/components/Selector/SelectorMenu";
 import SwiperBanner from "@/components/Swiper/SwiperBanner";
 import SportList from "@/components/Section/SportList";
 import LeaderboardTable from "@/components/Table/LeaderboardTable";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Sports Betting - Online Sportsbook - Bet Online At FaFa878",
-  description:
-    "Experience the thrill of sports betting at FaFa878. Bet on your favorite sports, enjoy live betting options, and take advantage of exciting odds and promotions. Start placing your bets today!",
-};
+interface Params {
+  locale: string;
+}
+
+export async function generateMetadata({ locale }: Params) {
+  const t = await getTranslations({ locale, namespace: "Metadata.SportsPage" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const SportsPage = () => {
   return (

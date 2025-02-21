@@ -2,14 +2,23 @@ import GamePlayerCard from "@/components/Card/GamePlayerCard";
 import GameDetailsDropdown from "@/components/Dropdown/GameDetailsDropdown";
 import OfferedGamesList from "@/components/Section/OfferedGamesList";
 import LeaderboardTable from "@/components/Table/LeaderboardTable";
-import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title:
-    "Play Top Casino & Sports Games - Game Details & Live Players | FaFa878",
-  description:
-    "Explore in-depth details of your favorite casino and sports games at FaFa878. View game descriptions, player stats, and live activity. Join the action and start playing now!",
-};
+interface Params {
+  locale: string;
+}
+
+export async function generateMetadata({ locale }: Params) {
+  const t = await getTranslations({
+    locale,
+    namespace: "Metadata.GamePage",
+  });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const GameDetailPage = () => {
   return (

@@ -1,4 +1,42 @@
 {
+  "Metadata": {
+    "RootLayout": {
+      "title": "FaFa878",
+      "description": "Online Casino Games and Sports Betting"
+    },
+    "CasinoPage": {
+      "title": "Online Casino Games - Slots, Classic Casino Games & Bonuses",
+      "description": "Discover an exciting selection of online casino games at FaFa878. Play slots, table games, and live dealer games while enjoying unbeatable bonuses and thrilling gameplay. Start your casino adventure today!"
+    },
+    "SportsPage": {
+      "title": "Sports Betting - Online Sportsbook - Bet Online At FaFa878",
+      "description": "Experience the thrill of sports betting at FaFa878. Bet on your favorite sports, enjoy live betting options, and take advantage of exciting odds and promotions. Start placing your bets today!"
+    },
+    "AffiliatePage": {
+      "title": "Join FaFa878 Affiliate Program - Earn High Commissions",
+      "description": "Partner with FaFa878 and maximize your earnings through our high-paying affiliate program. Get top commissions, real-time tracking, and exclusive promotions. Join now!"
+    },
+    "PromotionsPage": {
+      "title": "Exclusive Casino Promotions & Offers - FaFa878",
+      "description": "Discover unbeatable online casino promotions at FaFa878. Enjoy daily bonuses, free spins, cashback deals, and limited-time offers. Don't miss out—boost your winnings today!"
+    },
+    "RewardsPage": {
+      "title": "Exciting Casino Rewards & Bonuses - FaFa878",
+      "description": "Unlock exclusive rewards and bonuses at FaFa878. Join our loyalty program to earn free spins, cashback, and VIP perks. Experience the best online casino incentives today!"
+    },
+    "VipPage": {
+      "title": "VIP Casino Rewards & Exclusive Perks - FaFa878",
+      "description": "Join the FaFa878 VIP Club for elite casino rewards! Enjoy personalized bonuses, higher cashback, priority support, and exclusive promotions. Elevate your gaming experience today!"
+    },
+    "ProfilePage": {
+      "title": "Your Profile - Manage Account and View Progress | FaFa878 Affiliate Program",
+      "description": "Access your FaFa878 affiliate profile to manage account settings, track your earnings, and monitor your progress. View your affiliate tier, benefits, and performance at any time. Stay up-to-date with your success in the program!"
+    },
+    "GamePage": {
+      "title": "Play Top Casino & Sports Games - Game Details & Live Players | FaFa878",
+      "description": "Explore in-depth details of your favorite casino and sports games at FaFa878. View game descriptions, player stats, and live activity. Join the action and start playing now!"
+    }
+  },
   "LocaleSwitcher": {
     "label": "Language",
     "locale": "{locale, select, en {English} fr {Français} other {Unknown}}"

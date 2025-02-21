@@ -2,14 +2,24 @@ import HeroBanner from "@/components/Layout/HeroBanner";
 import BenefitsSection from "@/components/Vip/BenefitsSection";
 import VipCardsSection from "@/components/Vip/VipCardsSection";
 import VipTableSection from "@/components/Vip/VipTableSection";
-import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "VIP Casino Rewards & Exclusive Perks - FaFa878",
-  description:
-    "Join the FaFa878 VIP Club for elite casino rewards! Enjoy personalized bonuses, higher cashback, priority support, and exclusive promotions. Elevate your gaming experience today!",
-};
+interface Params {
+  locale: string;
+}
+
+export async function generateMetadata({ locale }: Params) {
+  const t = await getTranslations({
+    locale,
+    namespace: "Metadata.VipPage",
+  });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const VipPage = () => {
   const t = useTranslations("VipPage");
