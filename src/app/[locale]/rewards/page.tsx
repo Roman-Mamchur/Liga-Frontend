@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { FaChevronRight } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
   title: "Exciting Casino Rewards & Bonuses - FaFa878",
@@ -11,9 +12,11 @@ export const metadata: Metadata = {
 };
 
 const RewardsPage = () => {
+  const t = useTranslations("RewardsPage");
+
   return (
     <div>
-      <HeroBanner title="Rewards" />
+      <HeroBanner title={t("hero")} />
       <div className="container">
         <div className="my-8 flex flex-col gap-3 font-bold">
           {/* Link 1 */}
@@ -32,7 +35,7 @@ const RewardsPage = () => {
               </div>
               <div className="flex h-full flex-1 items-center rounded-r bg-card">
                 <p className="flex w-full items-center justify-between px-3 opacity-80">
-                  Promotions
+                  {t("promotions")}
                   <span>
                     <FaChevronRight />
                   </span>
@@ -57,7 +60,7 @@ const RewardsPage = () => {
               </div>
               <div className="flex h-full flex-1 items-center rounded-r bg-card">
                 <p className="flex w-full items-center justify-between px-3 opacity-80">
-                  Lucky Wheel
+                  {t("luckyWheel")}
                   <span>
                     <FaChevronRight />
                   </span>
@@ -82,7 +85,7 @@ const RewardsPage = () => {
               </div>
               <div className="flex h-full flex-1 items-center rounded-r bg-card">
                 <p className="flex w-full items-center justify-between px-3 opacity-80">
-                  VIP
+                  {t("vip")}
                   <span>
                     <FaChevronRight />
                   </span>
@@ -107,7 +110,7 @@ const RewardsPage = () => {
               </div>
               <div className="flex h-full flex-1 items-center rounded-r bg-card">
                 <p className="flex w-full items-center justify-between px-3 opacity-80">
-                  Promotion Code
+                  {t("promotionCode")}
                   <span>
                     <FaChevronRight />
                   </span>

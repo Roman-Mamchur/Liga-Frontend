@@ -579,10 +579,25 @@
       }
     },
     "Campaigns": {
-      "label": "Campagnes"
+      "campaignHits": "Clics sur la campagne",
+      "referrals": "Parrainages",
+      "totalDeposits": "Dépôts totaux",
+      "availableCommission": "Commission disponible",
+      "totalCommission": "Commission totale",
+      "uniqueDeposits": "Dépôts uniques",
+      "commissionRate": "Taux de commission",
+      "available": "Disponible",
+      "commission": "Commission",
+      "button": "Créer une nouvelle campagne"
     },
     "Funds": {
-      "label": "Fonds"
+      "button": "Retirer la commission disponible",
+      "notice": "Transfère la commission d'affiliation vers votre solde disponible.",
+      "Table": {
+        "available": "Disponible",
+        "commission": "Commission",
+        "withdrawn": "Retiré"
+      }
     },
     "ReferredUsers": {
       "label": "Utilisateurs Parrainés",
@@ -643,5 +658,18 @@
       "link": "Lien",
       "button": "Copier le lien de parrainage"
     }
+  },
+  "RewardsPage": {
+    "hero": "Récompenses",
+    "promotions": "Promotions",
+    "luckyWheel": "Roulette Chanceuse",
+    "vip": "VIP",
+    "promotionCode": "Code de promotion"
+  },
+  "PromotionsPage": {
+    "hero": "Promotions",
+    "casino": "Casino",
+    "sports": "Sports",
+    "latestPromotions": "Dernières promotions"
   }
 }

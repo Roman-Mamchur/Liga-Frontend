@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { FaChevronRight } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
   title: "Exclusive Casino Promotions & Offers - FaFa878",
@@ -13,9 +14,11 @@ export const metadata: Metadata = {
 };
 
 const RewardsPage = () => {
+  const t = useTranslations("PromotionsPage");
+
   return (
     <div>
-      <HeroBanner title="Promotions" />
+      <HeroBanner title={t("hero")} />
       <div className="container">
         <div className="my-8 flex flex-col gap-6">
           <div className="flex flex-col gap-3 font-bold md:flex-row">
@@ -34,7 +37,7 @@ const RewardsPage = () => {
                 </div>
                 <div className="flex h-full flex-1 items-center rounded-r bg-card">
                   <p className="flex w-full items-center justify-between px-3 opacity-80">
-                    Casino
+                    {t("casino")}
                     <span>
                       <FaChevronRight />
                     </span>
@@ -57,7 +60,7 @@ const RewardsPage = () => {
                 </div>
                 <div className="flex h-full flex-1 items-center rounded-r bg-card">
                   <p className="flex w-full items-center justify-between px-3 opacity-80">
-                    Sports
+                    {t("sports")}
                     <span>
                       <FaChevronRight />
                     </span>
@@ -67,7 +70,9 @@ const RewardsPage = () => {
             </Link>
           </div>
 
-          <h3 className="text-lg font-bold opacity-80">Latest Promotions</h3>
+          <h3 className="text-lg font-bold opacity-80">
+            {t("latestPromotions")}
+          </h3>
 
           <div className="flex flex-wrap justify-center gap-4 md:justify-between">
             {promotions.map((promotion) => (

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import {
   SiBitcoin,
   SiDogecoin,
@@ -7,15 +8,17 @@ import {
 } from "react-icons/si";
 
 const AffiliateBalanceTable = () => {
+  const t = useTranslations("AffiliatePage.Funds.Table");
+
   return (
     <div className="flex">
       <div className="w-0 flex-1">
         <table className="w-full table-auto text-sm">
           <thead>
             <tr className="h-14 opacity-80">
-              <th className="px-4 py-2">Available</th>
-              <th className="px-4 py-2">Commission</th>
-              <th className="px-4 py-2">Withdrawn</th>
+              <th className="px-4 py-2">{t("available")}</th>
+              <th className="px-4 py-2">{t("commission")}</th>
+              <th className="px-4 py-2">{t("withdrawn")}</th>
             </tr>
           </thead>
           <tbody>

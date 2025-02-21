@@ -582,10 +582,25 @@
       }
     },
     "Campaigns": {
-      "label": "Campaigns"
+      "campaignHits": "Campaign Hits",
+      "referrals": "Referrals",
+      "totalDeposits": "Total Deposits",
+      "availableCommission": "Available Commission",
+      "totalCommission": "Total Commission",
+      "uniqueDeposits": "Unique Deposits",
+      "commissionRate": "Commission Rate",
+      "available": "Available",
+      "commission": "Commission",
+      "button": "Create new campaign"
     },
     "Funds": {
-      "label": "Funds"
+      "button": "Withdraw available commission",
+      "notice": "Transfers affiliate commission to your available balance.",
+      "Table": {
+        "available": "Available",
+        "commission": "Commission",
+        "withdrawn": "Withdrawn"
+      }
     },
     "ReferredUsers": {
       "label": "Referred Users",
@@ -646,5 +661,18 @@
       "link": "Link",
       "button": "Copy Referral Link"
     }
+  },
+  "RewardsPage": {
+    "hero": "Rewards",
+    "promotions": "Promotions",
+    "luckyWheel": "Lucky Wheel",
+    "vip": "VIP",
+    "promotionCode": "Promotion Code"
+  },
+  "PromotionsPage": {
+    "hero": "Promotions",
+    "casino": "Casino",
+    "sports": "Sports",
+    "latestPromotions": "Latest Promotions"
   }
 }
