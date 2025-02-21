@@ -5,8 +5,11 @@ import { FaChevronDown } from "react-icons/fa6";
 import { FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import { QRCodeCanvas } from "qrcode.react";
 import AuthCode from "../Profile/AuthCode";
+import { useTranslations } from "next-intl";
 
 const SecuritySettingsDropdown = () => {
+  const t = useTranslations("ProfilePage.Settings.Security");
+
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
@@ -45,7 +48,7 @@ const SecuritySettingsDropdown = () => {
       >
         <div className="flex items-center gap-3">
           <FiLock />
-          <h3 className="text-sm font-bold">Security</h3>
+          <h3 className="text-sm font-bold">{t("label")}</h3>
         </div>
         <div
           className={`transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}
@@ -61,16 +64,24 @@ const SecuritySettingsDropdown = () => {
           <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
               <div className="py-3">
-                <h3 className="text-xl font-bold opacity-80">Password</h3>
+                <h3 className="text-xl font-bold opacity-80">
+                  {t("Password.label")}
+                </h3>
               </div>
 
               {/* Passwords Inputs */}
               <div className="flex flex-col gap-4 py-3">
                 {[
-                  { label: "Old Password", field: "old" as const },
-                  { label: "New Password", field: "new" as const },
                   {
-                    label: "Confirm New Password",
+                    label: t("Password.oldPasswordInputLabel"),
+                    field: "old" as const,
+                  },
+                  {
+                    label: t("Password.newPasswordInputLabel"),
+                    field: "new" as const,
+                  },
+                  {
+                    label: t("Password.confirmNewPasswordInputLabel"),
                     field: "confirm" as const,
                   },
                 ].map(({ label, field }) => (
@@ -95,7 +106,7 @@ const SecuritySettingsDropdown = () => {
 
               <div className="flex justify-end py-3">
                 <button className="w-full rounded bg-primary px-4 py-2 text-sm text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary md:w-auto">
-                  Save
+                  {t("Password.button")}
                 </button>
               </div>
             </div>
@@ -105,10 +116,11 @@ const SecuritySettingsDropdown = () => {
           <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
               <div className="flex flex-col gap-2 py-3">
-                <h3 className="text-xl font-bold opacity-80">Two Factor</h3>
+                <h3 className="text-xl font-bold opacity-80">
+                  {t("2FA.label")}
+                </h3>
                 <span className="text-xs opacity-60">
-                  To keep your account extra secure, leave two-factor
-                  authentication enabled.
+                  {t("2FA.description")}
                 </span>
               </div>
 
@@ -117,9 +129,7 @@ const SecuritySettingsDropdown = () => {
                 {/* Auth Code */}
                 <div className="flex flex-col gap-4 py-3">
                   <div className="flex flex-col gap-2">
-                    <p className="text-sm">
-                      Copy this code to your authenticator app
-                    </p>
+                    <p className="text-sm">{t("2FA.authCodeLabel")}</p>
                     <AuthCode authCode={mockAuthCode} />
                   </div>
                 </div>
@@ -127,7 +137,7 @@ const SecuritySettingsDropdown = () => {
                 {/* QR Code */}
                 <div className="flex flex-col gap-4 py-3">
                   <div className="flex flex-col gap-2">
-                    <p className="text-sm">Don&apos;t let anyone see this!</p>
+                    <p className="text-sm">{t("2FA.qrLabel")}</p>
                     <QRCodeCanvas
                       value={qrValue}
                       size={150}
@@ -139,7 +149,7 @@ const SecuritySettingsDropdown = () => {
                 {/* Two Factor Password Confirmation */}
                 <div className="flex flex-col gap-4 py-3">
                   <div className="flex flex-col gap-2">
-                    <p className="text-sm">Enter your password to confirm</p>
+                    <p className="text-sm">{t("2FA.passwordLabel")}</p>
                     <div className="relative">
                       <input
                         type={
@@ -166,7 +176,7 @@ const SecuritySettingsDropdown = () => {
 
                 {/* Two Factor Code Input */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm">Two Factor Code</label>
+                  <label className="text-sm">{t("2FA.codeLabel")}</label>
                   <input
                     type="text"
                     className="rounded border px-3 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
@@ -176,7 +186,7 @@ const SecuritySettingsDropdown = () => {
 
               <div className="flex justify-end py-3">
                 <button className="w-full rounded bg-primary px-4 py-2 text-sm text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary md:w-auto">
-                  Submit
+                  {t("2FA.button")}
                 </button>
               </div>
             </div>

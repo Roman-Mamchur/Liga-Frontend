@@ -7,11 +7,14 @@ import Pagination from "../Layout/Pagination";
 import { sortTotalBetsData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
 import DateRangeDropdown from "../Dropdown/DateRangeDropdown";
+import { useTranslations } from "next-intl";
 
 const TotalBetsTable = () => {
+  const t = useTranslations("ProfilePage.Bets.Table");
+
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState<string>("Transaction Date");
+  const [sortOption, setSortOption] = useState<string>("transactionDate");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
     null,
@@ -26,11 +29,11 @@ const TotalBetsTable = () => {
     return null;
   }
 
-  const handleSortChange = (option: string) => {
-    if (option === sortOption) {
+  const handleSortChange = (optionKey: string) => {
+    if (optionKey === sortOption) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
-      setSortOption(option);
+      setSortOption(optionKey);
       setSortOrder("desc");
     }
   };
@@ -60,7 +63,11 @@ const TotalBetsTable = () => {
   );
 
   // Options to be passed to the SortByDropdown component
-  const sortOptions = ["Total Bets", "Total Win/Lose", "Transaction Date"];
+  const sortOptions = [
+    { key: "totalBets", label: t("totalBets") },
+    { key: "totalWinLose", label: t("totalWinLose") },
+    { key: "transactionDate", label: t("transactionDate") },
+  ];
 
   return (
     <div className="flex">
@@ -79,7 +86,7 @@ const TotalBetsTable = () => {
           </div>
           <div>
             <DateRangeDropdown
-              dateInfo="Transaction Date"
+              dateInfo={t("transactionDate")}
               dateRange={dateRange}
               setDateRange={setDateRange}
             />
@@ -91,10 +98,12 @@ const TotalBetsTable = () => {
           <table className="w-full table-auto text-sm">
             <thead>
               <tr className="h-14 opacity-80">
-                <th className="text-nowrap px-4 py-2 text-left">Total Bets</th>
-                <th className="text-nowrap px-4 py-2">Total Win/Lose</th>
+                <th className="text-nowrap px-4 py-2 text-left">
+                  {t("totalBets")}
+                </th>
+                <th className="text-nowrap px-4 py-2">{t("totalWinLose")}</th>
                 <th className="text-nowrap px-4 py-2 text-right">
-                  Transaction Date
+                  {t("transactionDate")}
                 </th>
               </tr>
             </thead>
@@ -122,7 +131,7 @@ const TotalBetsTable = () => {
                   <td colSpan={3} className="rounded py-4">
                     <div className="flex items-center justify-center gap-3 opacity-60">
                       <FaBoxOpen className="size-8" />
-                      <span className="text-sm">Nothing in here yet!</span>
+                      <span className="text-sm">{t("empty")}</span>
                     </div>
                   </td>
                 </tr>
@@ -136,7 +145,7 @@ const TotalBetsTable = () => {
           <div className="flex justify-end">
             <div className="my-4 w-fit rounded bg-card p-2">
               <span className="text-sm font-semibold opacity-80">
-                Total Bets:{" "}
+                <span>{t("total")}: </span>
                 {filteredRows.length > 0
                   ? filteredRows.reduce((acc, row) => acc + row.bet, 0)
                   : sortedRows.reduce((acc, row) => acc + row.bet, 0)}

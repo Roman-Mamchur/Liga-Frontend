@@ -8,6 +8,10 @@
     "description": "Sorry, the page you're looking for doesn't exist.",
     "link": "Go Back Home"
   },
+  "Toast": {
+    "authCodeCopied": "Authenticator code copied!",
+    "referralLinkCopied": "Referral link copied!"
+  },
   "Sidebar": {
     "casinoButton": "Casino",
     "sportsButton": "Sports",
@@ -153,6 +157,175 @@
         "label": "My Promotions",
         "cashback": "Cashback",
         "rebate": "Rebate"
+      }
+    },
+    "History": {
+      "label": "History",
+      "Table": {
+        "amount": "Amount",
+        "channel": "Channel",
+        "bankAccount": "Bank Account",
+        "depositDate": "Deposit Date",
+        "status": "Status",
+        "statusDate": "Status Date",
+        "total": "Total Deposit",
+        "empty": "Nothing in here yet!"
+      }
+    },
+    "Rebate": {
+      "label": "Rebate",
+      "Table": {
+        "rebateAmount": "Rebate Amount",
+        "transactionDate": "Transaction Date",
+        "total": "Total Rebate",
+        "empty": "Nothing in here yet!"
+      }
+    },
+    "Cashback": {
+      "label": "Cashback",
+      "Table": {
+        "cashbackAmount": "Cashback Amount",
+        "transactionDate": "Transaction Date",
+        "total": "Total Cashback",
+        "empty": "Nothing in here yet!"
+      }
+    },
+    "Bets": {
+      "label": "Total Bets",
+      "Table": {
+        "totalBets": "Total Bets",
+        "totalWinLose": "Total Win/Lose",
+        "transactionDate": "Transaction Date",
+        "total": "Total Bets",
+        "empty": "Nothing in here yet!"
+      }
+    },
+    "Redeems": {
+      "label": "Redeems",
+      "Table": {
+        "number": "No.",
+        "transactionDate": "Transaction Date",
+        "rewardType": "Reward Type",
+        "reward": "Reward",
+        "status": "Status",
+        "usedPoints": "Used Points",
+        "freeSpins": "Free Spins",
+        "allRewards": "All Rewards",
+        "totalUsedPoints": "Total Used Points",
+        "totalFreeSpins": "Total Free Spins",
+        "empty": "Nothing in here yet!"
+      }
+    },
+    "Points": {
+      "label": "Points",
+      "Table": {
+        "points": "Points",
+        "type": "Type",
+        "turnover": "Turnover",
+        "transactionDate": "Transaction Date",
+        "total": "Total Points",
+        "empty": "Nothing in here yet!"
+      }
+    },
+    "Messages": {
+      "label": "Messages",
+      "empty": "Nothing in here yet!"
+    },
+    "Settings": {
+      "label": "Settings",
+      "General": {
+        "label": "General",
+        "Email": {
+          "label": "Email",
+          "verified": "Verified",
+          "emailInputLabel": "Email",
+          "button": "Confirm Email"
+        },
+        "Phone": {
+          "label": "Phone Number",
+          "description": "We only service areas that are listed in the available country code list.",
+          "countryCodeInputLabel": "Country Code",
+          "phoneInputLabel": "Phone Number",
+          "phoneInputPlaceholder": "Enter your phone number",
+          "button": "Submit"
+        }
+      },
+      "Security": {
+        "label": "Security",
+        "Password": {
+          "label": "Password",
+          "oldPasswordInputLabel": "Old Password",
+          "newPasswordInputLabel": "New Password",
+          "confirmNewPasswordInputLabel": "Confirm New Password",
+          "button": "Save"
+        },
+        "2FA": {
+          "label": "Two Factor",
+          "description": "To keep your account extra secure, leave two-factor authentication enabled.",
+          "authCodeLabel": "Copy this code to your authenticator app",
+          "qrLabel": "Don't let anyone see this!",
+          "passwordLabel": "Enter your password to confirm",
+          "codeLabel": "Two Factor Code",
+          "button": "Submit"
+        }
+      },
+      "Preferences": {
+        "label": "Preferences",
+        "notice": "Please allow up to 30 seconds for update to take effect.",
+        "button": "Save",
+        "Privacy": {
+          "label": "Privacy",
+          "description": "User privacy is one of the core values of Fafa878. These settings allow you to be completely anonymous from the rest of the players.",
+          "ghostModeLabel": "Enable Ghost Mode",
+          "ghostModeDescription": "Your username will not appear in public bet feed and bet preview.",
+          "hideStatsLabel": "Hide all your statistics",
+          "hideStatsDescription": "Other users won't be able to view your wins, losses, and wagered statistics.",
+          "hideRaceStatsLabel": "Hide all your race statistics",
+          "hideRaceStatsDescription": "Other users won't be able to view your race statistics."
+        },
+        "Marketing": {
+          "label": "Marketing",
+          "receiveEmailLabel": "Receive email offers from us",
+          "receiveEmailDescription": "Choose if you wish to hear from us via email.",
+          "receiveSMSLabel": "Receive SMS offers from us",
+          "receiveSMSDescription": "Choose if you wish to hear from us via SMS."
+        }
+      },
+      "Sessions": {
+        "label": "Sessions",
+        "Table": {
+          "browser": "Browser",
+          "near": "Near",
+          "ip": "IP Address",
+          "lastUsed": "Last used",
+          "action": "Action",
+          "empty": "Nothing in here yet!"
+        }
+      },
+      "Offers": {
+        "label": "Offers",
+        "Welcome": {
+          "label": "Welcome offer",
+          "description": "To claim your welcome offer, please enter your code within 24 hours of signing up.",
+          "codeInputLabel": "Code",
+          "button": "Submit"
+        },
+        "Bonus": {
+          "label": "Claim bonus drop",
+          "description": "Find bonus drop codes on our social media's such as Line, WeChat & Telegram.",
+          "codeInputLabel": "Code",
+          "button": "Submit"
+        }
+      }
+    },
+    "Components": {
+      "sortingLabel": "Sort By",
+      "datePickerPlaceholder": "Select date range",
+      "Pagination": {
+        "page": "Page",
+        "of": "of",
+        "firstPage": "First Page",
+        "lastPage": "Last Page"
       }
     }
   },
@@ -341,6 +514,135 @@
       "bespokeBenefits": {
         "title": "Bespoke benefits",
         "description": "Work with your dedicated VIP host to tailor benefits to your gaming needs."
+      }
+    }
+  },
+  "AffiliatePage": {
+    "Layout": {
+      "hero": "Affiliate",
+      "overview": "Overview",
+      "campaigns": "Campaigns",
+      "funds": "Funds",
+      "referredUsers": "Referred Users",
+      "faq": "FAQ"
+    },
+    "Overview": {
+      "label": "Overview",
+      "faq": "FAQ",
+      "readMore": "Read More",
+      "AffiliateStats": {
+        "title": "Refer and earn big with our Affiliate Program",
+        "description": "Earn commission for all bets placed by your referrals across Casino and Sportsbook.",
+        "customersNumber": "21.6M",
+        "customersLabel": "Worldwide Customers",
+        "paymentMethodsNumber": "32",
+        "paymentMethodsLabel": "Payment Methods",
+        "languagesNumber": "16",
+        "languagesLabel": "Languages Supported"
+      },
+      "ReferralLink": {
+        "description": "Ready to earn commission? Tap the 'Copy Referral Link' button and share your default campaign.",
+        "button": "Copy Referral Link"
+      },
+      "CommissionRules": {
+        "label": "Commission Rules",
+        "description": "Invite friends and earn 3% daily",
+
+        "turnoverRequirementTitle": "Turnover Requirement for Withdrawal",
+        "turnoverRequirementDescription": "Commission can be transferred to the main wallet. A 4x turnover is required before withdrawal.",
+
+        "minimumWithdrawalTitle": "Minimum Withdrawal Limit",
+        "minimumWithdrawalDescription": "A minimum commission of 5 Baht is required to withdraw to the main wallet.",
+
+        "maxDailyCommissionTitle": "Maximum Daily Friend-Invite Commission",
+        "maxDailyCommissionDescription": "Maximum commission for inviting friends is 3,000 Baht daily.",
+
+        "eligibleDepositsTitle": "Eligible Deposits for Commission",
+        "eligibleDepositsDescription": "Only deposits made by friends without any promotions are counted.",
+
+        "calculationTimeTitle": "Daily Calculation Time",
+        "calculationTimeDescription": "The system calculates your friends' losses daily from 00:00 to 23:59. Income is calculated every day at 8:00."
+      },
+      "Advantages": {
+        "label": "Exclusive advantages",
+
+        "instantPayoutTitle": "Instant payout",
+        "instantPayoutDescription": "Skip the wait. See earnings instantly in your account.",
+
+        "lifetimeCommissionTitle": "Lifetime commission",
+        "lifetimeCommissionDescription": "If the people you refer keep playing, you keep getting paid.",
+
+        "marketLeadingValueTitle": "Market leading player value",
+        "marketLeadingValueDescription": "Grow your earnings with some of the highest returns offered to players.",
+
+        "customCommissionTitle": "Customize your commission",
+        "customCommissionDescription": "Tailor your commission plan to fit your unique business needs.",
+
+        "cryptoLocalCurrenciesTitle": "Crypto & local currencies",
+        "cryptoLocalCurrenciesDescription": "Earn your way with support for both cryptocurrency and local currencies.",
+
+        "multiLanguageSupportTitle": "24x7 Multi language support",
+        "multiLanguageSupportDescription": "Get the help you want in your preferred language all day, everyday."
+      }
+    },
+    "Campaigns": {
+      "label": "Campaigns"
+    },
+    "Funds": {
+      "label": "Funds"
+    },
+    "ReferredUsers": {
+      "label": "Referred Users",
+      "Table": {
+        "username": "Username",
+        "registrationDate": "Registered",
+        "totalDeposits": "Total Deposits",
+        "lastDeposit": "Last Deposit",
+        "wagered": "Wagered",
+        "commission": "Commission",
+        "empty": "Nothing in here yet!",
+        "datePickerLabel": "Registration Date"
+      }
+    },
+    "FAQ": {
+      "General": {
+        "question1": "What is FaFa878?",
+        "answer1": "FaFa878 is an online gaming platform offering a variety of casino and sports betting options, providing users with an engaging and secure gaming experience.",
+
+        "question2": "Is FaFa878 safe to use?",
+        "answer2": "Yes, FaFa878 is a licensed and regulated platform that ensures fair gaming and secure transactions for all users.",
+
+        "question3": "How can I create an account?",
+        "answer3": "Creating an account is easy! Simply visit FaFa878.com, click on the 'Register' button, and follow the instructions to register.",
+
+        "question4": "What payment methods does FaFa878 accept?",
+        "answer4": "FaFa878 accepts a variety of payment methods including credit/debit cards, e-wallets, and cryptocurrency options for deposits and withdrawals."
+      },
+      "AffiliateProgram": {
+        "question1": "What is the FaFa878 Affiliate Program?",
+        "answer1": "The FaFa878 Affiliate Program allows individuals, businesses, and influencers to earn commissions by referring new players to FaFa878.com. Affiliates can monetize their audience by promoting FaFa878's gaming platform and receiving rewards for successful referrals.",
+
+        "question2": "Who can join the FaFa878 Affiliate Program?",
+        "answer2": "Anyone who has a platform to promote FaFa878, including bloggers, influencers, website owners, and digital marketers, can join the program. There are no strict requirements, making it accessible for both beginners and experienced marketers.",
+
+        "question3": "How do I join the FaFa878 Affiliate Program?",
+        "answer3": "Joining is simple! Visit the FaFa878 Affiliate Program page, sign up with your details, and wait for approval. Once approved, you will receive a unique referral link and access to marketing tools to start promoting.",
+
+        "question4": "What are the benefits of joining the FaFa878 Affiliate Program?",
+        "answer4": "Affiliates enjoy competitive commission rates, real-time tracking of referrals, exclusive marketing materials, and dedicated support. Additionally, there are no upfront costs, making it a risk-free opportunity to earn passive income."
+      },
+      "Earnings": {
+        "question1": "How do I earn money through the FaFa878 Affiliate Program?",
+        "answer1": "You earn commissions by referring new players to FaFa878. The more active players you refer, the higher your potential earnings.",
+
+        "question2": "When and how do I receive my affiliate commissions?",
+        "answer2": "Affiliate commissions are paid on a regular basis via your preferred payment method. Payments are processed once you meet the minimum payout threshold.",
+
+        "question3": "Is there a limit to how much I can earn?",
+        "answer3": "No, there is no earning limit! Your income potential depends on the number of referrals and their activity on the platform.",
+
+        "question4": "How can I track my earnings?",
+        "answer4": "You can track your earnings and referral statistics through the affiliate dashboard, which provides real-time insights into your commissions and performance."
       }
     }
   }

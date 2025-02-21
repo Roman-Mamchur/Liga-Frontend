@@ -1,11 +1,12 @@
 "use client";
 
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { useTranslations } from "next-intl";
 import { FaChevronDown } from "react-icons/fa6";
 import { TbSortAscending, TbSortDescending } from "react-icons/tb";
 
 interface SortByDropdownProps {
-  options: string[];
+  options: { key: string; label: string }[];
   selectedOption: string;
   sortOrder: "asc" | "desc";
   setSortOption: (option: string, order: "asc" | "desc") => void;
@@ -17,9 +18,11 @@ const SortByDropdown: React.FC<SortByDropdownProps> = ({
   sortOrder,
   setSortOption,
 }) => {
-  const handleOptionChange = (option: string) => {
-    if (option !== selectedOption) {
-      setSortOption(option, sortOrder);
+  const t = useTranslations("ProfilePage.Components");
+
+  const handleOptionChange = (optionKey: string) => {
+    if (optionKey !== selectedOption) {
+      setSortOption(optionKey, sortOrder);
     }
   };
 
@@ -30,10 +33,10 @@ const SortByDropdown: React.FC<SortByDropdownProps> = ({
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <p className="mb-1 opacity-80">Sort By</p>
+        <p className="mb-1 opacity-80">{t("sortingLabel")}</p>
         <div className="flex items-center justify-between gap-1">
           <MenuButton className="inline-flex h-10 items-center justify-center gap-4 rounded bg-primary px-3 py-2 text-sm font-semibold text-white shadow-md">
-            {selectedOption}
+            {options.find((o) => o.key === selectedOption)?.label || ""}
             <FaChevronDown aria-hidden="true" className="size-3" />
           </MenuButton>
           <button
@@ -55,16 +58,16 @@ const SortByDropdown: React.FC<SortByDropdownProps> = ({
       >
         <div className="py-1 text-sm">
           {options.map((option) => (
-            <MenuItem key={option}>
+            <MenuItem key={option.key}>
               <p
                 className={`flex cursor-pointer items-center justify-between gap-4 text-nowrap px-4 py-2 duration-200 ${
-                  selectedOption === option
+                  selectedOption === option.key
                     ? "bg-gray-500/20"
                     : "hover:bg-gray-500/10"
                 }`}
-                onClick={() => handleOptionChange(option)}
+                onClick={() => handleOptionChange(option.key)}
               >
-                {option}
+                {option.label}
               </p>
             </MenuItem>
           ))}

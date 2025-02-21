@@ -1,6 +1,7 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./css/datepicker.css";
+import { useTranslations } from "next-intl";
 
 interface DateRangeDropdownProps {
   dateInfo: string;
@@ -13,6 +14,8 @@ const DateRangeDropdown = ({
   dateRange,
   setDateRange,
 }: DateRangeDropdownProps) => {
+  const t = useTranslations("ProfilePage.Components");
+
   return (
     <div>
       <p className="mb-1 text-left capitalize opacity-80 lg:text-right">
@@ -26,7 +29,7 @@ const DateRangeDropdown = ({
           setDateRange(update as [Date | null, Date | null])
         }
         isClearable
-        placeholderText="Select date range"
+        placeholderText={t("datePickerPlaceholder")}
         dateFormat="dd MMM yyyy"
         showMonthDropdown
         showYearDropdown

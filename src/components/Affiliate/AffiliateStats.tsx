@@ -1,29 +1,27 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const AffiliateStats = () => {
+  const t = useTranslations("AffiliatePage.Overview.AffiliateStats");
+
   return (
     <div className="flex rounded shadow-md">
       <div className="flex flex-1 flex-col gap-3 rounded bg-card p-4 md:rounded-r-none">
-        <h3 className="text-2xl font-bold opacity-80">
-          Refer and earn big with our Affiliate Program
-        </h3>
-        <p className="text-sm opacity-80">
-          Earn commission for all bets placed by your referrals across Casino
-          and Sportsbook.
-        </p>
+        <h3 className="text-2xl font-bold opacity-80">{t("title")}</h3>
+        <p className="text-sm opacity-80">{t("description")}</p>
         <div className="w-fit rounded bg-primary px-4 py-2 text-white shadow-md">
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-start justify-between gap-3">
             <div className="flex flex-col">
-              <p className="text-lg font-bold">21.6M</p>
-              <p className="text-sm">Worldwide Customers</p>
+              <p className="text-lg font-bold">{t("customersNumber")}</p>
+              <p className="text-sm">{t("customersLabel")}</p>
             </div>
             <div className="flex flex-col">
-              <p className="text-lg font-bold">32</p>
-              <p className="text-sm">Payment Methods</p>
+              <p className="text-lg font-bold">{t("paymentMethodsNumber")}</p>
+              <p className="text-sm">{t("paymentMethodsLabel")}</p>
             </div>
             <div className="flex flex-col">
-              <p className="text-lg font-bold">16</p>
-              <p className="text-sm">Languages Supported</p>
+              <p className="text-lg font-bold">{t("languagesNumber")}</p>
+              <p className="text-sm">{t("languagesLabel")}</p>
             </div>
           </div>
         </div>

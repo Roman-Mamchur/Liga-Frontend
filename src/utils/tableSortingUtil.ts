@@ -1,7 +1,7 @@
 type Referral = {
   id: number;
   username: string;
-  registered: string;
+  registrationDate: string;
   totalDeposits?: number;
   lastDeposit?: number;
   wagered?: number;
@@ -67,18 +67,19 @@ export const sortReferralData = (
   return data.sort((a, b) => {
     let result = 0;
 
-    if (sortOption === "Username") {
+    if (sortOption === "username") {
       result = a.username?.localeCompare(b.username ?? "") ?? 0;
-    } else if (sortOption === "Registration") {
+    } else if (sortOption === "registrationDate") {
       result =
-        new Date(a.registered).getTime() - new Date(b.registered).getTime();
-    } else if (sortOption === "Total Deposits") {
+        new Date(a.registrationDate).getTime() -
+        new Date(b.registrationDate).getTime();
+    } else if (sortOption === "totalDeposits") {
       result = (a.totalDeposits ?? 0) - (b.totalDeposits ?? 0);
-    } else if (sortOption === "Last Deposit") {
+    } else if (sortOption === "lastDeposit") {
       result = (a.lastDeposit ?? 0) - (b.lastDeposit ?? 0);
-    } else if (sortOption === "Wagered") {
+    } else if (sortOption === "wagered") {
       result = (a.wagered ?? 0) - (b.wagered ?? 0);
-    } else if (sortOption === "Commission") {
+    } else if (sortOption === "commission") {
       result = (a.commission ?? 0) - (b.commission ?? 0);
     }
 
@@ -94,18 +95,18 @@ export const sortHistoryData = (
   return data.sort((a, b) => {
     let result = 0;
 
-    if (sortOption === "Amount") {
+    if (sortOption === "amount") {
       result = a.amount - b.amount;
-    } else if (sortOption === "Channel") {
+    } else if (sortOption === "channel") {
       result = a.channel.localeCompare(b.channel);
-    } else if (sortOption === "Bank Account") {
+    } else if (sortOption === "bankAccount") {
       result = a.bankAccount - b.bankAccount;
-    } else if (sortOption === "Deposit Date") {
+    } else if (sortOption === "depositDate") {
       result =
         new Date(a.depositDate).getTime() - new Date(b.depositDate).getTime();
-    } else if (sortOption === "Status") {
+    } else if (sortOption === "status") {
       result = a.status.localeCompare(b.status);
-    } else if (sortOption === "Status Date") {
+    } else if (sortOption === "statusDate") {
       result =
         new Date(a.statusDate).getTime() - new Date(b.statusDate).getTime();
     }
@@ -122,9 +123,9 @@ export const sortRebateAndCashbackData = (
   return data.sort((a, b) => {
     let result = 0;
 
-    if (sortOption === "Rebate Amount" || sortOption === "Cashback Amount") {
+    if (sortOption === "rebateAmount" || sortOption === "cashbackAmount") {
       result = a.amount - b.amount;
-    } else if (sortOption === "Transaction Date") {
+    } else if (sortOption === "transactionDate") {
       result =
         new Date(a.transactionDate).getTime() -
         new Date(b.transactionDate).getTime();
@@ -142,11 +143,11 @@ export const sortTotalBetsData = (
   return data.sort((a, b) => {
     let result = 0;
 
-    if (sortOption === "Total Bets") {
+    if (sortOption === "totalBets") {
       result = a.bet - b.bet;
-    } else if (sortOption === "Total Win/Lose") {
+    } else if (sortOption === "totalWinLose") {
       result = a.winLose - b.winLose;
-    } else if (sortOption === "Transaction Date") {
+    } else if (sortOption === "transactionDate") {
       result =
         new Date(a.transactionDate).getTime() -
         new Date(b.transactionDate).getTime();
@@ -164,21 +165,21 @@ export const sortRedeemsData = (
   return data.sort((a, b) => {
     let result = 0;
 
-    if (sortOption === "No.") {
+    if (sortOption === "number") {
       result = a.number - b.number;
-    } else if (sortOption === "Transaction Date") {
+    } else if (sortOption === "transactionDate") {
       result =
         new Date(a.transactionDate).getTime() -
         new Date(b.transactionDate).getTime();
-    } else if (sortOption === "Reward Type") {
+    } else if (sortOption === "rewardType") {
       result = a.rewardType.localeCompare(b.rewardType);
-    } else if (sortOption === "Reward") {
+    } else if (sortOption === "reward") {
       result = a.reward.localeCompare(b.reward);
-    } else if (sortOption === "Status") {
+    } else if (sortOption === "status") {
       result = a.status.localeCompare(b.status);
-    } else if (sortOption === "Used Points") {
+    } else if (sortOption === "usedPoints") {
       result = a.points - b.points;
-    } else if (sortOption === "Free Spins") {
+    } else if (sortOption === "freeSpins") {
       result = a.spins - b.spins;
     }
 
@@ -194,13 +195,13 @@ export const sortPointsData = (
   return data.sort((a, b) => {
     let result = 0;
 
-    if (sortOption === "Points") {
+    if (sortOption === "points") {
       result = a.amount - b.amount;
-    } else if (sortOption === "Type") {
+    } else if (sortOption === "type") {
       result = a.type.localeCompare(b.type);
-    } else if (sortOption === "Turnover") {
+    } else if (sortOption === "turnover") {
       result = a.turnover - b.turnover;
-    } else if (sortOption === "Transaction Date") {
+    } else if (sortOption === "transactionDate") {
       result =
         new Date(a.transactionDate).getTime() -
         new Date(b.transactionDate).getTime();
@@ -218,15 +219,15 @@ export const sortSessionsData = (
   return data.sort((a, b) => {
     let result = 0;
 
-    if (sortOption === "Browser") {
+    if (sortOption === "browser") {
       result = a.browser.localeCompare(b.browser);
-    } else if (sortOption === "Near") {
+    } else if (sortOption === "near") {
       result = a.location.localeCompare(b.location);
-    } else if (sortOption === "IP Address") {
+    } else if (sortOption === "ip") {
       result = a.ip.localeCompare(b.ip);
-    } else if (sortOption === "Last Used") {
+    } else if (sortOption === "lastUsed") {
       result = new Date(a.usedDate).getTime() - new Date(b.usedDate).getTime();
-    } else if (sortOption === "Action") {
+    } else if (sortOption === "action") {
       result = a.action.localeCompare(b.action);
     }
 

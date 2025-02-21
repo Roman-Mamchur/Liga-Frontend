@@ -8,11 +8,14 @@ import Pagination from "../Layout/Pagination";
 import { sortReferralData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
 import DateRangeDropdown from "../Dropdown/DateRangeDropdown";
+import { useTranslations } from "next-intl";
 
 const ReferralTable = () => {
+  const t = useTranslations("AffiliatePage.ReferredUsers.Table");
+
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState<string>("Registration");
+  const [sortOption, setSortOption] = useState<string>("registrationDate");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
     null,
@@ -27,11 +30,11 @@ const ReferralTable = () => {
     return null;
   }
 
-  const handleSortChange = (option: string) => {
-    if (option === sortOption) {
+  const handleSortChange = (optionKey: string) => {
+    if (optionKey === sortOption) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
-      setSortOption(option);
+      setSortOption(optionKey);
       setSortOrder("desc");
     }
   };
@@ -43,7 +46,7 @@ const ReferralTable = () => {
   // Filter by date range
   const filteredRows = sortedRows.filter((referral) => {
     if (!dateRange[0] || !dateRange[1]) return true;
-    const date = new Date(referral.registered);
+    const date = new Date(referral.registrationDate);
     return date >= dateRange[0] && date <= dateRange[1];
   });
 
@@ -58,12 +61,12 @@ const ReferralTable = () => {
 
   // Options to be passed to the SortByDropdown component
   const sortOptions = [
-    "Username",
-    "Registration",
-    "Total Deposits",
-    "Last Deposit",
-    "Wagered",
-    "Commission",
+    { key: "username", label: t("username") },
+    { key: "registrationDate", label: t("registrationDate") },
+    { key: "totalDeposits", label: t("totalDeposits") },
+    { key: "lastDeposit", label: t("lastDeposit") },
+    { key: "wagered", label: t("wagered") },
+    { key: "commission", label: t("commission") },
   ];
 
   return (
@@ -83,7 +86,7 @@ const ReferralTable = () => {
           </div>
           <div>
             <DateRangeDropdown
-              dateInfo="Registration Date"
+              dateInfo={t("datePickerLabel")}
               dateRange={dateRange}
               setDateRange={setDateRange}
             />
@@ -95,14 +98,20 @@ const ReferralTable = () => {
           <table className="w-full table-auto text-sm">
             <thead>
               <tr className="h-14 opacity-80">
-                <th className="px-4 py-2">Username</th>
-                <th className="hidden px-4 py-2 sm:table-cell">Registered</th>
-                <th className="hidden px-4 py-2 md:table-cell">
-                  Total Deposits
+                <th className="px-4 py-2">{t("username")}</th>
+                <th className="hidden px-4 py-2 sm:table-cell">
+                  {t("registrationDate")}
                 </th>
-                <th className="hidden px-4 py-2 md:table-cell">Last Deposit</th>
-                <th className="hidden px-4 py-2 sm:table-cell">Wagered</th>
-                <th className="px-4 py-2">Commission</th>
+                <th className="hidden px-4 py-2 md:table-cell">
+                  {t("totalDeposits")}
+                </th>
+                <th className="hidden px-4 py-2 md:table-cell">
+                  {t("lastDeposit")}
+                </th>
+                <th className="hidden px-4 py-2 sm:table-cell">
+                  {t("wagered")}
+                </th>
+                <th className="px-4 py-2">{t("commission")}</th>
               </tr>
             </thead>
             <tbody>
@@ -116,7 +125,7 @@ const ReferralTable = () => {
                       {referral.username}
                     </td>
                     <td className="hidden max-w-14 text-nowrap px-4 py-2 sm:table-cell">
-                      {referral.registered}
+                      {referral.registrationDate}
                     </td>
                     <td className="hidden max-w-14 px-4 py-2 md:table-cell">
                       <div className="flex items-center justify-center gap-1">
@@ -161,7 +170,7 @@ const ReferralTable = () => {
                   <td colSpan={6} className="rounded py-4">
                     <div className="flex items-center justify-center gap-3 opacity-60">
                       <FaBoxOpen className="size-8" />
-                      <span className="text-sm">Nothing in here yet!</span>
+                      <span className="text-sm">{t("empty")}</span>
                     </div>
                   </td>
                 </tr>

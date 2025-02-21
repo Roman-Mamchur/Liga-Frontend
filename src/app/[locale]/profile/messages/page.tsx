@@ -4,8 +4,11 @@ import { messages } from "@/data/messagesMockData";
 import { useState } from "react";
 import { FaBoxOpen, FaMessage } from "react-icons/fa6";
 import Pagination from "@/components/Layout/Pagination";
+import { useTranslations } from "next-intl";
 
 const ProfileMessagesPage = () => {
+  const t = useTranslations("ProfilePage.Messages");
+
   const [currentPage, setCurrentPage] = useState(1);
   // const [activeTab, setActiveTab] = useState<"Inbox" | "Sent">("Inbox");
 
@@ -24,7 +27,7 @@ const ProfileMessagesPage = () => {
       {/* Header */}
       <div className="flex items-center gap-3 text-xl font-bold opacity-80">
         <FaMessage />
-        <h1>Messages</h1>
+        <h1>{t("label")}</h1>
       </div>
 
       {/* Tabs */}
@@ -86,7 +89,7 @@ const ProfileMessagesPage = () => {
         ) : (
           <div className="flex items-center justify-center gap-3 opacity-60">
             <FaBoxOpen className="size-8" />
-            <span className="text-sm">Nothing in here yet!</span>
+            <span className="text-sm">{t("empty")}</span>
           </div>
         )}
       </div>

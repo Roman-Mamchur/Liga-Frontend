@@ -1,14 +1,17 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { FaCopy } from "react-icons/fa6";
 import { toast } from "react-toastify";
 
 interface ReferralLinkProps {
-  desc: string;
   type: 1 | 2;
 }
 
-const ReferralLink = ({ desc, type }: ReferralLinkProps) => {
+const ReferralLink = ({ type }: ReferralLinkProps) => {
+  const t = useTranslations("AffiliatePage.Overview.ReferralLink");
+  const toastT = useTranslations("Toast");
+
   const referralLink = "fafa.com/?c=GjsUVhQJ";
 
   const handleCopy = () => {
@@ -16,7 +19,7 @@ const ReferralLink = ({ desc, type }: ReferralLinkProps) => {
     toast(
       <div className="flex items-center gap-2 font-semibold text-primary">
         <FaCopy />
-        <span>Referral link copied!</span>
+        <span>{toastT("referralLinkCopied")}</span>
       </div>,
       {
         className: "primary-toast",
@@ -31,7 +34,7 @@ const ReferralLink = ({ desc, type }: ReferralLinkProps) => {
         <div
           className={`flex flex-col items-center ${type === 1 ? "gap-6 p-4" : "gap-1"}`}
         >
-          <p className="w-full opacity-80">{desc}</p>
+          <p className="w-full opacity-80">{t("description")}</p>
           {type === 1 ? (
             <div className="flex w-full items-center gap-3">
               <input
@@ -39,13 +42,13 @@ const ReferralLink = ({ desc, type }: ReferralLinkProps) => {
                 value={referralLink}
                 readOnly
                 onClick={handleCopy}
-                className="h-fit min-w-0 max-w-40 flex-1 cursor-pointer truncate rounded px-4 py-2 text-sm shadow-md"
+                className="h-fit min-w-24 max-w-40 flex-1 cursor-pointer truncate rounded px-4 py-2 text-sm shadow-md"
               />
               <button
                 onClick={handleCopy}
-                className="text-nowrap rounded bg-primary px-4 py-2 text-sm font-bold text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary"
+                className="rounded bg-primary px-4 py-2 text-sm font-bold text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary"
               >
-                Copy Referral Link
+                {t("button")}
               </button>
             </div>
           ) : (

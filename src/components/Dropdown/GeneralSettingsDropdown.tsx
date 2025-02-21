@@ -1,11 +1,14 @@
 "use client";
 
 import { countryCodes } from "@/data/countryCodeData";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { MdTune } from "react-icons/md";
 
 const GeneralSettingsDropdown = () => {
+  const t = useTranslations("ProfilePage.Settings.General");
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCountryCode, setSelectedCountryCode] = useState("+1");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -22,7 +25,7 @@ const GeneralSettingsDropdown = () => {
       >
         <div className="flex items-center gap-3">
           <MdTune />
-          <h3 className="text-sm font-bold">General</h3>
+          <h3 className="text-sm font-bold">{t("label")}</h3>
         </div>
         <div
           className={`transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}
@@ -38,13 +41,15 @@ const GeneralSettingsDropdown = () => {
           <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
               <div className="flex items-center gap-3 py-3">
-                <h3 className="text-xl font-bold opacity-80">Email</h3>
+                <h3 className="text-xl font-bold opacity-80">
+                  {t("Email.label")}
+                </h3>
                 <span className="rounded-full bg-green-500 px-4 py-1 text-xs text-white">
-                  Verified
+                  {t("Email.verified")}
                 </span>
               </div>
               <div className="flex flex-col gap-2 py-3">
-                <label className="text-sm">Email</label>
+                <label className="text-sm">{t("Email.emailInputLabel")}</label>
                 <input
                   type="email"
                   placeholder="johndoe@example.com"
@@ -53,7 +58,7 @@ const GeneralSettingsDropdown = () => {
               </div>
               <div className="flex justify-end py-3">
                 <button className="w-full rounded bg-primary px-4 py-2 text-sm text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary md:w-auto">
-                  Confirm Email
+                  {t("Email.button")}
                 </button>
               </div>
             </div>
@@ -63,17 +68,20 @@ const GeneralSettingsDropdown = () => {
           <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
               <div className="flex flex-col gap-2 py-3">
-                <h3 className="text-xl font-bold opacity-80">Phone Number</h3>
+                <h3 className="text-xl font-bold opacity-80">
+                  {t("Phone.label")}
+                </h3>
                 <span className="text-xs opacity-60">
-                  We only service areas that are listed in the available country
-                  code list.
+                  {t("Phone.description")}
                 </span>
               </div>
 
               <div className="flex flex-col gap-4 py-3">
                 {/* Country Code Select */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm">Country Code</label>
+                  <label className="text-sm">
+                    {t("Phone.countryCodeInputLabel")}
+                  </label>
                   <div className="relative">
                     <select
                       value={selectedCountryCode}
@@ -94,12 +102,14 @@ const GeneralSettingsDropdown = () => {
 
                 {/* Phone Number Input */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm">Phone Number</label>
+                  <label className="text-sm">
+                    {t("Phone.phoneInputLabel")}
+                  </label>
                   <input
                     type="tel"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
-                    placeholder="Enter your phone number"
+                    placeholder={t("Phone.phoneInputPlaceholder")}
                     className="rounded border px-3 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
@@ -107,7 +117,7 @@ const GeneralSettingsDropdown = () => {
 
               <div className="flex justify-end py-3">
                 <button className="w-full rounded bg-primary px-4 py-2 text-sm text-white shadow-md duration-200 hover:scale-105 hover:bg-secondary md:w-auto">
-                  Submit
+                  {t("Phone.button")}
                 </button>
               </div>
             </div>

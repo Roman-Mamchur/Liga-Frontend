@@ -7,11 +7,14 @@ import Pagination from "../Layout/Pagination";
 import { sortHistoryData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
 import DateRangeDropdown from "../Dropdown/DateRangeDropdown";
+import { useTranslations } from "next-intl";
 
 const HistoryTable = () => {
+  const t = useTranslations("ProfilePage.History.Table");
+
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState<string>("Status Date");
+  const [sortOption, setSortOption] = useState<string>("statusDate");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
     null,
@@ -26,11 +29,11 @@ const HistoryTable = () => {
     return null;
   }
 
-  const handleSortChange = (option: string) => {
-    if (option === sortOption) {
+  const handleSortChange = (optionKey: string) => {
+    if (optionKey === sortOption) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
-      setSortOption(option);
+      setSortOption(optionKey);
       setSortOrder("desc");
     }
   };
@@ -57,12 +60,12 @@ const HistoryTable = () => {
 
   // Options to be passed to the SortByDropdown component
   const sortOptions = [
-    "Amount",
-    "Channel",
-    "Bank Account",
-    "Deposit Date",
-    "Status",
-    "Status Date",
+    { key: "amount", label: t("amount") },
+    { key: "channel", label: t("channel") },
+    { key: "bankAccount", label: t("bankAccount") },
+    { key: "depositDate", label: t("depositDate") },
+    { key: "status", label: t("status") },
+    { key: "statusDate", label: t("statusDate") },
   ];
 
   return (
@@ -82,7 +85,7 @@ const HistoryTable = () => {
           </div>
           <div>
             <DateRangeDropdown
-              dateInfo="Status Date"
+              dateInfo={t("statusDate")}
               dateRange={dateRange}
               setDateRange={setDateRange}
             />
@@ -94,20 +97,20 @@ const HistoryTable = () => {
           <table className="w-full table-auto text-sm">
             <thead>
               <tr className="h-14 opacity-80">
-                <th className="text-nowrap px-4 py-2">Amount</th>
+                <th className="text-nowrap px-4 py-2">{t("amount")}</th>
                 <th className="hidden text-nowrap px-4 py-2 sm:table-cell">
-                  Channel
+                  {t("channel")}
                 </th>
                 <th className="hidden text-nowrap px-4 py-2 md:table-cell">
-                  Bank Account
+                  {t("bankAccount")}
                 </th>
                 <th className="hidden text-nowrap px-4 py-2 md:table-cell">
-                  Deposit Date
+                  {t("depositDate")}
                 </th>
                 <th className="hidden text-nowrap px-4 py-2 sm:table-cell">
-                  Status
+                  {t("status")}
                 </th>
-                <th className="text-nowrap px-4 py-2">Status Date</th>
+                <th className="text-nowrap px-4 py-2">{t("statusDate")}</th>
               </tr>
             </thead>
             <tbody>
@@ -142,7 +145,7 @@ const HistoryTable = () => {
                   <td colSpan={6} className="rounded py-4">
                     <div className="flex items-center justify-center gap-3 opacity-60">
                       <FaBoxOpen className="size-8" />
-                      <span className="text-sm">Nothing in here yet!</span>
+                      <span className="text-sm">{t("empty")}</span>
                     </div>
                   </td>
                 </tr>
@@ -156,7 +159,7 @@ const HistoryTable = () => {
           <div className="flex justify-end">
             <div className="my-4 w-fit rounded bg-card p-2">
               <span className="text-sm font-semibold opacity-80">
-                Total Deposit:{" "}
+                <span>{t("total")}: </span>
                 {filteredRows.length > 0
                   ? filteredRows.reduce((acc, row) => acc + row.amount, 0)
                   : sortedRows.reduce((acc, row) => acc + row.amount, 0)}

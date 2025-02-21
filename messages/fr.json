@@ -8,6 +8,10 @@
     "description": "Désolé, la page que vous recherchez n'existe pas.",
     "link": "Retour à l'accueil"
   },
+  "Toast": {
+    "authCodeCopied": "Code d'authentification copié !",
+    "referralLinkCopied": "Lien de parrainage copié !"
+  },
   "Sidebar": {
     "casinoButton": "Casino",
     "sportsButton": "Sports",
@@ -136,7 +140,7 @@
         "joined": "Inscrit le",
         "upgrade": "Améliorer VIP",
         "currentPoint": "Points Actuels",
-        "maxTierReached": "Niveau Max Atteint"
+        "maxTierReached": "Niveau Maximum Atteint"
       },
       "Wallet": {
         "label": "Portefeuille",
@@ -147,7 +151,7 @@
       },
       "TotalBets": {
         "label": "Mises Totales",
-        "depositTurnover": "Roulement des Dépôts",
+        "depositTurnover": "Volume des Dépôts",
         "totalBets": "Mises Totales",
         "totalWins": "Gains Totaux"
       },
@@ -155,6 +159,175 @@
         "label": "Mes Promotions",
         "cashback": "Cashback",
         "rebate": "Remise"
+      }
+    },
+    "History": {
+      "label": "Historique",
+      "Table": {
+        "amount": "Montant",
+        "channel": "Canal",
+        "bankAccount": "Compte Bancaire",
+        "depositDate": "Date de Dépôt",
+        "status": "Statut",
+        "statusDate": "Date du Statut",
+        "total": "Dépôt Total",
+        "empty": "Rien ici pour l’instant !"
+      }
+    },
+    "Rebate": {
+      "label": "Remise",
+      "Table": {
+        "rebateAmount": "Montant de la Remise",
+        "transactionDate": "Date de Transaction",
+        "total": "Remise Totale",
+        "empty": "Rien ici pour l’instant !"
+      }
+    },
+    "Cashback": {
+      "label": "Cashback",
+      "Table": {
+        "cashbackAmount": "Montant du Cashback",
+        "transactionDate": "Date de Transaction",
+        "total": "Cashback Total",
+        "empty": "Rien ici pour l’instant !"
+      }
+    },
+    "Bets": {
+      "label": "Mises Totales",
+      "Table": {
+        "totalBets": "Mises Totales",
+        "totalWinLose": "Total Gain/Perte",
+        "transactionDate": "Date de Transaction",
+        "total": "Mises Totales",
+        "empty": "Rien ici pour l’instant !"
+      }
+    },
+    "Redeems": {
+      "label": "Échanges",
+      "Table": {
+        "number": "N°",
+        "transactionDate": "Date de Transaction",
+        "rewardType": "Type de Récompense",
+        "reward": "Récompense",
+        "status": "Statut",
+        "usedPoints": "Points Utilisés",
+        "freeSpins": "Tours Gratuits",
+        "allRewards": "Toutes les Récompenses",
+        "totalUsedPoints": "Total des Points Utilisés",
+        "totalFreeSpins": "Total des Tours Gratuits",
+        "empty": "Rien ici pour l’instant !"
+      }
+    },
+    "Points": {
+      "label": "Points",
+      "Table": {
+        "points": "Points",
+        "type": "Type",
+        "turnover": "Volume",
+        "transactionDate": "Date de Transaction",
+        "total": "Total des Points",
+        "empty": "Rien ici pour l’instant !"
+      }
+    },
+    "Messages": {
+      "label": "Messages",
+      "empty": "Rien ici pour l’instant !"
+    },
+    "Settings": {
+      "label": "Paramètres",
+      "General": {
+        "label": "Général",
+        "Email": {
+          "label": "Email",
+          "verified": "Vérifié",
+          "emailInputLabel": "Email",
+          "button": "Confirmer l’Email"
+        },
+        "Phone": {
+          "label": "Numéro de Téléphone",
+          "description": "Nous ne desservons que les zones répertoriées dans la liste des codes pays disponibles.",
+          "countryCodeInputLabel": "Code Pays",
+          "phoneInputLabel": "Numéro de Téléphone",
+          "phoneInputPlaceholder": "Entrez votre numéro de téléphone",
+          "button": "Envoyer"
+        }
+      },
+      "Security": {
+        "label": "Sécurité",
+        "Password": {
+          "label": "Mot de Passe",
+          "oldPasswordInputLabel": "Ancien Mot de Passe",
+          "newPasswordInputLabel": "Nouveau Mot de Passe",
+          "confirmNewPasswordInputLabel": "Confirmer le Nouveau Mot de Passe",
+          "button": "Enregistrer"
+        },
+        "2FA": {
+          "label": "Authentification à Deux Facteurs",
+          "description": "Pour sécuriser davantage votre compte, laissez l’authentification à deux facteurs activée.",
+          "authCodeLabel": "Copiez ce code dans votre application d’authentification",
+          "qrLabel": "Ne laissez personne voir ceci !",
+          "passwordLabel": "Entrez votre mot de passe pour confirmer",
+          "codeLabel": "Code d’Authentification",
+          "button": "Envoyer"
+        }
+      },
+      "Preferences": {
+        "label": "Préférences",
+        "notice": "Veuillez patienter jusqu'à 30 secondes pour que la mise à jour prenne effet.",
+        "button": "Enregistrer",
+        "Privacy": {
+          "label": "Confidentialité",
+          "description": "La confidentialité des utilisateurs est l'une des valeurs fondamentales de Fafa878. Ces paramètres vous permettent d'être complètement anonyme aux autres joueurs.",
+          "ghostModeLabel": "Activer le Mode Fantôme",
+          "ghostModeDescription": "Votre nom d’utilisateur n’apparaîtra pas dans le fil des paris publics et l’aperçu des paris.",
+          "hideStatsLabel": "Masquer toutes vos statistiques",
+          "hideStatsDescription": "Les autres utilisateurs ne pourront pas voir vos gains, pertes et statistiques de paris.",
+          "hideRaceStatsLabel": "Masquer toutes vos statistiques de course",
+          "hideRaceStatsDescription": "Les autres utilisateurs ne pourront pas voir vos statistiques de course."
+        },
+        "Marketing": {
+          "label": "Marketing",
+          "receiveEmailLabel": "Recevoir des offres par email",
+          "receiveEmailDescription": "Choisissez si vous souhaitez recevoir des offres par email.",
+          "receiveSMSLabel": "Recevoir des offres par SMS",
+          "receiveSMSDescription": "Choisissez si vous souhaitez recevoir des offres par SMS."
+        }
+      },
+      "Sessions": {
+        "label": "Sessions",
+        "Table": {
+          "browser": "Navigateur",
+          "near": "Près de",
+          "ip": "Adresse IP",
+          "lastUsed": "Dernière utilisation",
+          "action": "Action",
+          "empty": "Rien ici pour l’instant !"
+        }
+      },
+      "Offers": {
+        "label": "Offres",
+        "Welcome": {
+          "label": "Offre de Bienvenue",
+          "description": "Pour réclamer votre offre de bienvenue, veuillez entrer votre code dans les 24 heures suivant votre inscription.",
+          "codeInputLabel": "Code",
+          "button": "Envoyer"
+        },
+        "Bonus": {
+          "label": "Réclamer le bonus",
+          "description": "Trouvez des codes bonus sur nos réseaux sociaux comme Line, WeChat et Telegram.",
+          "codeInputLabel": "Code",
+          "button": "Envoyer"
+        }
+      }
+    },
+    "Components": {
+      "sortingLabel": "Trier Par",
+      "datePickerPlaceholder": "Sélectionner une plage de dates",
+      "Pagination": {
+        "page": "Page",
+        "of": "de",
+        "firstPage": "Première Page",
+        "lastPage": "Dernière Page"
       }
     }
   },
@@ -337,6 +510,135 @@
       "bespokeBenefits": {
         "title": "Avantages personnalisés",
         "description": "Collaborez avec votre hôte VIP dédié pour adapter les avantages à vos besoins de jeu."
+      }
+    }
+  },
+  "AffiliatePage": {
+    "Layout": {
+      "hero": "Affilié",
+      "overview": "Aperçu",
+      "campaigns": "Campagnes",
+      "funds": "Fonds",
+      "referredUsers": "Utilisateurs Parrainés",
+      "faq": "FAQ"
+    },
+    "Overview": {
+      "label": "Aperçu",
+      "faq": "FAQ",
+      "readMore": "Lire la suite",
+      "AffiliateStats": {
+        "title": "Parrainez et gagnez gros avec notre programme d'affiliation",
+        "description": "Gagnez une commission sur tous les paris placés par vos filleuls dans le Casino et le Sportsbook.",
+        "customersNumber": "21,6M",
+        "customersLabel": "Clients dans le monde",
+        "paymentMethodsNumber": "32",
+        "paymentMethodsLabel": "Méthodes de paiement",
+        "languagesNumber": "16",
+        "languagesLabel": "Langues prises en charge"
+      },
+      "ReferralLink": {
+        "description": "Prêt à gagner une commission ? Appuyez sur le bouton 'Copier le lien de parrainage' et partagez votre campagne par défaut.",
+        "button": "Copier le lien de parrainage"
+      },
+      "CommissionRules": {
+        "label": "Règles de commission",
+        "description": "Invitez des amis et gagnez 3 % par jour",
+
+        "turnoverRequirementTitle": "Exigence de mise avant retrait",
+        "turnoverRequirementDescription": "La commission peut être transférée vers le portefeuille principal. Un volume de mise de 4x est requis avant de pouvoir retirer.",
+
+        "minimumWithdrawalTitle": "Montant minimum de retrait",
+        "minimumWithdrawalDescription": "Une commission minimale de 5 Baht est requise pour un retrait vers le portefeuille principal.",
+
+        "maxDailyCommissionTitle": "Commission maximale quotidienne pour les parrainages",
+        "maxDailyCommissionDescription": "La commission maximale pour l'invitation d'amis est de 3 000 Baht par jour.",
+
+        "eligibleDepositsTitle": "Dépôts éligibles pour la commission",
+        "eligibleDepositsDescription": "Seuls les dépôts effectués par des amis sans aucune promotion sont pris en compte.",
+
+        "calculationTimeTitle": "Heure de calcul quotidienne",
+        "calculationTimeDescription": "Le système calcule les pertes de vos amis chaque jour de 00:00 à 23:59. Les revenus sont calculés chaque jour à 8:00."
+      },
+      "Advantages": {
+        "label": "Avantages exclusifs",
+
+        "instantPayoutTitle": "Paiement instantané",
+        "instantPayoutDescription": "Évitez l'attente. Voyez vos gains immédiatement sur votre compte.",
+
+        "lifetimeCommissionTitle": "Commission à vie",
+        "lifetimeCommissionDescription": "Si les personnes que vous parrainez continuent de jouer, vous continuez à être payé.",
+
+        "marketLeadingValueTitle": "Valeur joueur leader du marché",
+        "marketLeadingValueDescription": "Augmentez vos gains avec certains des meilleurs rendements offerts aux joueurs.",
+
+        "customCommissionTitle": "Personnalisez votre commission",
+        "customCommissionDescription": "Adaptez votre plan de commission à vos besoins commerciaux uniques.",
+
+        "cryptoLocalCurrenciesTitle": "Crypto & devises locales",
+        "cryptoLocalCurrenciesDescription": "Gagnez à votre manière avec la prise en charge des cryptomonnaies et des devises locales.",
+
+        "multiLanguageSupportTitle": "Assistance multilingue 24h/24, 7j/7",
+        "multiLanguageSupportDescription": "Obtenez l'aide dont vous avez besoin dans votre langue préférée à tout moment, tous les jours."
+      }
+    },
+    "Campaigns": {
+      "label": "Campagnes"
+    },
+    "Funds": {
+      "label": "Fonds"
+    },
+    "ReferredUsers": {
+      "label": "Utilisateurs Parrainés",
+      "Table": {
+        "username": "Nom d'utilisateur",
+        "registrationDate": "Inscrit le",
+        "totalDeposits": "Dépôts Totaux",
+        "lastDeposit": "Dernier Dépôt",
+        "wagered": "Misé",
+        "commission": "Commission",
+        "empty": "Rien ici pour le moment !",
+        "datePickerLabel": "Date d'inscription"
+      }
+    },
+    "FAQ": {
+      "General": {
+        "question1": "Qu'est-ce que FaFa878 ?",
+        "answer1": "FaFa878 est une plateforme de jeux en ligne offrant une variété d'options de casino et de paris sportifs, fournissant aux utilisateurs une expérience de jeu engageante et sécurisée.",
+
+        "question2": "FaFa878 est-il sécurisé à utiliser ?",
+        "answer2": "Oui, FaFa878 est une plateforme agréée et régulée qui garantit des jeux équitables et des transactions sécurisées pour tous les utilisateurs.",
+
+        "question3": "Comment puis-je créer un compte ?",
+        "answer3": "Créer un compte est facile ! Il vous suffit de visiter FaFa878.com, de cliquer sur le bouton 'S'inscrire' et de suivre les instructions pour vous inscrire.",
+
+        "question4": "Quels modes de paiement FaFa878 accepte-t-il ?",
+        "answer4": "FaFa878 accepte une variété de méthodes de paiement, y compris les cartes de crédit/débit, les portefeuilles électroniques et les options de cryptomonnaie pour les dépôts et les retraits."
+      },
+      "AffiliateProgram": {
+        "question1": "Qu'est-ce que le programme d'affiliation FaFa878 ?",
+        "answer1": "Le programme d'affiliation FaFa878 permet aux particuliers, entreprises et influenceurs de gagner des commissions en référant de nouveaux joueurs sur FaFa878.com. Les affiliés peuvent monétiser leur audience en promouvant la plateforme de jeux FaFa878 et en recevant des récompenses pour les références réussies.",
+
+        "question2": "Qui peut rejoindre le programme d'affiliation FaFa878 ?",
+        "answer2": "Toute personne ayant une plateforme pour promouvoir FaFa878, y compris les blogueurs, les influenceurs, les propriétaires de sites web et les spécialistes du marketing numérique, peut rejoindre le programme. Il n'y a pas de critères stricts, ce qui le rend accessible aussi bien aux débutants qu'aux spécialistes du marketing expérimentés.",
+
+        "question3": "Comment rejoindre le programme d'affiliation FaFa878 ?",
+        "answer3": "C'est simple ! Visitez la page du programme d'affiliation FaFa878, inscrivez-vous avec vos coordonnées, puis attendez l'approbation. Une fois approuvé, vous recevrez un lien de référence unique et l'accès à des outils de marketing pour commencer à promouvoir.",
+
+        "question4": "Quels sont les avantages de rejoindre le programme d'affiliation FaFa878 ?",
+        "answer4": "Les affiliés bénéficient de taux de commission compétitifs, du suivi en temps réel des références, de supports marketing exclusifs et d'un support dédié. De plus, il n'y a pas de frais initiaux, ce qui en fait une opportunité sans risque pour gagner un revenu passif."
+      },
+      "Earnings": {
+        "question1": "Comment puis-je gagner de l'argent grâce au programme d'affiliation FaFa878 ?",
+        "answer1": "Vous gagnez des commissions en parrainant de nouveaux joueurs sur FaFa878. Plus vous parrainez de joueurs actifs, plus vos gains potentiels sont élevés.",
+
+        "question2": "Quand et comment vais-je recevoir mes commissions d'affiliation ?",
+        "answer2": "Les commissions d'affiliation sont payées régulièrement via votre méthode de paiement préférée. Les paiements sont traités une fois que vous atteignez le seuil minimum de paiement.",
+
+        "question3": "Y a-t-il une limite au montant que je peux gagner ?",
+        "answer3": "Non, il n'y a pas de limite de gains ! Votre potentiel de revenu dépend du nombre de références et de leur activité sur la plateforme.",
+
+        "question4": "Comment puis-je suivre mes gains ?",
+        "answer4": "Vous pouvez suivre vos gains et vos statistiques de référence via le tableau de bord affilié, qui fournit des informations en temps réel sur vos commissions et votre performance."
       }
     }
   }

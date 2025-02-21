@@ -7,11 +7,14 @@ import Pagination from "../Layout/Pagination";
 import { sortPointsData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
 import DateRangeDropdown from "../Dropdown/DateRangeDropdown";
+import { useTranslations } from "next-intl";
 
 const PointsTable = () => {
+  const t = useTranslations("ProfilePage.Points.Table");
+
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState<string>("Transaction Date");
+  const [sortOption, setSortOption] = useState<string>("transactionDate");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
     null,
@@ -26,11 +29,11 @@ const PointsTable = () => {
     return null;
   }
 
-  const handleSortChange = (option: string) => {
-    if (option === sortOption) {
+  const handleSortChange = (optionKey: string) => {
+    if (optionKey === sortOption) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
-      setSortOption(option);
+      setSortOption(optionKey);
       setSortOrder("desc");
     }
   };
@@ -56,8 +59,12 @@ const PointsTable = () => {
   );
 
   // Options to be passed to the SortByDropdown component
-  const sortOptions = ["Points", "Type", "Turnover", "Transaction Date"];
-
+  const sortOptions = [
+    { key: "points", label: t("points") },
+    { key: "type", label: t("type") },
+    { key: "turnover", label: t("turnover") },
+    { key: "transactionDate", label: t("transactionDate") },
+  ];
   return (
     <div className="flex">
       <div className="flex w-0 flex-1 flex-col">
@@ -75,7 +82,7 @@ const PointsTable = () => {
           </div>
           <div>
             <DateRangeDropdown
-              dateInfo="Transaction Date"
+              dateInfo={t("transactionDate")}
               dateRange={dateRange}
               setDateRange={setDateRange}
             />
@@ -87,10 +94,10 @@ const PointsTable = () => {
           <table className="w-full table-auto text-sm">
             <thead>
               <tr className="h-14 text-nowrap opacity-80">
-                <th className="px-4 py-2 text-left">Points</th>
-                <th className="px-4 py-2">Type</th>
-                <th className="px-4 py-2">Turnover</th>
-                <th className="px-4 py-2 text-right">Transaction Date</th>
+                <th className="px-4 py-2 text-left">{t("points")}</th>
+                <th className="px-4 py-2">{t("type")}</th>
+                <th className="px-4 py-2">{t("turnover")}</th>
+                <th className="px-4 py-2 text-right">{t("transactionDate")}</th>
               </tr>
             </thead>
             <tbody>
@@ -117,7 +124,7 @@ const PointsTable = () => {
                   <td colSpan={4} className="rounded py-4">
                     <div className="flex items-center justify-center gap-3 opacity-60">
                       <FaBoxOpen className="size-8" />
-                      <span className="text-sm">Nothing in here yet!</span>
+                      <span className="text-sm">{t("empty")}</span>
                     </div>
                   </td>
                 </tr>
@@ -131,7 +138,7 @@ const PointsTable = () => {
           <div className="flex justify-end">
             <div className="my-4 w-fit rounded bg-card p-2">
               <span className="text-sm font-semibold opacity-80">
-                Total Points:{" "}
+                <span>{t("total")}: </span>
                 {filteredRows.length > 0
                   ? filteredRows.reduce((acc, row) => acc + row.amount, 0)
                   : sortedRows.reduce((acc, row) => acc + row.amount, 0)}

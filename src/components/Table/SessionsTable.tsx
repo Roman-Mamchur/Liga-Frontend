@@ -6,11 +6,14 @@ import SortByDropdown from "../Dropdown/SortByDropdown";
 import Pagination from "../Layout/Pagination";
 import { sortSessionsData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
 
 const SessionsTable = () => {
+  const t = useTranslations("ProfilePage.Settings.Sessions.Table");
+
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState<string>("Last Used");
+  const [sortOption, setSortOption] = useState<string>("lastUsed");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
 
   useEffect(() => {
@@ -49,14 +52,22 @@ const SessionsTable = () => {
     currentPage * rowsPerPage,
   );
 
-  const handleSortChange = (option: string) => {
-    if (option === sortOption) {
+  const handleSortChange = (optionKey: string) => {
+    if (optionKey === sortOption) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
-      setSortOption(option);
+      setSortOption(optionKey);
       setSortOrder("desc");
     }
   };
+
+  const sortOptions = [
+    { key: "browser", label: t("browser") },
+    { key: "near", label: t("near") },
+    { key: "ip", label: t("ip") },
+    { key: "lastUsed", label: t("lastUsed") },
+    { key: "action", label: t("action") },
+  ];
 
   return (
     <div className="flex">
@@ -66,13 +77,7 @@ const SessionsTable = () => {
           <div>
             {currentRows.length > 0 && (
               <SortByDropdown
-                options={[
-                  "Browser",
-                  "Near",
-                  "IP Address",
-                  "Last Used",
-                  "Action",
-                ]}
+                options={sortOptions}
                 selectedOption={sortOption}
                 sortOrder={sortOrder}
                 setSortOption={handleSortChange}
@@ -86,11 +91,11 @@ const SessionsTable = () => {
           <table className="w-full table-auto text-sm">
             <thead>
               <tr className="h-14 text-nowrap opacity-80">
-                <th className="px-4 py-2 text-left">Browser</th>
-                <th className="px-4 py-2 text-center">Near</th>
-                <th className="px-4 py-2 text-center">IP Address</th>
-                <th className="px-4 py-2 text-center">Last Used</th>
-                <th className="px-4 py-2 text-right">Action</th>
+                <th className="px-4 py-2 text-left">{t("browser")}</th>
+                <th className="px-4 py-2 text-center">{t("near")}</th>
+                <th className="px-4 py-2 text-center">{t("ip")}</th>
+                <th className="px-4 py-2 text-center">{t("lastUsed")}</th>
+                <th className="px-4 py-2 text-right">{t("action")}</th>
               </tr>
             </thead>
             <tbody>
@@ -125,7 +130,7 @@ const SessionsTable = () => {
                   <td colSpan={5} className="rounded py-4">
                     <div className="flex items-center justify-center gap-3 opacity-60">
                       <FaBoxOpen className="size-8" />
-                      <span className="text-sm">Nothing in here yet!</span>
+                      <span className="text-sm">{t("empty")}</span>
                     </div>
                   </td>
                 </tr>

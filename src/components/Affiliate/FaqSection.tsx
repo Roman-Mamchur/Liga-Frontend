@@ -5,12 +5,15 @@ import { RootState } from "@/store";
 import FaqDropdown from "./FaqDropdown";
 import { faq } from "@/data/faqData";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface FaqSectionProps {
   defaultCategory?: string;
 }
 
 const FaqSection: React.FC<FaqSectionProps> = ({ defaultCategory }) => {
+  const t = useTranslations("AffiliatePage.FAQ");
+
   const activeFaqGroup = useSelector(
     (state: RootState) => state.category.activeFaqGroup,
   );
@@ -40,8 +43,8 @@ const FaqSection: React.FC<FaqSectionProps> = ({ defaultCategory }) => {
       {activeFaqs.map((faqItem, index) => (
         <FaqDropdown
           key={index}
-          question={faqItem.question}
-          answer={faqItem.answer}
+          question={t(faqItem.question)}
+          answer={t(faqItem.answer)}
           isOpen={openQuestions[index] || false}
           onToggle={() => toggleQuestion(index)}
         />

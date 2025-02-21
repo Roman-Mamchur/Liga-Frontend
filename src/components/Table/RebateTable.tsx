@@ -7,11 +7,14 @@ import Pagination from "../Layout/Pagination";
 import { sortRebateAndCashbackData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
 import DateRangeDropdown from "../Dropdown/DateRangeDropdown";
+import { useTranslations } from "next-intl";
 
 const RebateTable = () => {
+  const t = useTranslations("ProfilePage.Rebate.Table");
+
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState<string>("Transaction Date");
+  const [sortOption, setSortOption] = useState<string>("transactionDate");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
     null,
@@ -26,11 +29,11 @@ const RebateTable = () => {
     return null;
   }
 
-  const handleSortChange = (option: string) => {
-    if (option === sortOption) {
+  const handleSortChange = (optionKey: string) => {
+    if (optionKey === sortOption) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
-      setSortOption(option);
+      setSortOption(optionKey);
       setSortOrder("desc");
     }
   };
@@ -60,7 +63,10 @@ const RebateTable = () => {
   );
 
   // Options to be passed to the SortByDropdown component
-  const sortOptions = ["Rebate Amount", "Transaction Date"];
+  const sortOptions = [
+    { key: "rebateAmount", label: t("rebateAmount") },
+    { key: "transactionDate", label: t("transactionDate") },
+  ];
 
   return (
     <div className="flex">
@@ -79,7 +85,7 @@ const RebateTable = () => {
           </div>
           <div>
             <DateRangeDropdown
-              dateInfo="Transaction Date"
+              dateInfo={t("transactionDate")}
               dateRange={dateRange}
               setDateRange={setDateRange}
             />
@@ -92,10 +98,10 @@ const RebateTable = () => {
             <thead>
               <tr className="h-14 opacity-80">
                 <th className="text-nowrap px-4 py-2 text-left">
-                  Rebate Amount
+                  {t("rebateAmount")}
                 </th>
                 <th className="text-nowrap px-4 py-2 text-right">
-                  Transaction Date
+                  {t("transactionDate")}
                 </th>
               </tr>
             </thead>
@@ -119,7 +125,7 @@ const RebateTable = () => {
                   <td colSpan={2} className="rounded py-4">
                     <div className="flex items-center justify-center gap-3 opacity-60">
                       <FaBoxOpen className="size-8" />
-                      <span className="text-sm">Nothing in here yet!</span>
+                      <span className="text-sm">{t("empty")}</span>
                     </div>
                   </td>
                 </tr>
@@ -133,7 +139,7 @@ const RebateTable = () => {
           <div className="flex justify-end">
             <div className="my-4 w-fit rounded bg-card p-2">
               <span className="text-sm font-semibold opacity-80">
-                Total Rebate:{" "}
+                <span>{t("total")}: </span>
                 {filteredRows.length > 0
                   ? filteredRows.reduce((acc, row) => acc + row.amount, 0)
                   : sortedRows.reduce((acc, row) => acc + row.amount, 0)}

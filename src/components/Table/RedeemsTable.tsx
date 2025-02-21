@@ -7,11 +7,14 @@ import Pagination from "../Layout/Pagination";
 import { sortRedeemsData } from "@/utils/tableSortingUtil";
 import { FaBoxOpen } from "react-icons/fa6";
 import DateRangeDropdown from "../Dropdown/DateRangeDropdown";
+import { useTranslations } from "next-intl";
 
 const RedeemsTable = () => {
+  const t = useTranslations("ProfilePage.Redeems.Table");
+
   const [isClient, setIsClient] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState<string>("Transaction Date");
+  const [sortOption, setSortOption] = useState<string>("transactionDate");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
     null,
@@ -26,11 +29,11 @@ const RedeemsTable = () => {
     return null;
   }
 
-  const handleSortChange = (option: string) => {
-    if (option === sortOption) {
+  const handleSortChange = (optionKey: string) => {
+    if (optionKey === sortOption) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
-      setSortOption(option);
+      setSortOption(optionKey);
       setSortOrder("desc");
     }
   };
@@ -57,13 +60,13 @@ const RedeemsTable = () => {
 
   // Options to be passed to the SortByDropdown component
   const sortOptions = [
-    "No.",
-    "Transaction Date",
-    "Reward Type",
-    "Reward",
-    "Status",
-    "Used Points",
-    "Free Spins",
+    { key: "number", label: t("number") },
+    { key: "transactionDate", label: t("transactionDate") },
+    { key: "rewardType", label: t("rewardType") },
+    { key: "reward", label: t("reward") },
+    { key: "status", label: t("status") },
+    { key: "usedPoints", label: t("usedPoints") },
+    { key: "freeSpins", label: t("freeSpins") },
   ];
 
   return (
@@ -83,7 +86,7 @@ const RedeemsTable = () => {
           </div>
           <div>
             <DateRangeDropdown
-              dateInfo="Status Date"
+              dateInfo={t("transactionDate")}
               dateRange={dateRange}
               setDateRange={setDateRange}
             />
@@ -95,13 +98,13 @@ const RedeemsTable = () => {
           <table className="w-full table-auto text-sm">
             <thead>
               <tr className="h-14 text-nowrap opacity-80">
-                <th className="px-4 py-2">No.</th>
-                <th className="px-4 py-2">Transaction Date</th>
-                <th className="px-4 py-2">Reward Type</th>
-                <th className="px-4 py-2">Reward</th>
-                <th className="px-4 py-2">Status</th>
-                <th className="px-4 py-2">Used Points</th>
-                <th className="px-4 py-2">Free Spins</th>
+                <th className="px-4 py-2">{t("number")}</th>
+                <th className="px-4 py-2">{t("transactionDate")}</th>
+                <th className="px-4 py-2">{t("rewardType")}</th>
+                <th className="px-4 py-2">{t("reward")}</th>
+                <th className="px-4 py-2">{t("status")}</th>
+                <th className="px-4 py-2">{t("usedPoints")}</th>
+                <th className="px-4 py-2">{t("freeSpins")}</th>
               </tr>
             </thead>
             <tbody>
@@ -125,7 +128,7 @@ const RedeemsTable = () => {
                   <td colSpan={7} className="rounded py-4">
                     <div className="flex items-center justify-center gap-3 opacity-60">
                       <FaBoxOpen className="size-8" />
-                      <span className="text-sm">Nothing in here yet!</span>
+                      <span className="text-sm">{t("empty")}</span>
                     </div>
                   </td>
                 </tr>
@@ -139,7 +142,7 @@ const RedeemsTable = () => {
           <div className="my-4 flex flex-col gap-3">
             <div className="rounded bg-card p-2">
               <div className="flex justify-between gap-3 text-sm font-semibold opacity-80">
-                <span>All Rewards:</span>
+                <span>{t("allRewards")}:</span>
                 <span>
                   {filteredRows.length > 0
                     ? filteredRows.length
@@ -149,7 +152,7 @@ const RedeemsTable = () => {
             </div>
             <div className="rounded bg-card p-2">
               <div className="flex justify-between gap-3 text-sm font-semibold opacity-80">
-                <span>Total Used Points:</span>
+                <span>{t("totalUsedPoints")}:</span>
                 <span>
                   {filteredRows.length > 0
                     ? filteredRows.reduce((acc, row) => acc + row.points, 0)
@@ -159,7 +162,7 @@ const RedeemsTable = () => {
             </div>
             <div className="rounded bg-card p-2">
               <div className="flex justify-between gap-3 text-sm font-semibold opacity-80">
-                <span>Total Free Spins:</span>
+                <span>{t("totalFreeSpins")}:</span>
                 <span>
                   {filteredRows.length > 0
                     ? filteredRows.reduce((acc, row) => acc + row.spins, 0)

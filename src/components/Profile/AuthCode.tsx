@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { FaCopy } from "react-icons/fa6";
 import { toast } from "react-toastify";
 
@@ -8,12 +9,14 @@ interface AuthCodeProps {
 }
 
 const AuthCode = ({ authCode }: AuthCodeProps) => {
+  const t = useTranslations("Toast");
+
   const handleCopy = () => {
     navigator.clipboard.writeText(authCode);
     toast(
       <div className="flex items-center gap-2 font-semibold text-primary">
         <FaCopy />
-        <span>Authenticator code copied!</span>
+        <span>{t("authCodeCopied")}</span>
       </div>,
       {
         className: "primary-toast",

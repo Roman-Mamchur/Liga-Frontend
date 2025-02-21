@@ -31,7 +31,7 @@ const getRandomStatus = (type: number) => {
 export const referralsMockData = Array.from({ length: 40 }, (_, index) => ({
   id: index + 1,
   username: `User ${index + 1}`,
-  registered: getRandomDate(),
+  registrationDate: getRandomDate(),
   totalDeposits: getRandomNumber(500, 5000),
   lastDeposit: getRandomNumber(100, 1000),
   wagered: getRandomNumber(5000, 10000),
