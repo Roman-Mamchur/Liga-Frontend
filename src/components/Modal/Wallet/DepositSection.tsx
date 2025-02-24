@@ -92,7 +92,7 @@ const DepositSection = () => {
           </div>
 
           {isCurrencyDropdownOpen && (
-            <ul className="absolute z-10 mt-1 w-full rounded bg-white shadow-md">
+            <ul className="absolute z-10 mt-1 w-full rounded bg-white py-2 shadow-md">
               {currencies.map((item) => (
                 <li
                   key={item.name}
@@ -149,7 +149,7 @@ const DepositSection = () => {
             </div>
 
             {isBlockchainDropdownOpen && (
-              <ul className="absolute z-10 mt-1 w-full rounded bg-white shadow-md">
+              <ul className="absolute z-10 mt-1 w-full rounded bg-white py-2 shadow-md">
                 {selectedCurrency.blockchains.map((blockchain) => (
                   <li
                     key={blockchain.networkName}
