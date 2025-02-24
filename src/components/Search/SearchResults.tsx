@@ -1,7 +1,10 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FaXmark } from "react-icons/fa6";
 
 const SearchResults = ({ query }: { query: string }) => {
+  const t = useTranslations("SearchBar");
+
   const mockResultGames =
     query.length >= 3
       ? Array.from({ length: 10 }, (_, i) => ({
@@ -32,12 +35,10 @@ const SearchResults = ({ query }: { query: string }) => {
           </div>
         ) : (
           <div className="flex flex-col gap-4 text-sm font-medium">
-            <p className="text-center">
-              Search requires at least 3 characters.
-            </p>
+            <p className="text-center">{t("notice")}</p>
             <div className="flex items-center justify-between">
-              <p>Recent Searches</p>
-              <p className="cursor-pointer"> Clear Search (2)</p>
+              <p>{t("recentSearch")}</p>
+              <p className="cursor-pointer">{t("clearSearch")} (2)</p>
             </div>
             <div className="flex gap-1 text-xs font-normal">
               <p className="flex cursor-pointer items-center gap-1 rounded-full bg-primary px-2 py-1 text-white opacity-80 duration-200 hover:opacity-100">

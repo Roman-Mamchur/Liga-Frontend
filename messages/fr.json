@@ -166,7 +166,10 @@
   },
   "SearchBar": {
     "search": "Rechercher",
-    "searchPlaceholder": "Recherchez votre jeu ou sport"
+    "searchPlaceholder": "Recherchez votre jeu ou sport",
+    "notice": "La recherche nécessite au moins 3 caractères.",
+    "recentSearch": "Recherches récentes",
+    "clearSearch": "Effacer la recherche"
   },
   "ProfilePage": {
     "Layout": {
