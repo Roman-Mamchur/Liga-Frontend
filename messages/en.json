@@ -733,6 +733,7 @@
         "qrLabel": "Only send {currency} to this address."
       },
       "Withdraw": {
+        "availableBalanceLabel": "Available Balance",
         "currencyLabel": "Currency",
         "networkLabel": "Network",
         "addressLabel": "{currency} Address",

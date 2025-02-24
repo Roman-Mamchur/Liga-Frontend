@@ -730,6 +730,7 @@
         "qrLabel": "Envoyez uniquement {currency} à cette adresse."
       },
       "Withdraw": {
+        "availableBalanceLabel": "Solde disponible",
         "currencyLabel": "Monnaie",
         "networkLabel": "Réseau",
         "addressLabel": "Adresse {currency}",
