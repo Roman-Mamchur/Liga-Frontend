@@ -30,11 +30,15 @@ export default function Home() {
             <SearchBar triggerType="page" />
           </div>
           <div className="mt-4">
-            <div className="hidden md:block">
-              <SelectorMenu display="both" type="casino" />
-            </div>
-            <div className="block md:hidden">
-              <SelectorMenu display="icon" type="casino" />
+            <div className="flex">
+              <div className="w-0 flex-1">
+                <div className="hidden md:block">
+                  <SelectorMenu display="both" type="casino" />
+                </div>
+                <div className="block md:hidden">
+                  <SelectorMenu display="icon" type="casino" />
+                </div>
+              </div>
             </div>
           </div>
         </section>

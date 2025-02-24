@@ -13,8 +13,13 @@ import { closeModal } from "@/store/slices/authModalSlice";
 import { RootState } from "@/store";
 import { differenceInYears } from "date-fns";
 import AlternateSignIn from "./AlternateSignIn";
+import { useTranslations } from "next-intl";
 
 const RegisterModal = () => {
+  const t = useTranslations("Modal.Register");
+  const formikT = useTranslations("Formik.Register");
+  const exitT = useTranslations("Modal");
+
   const dispatch = useDispatch();
   const isOpen = useSelector(
     (state: RootState) => state.authModal.modalType === "register",
@@ -110,7 +115,7 @@ const RegisterModal = () => {
             className="text-gray-500 duration-200 hover:text-gray-800"
             onClick={closeModalHandler}
           >
-            <span className="hidden md:block">Exit</span>
+            <span className="hidden md:block">{exitT("exit")}</span>
             <FaXmark className="size-5 md:hidden" />
           </button>
         </div>
@@ -129,18 +134,21 @@ const RegisterModal = () => {
           }}
           validationSchema={Yup.object({
             email: Yup.string()
-              .email("Invalid email address")
-              .required("Email is required"),
-            username: Yup.string().required("Username is required"),
+              .email(formikT("email.invalid"))
+              .required(formikT("email.required")),
+            username: Yup.string().required(formikT("username.required")),
             password: Yup.string()
-              .min(6, "Password must be at least 6 characters")
-              .required("Password is required"),
+              .min(8, formikT("password.invalid"))
+              .required(formikT("password.required")),
             confirmPassword: Yup.string()
-              .oneOf([Yup.ref("password"), undefined], "Passwords must match")
-              .required("Confirm Password is required"),
+              .oneOf(
+                [Yup.ref("password"), undefined],
+                formikT("confirmPassword.mismatch"),
+              )
+              .required(formikT("confirmPassword.required")),
             dateOfBirth: Yup.string()
-              .required("Date of Birth is required")
-              .test("age", "You must be at least 18 years old", (value) => {
+              .required(formikT("dateOfBirth.required"))
+              .test("age", formikT("dateOfBirth.invalid"), (value) => {
                 // Check if the user is at least 18 years old
                 if (!value) return false;
                 const dateOfBirth = new Date(value);
@@ -164,16 +172,18 @@ const RegisterModal = () => {
                   )}
                 </div>
                 <div className="flex justify-end">
-                  <p>{currentStep === 1 ? "Step 1/2" : "Step 2/2"}</p>
+                  <p>
+                    {t("step")} {currentStep}/2
+                  </p>
                 </div>
               </div>
-              <h1 className="text-2xl font-bold">Create an account</h1>
+              <h1 className="text-2xl font-bold">{t("title")}</h1>
 
               {/* Step 1 - Registration Form */}
               {currentStep === 1 && (
                 <>
                   <div>
-                    <label>Email</label>
+                    <label>{t("emailLabel")}</label>
                     <Field
                       type="email"
                       name="email"
@@ -188,7 +198,7 @@ const RegisterModal = () => {
                   </div>
 
                   <div>
-                    <label>Username</label>
+                    <label>{t("usernameLabel")}</label>
                     <Field
                       type="text"
                       name="username"
@@ -203,7 +213,7 @@ const RegisterModal = () => {
                   </div>
 
                   <div>
-                    <label>Password</label>
+                    <label>{t("passwordLabel")}</label>
                     <div className="relative">
                       <Field
                         type={showPassword ? "text" : "password"}
@@ -227,7 +237,7 @@ const RegisterModal = () => {
                   </div>
 
                   <div>
-                    <label>Confirm Password</label>
+                    <label>{t("confirmPasswordLabel")}</label>
                     <div className="relative">
                       <Field
                         type={showConfirmPassword ? "text" : "password"}
@@ -253,8 +263,12 @@ const RegisterModal = () => {
                   </div>
 
                   <div>
-                    <label>Date of Birth</label>
-                    <Field name="dateOfBirth" component={DateOfBirthPicker} />
+                    <label>{t("dateOfBirthLabel")}</label>
+                    <Field
+                      name="dateOfBirth"
+                      component={DateOfBirthPicker}
+                      placeholder={t("dateOfBirthPlaceholder")}
+                    />
                     <ErrorMessage
                       name="dateOfBirth"
                       component="p"
@@ -263,7 +277,7 @@ const RegisterModal = () => {
                   </div>
 
                   <div>
-                    <label>Phone (Optional)</label>
+                    <label>{t("phoneLabel")}</label>
                     <div className="flex items-center gap-2">
                       <div className="relative w-24">
                         <select
@@ -287,14 +301,14 @@ const RegisterModal = () => {
                         type="tel"
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
-                        placeholder="Enter your phone number"
+                        placeholder={t("phonePlaceholder")}
                         className="flex-1 rounded border px-3 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label>Referral Code (Optional)</label>
+                    <label>{t("referralCodeLabel")}</label>
                     <Field
                       type="text"
                       name="code"
@@ -311,7 +325,7 @@ const RegisterModal = () => {
                     type="submit"
                     className="mt-4 w-full rounded bg-primary py-2 text-white duration-200 hover:bg-secondary"
                   >
-                    Continue
+                    {t("continue")}
                   </button>
 
                   <AlternateSignIn from="register" />
@@ -322,7 +336,7 @@ const RegisterModal = () => {
               {currentStep === 2 && (
                 <>
                   <div className="space-y-1 overflow-y-auto rounded bg-card p-2">
-                    <h3 className="font-bold">Terms and Conditions</h3>
+                    <h3 className="font-bold">{t("termsTitle")}</h3>
 
                     <p className="text-sm text-gray-500">
                       Terms and conditions text in here
@@ -334,10 +348,11 @@ const RegisterModal = () => {
                       type="checkbox"
                       id="acceptTerms"
                       checked={acceptedTerms}
+                      className="p-2 accent-orange-600"
                       onChange={() => setAcceptedTerms((prev) => !prev)}
                     />
                     <label htmlFor="acceptTerms" className="ml-2">
-                      I have read and agree to the terms and conditions
+                      {t("termsCheck")}
                     </label>
                   </div>
 
@@ -346,7 +361,7 @@ const RegisterModal = () => {
                       onClick={handlePrevStep}
                       className="mt-4 w-full rounded bg-card py-2 duration-200 hover:bg-accentOpacity disabled:opacity-50"
                     >
-                      Back
+                      {t("back")}
                     </button>
 
                     <button
@@ -354,7 +369,7 @@ const RegisterModal = () => {
                       disabled={isFinalStepSubmitting || !acceptedTerms}
                       className="mt-4 w-full rounded bg-primary py-2 text-white duration-200 hover:bg-secondary disabled:opacity-50"
                     >
-                      {isFinalStepSubmitting ? "Registering..." : "Register"}
+                      {isFinalStepSubmitting ? t("registering") : t("register")}
                     </button>
                   </div>
                 </>

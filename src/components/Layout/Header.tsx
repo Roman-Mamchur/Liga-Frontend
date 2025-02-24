@@ -9,7 +9,8 @@ import ProfileDropdown from "../Dropdown/ProfileDropdown";
 import NotificationDropdown from "../Dropdown/NotificationDropdown";
 import SearchBar from "../Search/SearchBar";
 import { useDispatch } from "react-redux";
-import { openModal } from "@/store/slices/authModalSlice";
+import { openModal as openAuthModal } from "@/store/slices/authModalSlice";
+import { openModal as openWalletModal } from "@/store/slices/walletModalSlice";
 import { useTranslations } from "next-intl";
 
 const Header = () => {
@@ -36,7 +37,7 @@ const Header = () => {
           </Link>
           {mockLogin ? (
             <>
-            {/* Wallet box */}
+              {/* Wallet box */}
               <div className="hidden w-fit text-sm font-semibold md:flex">
                 <div className="flex flex-1 cursor-pointer items-center justify-between gap-5 rounded-l bg-card p-2.5 duration-200 hover:bg-black/20">
                   <span>0.00000000</span>
@@ -45,7 +46,10 @@ const Header = () => {
                     <FaChevronDown />
                   </span>
                 </div>
-                <div className="flex cursor-pointer items-center justify-center rounded-r bg-primary p-2.5 text-white duration-200 hover:bg-secondary">
+                <div
+                  className="flex cursor-pointer items-center justify-center rounded-r bg-primary p-2.5 text-white duration-200 hover:bg-secondary"
+                  onClick={() => dispatch(openWalletModal())}
+                >
                   <span className="hidden lg:block">{t("wallet")}</span>
                   <span className="lg:hidden">
                     <FaWallet />
@@ -68,13 +72,13 @@ const Header = () => {
           ) : (
             <div className="flex items-center space-x-4 text-xs font-bold md:text-sm">
               <button
-                onClick={() => dispatch(openModal("login"))}
+                onClick={() => dispatch(openAuthModal("login"))}
                 className="rounded border-2 border-foreground p-2 transition-transform duration-200 hover:scale-105 md:px-6 md:py-2"
               >
                 {t("login")}
               </button>
               <button
-                onClick={() => dispatch(openModal("register"))}
+                onClick={() => dispatch(openAuthModal("register"))}
                 className="rounded border-2 border-primary bg-primary p-2 text-white transition-transform duration-200 hover:scale-105 md:px-6 md:py-2"
               >
                 {t("register")}

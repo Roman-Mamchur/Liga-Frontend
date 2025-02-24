@@ -31,11 +31,15 @@ const SportsPage = () => {
               <SearchBar triggerType="page" />
             </div>
             <div className="mt-4">
-              <div className="hidden md:block">
-                <SelectorMenu display="both" type="sports" />
-              </div>
-              <div className="block md:hidden">
-                <SelectorMenu display="icon" type="sports" />
+              <div className="flex">
+                <div className="w-0 flex-1">
+                  <div className="hidden md:block">
+                    <SelectorMenu display="both" type="sports" />
+                  </div>
+                  <div className="block md:hidden">
+                    <SelectorMenu display="icon" type="sports" />
+                  </div>
+                </div>
               </div>
             </div>
           </section>

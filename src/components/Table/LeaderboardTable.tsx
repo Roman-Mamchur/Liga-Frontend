@@ -37,7 +37,7 @@ const LeaderboardTable = () => {
       <div className="w-0 flex-1">
         <div>
           <div className="flex items-center justify-between gap-10">
-            <div className="flex-1">
+            <div className="w-0 flex-1">
               <SelectorMenu display="label" type="leaderboards" />
             </div>
             <div className="hidden md:block">

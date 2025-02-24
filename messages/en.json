@@ -35,6 +35,10 @@
     "GamePage": {
       "title": "Play Top Casino & Sports Games - Game Details & Live Players | FaFa878",
       "description": "Explore in-depth details of your favorite casino and sports games at FaFa878. View game descriptions, player stats, and live activity. Join the action and start playing now!"
+    },
+    "SponsorshipsPage": {
+      "title": "FaFa878 Sponsorships - Partner with a Leading Gaming Brand",
+      "description": "Discover sponsorship opportunities with FaFa878. Partner with a top online casino and sportsbook to boost brand visibility and engage with a global audience. Explore collaboration options today!"
     }
   },
   "LocaleSwitcher": {
@@ -48,7 +52,8 @@
   },
   "Toast": {
     "authCodeCopied": "Authenticator code copied!",
-    "referralLinkCopied": "Referral link copied!"
+    "referralLinkCopied": "Referral link copied!",
+    "walletAddressCopied": "{currency} address copied!"
   },
   "Sidebar": {
     "casinoButton": "Casino",
@@ -139,6 +144,10 @@
       "General": "General",
       "Affiliate program": "Affiliate program",
       "Earnings": "Earnings"
+    },
+    "wallet": {
+      "Deposit": "Deposit",
+      "Withdraw": "Withdraw"
     },
     "seeAll": "See All"
   },
@@ -712,5 +721,89 @@
     "casino": "Casino",
     "sports": "Sports",
     "latestPromotions": "Latest Promotions"
+  },
+  "Modal": {
+    "exit": "Exit",
+    "Wallet": {
+      "label": "Wallet",
+      "Deposit": {
+        "currencyLabel": "Currency",
+        "networkLabel": "Network",
+        "depositAddressLabel": "Your {currency} Deposit Address",
+        "qrLabel": "Only send {currency} to this address."
+      },
+      "Withdraw": {
+        "currencyLabel": "Currency",
+        "networkLabel": "Network",
+        "addressLabel": "{currency} Address",
+        "amountLabel": "Amount",
+        "max": "Max",
+        "withdraw": "Withdraw"
+      }
+    },
+    "Login": {
+      "emailOrUsernameLabel": "Email or Username",
+      "passwordLabel": "Password",
+      "login": "Login",
+      "logging": "Logging in..."
+    },
+    "Register": {
+      "title": "Create an Account",
+      "step": "Step",
+      "emailLabel": "Email",
+      "usernameLabel": "Username",
+      "passwordLabel": "Password",
+      "confirmPasswordLabel": "Confirm Password",
+      "dateOfBirthLabel": "Date of Birth",
+      "dateOfBirthPlaceholder": "Select your date of birth",
+      "phoneLabel": "Phone (Optional)",
+      "phonePlaceholder": "Enter your phone number",
+      "referralCodeLabel": "Referral Code (Optional)",
+      "termsTitle": "Terms and Conditions",
+      "termsCheck": "I have read and agree to the terms and conditions",
+      "continue": "Continue",
+      "back": "Back",
+      "register": "Register",
+      "registering": "Registering..."
+    },
+    "AlternateSignIn": {
+      "or": "OR",
+      "noAccount": "Don't have an account?",
+      "haveAccount": "Already have an account?",
+      "registerAccount": "Register an Account",
+      "loginAccount": "Sign In"
+    }
+  },
+  "Formik": {
+    "Login": {
+      "usernameOrEmail": {
+        "required": "Username or email is required"
+      },
+      "password": {
+        "required": "Password is required",
+        "invalid": "Password must be at least 8 characters long"
+      }
+    },
+    "Register": {
+      "email": {
+        "required": "Email is required",
+        "invalid": "Invalid email address"
+      },
+      "username": {
+        "required": "Username is required"
+      },
+      "password": {
+        "required": "Password is required",
+        "invalid": "Password must be at least 8 characters long"
+      },
+      "confirmPassword": {
+        "required": "Confirm password is required",
+        "mismatch": "Passwords must match"
+      },
+      "dateOfBirth": {
+        "required": "Date of birth is required",
+        "invalid": "You must be at least 18 years old"
+      }
+    }
   }
 }

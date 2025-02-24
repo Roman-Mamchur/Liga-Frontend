@@ -35,6 +35,10 @@
     "GamePage": {
       "title": "Jouez aux Meilleurs Jeux de Casino et de Sport - Détails du Jeu & Joueurs en Direct | FaFa878",
       "description": "Explorez en détail vos jeux de casino et de sport préférés sur FaFa878. Consultez les descriptions des jeux, les statistiques des joueurs et l'activité en direct. Rejoignez l'action et commencez à jouer dès maintenant !"
+    },
+    "SponsorshipsPage": {
+      "title": "Sponsorships FaFa878 - Partenariat avec une Marque de Jeu de Premier Plan",
+      "description": "Découvrez les opportunités de sponsoring avec FaFa878. Collaborez avec un casino en ligne et un site de paris sportifs de renom pour accroître votre visibilité et toucher un public mondial. Explorez nos offres de partenariat dès aujourd'hui !"
     }
   },
   "LocaleSwitcher": {
@@ -48,7 +52,8 @@
   },
   "Toast": {
     "authCodeCopied": "Code d'authentification copié !",
-    "referralLinkCopied": "Lien de parrainage copié !"
+    "referralLinkCopied": "Lien de parrainage copié !",
+    "walletAddressCopied": "Adresse {currency} copiée!"
   },
   "Sidebar": {
     "casinoButton": "Casino",
@@ -141,6 +146,10 @@
       "General": "Général",
       "Affiliate program": "Programme d'affiliation",
       "Earnings": "Gains"
+    },
+    "wallet": {
+      "Deposit": "Dépôt",
+      "Withdraw": "Retrait"
     },
     "seeAll": "Voir tout"
   },
@@ -709,5 +718,89 @@
     "casino": "Casino",
     "sports": "Sports",
     "latestPromotions": "Dernières promotions"
+  },
+  "Modal": {
+    "exit": "Sortir",
+    "Wallet": {
+      "label": "Portefeuille",
+      "Deposit": {
+        "currencyLabel": "Monnaie",
+        "networkLabel": "Réseau",
+        "depositAddressLabel": "Votre adresse de dépôt {currency}",
+        "qrLabel": "Envoyez uniquement {currency} à cette adresse."
+      },
+      "Withdraw": {
+        "currencyLabel": "Monnaie",
+        "networkLabel": "Réseau",
+        "addressLabel": "Adresse {currency}",
+        "amountLabel": "Montant",
+        "max": "Max",
+        "withdraw": "Retirer"
+      }
+    },
+    "Login": {
+      "emailOrUsernameLabel": "Email ou Nom d'utilisateur",
+      "passwordLabel": "Mot de passe",
+      "login": "Se connecter",
+      "logging": "Connexion en cours..."
+    },
+    "Register": {
+      "title": "Créer un compte",
+      "step": "Étape",
+      "emailLabel": "Email",
+      "usernameLabel": "Nom d'utilisateur",
+      "passwordLabel": "Mot de passe",
+      "confirmPasswordLabel": "Confirmer le mot de passe",
+      "dateOfBirthLabel": "Date de naissance",
+      "dateOfBirthPlaceholder": "Sélectionnez votre date de naissance",
+      "phoneLabel": "Téléphone (Optionnel)",
+      "phonePlaceholder": "Entrez votre numéro de téléphone",
+      "referralCodeLabel": "Code de parrainage (Optionnel)",
+      "termsTitle": "Termes et conditions",
+      "termsCheck": "J'ai lu et j'accepte les termes et conditions",
+      "continue": "Continuer",
+      "back": "Retour",
+      "register": "S'inscrire",
+      "registering": "Inscription en cours..."
+    },
+    "AlternateSignIn": {
+      "or": "OU",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "haveAccount": "Vous avez déjà un compte ?",
+      "registerAccount": "Créer un compte",
+      "loginAccount": "Se connecter"
+    }
+  },
+  "Formik": {
+    "Login": {
+      "usernameOrEmail": {
+        "required": "Le nom d'utilisateur ou l'email est requis"
+      },
+      "password": {
+        "required": "Le mot de passe est requis",
+        "invalid": "Le mot de passe doit contenir au moins 8 caractères"
+      }
+    },
+    "Register": {
+      "email": {
+        "required": "L'email est requis",
+        "invalid": "Adresse e-mail invalide"
+      },
+      "username": {
+        "required": "Le nom d'utilisateur est requis"
+      },
+      "password": {
+        "required": "Le mot de passe est requis",
+        "invalid": "Le mot de passe doit contenir au moins 8 caractères"
+      },
+      "confirmPassword": {
+        "required": "La confirmation du mot de passe est requise",
+        "mismatch": "Les mots de passe doivent correspondre"
+      },
+      "dateOfBirth": {
+        "required": "La date de naissance est requise",
+        "invalid": "Vous devez avoir au moins 18 ans"
+      }
+    }
   }
 }

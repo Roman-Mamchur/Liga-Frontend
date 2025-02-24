@@ -85,8 +85,8 @@ export const links = [
         type: "dropdown",
         icon: FaHandshakeSimple({ size: 20 }),
         items: [
-          { name: "Sponsorships A", href: "/sponsorships-a" },
-          { name: "Sponsorships B", href: "/sponsorships-b" },
+          { name: "Sponsorships A", href: "/sponsorships/sponsorship-a" },
+          { name: "Sponsorships B", href: "/sponsorships/sponsorship-b" },
         ],
       },
       {

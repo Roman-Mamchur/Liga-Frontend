@@ -2,12 +2,15 @@ import { FaApple, FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch } from "react-redux";
 import { openModal } from "@/store/slices/authModalSlice";
+import { useTranslations } from "next-intl";
 
 interface AlternateSignInProps {
   from: "login" | "register";
 }
 
 const AlternateSignIn = ({ from }: AlternateSignInProps) => {
+  const t = useTranslations("Modal.AlternateSignIn");
+
   const dispatch = useDispatch();
   const handleRegisterClick = () => {
     if (from === "login") {
@@ -21,7 +24,7 @@ const AlternateSignIn = ({ from }: AlternateSignInProps) => {
     <div className="my-4 flex flex-col items-center justify-center gap-3">
       <div className="flex w-full items-center justify-center gap-2">
         <div className="h-0.5 w-full rounded-full bg-card"></div>
-        <span className="text-sm">OR</span>
+        <span className="text-sm">{t("or")}</span>
         <div className="h-0.5 w-full rounded-full bg-card"></div>
       </div>
 
@@ -38,16 +41,12 @@ const AlternateSignIn = ({ from }: AlternateSignInProps) => {
       </div>
 
       <div className="flex items-center gap-1 text-sm opacity-80">
-        <span>
-          {from === "login"
-            ? "Don't have an account?"
-            : "Already have an account?"}
-        </span>
+        <span>{from === "login" ? t("noAccount") : t("haveAccount")}</span>
         <button
           onClick={handleRegisterClick}
           className="cursor-pointer font-bold hover:underline"
         >
-          {from === "login" ? "Register an Account" : "Sign In"}
+          {from === "login" ? t("registerAccount") : t("loginAccount")}
         </button>
       </div>
     </div>

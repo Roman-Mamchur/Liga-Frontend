@@ -11,9 +11,13 @@ import {
 } from "react-icons/fa6";
 import { TbAffiliateFilled } from "react-icons/tb";
 import { useTranslations } from "next-intl";
+import { useDispatch } from "react-redux";
+import { openModal } from "@/store/slices/walletModalSlice";
 
 export default function ProfileDropdown() {
   const t = useTranslations("Header.profileDropdown");
+
+  const dispatch = useDispatch();
 
   return (
     <Menu as="div" className="relative">
@@ -40,15 +44,15 @@ export default function ProfileDropdown() {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link
-              href="/wallet"
+            <div
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
+              onClick={() => dispatch(openModal())}
             >
               <span className="shrink-0">
                 <FaWallet />
               </span>
               <span>{t("wallet")}</span>
-            </Link>
+            </div>
           </MenuItem>
           <MenuItem>
             <Link

@@ -10,8 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "@/store/slices/authModalSlice";
 import { RootState } from "@/store";
 import AlternateSignIn from "./AlternateSignIn";
+import { useTranslations } from "next-intl";
 
 const LoginModal = () => {
+  const t = useTranslations("Modal");
+  const formikT = useTranslations("Formik.Login");
+
   const dispatch = useDispatch();
   const isOpen = useSelector(
     (state: RootState) => state.authModal.modalType === "login",
@@ -64,7 +68,7 @@ const LoginModal = () => {
             className="text-gray-500 duration-200 hover:text-gray-800"
             onClick={() => dispatch(closeModal())}
           >
-            <span className="hidden md:block">Exit</span>
+            <span className="hidden md:block">{t("exit")}</span>
             <FaXmark className="size-5 md:hidden" />
           </button>
         </div>
@@ -73,17 +77,19 @@ const LoginModal = () => {
         <Formik
           initialValues={{ username: "", password: "" }}
           validationSchema={Yup.object({
-            username: Yup.string().required("Username or email is required"),
+            username: Yup.string().required(
+              formikT("usernameOrEmail.required"),
+            ),
             password: Yup.string()
-              .min(6, "Password must be at least 6 characters")
-              .required("Password is required"),
+              .min(8, formikT("password.invalid"))
+              .required(formikT("password.required")),
           })}
           onSubmit={(values) => console.log("Login Submitted", values)}
         >
           {({ isSubmitting }) => (
             <Form className="container my-4 flex max-h-[80vh] flex-col gap-4 overflow-y-auto px-8">
               <div>
-                <label>Email or Username</label>
+                <label>{t("Login.emailOrUsernameLabel")}</label>
                 <Field
                   type="text"
                   name="username"
@@ -97,7 +103,7 @@ const LoginModal = () => {
               </div>
 
               <div>
-                <label>Password</label>
+                <label>{t("Login.passwordLabel")}</label>
                 <div className="relative">
                   <Field
                     type={showPassword ? "text" : "password"}
@@ -125,7 +131,7 @@ const LoginModal = () => {
                 disabled={isSubmitting}
                 className="mt-4 w-full rounded bg-primary py-2 text-white duration-200 hover:bg-secondary disabled:opacity-50"
               >
-                {isSubmitting ? "Logging in..." : "Login"}
+                {isSubmitting ? t("Login.logging") : t("Login.login")}
               </button>
 
               <AlternateSignIn from="login" />
