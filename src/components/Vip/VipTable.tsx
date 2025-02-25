@@ -4,13 +4,19 @@ import MedalIcon from "./MedalIcon";
 interface VipTableProps {
   title: string;
   tiers: string[];
+  rawTiers: string[];
   data: {
     name: string;
     values: string[];
   }[];
 }
 
-const VipTable: React.FC<VipTableProps> = ({ title, tiers, data }) => (
+const VipTable: React.FC<VipTableProps> = ({
+  title,
+  tiers,
+  rawTiers,
+  data,
+}) => (
   <div className="flex">
     <div className="w-0 flex-1 overflow-x-auto pb-1">
       <table className="w-full table-auto text-sm">
@@ -19,13 +25,15 @@ const VipTable: React.FC<VipTableProps> = ({ title, tiers, data }) => (
             <th className="w-full text-nowrap px-4 py-2 text-left text-lg font-bold opacity-80 md:text-xl">
               {title}
             </th>
-            {tiers.map((tier) => (
+            {tiers.map((tier, index) => (
               <th key={tier} className="px-4 py-2">
                 <div className="flex items-center justify-center">
-                  <span className="hidden font-medium capitalize opacity-60 md:block">
+                  <span className="hidden text-nowrap font-medium capitalize opacity-60 md:block">
                     {tier}
                   </span>
-                  <MedalIcon className={`size-7 ${getTextColorClass(tier)}`} />
+                  <MedalIcon
+                    className={`size-7 ${getTextColorClass(rawTiers[index])}`}
+                  />
                 </div>
               </th>
             ))}

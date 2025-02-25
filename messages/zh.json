@@ -1,0 +1,813 @@
+{
+  "Metadata": {
+    "RootLayout": {
+      "title": "FaFa878",
+      "description": "在线赌场游戏和体育博彩"
+    },
+    "CasinoPage": {
+      "title": "在线赌场游戏 - 老虎机、经典赌场游戏和奖金",
+      "description": "在FaFa878发现令人兴奋的在线赌场游戏。玩老虎机、桌面游戏和真人荷官游戏，同时享受无与伦比的奖金和刺激的游戏体验。今天就开始您的赌场冒险吧！"
+    },
+    "SportsPage": {
+      "title": "体育博彩 - 在线体育书 - 在FaFa878下注",
+      "description": "在FaFa878体验体育博彩的刺激。投注您喜爱的运动，享受现场投注选项，并利用令人兴奋的赔率和促销活动。今天就开始下注吧！"
+    },
+    "AffiliatePage": {
+      "title": "加入FaFa878联盟计划 - 赚取高佣金",
+      "description": "与FaFa878合作，通过我们的高收入联盟计划最大化您的收入。获得顶级佣金、实时跟踪和独家促销活动。立即加入！"
+    },
+    "PromotionsPage": {
+      "title": "独家赌场促销和优惠 - FaFa878",
+      "description": "在FaFa878发现无与伦比的在线赌场促销活动。享受每日奖金、免费旋转、现金返还交易和限时优惠。不要错过—今天就增加您的奖金！"
+    },
+    "RewardsPage": {
+      "title": "激动人心的赌场奖励和奖金 - FaFa878",
+      "description": "在FaFa878解锁独家奖励和奖金。加入我们的忠诚计划，赚取免费旋转、现金返还和VIP特权。今天就体验最佳的在线赌场奖励！"
+    },
+    "VipPage": {
+      "title": "VIP赌场奖励和独家特权 - FaFa878",
+      "description": "加入FaFa878 VIP俱乐部，享受精英赌场奖励！享受个性化奖金、更高现金返还、优先支持和独家促销活动。今天就提升您的游戏体验！"
+    },
+    "ProfilePage": {
+      "title": "您的个人资料 - 管理账户和查看进度 | FaFa878联盟计划",
+      "description": "访问您的FaFa878联盟个人资料，管理账户设置、跟踪收入并监控进度。随时查看您的联盟等级、福利和表现。保持对您计划成功的最新了解！"
+    },
+    "GamePage": {
+      "title": "玩顶级赌场和体育游戏 - 游戏详情和实时玩家 | FaFa878",
+      "description": "在FaFa878探索您最喜欢的赌场和体育游戏的详细信息。查看游戏描述、玩家统计和实时活动。加入游戏，现在就开始玩！"
+    },
+    "SponsorshipsPage": {
+      "title": "FaFa878赞助 - 与领先的游戏品牌合作",
+      "description": "探索与FaFa878的赞助机会。与顶级在线赌场和体育博彩平台合作，提升品牌曝光度并与全球观众互动。今天就探索合作选项！"
+    }
+  },
+  "LocaleSwitcher": {
+    "label": "语言",
+    "locale": "{locale, select, en {English} th {ไทย} zh {简体中文} other {Unknown}}"
+  },
+  "NotFoundPage": {
+    "message": "404 - 页面未找到",
+    "description": "抱歉，您正在查找的页面不存在。",
+    "link": "返回首页"
+  },
+  "Toast": {
+    "authCodeCopied": "认证码已复制！",
+    "referralLinkCopied": "推荐链接已复制！",
+    "walletAddressCopied": "{currency} 地址已复制！"
+  },
+  "Sidebar": {
+    "casinoButton": "赌场",
+    "sportsButton": "体育",
+    "search": "搜索",
+    "casino": "赌场",
+    "sports": "体育",
+    "cockfight": "斗鸡",
+    "lottery": "彩票",
+    "promotions": "促销",
+    "rewards": "奖励",
+    "affiliate": "联盟",
+    "vip": "VIP俱乐部",
+    "sponsorships": "赞助",
+    "support": "在线支持"
+  },
+  "Header": {
+    "login": "登录",
+    "register": "注册",
+    "wallet": "钱包",
+    "search": "搜索",
+    "profileDropdown": {
+      "profile": "个人资料",
+      "wallet": "钱包",
+      "vip": "VIP",
+      "affiliate": "联盟",
+      "transactions": "交易记录",
+      "settings": "设置",
+      "support": "在线支持",
+      "logout": "登出"
+    },
+    "notificationsDropdown": {
+      "label": "通知",
+      "seeAll": "查看所有通知",
+      "empty": "暂无通知",
+      "description": "您的互动将在此处显示"
+    }
+  },
+  "Footer": {
+    "copyright": "2025 FaFa878 | 保留所有权利。",
+    "categories": {
+      "casino": "赌场",
+      "sports": "体育",
+      "about": "关于我们"
+    },
+    "items": {
+      "casinoGames": "赌场游戏",
+      "slots": "老虎机",
+      "liveCasino": "真人赌场",
+      "roulette": "轮盘",
+      "blackjack": "二十一点",
+      "sportsBook": "体育博彩",
+      "soccer": "足球",
+      "basketball": "篮球",
+      "tennis": "网球",
+      "esports": "电子竞技",
+      "vip": "VIP俱乐部",
+      "affiliate": "联盟",
+      "support": "在线支持",
+      "promos": "促销与竞赛"
+    }
+  },
+  "Categories": {
+    "casino": {
+      "Lobby": "大厅",
+      "Popular": "热门",
+      "Slot Games": "老虎机游戏",
+      "Live Dealers": "真人荷官",
+      "Table Games": "桌面游戏",
+      "Exclusives": "独家游戏",
+      "New Releases": "新发布"
+    },
+    "sports": {
+      "Lobby": "大厅",
+      "Top Sports": "热门体育",
+      "Tennis": "网球",
+      "Soccer": "足球",
+      "Basketball": "篮球",
+      "Esports": "电子竞技"
+    },
+    "leaderboards": {
+      "My Games": "我的游戏",
+      "All Games": "所有游戏",
+      "High Rollers": "高额玩家",
+      "Race Leaderboard": "竞赛排行榜"
+    },
+    "faq": {
+      "General": "常见问题",
+      "Affiliate program": "联盟计划",
+      "Earnings": "收入"
+    },
+    "wallet": {
+      "Deposit": "充值",
+      "Withdraw": "提现"
+    },
+    "seeAll": "查看全部"
+  },
+  "Leaderboards": {
+    "rank": "排名",
+    "user": "用户",
+    "wagered": "投注金额",
+    "prize": "奖金",
+    "game": "游戏",
+    "time": "时间",
+    "betAmount": "投注金额",
+    "multiplier": "倍数",
+    "payout": "支付"
+  },
+  "SearchBar": {
+    "search": "搜索",
+    "searchPlaceholder": "搜索您的游戏或体育",
+    "notice": "搜索需要至少3个字符。",
+    "recentSearch": "最近搜索",
+    "clearSearch": "清除搜索"
+  },
+  "ProfilePage": {
+    "Layout": {
+      "hero": "个人资料",
+      "overview": "概览",
+      "history": "历史记录",
+      "rebate": "返利",
+      "cashback": "现金返还",
+      "totalBets": "总投注",
+      "redeems": "兑换",
+      "points": "积分",
+      "messages": "消息",
+      "settings": "设置"
+    },
+    "Overview": {
+      "Stats": {
+        "label": "统计数据",
+        "joined": "加入时间",
+        "upgrade": "升级VIP",
+        "currentPoint": "当前积分",
+        "maxTierReached": "已达最高等级"
+      },
+      "Wallet": {
+        "label": "钱包",
+        "yourWallet": "您的钱包",
+        "rebateBalance": "返利余额",
+        "cashbackBalance": "现金返还余额",
+        "referralBalance": "推荐余额"
+      },
+      "TotalBets": {
+        "label": "总投注",
+        "depositTurnover": "存款周转",
+        "totalBets": "总投注",
+        "totalWins": "总赢利"
+      },
+      "Promotions": {
+        "label": "我的促销",
+        "cashback": "现金返还",
+        "rebate": "返利"
+      }
+    },
+    "History": {
+      "label": "历史记录",
+      "Table": {
+        "amount": "金额",
+        "channel": "渠道",
+        "bankAccount": "银行账户",
+        "depositDate": "存款日期",
+        "status": "状态",
+        "statusDate": "状态日期",
+        "total": "总存款",
+        "empty": "此处暂无记录！"
+      }
+    },
+    "Rebate": {
+      "label": "返利",
+      "Table": {
+        "rebateAmount": "返利金额",
+        "transactionDate": "交易日期",
+        "total": "总返利",
+        "empty": "此处暂无记录！"
+      }
+    },
+    "Cashback": {
+      "label": "现金返还",
+      "Table": {
+        "cashbackAmount": "现金返还金额",
+        "transactionDate": "交易日期",
+        "total": "总返现",
+        "empty": "此处暂无记录！"
+      }
+    },
+    "Bets": {
+      "label": "总投注",
+      "Table": {
+        "totalBets": "总投注",
+        "totalWinLose": "总输赢",
+        "transactionDate": "交易日期",
+        "total": "总投注",
+        "empty": "此处暂无记录！"
+      }
+    },
+    "Redeems": {
+      "label": "兑换",
+      "Table": {
+        "number": "编号",
+        "transactionDate": "交易日期",
+        "rewardType": "奖励类型",
+        "reward": "奖励",
+        "status": "状态",
+        "usedPoints": "使用积分",
+        "freeSpins": "免费旋转",
+        "allRewards": "所有奖励",
+        "totalUsedPoints": "总使用积分",
+        "totalFreeSpins": "总免费旋转",
+        "empty": "此处暂无记录！"
+      }
+    },
+    "Points": {
+      "label": "积分",
+      "Table": {
+        "points": "积分",
+        "type": "类型",
+        "turnover": "周转",
+        "transactionDate": "交易日期",
+        "total": "总积分",
+        "empty": "此处暂无记录！"
+      }
+    },
+    "Messages": {
+      "label": "消息",
+      "empty": "此处暂无记录！"
+    },
+    "Settings": {
+      "label": "设置",
+      "General": {
+        "label": "常规",
+        "Email": {
+          "label": "电子邮件",
+          "verified": "已验证",
+          "emailInputLabel": "电子邮件",
+          "button": "确认电子邮件"
+        },
+        "Phone": {
+          "label": "电话号码",
+          "description": "我们只服务于可用国家代码列表中的地区。",
+          "countryCodeInputLabel": "国家代码",
+          "phoneInputLabel": "电话号码",
+          "phoneInputPlaceholder": "请输入您的电话号码",
+          "button": "提交"
+        }
+      },
+      "Security": {
+        "label": "安全",
+        "Password": {
+          "label": "密码",
+          "oldPasswordInputLabel": "旧密码",
+          "newPasswordInputLabel": "新密码",
+          "confirmNewPasswordInputLabel": "确认新密码",
+          "button": "保存"
+        },
+        "2FA": {
+          "label": "双重认证",
+          "description": "为了保持账户安全，请启用双重认证。",
+          "authCodeLabel": "将此代码复制到您的身份验证器应用中",
+          "qrLabel": "不要让任何人看到这个！",
+          "passwordLabel": "请输入您的密码以确认",
+          "codeLabel": "双重认证代码",
+          "button": "提交"
+        }
+      },
+      "Preferences": {
+        "label": "偏好设置",
+        "notice": "请允许最多30秒的时间来更新生效。",
+        "button": "保存",
+        "Privacy": {
+          "label": "隐私",
+          "description": "用户隐私是Fafa878的核心价值之一。这些设置允许您完全匿名，避免被其他玩家看到。",
+          "ghostModeLabel": "启用幽灵模式",
+          "ghostModeDescription": "您的用户名将不会出现在公开的投注动态和投注预览中。",
+          "hideStatsLabel": "隐藏所有统计数据",
+          "hideStatsDescription": "其他用户将无法查看您的赢/输和投注统计。",
+          "hideRaceStatsLabel": "隐藏所有赛季统计数据",
+          "hideRaceStatsDescription": "其他用户将无法查看您的赛季统计数据。"
+        },
+        "Marketing": {
+          "label": "营销",
+          "receiveEmailLabel": "接收我们的电子邮件优惠",
+          "receiveEmailDescription": "选择是否希望通过电子邮件接收我们的消息。",
+          "receiveSMSLabel": "接收我们的短信优惠",
+          "receiveSMSDescription": "选择是否希望通过短信接收我们的消息。"
+        }
+      },
+      "Sessions": {
+        "label": "会话",
+        "Table": {
+          "browser": "浏览器",
+          "near": "位置",
+          "ip": "IP 地址",
+          "lastUsed": "最后使用时间",
+          "action": "操作",
+          "empty": "此处暂无记录！"
+        }
+      },
+      "Offers": {
+        "label": "优惠",
+        "Welcome": {
+          "label": "欢迎优惠",
+          "description": "要领取您的欢迎优惠，请在注册后24小时内输入您的代码。",
+          "codeInputLabel": "代码",
+          "button": "提交"
+        },
+        "Bonus": {
+          "label": "领取奖金发放",
+          "description": "在我们的社交媒体平台（如Line、WeChat和Telegram）查找奖金发放代码。",
+          "codeInputLabel": "代码",
+          "button": "提交"
+        }
+      }
+    },
+    "Components": {
+      "sortingLabel": "排序方式",
+      "datePickerPlaceholder": "选择日期范围",
+      "Pagination": {
+        "page": "页面",
+        "of": "共",
+        "firstPage": "第一页",
+        "lastPage": "最后一页"
+      }
+    }
+  },
+  "VipInfo": {
+    "Tiers": {
+      "bronze": "青铜",
+      "silver": "白银",
+      "gold": "黄金",
+      "platinum": "铂金",
+      "black": "黑金"
+    },
+    "Benefits": {
+      "upgradeBonus": "升级奖金",
+      "dailyWithdrawAmount": "每日提款金额",
+      "dailyWithdrawLimit": "每日提款限制",
+      "birthdayBonus": "生日奖金",
+      "weeklyRescueBonus": "每周救援奖金",
+      "referralFriendBonus": "推荐好友奖金",
+      "festivalCash": "节日现金",
+      "specialBirthdayGift": "特别生日礼物",
+      "Details": {
+        "bronze": {
+          "amount": "$30k",
+          "upgradeBonus": "128",
+          "dailyWithdrawLimit": "5",
+          "birthdayBonus": "188",
+          "weeklyRescueBonus": "888",
+          "referralFriendBonus": "可用",
+          "festivalCash": "50",
+          "specialBirthdayGift": "是"
+        },
+        "silver": {
+          "amount": "$50k",
+          "upgradeBonus": "288",
+          "dailyWithdrawLimit": "10",
+          "birthdayBonus": "388",
+          "weeklyRescueBonus": "1,888",
+          "referralFriendBonus": "可用",
+          "festivalCash": "75",
+          "specialBirthdayGift": "是"
+        },
+        "gold": {
+          "amount": "$150k",
+          "upgradeBonus": "688",
+          "dailyWithdrawLimit": "20",
+          "birthdayBonus": "588",
+          "weeklyRescueBonus": "2,888",
+          "referralFriendBonus": "可用",
+          "festivalCash": "100",
+          "specialBirthdayGift": "是"
+        },
+        "platinum": {
+          "amount": "无限",
+          "upgradeBonus": "1,288",
+          "dailyWithdrawLimit": "无限",
+          "birthdayBonus": "888",
+          "weeklyRescueBonus": "3,888",
+          "referralFriendBonus": "可用",
+          "festivalCash": "300",
+          "specialBirthdayGift": "是"
+        },
+        "black": {
+          "amount": "无限",
+          "upgradeBonus": "1,888",
+          "dailyWithdrawLimit": "无限",
+          "birthdayBonus": "2,888",
+          "weeklyRescueBonus": "6,888",
+          "referralFriendBonus": "可用",
+          "festivalCash": "500",
+          "specialBirthdayGift": "是"
+        }
+      }
+    }
+  },
+  "VipPage": {
+    "hero": "VIP 俱乐部",
+    "title": "VIP 排行系统",
+    "Tables": {
+      "vipBenefits": {
+        "label": "VIP 福利",
+        "data": {
+          "upgradeBonus": {
+            "name": "升级奖金",
+            "values": ["128", "288", "688", "1,288", "1,888"]
+          },
+          "dailyWithdrawAmount": {
+            "name": "每日提款金额",
+            "values": ["30,000", "50,000", "150,000", "无限", "无限"]
+          },
+          "dailyWithdrawLimit": {
+            "name": "每日提款限制",
+            "values": ["5", "10", "20", "无限", "无限"]
+          },
+          "birthdayBonus": {
+            "name": "生日奖金",
+            "values": ["188", "388", "588", "888", "2,888"]
+          },
+          "weeklyRescueBonus": {
+            "name": "每周救援奖金",
+            "values": ["888", "1,888", "2,888", "3,888", "6,888"]
+          },
+          "referralFriendBonus": {
+            "name": "推荐好友",
+            "values": ["是", "是", "是", "是", "是"]
+          },
+          "festivalCash": {
+            "name": "节日现金",
+            "values": ["50", "75", "100", "300", "500"]
+          },
+          "specialBirthdayGift": {
+            "name": "特别生日礼物",
+            "values": ["是", "是", "是", "是", "是"]
+          }
+        }
+      },
+      "vipRebates": {
+        "label": "每日现金返利",
+        "data": {
+          "esports": {
+            "name": "电子竞技",
+            "values": ["0.50%", "0.60%", "0.70%", "0.80%", "1%"]
+          },
+          "liveCasino": {
+            "name": "真人赌场",
+            "values": ["0.40%", "0.50%", "0.65%", "0.80%", "1%"]
+          },
+          "slot": {
+            "name": "老虎机",
+            "values": ["0.50%", "0.60%", "0.70%", "0.85%", "1%"]
+          },
+          "sportsbook": {
+            "name": "体育博彩",
+            "values": ["0.50%", "0.60%", "0.70%", "0.80%", "1%"]
+          }
+        }
+      },
+      "vipLevelUpRequirements": {
+        "label": "等级提升要求",
+        "data": {
+          "accumulatedDeposit": {
+            "name": "累计存款（每月）",
+            "values": ["30,000", "100,000", "200,000", "500,000", "邀请制"]
+          }
+        }
+      },
+      "vipRetentionRequirements": {
+        "label": "每月等级保留要求",
+        "data": {
+          "membershipRenewal": {
+            "name": "会员续约",
+            "values": ["2个月", "2个月", "终身", "终身", "终身"]
+          }
+        }
+      }
+    },
+    "Benefits": {
+      "label": "FaFa878 VIP 俱乐部福利",
+      "boost": {
+        "title": "加成",
+        "description": "每周和每月，期待根据您最近的游戏获得新的奖金。您玩得越多，奖金就越高。"
+      },
+      "dedicatedVipHost": {
+        "title": "专属VIP客服",
+        "description": "为您提供专属的VIP客服，帮助您处理投注需求。"
+      },
+      "recentPlayBonuses": {
+        "title": "近期游戏奖金",
+        "description": "运气不好？每当您升级时，我们会退还部分损失。"
+      },
+      "levelUps": {
+        "title": "升级",
+        "description": "达到新的等级并获得奖励。升级的奖励随着等级提升而更好。"
+      },
+      "bespokeBenefits": {
+        "title": "定制福利",
+        "description": "与您的专属VIP客服一起，根据您的游戏需求定制福利。"
+      }
+    }
+  },
+  "AffiliatePage": {
+    "Layout": {
+      "hero": "联盟计划",
+      "overview": "概览",
+      "campaigns": "活动",
+      "funds": "资金",
+      "referredUsers": "推荐用户",
+      "faq": "常见问题"
+    },
+    "Overview": {
+      "label": "概览",
+      "faq": "常见问题",
+      "readMore": "阅读更多",
+      "AffiliateStats": {
+        "title": "通过我们的联盟计划推荐并赚取丰厚佣金",
+        "description": "通过您推荐的用户在赌场和体育博彩中的投注，赚取佣金。",
+        "customersNumber": "2160万",
+        "customersLabel": "全球用户",
+        "paymentMethodsNumber": "32",
+        "paymentMethodsLabel": "支付方式",
+        "languagesNumber": "16",
+        "languagesLabel": "支持的语言"
+      },
+      "CommissionRules": {
+        "label": "佣金规则",
+        "description": "邀请朋友并每天赚取3%的佣金",
+
+        "turnoverRequirementTitle": "提款的营业额要求",
+        "turnoverRequirementDescription": "佣金可以转移到主钱包。在提款之前需要4倍的营业额。",
+
+        "minimumWithdrawalTitle": "最低提款限额",
+        "minimumWithdrawalDescription": "提款到主钱包时，佣金最低为5泰铢。",
+
+        "maxDailyCommissionTitle": "每日最大朋友邀请佣金",
+        "maxDailyCommissionDescription": "邀请朋友的每日最大佣金为3000泰铢。",
+
+        "eligibleDepositsTitle": "符合佣金的存款",
+        "eligibleDepositsDescription": "只有朋友在没有任何促销的情况下的存款才算有效。",
+
+        "calculationTimeTitle": "每日计算时间",
+        "calculationTimeDescription": "系统每天从00:00到23:59计算您朋友的损失。收入将在每天8:00计算。"
+      },
+      "Advantages": {
+        "label": "独家优势",
+
+        "instantPayoutTitle": "即时支付",
+        "instantPayoutDescription": "跳过等待，立即查看您的收入。",
+
+        "lifetimeCommissionTitle": "终身佣金",
+        "lifetimeCommissionDescription": "如果您推荐的人继续玩，您将继续获得收入。",
+
+        "marketLeadingValueTitle": "市场领先的玩家价值",
+        "marketLeadingValueDescription": "通过为玩家提供行业最高的回报，增加您的收入。",
+
+        "customCommissionTitle": "定制您的佣金",
+        "customCommissionDescription": "根据您的独特业务需求定制佣金计划。",
+
+        "cryptoLocalCurrenciesTitle": "加密货币和本地货币",
+        "cryptoLocalCurrenciesDescription": "通过支持加密货币和本地货币赚取收入。",
+
+        "multiLanguageSupportTitle": "全天候多语言支持",
+        "multiLanguageSupportDescription": "全天候为您提供所需的帮助，以您的首选语言进行沟通。"
+      }
+    },
+    "Campaigns": {
+      "campaignHits": "活动点击数",
+      "referrals": "推荐人数",
+      "totalDeposits": "总存款",
+      "availableCommission": "可用佣金",
+      "totalCommission": "总佣金",
+      "uniqueDeposits": "唯一存款",
+      "commissionRate": "佣金比例",
+      "available": "可用",
+      "commission": "佣金",
+      "button": "创建新活动"
+    },
+    "Funds": {
+      "button": "提现可用佣金",
+      "notice": "将联盟佣金转入您的可用余额。",
+      "Table": {
+        "available": "可用",
+        "commission": "佣金",
+        "withdrawn": "已提现"
+      }
+    },
+    "ReferredUsers": {
+      "label": "推荐用户",
+      "Table": {
+        "username": "用户名",
+        "registrationDate": "注册日期",
+        "totalDeposits": "总存款",
+        "lastDeposit": "最后存款",
+        "wagered": "投注金额",
+        "commission": "佣金",
+        "empty": "这里还没有任何记录！",
+        "datePickerLabel": "注册日期"
+      }
+    },
+    "FAQ": {
+      "General": {
+        "question1": "什么是FaFa878？",
+        "answer1": "FaFa878是一个在线游戏平台，提供多种赌场和体育博彩选项，为用户提供一个互动且安全的游戏体验。",
+
+        "question2": "FaFa878安全吗？",
+        "answer2": "是的，FaFa878是一个持牌并受监管的平台，确保为所有用户提供公平的游戏和安全的交易。",
+
+        "question3": "如何创建一个账户？",
+        "answer3": "创建账户非常简单！只需访问FaFa878.com，点击“注册”按钮并按提示完成注册。",
+
+        "question4": "FaFa878接受哪些支付方式？",
+        "answer4": "FaFa878接受多种支付方式，包括信用卡/借记卡、电子钱包和加密货币选项，用于存款和提现。"
+      },
+      "AffiliateProgram": {
+        "question1": "什么是FaFa878联盟计划？",
+        "answer1": "FaFa878联盟计划允许个人、企业和网红通过推荐新玩家来赚取佣金。联盟会员可以通过推广FaFa878游戏平台并为成功推荐的玩家获得奖励。",
+
+        "question2": "谁可以加入FaFa878联盟计划？",
+        "answer2": "任何有平台推广FaFa878的人，包括博客作者、网红、网站所有者和数字营销人员，都可以加入该计划。没有严格的要求，因此既适合初学者，也适合有经验的营销人员。",
+
+        "question3": "如何加入FaFa878联盟计划？",
+        "answer3": "加入非常简单！访问FaFa878联盟计划页面，填写您的信息并等待审批。审核通过后，您将获得一个独特的推荐链接，并可以开始推广。",
+
+        "question4": "加入FaFa878联盟计划有什么好处？",
+        "answer4": "联盟会员享有具有竞争力的佣金率、推荐实时追踪、独家营销材料和专门的支持。此外，无需前期成本，是一个无需风险的被动收入机会。"
+      },
+      "Earnings": {
+        "question1": "如何通过FaFa878联盟计划赚钱？",
+        "answer1": "您通过推荐新玩家到FaFa878来赚取佣金。推荐的玩家越活跃，您可以赚取的佣金就越高。",
+
+        "question2": "我什么时候可以收到我的联盟佣金？",
+        "answer2": "联盟佣金将定期通过您首选的支付方式支付。一旦达到最低支付门槛，佣金就会处理。",
+
+        "question3": "我的收入是否有限制？",
+        "answer3": "没有限制！您的收入潜力取决于推荐的人数和他们在平台上的活跃度。",
+
+        "question4": "我如何跟踪我的收入？",
+        "answer4": "您可以通过联盟仪表板跟踪您的收入和推荐统计数据，该仪表板提供实时的佣金和表现数据。"
+      }
+    },
+    "ReferralLink": {
+      "description": "准备好赚取佣金了吗？点击“复制推荐链接”按钮并分享您的默认活动。",
+      "link": "链接",
+      "button": "复制推荐链接"
+    }
+  },
+  "RewardsPage": {
+    "hero": "奖励",
+    "promotions": "促销",
+    "luckyWheel": "幸运轮",
+    "vip": "VIP",
+    "promotionCode": "优惠码"
+  },
+  "PromotionsPage": {
+    "hero": "促销",
+    "casino": "赌场",
+    "sports": "体育",
+    "latestPromotions": "最新促销"
+  },
+  "GameCard": {
+    "playing": "{players} 人在线"
+  },
+  "Modal": {
+    "exit": "退出",
+    "Wallet": {
+      "label": "钱包",
+      "Deposit": {
+        "currencyLabel": "货币",
+        "networkLabel": "网络",
+        "depositAddressLabel": "您的 {currency} 存款地址",
+        "qrLabel": "仅将 {currency} 发送到此地址。"
+      },
+      "Withdraw": {
+        "availableBalanceLabel": "可用余额",
+        "currencyLabel": "货币",
+        "networkLabel": "网络",
+        "addressLabel": "{currency} 地址",
+        "amountLabel": "金额",
+        "max": "最大",
+        "withdraw": "提款"
+      }
+    },
+    "Login": {
+      "emailOrUsernameLabel": "电子邮件或用户名",
+      "passwordLabel": "密码",
+      "login": "登录",
+      "logging": "正在登录..."
+    },
+    "Register": {
+      "title": "创建账户",
+      "step": "步骤",
+      "emailLabel": "电子邮件",
+      "usernameLabel": "用户名",
+      "passwordLabel": "密码",
+      "confirmPasswordLabel": "确认密码",
+      "dateOfBirthLabel": "出生日期",
+      "dateOfBirthPlaceholder": "选择您的出生日期",
+      "phoneLabel": "电话（可选）",
+      "phonePlaceholder": "输入您的电话号码",
+      "referralCodeLabel": "推荐码（可选）",
+      "termsTitle": "条款与条件",
+      "termsCheck": "我已阅读并同意条款与条件",
+      "continue": "继续",
+      "back": "返回",
+      "register": "注册",
+      "registering": "正在注册..."
+    },
+    "AlternateSignIn": {
+      "or": "或",
+      "noAccount": "没有账户？",
+      "haveAccount": "已有账户？",
+      "registerAccount": "注册账户",
+      "loginAccount": "登录"
+    },
+    "Message": {
+      "label": "信息"
+    },
+    "Support": {
+      "label": "在线客服",
+      "greeting": "你好，{username} 👋",
+      "message": "我们能帮您什么忙？",
+      "sendMessage": "发送信息给我们"
+    }
+  },
+  "Formik": {
+    "Login": {
+      "usernameOrEmail": {
+        "required": "用户名或电子邮件是必填项"
+      },
+      "password": {
+        "required": "密码是必填项",
+        "invalid": "密码必须至少包含 8 个字符"
+      }
+    },
+    "Register": {
+      "email": {
+        "required": "电子邮件是必填项",
+        "invalid": "无效的电子邮件地址"
+      },
+      "username": {
+        "required": "用户名是必填项"
+      },
+      "password": {
+        "required": "密码是必填项",
+        "invalid": "密码必须至少包含 8 个字符"
+      },
+      "confirmPassword": {
+        "required": "确认密码是必填项",
+        "mismatch": "密码必须匹配"
+      },
+      "dateOfBirth": {
+        "required": "出生日期是必填项",
+        "invalid": "您必须年满 18 岁"
+      }
+    }
+  }
+}

@@ -43,7 +43,7 @@
   },
   "LocaleSwitcher": {
     "label": "Language",
-    "locale": "{locale, select, en {English} fr {Français} other {Unknown}}"
+    "locale": "{locale, select, en {English} th {ไทย} zh {简体中文} other {Unknown}}"
   },
   "NotFoundPage": {
     "message": "404 - Page Not Found",
@@ -724,6 +724,9 @@
     "casino": "Casino",
     "sports": "Sports",
     "latestPromotions": "Latest Promotions"
+  },
+  "GameCard": {
+    "playing": "{players} playing"
   },
   "Modal": {
     "exit": "Exit",

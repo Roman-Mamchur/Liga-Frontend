@@ -1,6 +1,7 @@
 import { FaCircleCheck, FaSackDollar } from "react-icons/fa6";
 import MedalIcon from "./MedalIcon";
 import { getBgColorClass, getTextColorClass } from "@/utils/vipTierColorUtil";
+import { useTranslations } from "next-intl";
 
 interface VipCardProps {
   tier: string;
@@ -10,8 +11,10 @@ interface VipCardProps {
 }
 
 const VipCard = ({ tier, tierName, amount, benefits }: VipCardProps) => {
+  const t = useTranslations("VipInfo.Benefits");
+
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex min-w-72 flex-col gap-3">
       {/* Line with medal*/}
       <div className="flex items-center gap-1">
         <div className="rounded-full bg-foreground p-3">
@@ -32,13 +35,17 @@ const VipCard = ({ tier, tierName, amount, benefits }: VipCardProps) => {
           <FaSackDollar className={`size-6 ${getTextColorClass(tier)}`} />
           <span className="text-2xl font-bold">{amount}</span>
         </div>
-        <p className="mb-3 text-sm opacity-60">Daily withdraw amount</p>
+        <p className="mb-3 text-sm opacity-60">{t("dailyWithdrawAmount")}</p>
 
         {/* Benefits list */}
         <div className="flex flex-col gap-3 text-sm">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-3">
-              <FaCircleCheck className={`size-4 ${getTextColorClass(tier)}`} />
+              <div className="shrink-0">
+                <FaCircleCheck
+                  className={`size-4 ${getTextColorClass(tier)}`}
+                />
+              </div>
               <span>
                 {benefit.key}: {benefit.value}
               </span>

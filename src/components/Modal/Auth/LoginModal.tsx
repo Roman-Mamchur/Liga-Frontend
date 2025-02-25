@@ -129,7 +129,7 @@ const LoginModal = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-4 w-full rounded bg-primary py-2 text-white duration-200 hover:bg-secondary disabled:opacity-50"
+                className="mt-4 w-full rounded bg-primary py-2 text-white shadow-md duration-200 hover:bg-secondary disabled:opacity-50"
               >
                 {isSubmitting ? t("Login.logging") : t("Login.login")}
               </button>

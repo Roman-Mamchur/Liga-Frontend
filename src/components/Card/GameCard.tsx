@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -33,6 +34,8 @@ const GameCard: React.FC<GameCardProps> = ({
     setIsClient(true);
   }, []);
 
+  const t = useTranslations("GameCard");
+
   if (!isClient) {
     return null;
   }
@@ -54,7 +57,7 @@ const GameCard: React.FC<GameCardProps> = ({
             <span className="relative inline-flex h-2 w-2 rounded-full bg-green-600"></span>
           </span>
           <span className="ml-1 text-xs text-foreground opacity-60 md:ml-2 md:text-sm">
-            {onlinePlayers.toLocaleString()} playing
+            {t("playing", { players: onlinePlayers.toLocaleString() })}
           </span>
         </p>
       )}

@@ -323,7 +323,7 @@ const RegisterModal = () => {
 
                   <button
                     type="submit"
-                    className="mt-4 w-full rounded bg-primary py-2 text-white duration-200 hover:bg-secondary"
+                    className="mt-4 w-full rounded bg-primary py-2 text-white shadow-md duration-200 hover:bg-secondary"
                   >
                     {t("continue")}
                   </button>
@@ -359,7 +359,7 @@ const RegisterModal = () => {
                   <div className="flex items-center justify-between gap-3">
                     <button
                       onClick={handlePrevStep}
-                      className="mt-4 w-full rounded bg-card py-2 duration-200 hover:bg-accentOpacity disabled:opacity-50"
+                      className="mt-4 w-full rounded bg-card py-2 shadow-md duration-200 hover:bg-accentOpacity disabled:opacity-50"
                     >
                       {t("back")}
                     </button>
@@ -367,7 +367,7 @@ const RegisterModal = () => {
                     <button
                       type="submit"
                       disabled={isFinalStepSubmitting || !acceptedTerms}
-                      className="mt-4 w-full rounded bg-primary py-2 text-white duration-200 hover:bg-secondary disabled:opacity-50"
+                      className="mt-4 w-full rounded bg-primary py-2 text-white shadow-md duration-200 hover:bg-secondary disabled:opacity-50"
                     >
                       {isFinalStepSubmitting ? t("registering") : t("register")}
                     </button>
