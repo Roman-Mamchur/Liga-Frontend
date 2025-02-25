@@ -27,9 +27,8 @@ const WithdrawSection = () => {
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setIsCurrencyDropdownOpen(false);
-        if (isBlockchainDropdownOpen) {
-          setIsBlockchainDropdownOpen(false);
-        }
+        setIsBlockchainDropdownOpen(false);
+        setIsBalanceDropdownOpen(false);
       }
     };
 
@@ -37,7 +36,7 @@ const WithdrawSection = () => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [isBlockchainDropdownOpen]);
+  }, [isCurrencyDropdownOpen, isBlockchainDropdownOpen, isBalanceDropdownOpen]);
 
   const handleCurrencyClick = () => {
     setIsCurrencyDropdownOpen((prev) => !prev);

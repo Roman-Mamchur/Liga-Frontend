@@ -776,6 +776,14 @@
       "haveAccount": "Already have an account?",
       "registerAccount": "Register an Account",
       "loginAccount": "Sign In"
+    },
+    "Message": {
+      "label": "Message"
+    },
+    "Support": {
+      "label": "Live Support",
+      "greeting": "Hey {username} 👋",
+      "message": "How can we help?"
     }
   },
   "Formik": {

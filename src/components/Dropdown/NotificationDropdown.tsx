@@ -5,8 +5,10 @@ import { Link } from "@/i18n/routing";
 import { BsMegaphone } from "react-icons/bs";
 import { FaBell, FaRegBell, FaXmark } from "react-icons/fa6";
 import { useRef } from "react";
-import { messages } from "@/data/messagesMockData";
+import { Message, messages } from "@/data/messagesMockData";
 import { useTranslations } from "next-intl";
+import { useDispatch } from "react-redux";
+import { openModal } from "@/store/slices/messageModalSlice";
 
 export default function NotificationDropdown() {
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -14,6 +16,12 @@ export default function NotificationDropdown() {
   const displayedNotifications = messages.slice(0, maxNotifications);
 
   const t = useTranslations("Header.notificationsDropdown");
+
+  const dispatch = useDispatch();
+
+  const handleMessageClick = (message: Message) => {
+    dispatch(openModal(message));
+  };
 
   return (
     <Menu as="div" className="relative">
@@ -51,23 +59,24 @@ export default function NotificationDropdown() {
               <MenuItem key={notification.id}>
                 <Link
                   href="#"
-                  className={`block p-4 text-sm transition ${
+                  className={`relative block p-4 pl-10 text-sm transition ${
                     notification.seen
                       ? "text-gray-800 hover:bg-gray-100"
                       : "font-semibold text-primary hover:bg-accentOpacity"
                   }`}
+                  onClick={() => handleMessageClick(notification)}
                 >
                   <div className="flex items-center gap-1">
                     <h4
-                      className={`${notification.seen ? "font-medium" : "font-bold"}`}
+                      className={`truncate ${notification.seen ? "font-medium" : "font-bold"}`}
                     >
                       {notification.title}
                     </h4>
                     {!notification.seen && (
-                      <div className="h-2 w-2 rounded-full bg-primary"></div>
+                      <div className="absolute left-5 h-2 w-2 rounded-full bg-primary"></div>
                     )}
                   </div>
-                  <p className="mt-1 text-gray-600">
+                  <p className="mt-1 truncate text-gray-600">
                     {notification.description}
                   </p>
                   <span className="mt-2 text-xs text-gray-500">

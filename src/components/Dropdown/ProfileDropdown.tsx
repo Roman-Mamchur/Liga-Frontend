@@ -12,7 +12,8 @@ import {
 import { TbAffiliateFilled } from "react-icons/tb";
 import { useTranslations } from "next-intl";
 import { useDispatch } from "react-redux";
-import { openModal } from "@/store/slices/walletModalSlice";
+import { openModal as walletOpenModal } from "@/store/slices/walletModalSlice";
+import { openModal as supportOpenModal } from "@/store/slices/supportModalSlice";
 
 export default function ProfileDropdown() {
   const t = useTranslations("Header.profileDropdown");
@@ -45,8 +46,8 @@ export default function ProfileDropdown() {
           </MenuItem>
           <MenuItem>
             <div
-              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
-              onClick={() => dispatch(openModal())}
+              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex cursor-pointer items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
+              onClick={() => dispatch(walletOpenModal())}
             >
               <span className="shrink-0">
                 <FaWallet />
@@ -99,26 +100,23 @@ export default function ProfileDropdown() {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link
-              href="support"
-              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
+            <div
+              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex cursor-pointer items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
+              onClick={() => dispatch(supportOpenModal())}
             >
               <span className="shrink-0">
                 <FaHeadset />
               </span>
               <span>{t("support")}</span>
-            </Link>
+            </div>
           </MenuItem>
           <MenuItem>
-            <Link
-              href="/logout"
-              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex items-center gap-2 px-4 py-2 text-sm text-red-500 duration-200 hover:bg-black/10"
-            >
+            <div className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex cursor-pointer items-center gap-2 px-4 py-2 text-sm text-red-500 duration-200 hover:bg-black/10">
               <span className="shrink-0">
                 <FaRightFromBracket />
               </span>
               <span>{t("logout")}</span>
-            </Link>
+            </div>
           </MenuItem>
         </div>
       </MenuItems>

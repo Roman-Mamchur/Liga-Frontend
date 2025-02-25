@@ -14,6 +14,8 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Locale } from "@/i18n/request";
 import WalletModal from "@/components/Modal/Wallet/WalletModal";
+import MessageModal from "@/components/Modal/MessageModal";
+import SupportModal from "@/components/Modal/SupportModal";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -74,6 +76,8 @@ export default async function RootLayout({
               </main>
 
               <PromotionModal />
+              <MessageModal />
+              <SupportModal />
               <WalletModal />
               <LoginModal />
               <RegisterModal />

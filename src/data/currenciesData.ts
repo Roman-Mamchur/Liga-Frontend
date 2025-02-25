@@ -1,5 +1,13 @@
 import { SiBitcoin, SiEthereum, SiLitecoin, SiTether } from "react-icons/si";
 
+export interface Currency {
+  Icon: React.ComponentType;
+  name: string;
+  fullName: string;
+  color: string;
+  blockchains: { name: string; networkName: string; fullName: string }[];
+}
+
 export const currencies = [
   {
     Icon: SiTether,

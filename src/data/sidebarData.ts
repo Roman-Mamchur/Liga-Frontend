@@ -4,7 +4,6 @@ import { GiChicken, GiReceiveMoney } from "react-icons/gi";
 import { GoGoal } from "react-icons/go";
 import { FaHandshakeSimple } from "react-icons/fa6";
 import { TbAffiliateFilled } from "react-icons/tb";
-import { BiSupport } from "react-icons/bi";
 import { RiVipCrown2Fill } from "react-icons/ri";
 
 export const links = [
@@ -88,12 +87,6 @@ export const links = [
           { name: "Sponsorships A", href: "/sponsorships/sponsorship-a" },
           { name: "Sponsorships B", href: "/sponsorships/sponsorship-b" },
         ],
-      },
-      {
-        name: "support",
-        type: "link",
-        icon: BiSupport({ size: 20 }),
-        href: "/support",
       },
     ],
   },

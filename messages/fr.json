@@ -773,6 +773,14 @@
       "haveAccount": "Vous avez déjà un compte ?",
       "registerAccount": "Créer un compte",
       "loginAccount": "Se connecter"
+    },
+    "Message": {
+      "label": "Message"
+    },
+    "Support": {
+      "label": "Assistance en direct",
+      "greeting": "Salut {username} 👋",
+      "message": "Comment pouvons-nous vous aider ?"
     }
   },
   "Formik": {
