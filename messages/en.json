@@ -783,7 +783,8 @@
     "Support": {
       "label": "Live Support",
       "greeting": "Hey {username} 👋",
-      "message": "How can we help?"
+      "message": "How can we help?",
+      "sendMessage": "Send us a message"
     }
   },
   "Formik": {

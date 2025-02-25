@@ -18,7 +18,7 @@ const FaqDropdown = ({
   return (
     <div className="flex flex-col rounded shadow-md">
       <div
-        className={`flex cursor-pointer items-center justify-between rounded bg-card px-6 py-3 ${isOpen && "rounded-b-none border-b border-black/20"}`}
+        className={`flex cursor-pointer items-center justify-between gap-3 rounded bg-card px-6 py-3 ${isOpen && "rounded-b-none border-b border-black/20"}`}
         onClick={onToggle}
       >
         <h3 className="text-sm font-bold">{question}</h3>

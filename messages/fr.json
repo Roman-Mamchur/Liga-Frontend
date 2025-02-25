@@ -780,7 +780,8 @@
     "Support": {
       "label": "Assistance en direct",
       "greeting": "Salut {username} 👋",
-      "message": "Comment pouvons-nous vous aider ?"
+      "message": "Comment pouvons-nous vous aider ?",
+      "sendMessage": "Envoyez-nous un message"
     }
   },
   "Formik": {
