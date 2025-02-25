@@ -21,13 +21,15 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
-interface Params {
-  locale: string;
-}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const resolvedParams = await params;
 
-export async function generateMetadata({ locale }: Params) {
   const t = await getTranslations({
-    locale,
+    locale: resolvedParams.locale,
     namespace: "Metadata.RootLayout",
   });
 

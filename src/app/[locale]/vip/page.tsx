@@ -5,13 +5,15 @@ import VipTableSection from "@/components/Vip/VipTableSection";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
-interface Params {
-  locale: string;
-}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const resolvedParams = await params;
 
-export async function generateMetadata({ locale }: Params) {
   const t = await getTranslations({
-    locale,
+    locale: resolvedParams.locale,
     namespace: "Metadata.VipPage",
   });
 
