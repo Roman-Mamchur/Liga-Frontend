@@ -82,7 +82,7 @@ const RewardsPage = () => {
           </Link>
 
           {/* Link 3 */}
-          <Link href="/affiliate">
+          <Link href="/vip">
             <div className="flex h-24 items-center justify-center rounded-md shadow-md duration-200 hover:-translate-y-1">
               <div className="h-24 w-24">
                 <Image
