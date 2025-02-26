@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Image from "next/image";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { SwiperNavButtons } from "./SwiperNavButtons";
 import { useDispatch } from "react-redux";
@@ -110,17 +109,15 @@ const CollectionSwiper: React.FC<CollectionSwiperProps> = ({
               ))}
           {showPlaceholder && showMore && isSwiperReady && (
             <SwiperSlide className="min-w-36 flex-1 cursor-pointer pt-2">
-              <Image
-                src={`https://placehold.co/600x800/ff6f00/white.png?text=${encodeURIComponent(
-                  t("seeAll") + "\n" + t(`${type}.${categoryData.category}`),
-                )}&font=montserrat`}
-                alt={categoryData.category}
-                width={150}
-                height={200}
-                priority={true}
-                className="rounded object-contain duration-300 ease-in-out hover:-translate-y-2 hover:shadow-md"
-                onClick={() => handleCategoryClick(categoryData.category)}
-              />
+              <div className="h-48 w-full rounded bg-primary duration-300 ease-in-out hover:-translate-y-2 hover:shadow-md">
+                <div
+                  className="flex h-full flex-col items-center justify-center gap-1 text-lg font-semibold text-white"
+                  onClick={() => handleCategoryClick(categoryData.category)}
+                >
+                  <span>{t("seeAll")}</span>
+                  <span>{t(`${type}.${categoryData.category}`)}</span>
+                </div>
+              </div>
             </SwiperSlide>
           )}
         </div>

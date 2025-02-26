@@ -42,7 +42,7 @@ const Sidebar = () => {
           className={`flex ${isExpanded ? "mb-3 h-14 flex-row shadow-md" : "flex-col gap-1"} relative items-center p-3`}
         >
           {isExpanded ? (
-            <div className="mx-auto flex gap-3">
+            <div className="mx-auto flex gap-3 text-nowrap">
               <Link
                 href="/"
                 className="rounded border border-stroke bg-primary px-3 py-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
