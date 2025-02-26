@@ -35,10 +35,6 @@
     "GamePage": {
       "title": "Play Top Casino & Sports Games - Game Details & Live Players | FaFa878",
       "description": "Explore in-depth details of your favorite casino and sports games at FaFa878. View game descriptions, player stats, and live activity. Join the action and start playing now!"
-    },
-    "SponsorshipsPage": {
-      "title": "FaFa878 Sponsorships - Partner with a Leading Gaming Brand",
-      "description": "Discover sponsorship opportunities with FaFa878. Partner with a top online casino and sportsbook to boost brand visibility and engage with a global audience. Explore collaboration options today!"
     }
   },
   "LocaleSwitcher": {
@@ -67,7 +63,6 @@
     "rewards": "Rewards",
     "affiliate": "Affiliate",
     "vip": "VIP Club",
-    "sponsorships": "Sponsorships",
     "support": "Live Support"
   },
   "Header": {

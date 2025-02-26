@@ -2,7 +2,6 @@ import { FaBasketballBall, FaGift } from "react-icons/fa";
 import { MdCasino } from "react-icons/md";
 import { GiChicken, GiReceiveMoney } from "react-icons/gi";
 import { GoGoal } from "react-icons/go";
-import { FaHandshakeSimple } from "react-icons/fa6";
 import { TbAffiliateFilled } from "react-icons/tb";
 import { RiVipCrown2Fill } from "react-icons/ri";
 
@@ -74,19 +73,6 @@ export const links = [
         type: "link",
         icon: RiVipCrown2Fill({ size: 20 }),
         href: "/vip",
-      },
-    ],
-  },
-  {
-    items: [
-      {
-        name: "sponsorships",
-        type: "dropdown",
-        icon: FaHandshakeSimple({ size: 20 }),
-        items: [
-          { name: "Sponsorships A", href: "/sponsorships/sponsorship-a" },
-          { name: "Sponsorships B", href: "/sponsorships/sponsorship-b" },
-        ],
       },
     ],
   },

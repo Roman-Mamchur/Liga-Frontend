@@ -35,10 +35,6 @@
     "GamePage": {
       "title": "玩顶级赌场和体育游戏 - 游戏详情和实时玩家 | FaFa878",
       "description": "在FaFa878探索您最喜欢的赌场和体育游戏的详细信息。查看游戏描述、玩家统计和实时活动。加入游戏，现在就开始玩！"
-    },
-    "SponsorshipsPage": {
-      "title": "FaFa878赞助 - 与领先的游戏品牌合作",
-      "description": "探索与FaFa878的赞助机会。与顶级在线赌场和体育博彩平台合作，提升品牌曝光度并与全球观众互动。今天就探索合作选项！"
     }
   },
   "LocaleSwitcher": {
@@ -67,7 +63,6 @@
     "rewards": "奖励",
     "affiliate": "联盟",
     "vip": "VIP俱乐部",
-    "sponsorships": "赞助",
     "support": "在线支持"
   },
   "Header": {

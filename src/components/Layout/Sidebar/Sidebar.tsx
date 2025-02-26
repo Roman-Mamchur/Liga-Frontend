@@ -111,6 +111,8 @@ const Sidebar = () => {
             </div>
           ))}
 
+          <div className="m-3 h-0.5 rounded bg-white/80"></div>
+
           {/* Live Support Modal Button */}
           <div
             className={`my-2 flex w-full cursor-pointer items-center gap-3 text-nowrap rounded p-2 duration-200 hover:bg-white/20 ${isExpanded ? "" : "md:justify-center"}`}
@@ -162,6 +164,8 @@ const Sidebar = () => {
                   )}
                 </div>
               ))}
+
+              <div className="m-3 h-0.5 rounded bg-white/80"></div>
 
               {/* Live Support Modal Button */}
               <div
