@@ -1,4 +1,4 @@
-import { currencies } from "@/data/currenciesData";
+import { cryptoCurrencies } from "@/data/currenciesData";
 import { useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { QRCodeCanvas } from "qrcode.react";
@@ -8,10 +8,12 @@ import { useTranslations } from "next-intl";
 const DepositSection = () => {
   const t = useTranslations("Modal.Wallet.Deposit");
 
-  const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
+  const [selectedCryptocurrency, setSelectedCryptocurrency] = useState(
+    cryptoCurrencies[0],
+  );
   const [selectedBlockchain, setSelectedBlockchain] = useState(
-    selectedCurrency.blockchains.length > 0
-      ? selectedCurrency.blockchains[0]
+    selectedCryptocurrency.blockchains.length > 0
+      ? selectedCryptocurrency.blockchains[0]
       : null,
   );
   const [isCurrencyDropdownOpen, setIsCurrencyDropdownOpen] = useState(false);
@@ -68,17 +70,17 @@ const DepositSection = () => {
           >
             <span className="flex items-center gap-2 text-nowrap">
               <div className="size-8">
-                <selectedCurrency.Icon
+                <selectedCryptocurrency.Icon
                   className="size-full"
-                  style={{ color: selectedCurrency.color }}
+                  style={{ color: selectedCryptocurrency.color }}
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-sm font-semibold">
-                  {selectedCurrency.name}
+                  {selectedCryptocurrency.name}
                 </span>
                 <span className="text-xs opacity-80">
-                  {selectedCurrency.fullName}
+                  {selectedCryptocurrency.fullName}
                 </span>
               </div>
             </span>
@@ -93,11 +95,11 @@ const DepositSection = () => {
 
           {isCurrencyDropdownOpen && (
             <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-              {currencies.map((item) => (
+              {cryptoCurrencies.map((item) => (
                 <li
                   key={item.name}
                   onClick={() => {
-                    setSelectedCurrency(item);
+                    setSelectedCryptocurrency(item);
                     setSelectedBlockchain(
                       item.blockchains.length > 0 ? item.blockchains[0] : null,
                     );
@@ -127,7 +129,7 @@ const DepositSection = () => {
         </div>
       </div>
 
-      {selectedCurrency.blockchains.length > 0 && (
+      {selectedCryptocurrency.blockchains.length > 0 && (
         <div className="mt-3 flex flex-col gap-1">
           <label className="text-sm">{t("networkLabel")}</label>
           <div className="relative">
@@ -150,7 +152,7 @@ const DepositSection = () => {
 
             {isBlockchainDropdownOpen && (
               <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-                {selectedCurrency.blockchains.map((blockchain) => (
+                {selectedCryptocurrency.blockchains.map((blockchain) => (
                   <li
                     key={blockchain.networkName}
                     onClick={() => {
@@ -176,11 +178,13 @@ const DepositSection = () => {
         <div className="flex flex-col gap-4 py-3">
           <div className="flex flex-col gap-2">
             <p className="text-sm">
-              {t("depositAddressLabel", { currency: selectedCurrency.name })}
+              {t("depositAddressLabel", {
+                currency: selectedCryptocurrency.name,
+              })}
             </p>
             <AddressCopy
               address={mockAddress}
-              currency={selectedCurrency.name}
+              currency={selectedCryptocurrency.name}
             />
           </div>
         </div>
@@ -196,7 +200,7 @@ const DepositSection = () => {
               />
             </div>
             <p className="text-center text-sm opacity-80">
-              {t("qrLabel", { currency: selectedCurrency.name })}
+              {t("qrLabel", { currency: selectedCryptocurrency.name })}
             </p>
           </div>
         </div>

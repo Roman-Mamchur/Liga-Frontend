@@ -1,4 +1,4 @@
-import { currencies } from "@/data/currenciesData";
+import { cryptoCurrencies } from "@/data/currenciesData";
 import { useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
@@ -6,11 +6,13 @@ import { useTranslations } from "next-intl";
 const WithdrawSection = () => {
   const t = useTranslations("Modal.Wallet.Withdraw");
 
-  const [selectedBalance, setSelectedBalance] = useState(currencies[0]);
-  const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
+  const [selectedBalance, setSelectedBalance] = useState(cryptoCurrencies[0]);
+  const [selectedCryptocurrency, setSelectedCryptocurrency] = useState(
+    cryptoCurrencies[0],
+  );
   const [selectedBlockchain, setSelectedBlockchain] = useState(
-    selectedCurrency.blockchains.length > 0
-      ? selectedCurrency.blockchains[0]
+    selectedCryptocurrency.blockchains.length > 0
+      ? selectedCryptocurrency.blockchains[0]
       : null,
   );
   const [isBalanceDropdownOpen, setIsBalanceDropdownOpen] = useState(false);
@@ -102,7 +104,7 @@ const WithdrawSection = () => {
 
           {isBalanceDropdownOpen && (
             <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-              {currencies.map((item) => (
+              {cryptoCurrencies.map((item) => (
                 <li
                   key={item.name}
                   onClick={() => {
@@ -136,17 +138,17 @@ const WithdrawSection = () => {
           >
             <span className="flex items-center gap-2 text-nowrap">
               <div className="size-8">
-                <selectedCurrency.Icon
+                <selectedCryptocurrency.Icon
                   className="size-full"
-                  style={{ color: selectedCurrency.color }}
+                  style={{ color: selectedCryptocurrency.color }}
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-sm font-semibold">
-                  {selectedCurrency.name}
+                  {selectedCryptocurrency.name}
                 </span>
                 <span className="text-xs opacity-80">
-                  {selectedCurrency.fullName}
+                  {selectedCryptocurrency.fullName}
                 </span>
               </div>
             </span>
@@ -161,11 +163,11 @@ const WithdrawSection = () => {
 
           {isCurrencyDropdownOpen && (
             <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-              {currencies.map((item) => (
+              {cryptoCurrencies.map((item) => (
                 <li
                   key={item.name}
                   onClick={() => {
-                    setSelectedCurrency(item);
+                    setSelectedCryptocurrency(item);
                     setSelectedBalance(item);
                     setSelectedBlockchain(
                       item.blockchains.length > 0 ? item.blockchains[0] : null,
@@ -196,7 +198,7 @@ const WithdrawSection = () => {
         </div>
       </div>
 
-      {selectedCurrency.blockchains.length > 0 && (
+      {selectedCryptocurrency.blockchains.length > 0 && (
         <div className="flex flex-col gap-1">
           <label className="text-sm">{t("networkLabel")}</label>
           <div className="relative">
@@ -219,7 +221,7 @@ const WithdrawSection = () => {
 
             {isBlockchainDropdownOpen && (
               <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-                {selectedCurrency.blockchains.map((blockchain) => (
+                {selectedCryptocurrency.blockchains.map((blockchain) => (
                   <li
                     key={blockchain.networkName}
                     onClick={() => {
@@ -242,7 +244,7 @@ const WithdrawSection = () => {
 
       <div className="flex flex-col gap-1">
         <label className="text-sm">
-          {t("addressLabel", { currency: selectedCurrency.name })}
+          {t("addressLabel", { currency: selectedCryptocurrency.name })}
         </label>
         <input
           type="text"
@@ -260,8 +262,8 @@ const WithdrawSection = () => {
               className="min-h-14 w-full truncate rounded bg-white py-2 pl-3 pr-14 shadow-md [appearance:textfield] focus:outline-none focus:ring-2 focus:ring-primary [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
             />
             <div className="absolute right-3 flex items-center justify-center">
-              <selectedCurrency.Icon
-                style={{ color: selectedCurrency.color }}
+              <selectedCryptocurrency.Icon
+                style={{ color: selectedCryptocurrency.color }}
               />
             </div>
           </div>

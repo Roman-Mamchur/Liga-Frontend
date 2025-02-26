@@ -24,11 +24,11 @@ export default function BalanceDropdown() {
   return (
     <Menu as="div" className="relative">
       <MenuButton className="block">
-        <div className="flex">
+        <div className="flex min-w-48">
           <div className="flex flex-1 cursor-pointer items-center justify-between gap-5 rounded-l bg-card p-2.5 duration-200 hover:bg-black/20">
-            <span className="font-semibold">0.00000000</span>
+            <span className="font-semibold">0.00</span>
             <span className="flex gap-2">
-              <selectedBalance.Icon style={{ color: selectedBalance.color }} />
+              <selectedBalance.Icon />
               <FaChevronDown />
             </span>
           </div>
@@ -55,10 +55,10 @@ export default function BalanceDropdown() {
                 className="flex cursor-pointer items-center gap-14 p-3 duration-200 hover:bg-black/10"
                 onClick={() => setSelectedBalance(currency)}
               >
-                <span>0.00000000</span>
+                <span>0.00</span>
                 <div className="flex items-center gap-2">
                   <span>
-                    <currency.Icon style={{ color: currency.color }} />
+                    <currency.Icon />
                   </span>
                   <span>{currency.name}</span>
                 </div>

@@ -1,14 +1,7 @@
+import { FaBahtSign, FaDollarSign } from "react-icons/fa6";
 import { SiBitcoin, SiEthereum, SiLitecoin, SiTether } from "react-icons/si";
 
-export interface Currency {
-  Icon: React.ComponentType;
-  name: string;
-  fullName: string;
-  color: string;
-  blockchains: { name: string; networkName: string; fullName: string }[];
-}
-
-export const currencies = [
+export const cryptoCurrencies = [
   {
     Icon: SiTether,
     name: "USDT",
@@ -43,5 +36,18 @@ export const currencies = [
     fullName: "Litecoin",
     color: "#B0B0B0",
     blockchains: [],
+  },
+];
+
+export const currencies = [
+  {
+    Icon: FaDollarSign,
+    name: "USD",
+    fullName: "United States Dollar",
+  },
+  {
+    Icon: FaBahtSign,
+    name: "THB",
+    fullName: "Thai Baht",
   },
 ];
