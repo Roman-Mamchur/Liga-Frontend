@@ -62,8 +62,7 @@
     "promotions": "Promotions",
     "rewards": "Rewards",
     "affiliate": "Affiliate",
-    "vip": "VIP Club",
-    "support": "Live Support"
+    "vip": "VIP Club"
   },
   "Header": {
     "login": "Sign In",
@@ -77,7 +76,6 @@
       "affiliate": "Affiliate",
       "transactions": "Transactions",
       "settings": "Settings",
-      "support": "Live Support",
       "logout": "Logout"
     },
     "notificationsDropdown": {

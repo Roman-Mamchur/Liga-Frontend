@@ -62,8 +62,7 @@
     "promotions": "โปรโมชั่น",
     "rewards": "รางวัล",
     "affiliate": "พันธมิตร",
-    "vip": "คลับ VIP",
-    "support": "การสนับสนุนสด"
+    "vip": "คลับ VIP"
   },
   "Header": {
     "login": "เข้าสู่ระบบ",
@@ -77,7 +76,6 @@
       "affiliate": "พันธมิตร",
       "transactions": "ธุรกรรม",
       "settings": "การตั้งค่า",
-      "support": "การสนับสนุนสด",
       "logout": "ออกจากระบบ"
     },
     "notificationsDropdown": {

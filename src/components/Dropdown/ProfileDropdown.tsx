@@ -3,7 +3,6 @@ import { Link } from "@/i18n/routing";
 import {
   FaCrown,
   FaGear,
-  FaHeadset,
   FaMoneyBill,
   FaRightFromBracket,
   FaUser,
@@ -12,8 +11,7 @@ import {
 import { TbAffiliateFilled } from "react-icons/tb";
 import { useTranslations } from "next-intl";
 import { useDispatch } from "react-redux";
-import { openModal as walletOpenModal } from "@/store/slices/walletModalSlice";
-import { openModal as supportOpenModal } from "@/store/slices/supportModalSlice";
+import { openModal } from "@/store/slices/walletModalSlice";
 
 export default function ProfileDropdown() {
   const t = useTranslations("Header.profileDropdown");
@@ -47,7 +45,7 @@ export default function ProfileDropdown() {
           <MenuItem>
             <div
               className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex cursor-pointer items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
-              onClick={() => dispatch(walletOpenModal())}
+              onClick={() => dispatch(openModal())}
             >
               <span className="shrink-0">
                 <FaWallet />
@@ -98,17 +96,6 @@ export default function ProfileDropdown() {
               </span>
               <span>{t("settings")}</span>
             </Link>
-          </MenuItem>
-          <MenuItem>
-            <div
-              className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex cursor-pointer items-center gap-2 px-4 py-2 text-sm text-gray-700 duration-200 hover:bg-black/10"
-              onClick={() => dispatch(supportOpenModal())}
-            >
-              <span className="shrink-0">
-                <FaHeadset />
-              </span>
-              <span>{t("support")}</span>
-            </div>
           </MenuItem>
           <MenuItem>
             <div className="data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden flex cursor-pointer items-center gap-2 px-4 py-2 text-sm text-red-500 duration-200 hover:bg-black/10">

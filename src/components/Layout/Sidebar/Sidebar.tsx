@@ -11,9 +11,6 @@ import MenuLink from "./MenuLink";
 import MobileSidebar from "./MobileSidebar";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { useTranslations } from "next-intl";
-import { FaHeadset } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
-import { openModal } from "@/store/slices/supportModalSlice";
 
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -21,8 +18,6 @@ const Sidebar = () => {
   const [searchMenuOpen, setSearchMenuOpen] = useState(false);
 
   const t = useTranslations("Sidebar");
-
-  const dispatch = useDispatch();
 
   const toggleSubmenu = (item: string) => {
     setSubmenuOpen((prev) => (prev === item ? null : item));
@@ -113,17 +108,6 @@ const Sidebar = () => {
 
           <div className="m-3 h-0.5 rounded bg-white/80"></div>
 
-          {/* Live Support Modal Button */}
-          <div
-            className={`my-2 flex w-full cursor-pointer items-center gap-3 text-nowrap rounded p-2 duration-200 hover:bg-white/20 ${isExpanded ? "" : "md:justify-center"}`}
-            onClick={() => dispatch(openModal())}
-          >
-            <span>
-              <FaHeadset className="size-5" />
-            </span>
-            {isExpanded && <span>{t("support")}</span>}
-          </div>
-
           {/* Language Switcher */}
           <LocaleSwitcher
             isExpanded={isExpanded}
@@ -166,17 +150,6 @@ const Sidebar = () => {
               ))}
 
               <div className="m-3 h-0.5 rounded bg-white/80"></div>
-
-              {/* Live Support Modal Button */}
-              <div
-                className="my-2 flex w-full cursor-pointer items-center gap-3 text-nowrap rounded p-2 duration-200 hover:bg-white/20"
-                onClick={() => dispatch(openModal())}
-              >
-                <span>
-                  <FaHeadset className="size-5" />
-                </span>
-                <span>{t("support")}</span>
-              </div>
 
               {/* Language Switcher */}
               <LocaleSwitcher
