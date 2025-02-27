@@ -1,6 +1,5 @@
 const CHATWOOT_API_URL = "https://app.chatwoot.com/public/api/v1";
-const CHATWOOT_INBOX_IDENTIFIER =
-  process.env.NEXT_PUBLIC_CHATWOOT_INBOX_IDENTIFIER;
+const CHATWOOT_INBOX_IDENTIFIER ='xDmF6ibP5c9zKe9QBXapkeb5';
 const CHATWOOT_WEBSOCKET_URL = "wss://app.chatwoot.com/cable";
 
 const sessionStore = {
