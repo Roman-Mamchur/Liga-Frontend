@@ -783,7 +783,10 @@
       "greeting": "Hey {username} 👋",
       "message": "How can we help?",
       "sendMessage": "Send us a message",
-      "messagePlaceholder": "Type a message..."
+      "messagePlaceholder": "Type a message...",
+      "empty": "How can we help?",
+      "rate": "Please rate this conversation",
+      "rateButton": "Click to Rate"
     }
   },
   "Formik": {

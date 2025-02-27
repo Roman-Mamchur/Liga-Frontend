@@ -19,8 +19,6 @@ export const initializeWebSocket = (
   ws.addEventListener("message", onMessage);
 
   ws.addEventListener("open", async () => {
-    console.log("✅ WebSocket connected");
-
     await setUpContact();
     await setUpConversation();
 
@@ -91,4 +89,34 @@ export const sendMessage = async (message: string, file?: File) => {
       body: formData,
     },
   );
+};
+
+export const fetchMessages = async () => {
+  const contactId = sessionStore.get("contactIdentifier");
+  const conversationId = sessionStore.get("contactConversation");
+
+  if (!contactId || !conversationId) {
+    console.error("Missing contact or conversation ID.");
+    return [];
+  }
+
+  const response = await fetch(
+    `${CHATWOOT_API_URL}/inboxes/${CHATWOOT_INBOX_IDENTIFIER}/contacts/${contactId}/conversations/${conversationId}/messages`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_CHATWOOT_API_KEY}`,
+      },
+    },
+  );
+
+  if (!response.ok) {
+    console.error("Failed to fetch messages", await response.text());
+    return [];
+  }
+
+  const data = await response.json();
+
+  return data;
 };

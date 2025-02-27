@@ -1,6 +1,10 @@
 "use client";
 
-import { initializeWebSocket, sendMessage } from "@/services/chatwoot";
+import {
+  fetchMessages,
+  initializeWebSocket,
+  sendMessage,
+} from "@/services/chatwoot";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -22,6 +26,49 @@ const ChatScreen = () => {
   >([]);
 
   useEffect(() => {
+    const handleLoadMessages = async () => {
+      const fetchedMessages = await fetchMessages();
+
+      if (!Array.isArray(fetchedMessages) || fetchedMessages.length === 0) {
+        console.warn("No messages fetched.");
+        return;
+      }
+
+      interface FetchedMessage {
+        id: string;
+        content: string;
+        message_type: number;
+        attachments?: { data_url: string }[];
+      }
+
+      interface Message {
+        id: string;
+        text: string;
+        sender: "user" | "agent";
+        attachments?: string[];
+      }
+
+      const mappedMessages = (fetchedMessages as FetchedMessage[]).map(
+        (msg: FetchedMessage): Message => ({
+          id: msg.id,
+          text: msg.content || "",
+          sender: msg.message_type === 0 ? "user" : "agent",
+          attachments: msg.attachments?.map((att) => att.data_url) || [],
+        }),
+      );
+
+      setMessages((prevMessages) => {
+        const prevIds = new Set(prevMessages.map((m) => m.id));
+        const newMessages = mappedMessages.filter((m) => !prevIds.has(m.id));
+
+        if (newMessages.length === 0) return prevMessages;
+
+        return [...prevMessages, ...newMessages];
+      });
+    };
+
+    handleLoadMessages();
+
     const handleNewMessage = (event: MessageEvent) => {
       try {
         const data = JSON.parse(event.data);
@@ -61,7 +108,7 @@ const ChatScreen = () => {
     return () => {
       ws?.close();
     };
-  });
+  }, []);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
@@ -119,36 +166,68 @@ const ChatScreen = () => {
     }
   };
 
+  const renderMessageContent = (msg: { text: string }) => {
+    // Check if the message contains a Chatwoot survey link
+    const surveyMatch = msg.text.match(
+      /(https:\/\/app\.chatwoot\.com\/survey\/responses\/[a-zA-Z0-9-]+)/,
+    );
+
+    if (surveyMatch) {
+      const surveyUrl = surveyMatch[1];
+      return (
+        <div>
+          <p>{t("rate")}</p>
+          <a
+            href={surveyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-block w-full rounded-md bg-primary px-3 py-2 text-center text-white"
+          >
+            ⭐ {t("rateButton")} ⭐
+          </a>
+        </div>
+      );
+    }
+
+    return <p className="whitespace-pre-wrap">{msg.text}</p>;
+  };
+
   return (
     <>
       <div
         id="content"
         className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-3"
       >
-        {messages.map((msg) => (
-          <div
-            key={msg.id}
-            className={`rounded p-2 md:max-w-72 ${
-              msg.sender === "user"
-                ? "self-end bg-primary text-white"
-                : "self-start bg-card text-foreground"
-            }`}
-          >
-            <p className="whitespace-pre-wrap">{msg.text}</p>
-            {msg.attachments?.map((att, i) => (
-              <Image
-                key={i}
-                src={att}
-                alt="Attachment"
-                width={150}
-                height={150}
-                sizes="100vw"
-                priority={true}
-                className={`${msg.text && "mt-2"} h-auto w-full max-w-xs rounded`}
-              />
+        {messages.length > 0 ? (
+          <>
+            {messages.map((msg) => (
+              <div
+                key={msg.id}
+                className={`rounded p-2 md:max-w-72 ${
+                  msg.sender === "user"
+                    ? "self-end bg-primary text-white"
+                    : "self-start bg-card text-foreground"
+                }`}
+              >
+                {renderMessageContent(msg)}
+                {msg.attachments?.map((att, i) => (
+                  <Image
+                    key={i}
+                    src={att}
+                    alt="Attachment"
+                    width={150}
+                    height={150}
+                    sizes="100vw"
+                    priority={true}
+                    className={`${msg.text && "mt-2"} h-auto w-full max-w-xs rounded`}
+                  />
+                ))}
+              </div>
             ))}
-          </div>
-        ))}
+          </>
+        ) : (
+          <p className="text-center text-sm opacity-60">{t("empty")}</p>
+        )}
       </div>
 
       <div className="border-t">
