@@ -4,6 +4,7 @@ import promotionModalReducer from "./slices/promotionModalSlice";
 import authModalReducer from "./slices/authModalSlice";
 import walletModalReducer from "./slices/walletModalSlice";
 import messageModalReducer from "./slices/messageModalSlice";
+import supportModalReducer from "./slices/supportModalSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     authModal: authModalReducer,
     walletModal: walletModalReducer,
     messageModal: messageModalReducer,
+    supportModal: supportModalReducer,
   },
 });
 

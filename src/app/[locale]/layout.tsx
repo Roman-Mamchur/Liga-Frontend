@@ -15,7 +15,8 @@ import { routing } from "@/i18n/routing";
 import { Locale } from "@/i18n/request";
 import WalletModal from "@/components/Modal/Wallet/WalletModal";
 import MessageModal from "@/components/Modal/MessageModal";
-import ChatwootWidget from "@/components/ChatwootWidget";
+import SupportModal from "@/components/Modal/Support/SupportModal";
+import SupportBubble from "@/components/Modal/Support/SupportBubble";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -80,7 +81,8 @@ export default async function RootLayout({
               <WalletModal />
               <LoginModal />
               <RegisterModal />
-              <ChatwootWidget />
+              <SupportModal />
+              <SupportBubble />
             </div>
             <ToastContainer
               autoClose={2000}

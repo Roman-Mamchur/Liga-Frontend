@@ -62,7 +62,8 @@
     "promotions": "Promotions",
     "rewards": "Rewards",
     "affiliate": "Affiliate",
-    "vip": "VIP Club"
+    "vip": "VIP Club",
+    "support": "Live Support"
   },
   "Header": {
     "login": "Sign In",
@@ -75,6 +76,7 @@
       "vip": "VIP",
       "affiliate": "Affiliate",
       "transactions": "Transactions",
+      "support": "Live Support",
       "settings": "Settings",
       "logout": "Logout"
     },
@@ -780,7 +782,8 @@
       "label": "Live Support",
       "greeting": "Hey {username} 👋",
       "message": "How can we help?",
-      "sendMessage": "Send us a message"
+      "sendMessage": "Send us a message",
+      "messagePlaceholder": "Type a message..."
     }
   },
   "Formik": {

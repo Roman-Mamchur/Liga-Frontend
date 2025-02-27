@@ -62,7 +62,8 @@
     "promotions": "促销",
     "rewards": "奖励",
     "affiliate": "联盟",
-    "vip": "VIP俱乐部"
+    "vip": "VIP俱乐部",
+    "support": "在线客服"
   },
   "Header": {
     "login": "登录",
@@ -75,6 +76,7 @@
       "vip": "VIP",
       "affiliate": "联盟",
       "transactions": "交易记录",
+      "support": "在线客服",
       "settings": "设置",
       "logout": "登出"
     },
@@ -768,7 +770,8 @@
       "label": "在线客服",
       "greeting": "你好，{username} 👋",
       "message": "我们能帮您什么忙？",
-      "sendMessage": "发送信息给我们"
+      "sendMessage": "发送信息给我们",
+      "messagePlaceholder": "输入消息..."
     }
   },
   "Formik": {
