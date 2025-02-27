@@ -1,7 +1,7 @@
-const CHATWOOT_API_URL = process.env.NEXT_PUBLIC_CHATWOOT_API_URL;
+const CHATWOOT_API_URL = "https://app.chatwoot.com/public/api/v1";
 const CHATWOOT_INBOX_IDENTIFIER =
   process.env.NEXT_PUBLIC_CHATWOOT_INBOX_IDENTIFIER;
-const CHATWOOT_WEBSOCKET_URL = process.env.NEXT_PUBLIC_CHATWOOT_WEBSOCKET_URL;
+const CHATWOOT_WEBSOCKET_URL = "wss://app.chatwoot.com/cable";
 
 const sessionStore = {
   get: (key: string) => sessionStorage.getItem(key),
@@ -95,13 +95,25 @@ export const fetchMessages = async () => {
   const contactId = sessionStore.get("contactIdentifier");
   const conversationId = sessionStore.get("contactConversation");
 
-  if (!contactId || !conversationId) {
-    console.error("Missing contact or conversation ID.");
+  if (!contactId) {
+    console.warn("Contact does not exist. Skipping fetchMessages.");
+    return [];
+  }
+
+  if (!conversationId) {
+    console.warn("Conversation does not exist. Creating a new one...");
+    await setUpConversation();
+  }
+
+  const updatedConversationId = sessionStore.get("contactConversation");
+
+  if (!updatedConversationId) {
+    console.error("Failed to create conversation. Aborting message fetch.");
     return [];
   }
 
   const response = await fetch(
-    `${CHATWOOT_API_URL}/inboxes/${CHATWOOT_INBOX_IDENTIFIER}/contacts/${contactId}/conversations/${conversationId}/messages`,
+    `${CHATWOOT_API_URL}/inboxes/${CHATWOOT_INBOX_IDENTIFIER}/contacts/${contactId}/conversations/${updatedConversationId}/messages`,
     {
       method: "GET",
       headers: {
@@ -117,6 +129,5 @@ export const fetchMessages = async () => {
   }
 
   const data = await response.json();
-
   return data;
 };
