@@ -5,8 +5,8 @@ import { QRCodeCanvas } from "qrcode.react";
 import AddressCopy from "./AddressCopy";
 import { useTranslations } from "next-intl";
 
-const DepositSection = () => {
-  const t = useTranslations("Modal.Wallet.Deposit");
+const CryptoDepositSection = () => {
+  const t = useTranslations("Modal.Wallet.Crypto.Deposit");
 
   const [selectedCryptocurrency, setSelectedCryptocurrency] = useState(
     cryptoCurrencies[0],
@@ -59,7 +59,7 @@ const DepositSection = () => {
   const qrValue = `otpauth://totp/MyApp?secret=${mockAddress}&issuer=MyApp`;
 
   return (
-    <div className="rounded bg-card p-4">
+    <div className="flex flex-col gap-3 rounded bg-card p-4">
       <div className="flex flex-col gap-1">
         <label className="text-sm">{t("currencyLabel")}</label>
         <div className="relative" ref={dropdownRef}>
@@ -130,7 +130,7 @@ const DepositSection = () => {
       </div>
 
       {selectedCryptocurrency.blockchains.length > 0 && (
-        <div className="mt-3 flex flex-col gap-1">
+        <div className="flex flex-col gap-1">
           <label className="text-sm">{t("networkLabel")}</label>
           <div className="relative">
             {/* Custom Blockchain Network Dropdown */}
@@ -173,10 +173,10 @@ const DepositSection = () => {
         </div>
       )}
 
-      <div className="flex flex-col gap-4 py-3">
+      <div className="flex flex-col gap-4">
         {/* Address Code */}
-        <div className="flex flex-col gap-4 py-3">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
             <p className="text-sm">
               {t("depositAddressLabel", {
                 currency: selectedCryptocurrency.name,
@@ -209,4 +209,4 @@ const DepositSection = () => {
   );
 };
 
-export default DepositSection;
+export default CryptoDepositSection;

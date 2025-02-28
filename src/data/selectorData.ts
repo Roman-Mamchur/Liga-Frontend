@@ -36,8 +36,3 @@ export const faqCategories = [
   { label: "Affiliate program", icon: null },
   { label: "Earnings", icon: null },
 ];
-
-export const walletCategories = [
-  { label: "Deposit", icon: null },
-  { label: "Withdraw", icon: null },
-];

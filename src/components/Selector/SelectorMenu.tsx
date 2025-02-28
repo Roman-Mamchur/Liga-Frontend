@@ -7,20 +7,18 @@ import {
   setActiveSportsGame,
   setActiveCasinoLeaderboard,
   setActiveFaqGroup,
-  setActiveWalletGroup,
 } from "@/store/slices/categorySlice";
 import {
   casinoCategories,
   casinoLeaderboards,
   sportsCategories,
   faqCategories,
-  walletCategories,
 } from "@/data/selectorData";
 import { useTranslations } from "next-intl";
 
 interface SelectorMenuProps {
   display: "label" | "icon" | "both";
-  type: "casino" | "sports" | "leaderboards" | "faq" | "wallet";
+  type: "casino" | "sports" | "leaderboards" | "faq";
 }
 
 const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
@@ -36,9 +34,6 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
   const activeFaqGroup = useSelector(
     (state: RootState) => state.category.activeFaqGroup,
   );
-  const activeWalletGroup = useSelector(
-    (state: RootState) => state.category.activeWalletGroup,
-  );
   const dispatch = useDispatch<AppDispatch>();
 
   const handleCategoryClick = (category: string) => {
@@ -50,8 +45,6 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
       dispatch(setActiveCasinoLeaderboard(category));
     } else if (type === "faq") {
       dispatch(setActiveFaqGroup(category));
-    } else if (type === "wallet") {
-      dispatch(setActiveWalletGroup(category));
     }
   };
 
@@ -60,7 +53,6 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
     sports: sportsCategories,
     leaderboards: casinoLeaderboards,
     faq: faqCategories,
-    wallet: walletCategories,
   };
 
   const items = categoryMap[type] || [];
@@ -81,8 +73,7 @@ const SelectorMenu: React.FC<SelectorMenuProps> = ({ display, type }) => {
                   (type === "sports" && activeSportsGame === item.label) ||
                   (type === "leaderboards" &&
                     activeCasinoLeaderboard === item.label) ||
-                  (type === "faq" && activeFaqGroup === item.label) ||
-                  (type === "wallet" && activeWalletGroup === item.label)
+                  (type === "faq" && activeFaqGroup === item.label)
                     ? "bg-white/20"
                     : ""
                 }`}

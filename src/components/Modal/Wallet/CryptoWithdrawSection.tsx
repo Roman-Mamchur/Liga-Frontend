@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 
-const WithdrawSection = () => {
-  const t = useTranslations("Modal.Wallet.Withdraw");
+const CryptoWithdrawSection = () => {
+  const t = useTranslations("Modal.Wallet.Crypto.Withdraw");
 
   const [selectedBalance, setSelectedBalance] = useState(cryptoCurrencies[0]);
   const [selectedCryptocurrency, setSelectedCryptocurrency] = useState(
@@ -71,7 +71,7 @@ const WithdrawSection = () => {
   };
 
   return (
-    <div className="space-y-3 rounded bg-card p-4">
+    <div className="flex flex-col gap-3 rounded bg-card p-4">
       <div className="flex flex-col gap-1">
         <label className="text-sm">{t("availableBalanceLabel")}</label>
         <div className="relative" ref={dropdownRef}>
@@ -273,7 +273,7 @@ const WithdrawSection = () => {
         </div>
       </div>
 
-      <div className="my-12">
+      <div className="my-3">
         <button className="min-h-14 w-full rounded bg-primary px-3 py-2 font-semibold text-white shadow-md duration-200 hover:bg-secondary">
           {t("withdraw")}
         </button>
@@ -282,4 +282,4 @@ const WithdrawSection = () => {
   );
 };
 
-export default WithdrawSection;
+export default CryptoWithdrawSection;

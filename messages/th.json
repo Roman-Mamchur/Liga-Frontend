@@ -140,10 +140,6 @@
       "Affiliate program": "โปรแกรมพันธมิตร",
       "Earnings": "รายได้"
     },
-    "wallet": {
-      "Deposit": "ฝากเงิน",
-      "Withdraw": "ถอนเงิน"
-    },
     "seeAll": "ดูทั้งหมด"
   },
   "Leaderboards": {
@@ -695,20 +691,42 @@
     "exit": "ออก",
     "Wallet": {
       "label": "กระเป๋าเงิน",
-      "Deposit": {
-        "currencyLabel": "สกุลเงิน",
-        "networkLabel": "เครือข่าย",
-        "depositAddressLabel": "ที่อยู่ฝาก {currency} ของคุณ",
-        "qrLabel": "กรุณาส่ง {currency} ไปยังที่อยู่นี้เท่านั้น"
+      "fiat": "ฟิอัต",
+      "crypto": "คริปโต",
+      "deposit": "ฝากเงิน",
+      "withdraw": "ถอนเงิน",
+      "Crypto": {
+        "Deposit": {
+          "currencyLabel": "สกุลเงิน",
+          "networkLabel": "เครือข่าย",
+          "depositAddressLabel": "ที่อยู่ฝาก {currency} ของคุณ",
+          "qrLabel": "กรุณาส่ง {currency} ไปที่ที่อยู่นี้เท่านั้น"
+        },
+        "Withdraw": {
+          "availableBalanceLabel": "ยอดคงเหลือที่สามารถถอนได้",
+          "currencyLabel": "สกุลเงิน",
+          "networkLabel": "เครือข่าย",
+          "addressLabel": "ที่อยู่ {currency}",
+          "amountLabel": "จำนวนเงิน",
+          "max": "สูงสุด",
+          "withdraw": "ถอน"
+        }
       },
-      "Withdraw": {
-        "availableBalanceLabel": "ยอดเงินที่พร้อมถอน",
-        "currencyLabel": "สกุลเงิน",
-        "networkLabel": "เครือข่าย",
-        "addressLabel": "ที่อยู่ {currency}",
-        "amountLabel": "จำนวน",
-        "max": "สูงสุด",
-        "withdraw": "ถอน"
+      "Fiat": {
+        "Deposit": {
+          "currencyLabel": "สกุลเงิน",
+          "bankLabel": "ธนาคาร",
+          "amountLabel": "จำนวนเงิน",
+          "deposit": "ฝาก"
+        },
+        "Withdraw": {
+          "availableBalanceLabel": "ยอดเงินคงเหลือที่ใช้ได้",
+          "currencyLabel": "สกุลเงิน",
+          "bankLabel": "ธนาคาร",
+          "accountNumberLabel": "หมายเลขบัญชี",
+          "amountLabel": "จำนวนเงิน",
+          "withdraw": "ถอนเงิน"
+        }
       }
     },
     "Login": {

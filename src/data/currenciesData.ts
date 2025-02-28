@@ -44,10 +44,32 @@ export const currencies = [
     Icon: FaDollarSign,
     name: "USD",
     fullName: "United States Dollar",
+    banks: [
+      {
+        name: "CIMB Bank",
+      },
+      {
+        name: "Maybank",
+      },
+      {
+        name: "One more bank",
+      },
+    ],
   },
   {
     Icon: FaBahtSign,
     name: "THB",
     fullName: "Thai Baht",
+    banks: [
+      {
+        name: "Thai bank 1",
+      },
+      {
+        name: "Thai bank 2",
+      },
+      {
+        name: "Thai bank 3",
+      },
+    ],
   },
 ];

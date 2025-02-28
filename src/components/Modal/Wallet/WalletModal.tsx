@@ -5,7 +5,6 @@ import { FaWallet, FaXmark } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "@/store/slices/walletModalSlice";
 import { RootState } from "@/store";
-import SelectorMenu from "@/components/Selector/SelectorMenu";
 import WalletContentSection from "./WalletContentSection";
 import { useTranslations } from "next-intl";
 
@@ -59,9 +58,7 @@ const WalletModal = () => {
         </div>
         <div className="w-full border ring-gray-500"></div>
         <div className="container flex max-h-[80vh] flex-col gap-3 overflow-y-auto px-8 pb-4 pt-3">
-          <div className="mx-auto">
-            <SelectorMenu type="wallet" display="label" />
-          </div>
+          <div className="mx-auto"></div>
           <div>
             <WalletContentSection />
           </div>

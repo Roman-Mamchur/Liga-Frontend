@@ -140,10 +140,6 @@
       "Affiliate program": "Affiliate program",
       "Earnings": "Earnings"
     },
-    "wallet": {
-      "Deposit": "Deposit",
-      "Withdraw": "Withdraw"
-    },
     "seeAll": "See All"
   },
   "Leaderboards": {
@@ -727,20 +723,42 @@
     "exit": "Exit",
     "Wallet": {
       "label": "Wallet",
-      "Deposit": {
-        "currencyLabel": "Currency",
-        "networkLabel": "Network",
-        "depositAddressLabel": "Your {currency} Deposit Address",
-        "qrLabel": "Only send {currency} to this address."
+      "fiat": "Fiat",
+      "crypto": "Crypto",
+      "deposit": "Deposit",
+      "withdraw": "Withdraw",
+      "Crypto": {
+        "Deposit": {
+          "currencyLabel": "Currency",
+          "networkLabel": "Network",
+          "depositAddressLabel": "Your {currency} Deposit Address",
+          "qrLabel": "Only send {currency} to this address."
+        },
+        "Withdraw": {
+          "availableBalanceLabel": "Available Balance",
+          "currencyLabel": "Currency",
+          "networkLabel": "Network",
+          "addressLabel": "{currency} Address",
+          "amountLabel": "Amount",
+          "max": "Max",
+          "withdraw": "Withdraw"
+        }
       },
-      "Withdraw": {
-        "availableBalanceLabel": "Available Balance",
-        "currencyLabel": "Currency",
-        "networkLabel": "Network",
-        "addressLabel": "{currency} Address",
-        "amountLabel": "Amount",
-        "max": "Max",
-        "withdraw": "Withdraw"
+      "Fiat": {
+        "Deposit": {
+          "currencyLabel": "Currency",
+          "bankLabel": "Bank",
+          "amountLabel": "Amount",
+          "deposit": "Deposit"
+        },
+        "Withdraw": {
+          "availableBalanceLabel": "Available Balance",
+          "currencyLabel": "Currency",
+          "bankLabel": "Bank",
+          "accountNumberLabel": "Account Number",
+          "amountLabel": "Amount",
+          "withdraw": "Withdraw"
+        }
       }
     },
     "Login": {

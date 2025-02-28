@@ -140,10 +140,6 @@
       "Affiliate program": "联盟计划",
       "Earnings": "收入"
     },
-    "wallet": {
-      "Deposit": "充值",
-      "Withdraw": "提现"
-    },
     "seeAll": "查看全部"
   },
   "Leaderboards": {
@@ -715,20 +711,42 @@
     "exit": "退出",
     "Wallet": {
       "label": "钱包",
-      "Deposit": {
-        "currencyLabel": "货币",
-        "networkLabel": "网络",
-        "depositAddressLabel": "您的 {currency} 存款地址",
-        "qrLabel": "仅将 {currency} 发送到此地址。"
+      "fiat": "法币",
+      "crypto": "加密货币",
+      "deposit": "存款",
+      "withdraw": "取款",
+      "Crypto": {
+        "Deposit": {
+          "currencyLabel": "货币",
+          "networkLabel": "网络",
+          "depositAddressLabel": "您的 {currency} 存款地址",
+          "qrLabel": "仅发送 {currency} 到此地址"
+        },
+        "Withdraw": {
+          "availableBalanceLabel": "可用余额",
+          "currencyLabel": "货币",
+          "networkLabel": "网络",
+          "addressLabel": "{currency} 地址",
+          "amountLabel": "金额",
+          "max": "最大",
+          "withdraw": "提现"
+        }
       },
-      "Withdraw": {
-        "availableBalanceLabel": "可用余额",
-        "currencyLabel": "货币",
-        "networkLabel": "网络",
-        "addressLabel": "{currency} 地址",
-        "amountLabel": "金额",
-        "max": "最大",
-        "withdraw": "提款"
+      "Fiat": {
+        "Deposit": {
+          "currencyLabel": "货币",
+          "bankLabel": "银行",
+          "amountLabel": "金额",
+          "deposit": "存款"
+        },
+        "Withdraw": {
+          "availableBalanceLabel": "可用余额",
+          "currencyLabel": "货币",
+          "bankLabel": "银行",
+          "accountNumberLabel": "账户号码",
+          "amountLabel": "金额",
+          "withdraw": "提现"
+        }
       }
     },
     "Login": {
