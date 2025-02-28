@@ -40,7 +40,7 @@ const WalletModal = () => {
         event.target === event.currentTarget && dispatch(closeModal())
       }
     >
-      <div className="relative max-h-[90vh] w-10/12 overflow-hidden rounded-lg bg-white shadow-lg md:w-8/12 lg:w-6/12">
+      <div className="relative flex h-full w-full flex-col bg-white shadow-lg md:max-h-[90vh] md:w-8/12 md:rounded-lg lg:w-6/12">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center gap-3">
             <span>
@@ -57,11 +57,8 @@ const WalletModal = () => {
           </button>
         </div>
         <div className="w-full border ring-gray-500"></div>
-        <div className="container flex max-h-[80vh] flex-col gap-3 overflow-y-auto px-8 pb-4 pt-3">
-          <div className="mx-auto"></div>
-          <div>
-            <WalletContentSection />
-          </div>
+        <div className="flex-1 overflow-y-auto p-8">
+          <WalletContentSection />
         </div>
       </div>
     </div>

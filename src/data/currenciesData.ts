@@ -46,13 +46,13 @@ export const currencies = [
     fullName: "United States Dollar",
     banks: [
       {
-        name: "CIMB Bank",
+        name: "US Bank 1",
       },
       {
-        name: "Maybank",
+        name: "US Bank 2",
       },
       {
-        name: "One more bank",
+        name: "US Bank 3",
       },
     ],
   },
@@ -62,13 +62,13 @@ export const currencies = [
     fullName: "Thai Baht",
     banks: [
       {
-        name: "Thai bank 1",
+        name: "Thai Bank 1",
       },
       {
-        name: "Thai bank 2",
+        name: "Thai Bank 2",
       },
       {
-        name: "Thai bank 3",
+        name: "Thai Bank 3",
       },
     ],
   },
