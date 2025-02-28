@@ -1,9 +1,10 @@
 "use client";
 
 import {
-  fetchMessages,
   initializeWebSocket,
   sendMessage,
+  setUpContact,
+  setUpConversation,
 } from "@/services/chatwoot";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -14,6 +15,7 @@ const ChatScreen = () => {
   const t = useTranslations("Modal.Support");
 
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(true);
   const [file, setFile] = useState<File | undefined>(undefined);
   const [preview, setPreview] = useState<string | null>(null);
   const [messages, setMessages] = useState<
@@ -26,53 +28,42 @@ const ChatScreen = () => {
   >([]);
 
   useEffect(() => {
-    const handleLoadMessages = async () => {
-      const fetchedMessages = await fetchMessages();
+    const initializeChat = async () => {
+      try {
+        setLoading(true);
+        
+        await setUpContact();
 
-      if (!Array.isArray(fetchedMessages) || fetchedMessages.length === 0) {
-        console.warn("No messages fetched.");
-        return;
+        const fetchedMessages = await setUpConversation();
+        
+        if (Array.isArray(fetchedMessages)) {
+          setMessages(
+            fetchedMessages.map((msg) => ({
+              id: msg.id,
+              text: msg.content || "",
+              sender: msg.message_type === 0 ? "user" : "agent",
+              attachments:
+                msg.attachments?.map(
+                  (att: { data_url: string }) => att.data_url,
+                ) || [],
+            })),
+          );
+        }
+
+        // Initialize WebSocket
+        const ws = initializeWebSocket(handleNewMessage);
+        
+        return () => ws.readyState === 1 && ws.close();
+      } catch (error) {
+        console.error("Error initializing chat:", error);
+      } finally {
+        setLoading(false);
       }
-
-      interface FetchedMessage {
-        id: string;
-        content: string;
-        message_type: number;
-        attachments?: { data_url: string }[];
-      }
-
-      interface Message {
-        id: string;
-        text: string;
-        sender: "user" | "agent";
-        attachments?: string[];
-      }
-
-      const mappedMessages = (fetchedMessages as FetchedMessage[]).map(
-        (msg: FetchedMessage): Message => ({
-          id: msg.id,
-          text: msg.content || "",
-          sender: msg.message_type === 0 ? "user" : "agent",
-          attachments: msg.attachments?.map((att) => att.data_url) || [],
-        }),
-      );
-
-      setMessages((prevMessages) => {
-        const prevIds = new Set(prevMessages.map((m) => m.id));
-        const newMessages = mappedMessages.filter((m) => !prevIds.has(m.id));
-
-        if (newMessages.length === 0) return prevMessages;
-
-        return [...prevMessages, ...newMessages];
-      });
     };
-
-    handleLoadMessages();
 
     const handleNewMessage = (event: MessageEvent) => {
       try {
         const data = JSON.parse(event.data);
-
         if (data.type === "ping") return;
 
         if (
@@ -103,11 +94,7 @@ const ChatScreen = () => {
       }
     };
 
-    const ws = initializeWebSocket(handleNewMessage);
-
-    return () => {
-      ws?.close();
-    };
+    initializeChat();
   }, []);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -191,6 +178,14 @@ const ChatScreen = () => {
 
     return <p className="whitespace-pre-wrap">{msg.text}</p>;
   };
+
+  if (loading) {
+    return (
+      <div className="flex h-full items-center justify-center">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-300 border-t-primary"></div>
+      </div>
+    );
+  }
 
   return (
     <>
