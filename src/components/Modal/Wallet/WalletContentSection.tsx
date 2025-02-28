@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react"; // Import useState and useEffect
 import CryptoDepositSection from "./CryptoDepositSection";
 import CryptoWithdrawSection from "./CryptoWithdrawSection";
-import { useState } from "react";
 import FiatDepositSection from "./FiatDepositSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -8,14 +8,22 @@ import { FaBitcoin, FaMoneyBillWave } from "react-icons/fa6";
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 import FiatWithdrawSection from "./FiatWithdrawSection";
 
-const WalletContentSection = () => {
-  const t = useTranslations("Modal.Wallet");
+interface WalletContentSectionProps {
+  mode: string;
+  setMode: (mode: string) => void;
+}
 
-  const [mode, setMode] = useState("crypto-deposit");
+const WalletContentSection = ({ mode, setMode }: WalletContentSectionProps) => {
+  const t = useTranslations("Modal.Wallet");
+  const [hasRendered, setHasRendered] = useState(false);
 
   const toggleMode = (newMode: string) => {
     setMode(newMode);
   };
+
+  useEffect(() => {
+    setHasRendered(true);
+  }, []);
 
   return (
     <>
@@ -79,12 +87,15 @@ const WalletContentSection = () => {
         </button>
       </div>
 
-      {/* Content Switching with Animation */}
       <div className="relative">
         <AnimatePresence mode="wait">
           <motion.div
             key={mode}
-            initial={{ opacity: 0, x: mode.includes("withdraw") ? 20 : -20 }}
+            initial={
+              hasRendered
+                ? { opacity: 0, x: mode.includes("withdraw") ? 20 : -20 }
+                : { opacity: 1, x: 0 }
+            }
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: mode.includes("withdraw") ? -20 : 20 }}
             transition={{ duration: 0.3 }}

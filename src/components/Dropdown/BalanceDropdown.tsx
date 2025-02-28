@@ -23,26 +23,27 @@ export default function BalanceDropdown() {
 
   return (
     <Menu as="div" className="relative">
-      <MenuButton className="block">
-        <div className="flex min-w-48">
-          <div className="flex flex-1 cursor-pointer items-center justify-between gap-5 rounded-l bg-card p-2.5 duration-200 hover:bg-black/20">
+      <div className="flex">
+        <MenuButton className="block">
+          <div className="flex cursor-pointer items-center justify-between gap-5 rounded-l bg-card p-2.5 duration-200 hover:bg-black/20">
             <span className="font-semibold">0.00</span>
             <span className="flex gap-2">
               <selectedBalance.Icon />
               <FaChevronDown />
             </span>
           </div>
-          <div
-            className="flex cursor-pointer items-center justify-center rounded-r bg-primary p-2.5 text-white duration-200 hover:bg-secondary"
-            onClick={() => dispatch(openModal())}
-          >
-            <span className="hidden lg:block">{t("wallet")}</span>
-            <span className="lg:hidden">
-              <FaWallet />
-            </span>
-          </div>
+        </MenuButton>
+
+        <div
+          className="flex cursor-pointer items-center justify-center rounded-r bg-primary p-2.5 text-white duration-200 hover:bg-secondary"
+          onClick={() => dispatch(openModal())}
+        >
+          <span className="hidden lg:block">{t("wallet")}</span>
+          <span className="lg:hidden">
+            <FaWallet />
+          </span>
         </div>
-      </MenuButton>
+      </div>
 
       <MenuItems
         transition
