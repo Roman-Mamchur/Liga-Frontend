@@ -5,10 +5,12 @@ import { routing, usePathname, useRouter } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { MdLanguage } from "react-icons/md";
 import { ImSpinner } from "react-icons/im";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { FaChevronDown } from "react-icons/fa6";
 import { useParams } from "next/navigation";
 import flags from "@/utils/flagsUtil";
 import Image from "next/image";
+import { dropdownMotion } from "@/utils/framerUtil";
+import { motion } from "framer-motion";
 
 interface LocaleSwitcherProps {
   isExpanded: boolean;
@@ -70,47 +72,55 @@ const LocaleSwitcher = ({
           )}
         </div>
         {(isExpanded || device === "mobile") &&
-          (isOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />)}
-      </button>
-      {isOpen && isExpanded && (
-        <div className="mt-2 w-full rounded bg-white/10 py-1">
-          {routing.locales.map((current) => (
-            <button
-              key={current}
-              onClick={() => changeLocale(current)}
-              disabled={isPending}
-              className={`block w-full p-2 text-left duration-200 hover:bg-white/20 ${
-                locale === current ? "bg-white/40" : ""
-              } ${isPending ? "cursor-not-allowed opacity-50" : ""}`}
-            >
-              <div className="flex items-center gap-3">
-                <div className="relative flex size-4 shrink-0 items-center justify-center rounded-full bg-white">
-                  <div
-                    className={`size-2 rounded-full transition ${
-                      locale === current ? "bg-primary" : ""
-                    }`}
-                  />
-                </div>
-                <Image
-                  src={flags[current] || flags.en}
-                  alt={`${current} flag`}
-                  width={20}
-                  height={20}
-                  unoptimized
-                />
-                <div className="flex w-full items-center justify-between gap-3">
-                  {t("locale", { locale: current })}
-                  {isPending && pendingLocale === current && (
-                    <span className="animate-spin">
-                      <ImSpinner />
-                    </span>
-                  )}
-                </div>
-              </div>
-            </button>
+          (isOpen ? (
+            <FaChevronDown className="size-3 rotate-180 duration-100" />
+          ) : (
+            <FaChevronDown className="size-3 rotate-0 duration-100" />
           ))}
-        </div>
-      )}
+      </button>
+
+      {/* {isOpen && isExpanded && ( */}
+      <motion.div
+        className="mt-2 w-full rounded bg-white/10 py-1"
+        {...dropdownMotion(isOpen && isExpanded)}
+      >
+        {routing.locales.map((current) => (
+          <button
+            key={current}
+            onClick={() => changeLocale(current)}
+            disabled={isPending}
+            className={`block w-full p-2 text-left duration-200 hover:bg-white/20 ${
+              locale === current ? "bg-white/40" : ""
+            } ${isPending ? "cursor-not-allowed opacity-50" : ""}`}
+          >
+            <div className="flex items-center gap-3">
+              <div className="relative flex size-4 shrink-0 items-center justify-center rounded-full bg-white">
+                <div
+                  className={`size-2 rounded-full transition ${
+                    locale === current ? "bg-primary" : ""
+                  }`}
+                />
+              </div>
+              <Image
+                src={flags[current] || flags.en}
+                alt={`${current} flag`}
+                width={20}
+                height={20}
+                unoptimized
+              />
+              <div className="flex w-full items-center justify-between gap-3">
+                {t("locale", { locale: current })}
+                {isPending && pendingLocale === current && (
+                  <span className="animate-spin">
+                    <ImSpinner />
+                  </span>
+                )}
+              </div>
+            </div>
+          </button>
+        ))}
+      </motion.div>
+      {/* )} */}
     </div>
   );
 };

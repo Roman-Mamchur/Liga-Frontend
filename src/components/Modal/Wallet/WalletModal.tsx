@@ -8,6 +8,7 @@ import { RootState } from "@/store";
 import WalletContentSection from "./WalletContentSection";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
+import { modalMotion, overlayMotion } from "@/utils/framerUtil";
 
 const WalletModal = () => {
   const t = useTranslations("Modal");
@@ -38,23 +39,17 @@ const WalletModal = () => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+          className="fixed inset-0 z-50 flex items-center justify-center md:bg-black/80"
           onClick={(event) =>
             event.target === event.currentTarget && dispatch(closeModal())
           }
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.1 }}
           key="overlay"
+          {...overlayMotion}
         >
           <motion.div
             className="relative flex h-full w-full flex-col bg-white shadow-lg md:max-h-[90vh] md:w-8/12 md:rounded-lg lg:w-6/12"
-            initial={{ scale: 0.95 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.95 }}
-            transition={{ duration: 0.1 }}
             key="modal"
+            {...modalMotion}
           >
             <div className="flex items-center justify-between p-4">
               <div className="flex items-center gap-3">

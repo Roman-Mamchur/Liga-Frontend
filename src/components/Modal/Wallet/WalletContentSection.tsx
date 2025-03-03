@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"; // Import useState and useEffect
+import { useEffect, useState } from "react";
 import CryptoDepositSection from "./CryptoDepositSection";
 import CryptoWithdrawSection from "./CryptoWithdrawSection";
 import FiatDepositSection from "./FiatDepositSection";

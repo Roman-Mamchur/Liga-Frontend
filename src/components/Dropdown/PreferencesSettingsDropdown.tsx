@@ -5,6 +5,8 @@ import { FaChevronDown } from "react-icons/fa6";
 import { CgOptions } from "react-icons/cg";
 import { Switch } from "@headlessui/react";
 import { useTranslations } from "next-intl";
+import { dropdownMotion } from "@/utils/framerUtil";
+import { motion } from "framer-motion";
 
 const PreferencesSettingsDropdown = () => {
   const t = useTranslations("ProfilePage.Settings.Preferences");
@@ -31,12 +33,10 @@ const PreferencesSettingsDropdown = () => {
   };
 
   return (
-    <div className="flex flex-col rounded shadow-md">
+    <div className="flex flex-col rounded bg-card shadow-md">
       {/* Header */}
       <div
-        className={`flex cursor-pointer items-center justify-between rounded bg-card px-6 py-3 ${
-          isOpen ? "rounded-b-none border-b border-black/20" : ""
-        }`}
+        className="flex cursor-pointer items-center justify-between px-6 py-3"
         onClick={toggleDropdown}
       >
         <div className="flex items-center gap-3">
@@ -51,10 +51,10 @@ const PreferencesSettingsDropdown = () => {
       </div>
 
       {/* Dropdown Content */}
-      {isOpen && (
+      <motion.div {...dropdownMotion(isOpen)}>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-6 rounded-b bg-card p-6"
+          className="flex flex-col gap-6 border-t border-gray-300 p-6"
         >
           {/* Privacy Section */}
           <div className="rounded bg-white/50 px-6 py-3">
@@ -160,7 +160,7 @@ const PreferencesSettingsDropdown = () => {
             </button>
           </div>
         </form>
-      )}
+      </motion.div>
     </div>
   );
 };

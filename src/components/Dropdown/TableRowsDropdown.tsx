@@ -1,6 +1,8 @@
 "use client";
 
+import { headlessUiMotion } from "@/utils/framerUtil";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa6";
 
 interface RowsDropdownProps {
@@ -23,27 +25,34 @@ const RowsDropdown: React.FC<RowsDropdownProps> = ({
         </MenuButton>
       </div>
 
-      <MenuItems
-        transition
-        className="absolute right-0 z-10 mt-2 w-14 origin-top-right divide-y rounded bg-card shadow-md"
-      >
-        <div className="py-1 text-sm">
-          {options.map((option) => (
-            <MenuItem key={option}>
-              <p
-                className={`cursor-pointer px-4 py-2 duration-200 ${
-                  rowsPerPage === option
-                    ? "bg-gray-500/20"
-                    : "hover:bg-gray-500/10"
-                }`}
-                onClick={() => setRowsPerPage(option)}
-              >
-                {option}
-              </p>
-            </MenuItem>
-          ))}
-        </div>
-      </MenuItems>
+      <AnimatePresence>
+        <MenuItems
+          className="absolute right-0 z-10 mt-2 w-14 origin-top-right divide-y rounded bg-card shadow-md"
+          as={motion.div}
+          key="menu-items"
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={headlessUiMotion}
+        >
+          <div className="py-1 text-sm">
+            {options.map((option) => (
+              <MenuItem key={option}>
+                <p
+                  className={`cursor-pointer px-4 py-2 duration-200 ${
+                    rowsPerPage === option
+                      ? "bg-gray-500/20"
+                      : "hover:bg-gray-500/10"
+                  }`}
+                  onClick={() => setRowsPerPage(option)}
+                >
+                  {option}
+                </p>
+              </MenuItem>
+            ))}
+          </div>
+        </MenuItems>
+      </AnimatePresence>
     </Menu>
   );
 };

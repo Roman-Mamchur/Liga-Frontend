@@ -1,9 +1,11 @@
 "use client";
 
 import { JSX } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { FaChevronDown } from "react-icons/fa6";
 import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import { dropdownMotion } from "@/utils/framerUtil";
 
 interface MenuLinkProps {
   link: {
@@ -48,34 +50,39 @@ const MenuLink = ({
               <span>{link.icon}</span>
               {isExpanded && <span>{t(link.name)}</span>}
             </div>
-            {isExpanded &&
-              (submenuOpen === link.name ? (
-                <FaChevronUp size={12} />
-              ) : (
-                <FaChevronDown size={12} />
-              ))}
-          </button>
-          {submenuOpen === link.name && isExpanded && (
-            <div className="mt-2 flex flex-col rounded bg-white/10 py-1">
-              {link.items?.map((item) => (
+            {isExpanded && (
+              <span className="ml-2">
                 <div
-                  key={typeof item === "object" ? item.name : item}
-                  className={`p-2 duration-200 hover:bg-white/20 ${typeof item === "object" && pathname === item.href ? "bg-white/40" : ""}`}
+                  className={`transition-transform duration-100 ${submenuOpen === link.name ? "rotate-180" : "rotate-0"}`}
                 >
-                  {typeof item === "string" ? (
-                    item
-                  ) : (
-                    <Link
-                      href={item.href || "#"}
-                      className="flex items-center gap-3"
-                    >
-                      {item.name}
-                    </Link>
-                  )}
+                  <FaChevronDown className="size-3" />
                 </div>
-              ))}
-            </div>
-          )}
+              </span>
+            )}
+          </button>
+
+          <motion.div
+            className={`${submenuOpen === link.name && "mt-2 py-1"} flex flex-col rounded bg-white/10`}
+            {...dropdownMotion(submenuOpen === link.name && isExpanded)}
+          >
+            {link.items?.map((item) => (
+              <div
+                key={typeof item === "object" ? item.name : item}
+                className={`p-2 duration-200 hover:bg-white/20 ${typeof item === "object" && pathname === item.href ? "bg-white/40" : ""}`}
+              >
+                {typeof item === "string" ? (
+                  item
+                ) : (
+                  <Link
+                    href={item.href || "#"}
+                    className="flex items-center gap-3"
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </motion.div>
         </>
       ) : (
         <Link

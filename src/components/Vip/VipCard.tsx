@@ -27,7 +27,7 @@ const VipCard = ({ tier, tierName, amount, benefits }: VipCardProps) => {
       <div className="text-nowrap rounded-lg bg-foreground p-6 text-white">
         {/* Tier */}
         <div
-          className={`mb-4 w-fit rounded px-1 text-sm font-medium ${getBgColorClass(tier)}`}
+          className={`mb-4 w-fit rounded px-2 py-1 text-sm font-medium ${getBgColorClass(tier)}`}
         >
           {tierName}
         </div>

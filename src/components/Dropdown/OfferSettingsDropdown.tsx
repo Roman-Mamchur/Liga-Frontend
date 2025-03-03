@@ -1,9 +1,11 @@
 "use client";
 
+import { dropdownMotion } from "@/utils/framerUtil";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { BiSolidOffer } from "react-icons/bi";
 import { FaChevronDown } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const OfferSettingsDropdown = () => {
   const t = useTranslations("ProfilePage.Settings.Offers");
@@ -12,12 +14,10 @@ const OfferSettingsDropdown = () => {
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className="flex flex-col rounded shadow-md">
+    <div className="flex flex-col rounded bg-card shadow-md">
       {/* Header */}
       <div
-        className={`flex cursor-pointer items-center justify-between rounded bg-card px-6 py-3 ${
-          isOpen ? "rounded-b-none border-b border-black/20" : ""
-        }`}
+        className="flex cursor-pointer items-center justify-between px-6 py-3"
         onClick={toggleDropdown}
       >
         <div className="flex items-center gap-3">
@@ -32,8 +32,8 @@ const OfferSettingsDropdown = () => {
       </div>
 
       {/* Dropdown Content */}
-      {isOpen && (
-        <div className="flex flex-col gap-6 rounded-b bg-card p-6">
+      <motion.div {...dropdownMotion(isOpen)}>
+        <div className="flex flex-col gap-6 border-t border-gray-300 p-6">
           <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
               <div className="flex flex-col gap-2 py-3">
@@ -94,7 +94,7 @@ const OfferSettingsDropdown = () => {
             </div>
           </form>
         </div>
-      )}
+      </motion.div>
     </div>
   );
 };

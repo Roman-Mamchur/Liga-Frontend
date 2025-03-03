@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "@/store/slices/messageModalSlice";
 import { RootState } from "@/store";
 import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
+import { modalMotion, overlayMotion } from "@/utils/framerUtil";
 
 const MessageModal = () => {
   const t = useTranslations("Modal");
@@ -34,39 +36,49 @@ const MessageModal = () => {
     };
   }, [isOpen, handleEscPress]);
 
-  if (!isOpen || !selectedMessage) return null;
-
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
-      onClick={(event) =>
-        event.target === event.currentTarget && dispatch(closeModal())
-      }
-    >
-      <div className="relative max-h-[90vh] w-10/12 overflow-hidden rounded-lg bg-white shadow-lg md:w-8/12 lg:w-6/12">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center gap-3">
-            <span>
-              <FaMessage />
-            </span>
-            <span className="font-bold">{t("Message.label")}</span>
-          </div>
-          <button
-            className="text-gray-500 duration-200 hover:text-gray-800"
-            onClick={() => dispatch(closeModal())}
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center md:bg-black/80"
+          onClick={(event) =>
+            event.target === event.currentTarget && dispatch(closeModal())
+          }
+          key="overlay"
+          {...overlayMotion}
+        >
+          <div
+            className="relative flex h-full w-full flex-col bg-white shadow-lg md:max-h-[90vh] md:w-8/12 md:rounded-lg lg:w-6/12"
+            key="modal"
+            {...modalMotion}
           >
-            <span className="hidden md:block">{t("exit")}</span>
-            <FaXmark className="size-5 md:hidden" />
-          </button>
-        </div>
-        <div className="w-full border ring-gray-500"></div>
-        <div className="container flex max-h-[80vh] flex-col gap-3 overflow-y-auto px-8 pb-4 pt-3">
-          <p className="font-bold">{selectedMessage.title}</p>
-          <p className="text-justify">{selectedMessage.description}</p>
-          <p className="text-xs text-gray-400">{selectedMessage.date}</p>
-        </div>
-      </div>
-    </div>
+            <div className="flex items-center justify-between p-4">
+              <div className="flex items-center gap-3">
+                <span>
+                  <FaMessage />
+                </span>
+                <span className="font-bold">{t("Message.label")}</span>
+              </div>
+              <button
+                className="text-gray-500 duration-200 hover:text-gray-800"
+                onClick={() => dispatch(closeModal())}
+              >
+                <span className="hidden md:block">{t("exit")}</span>
+                <FaXmark className="size-5 md:hidden" />
+              </button>
+            </div>
+            <div className="w-full border ring-gray-500"></div>
+            {selectedMessage && (
+              <div className="flex flex-col gap-3 overflow-y-auto p-4 md:p-8">
+                <p className="font-bold">{selectedMessage.title}</p>
+                <p className="text-justify">{selectedMessage.description}</p>
+                <p className="text-xs text-gray-400">{selectedMessage.date}</p>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

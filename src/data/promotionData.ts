@@ -4,7 +4,7 @@ export const promotions = [
     title: "Welcome Bonus Extravaganza",
     date: "Ends at 11:59 PM 06/30/2025",
     description:
-      "Start your gaming journey with a 200% match bonus up to $1,000 on your first deposit! Double your excitement with bonus spins on selected slots. Terms apply.",
+      "Start your gaming journey with an incredible 200% match bonus of up to $1,000 on your first deposit! This means that if you deposit $500, you'll receive an additional $1,000 in bonus funds, giving you a total of $1,500 to play with. But that's not all—enjoy extra bonus spins on selected slot games to maximize your winning potential. Whether you're a fan of high-stakes action or casual gaming, this bonus is designed to enhance your experience and increase your chances of hitting it big. Simply make your first deposit, claim your reward, and start exploring our vast collection of top-rated casino games. With thrilling gameplay, exciting rewards, and massive jackpot opportunities, this is the ultimate way to kickstart your adventure. Don't miss out—grab this exclusive offer before time runs out! Terms and conditions apply.",
     image: "/banner/image1.png",
   },
   {

@@ -6,8 +6,10 @@ import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { FaLine, FaTelegram } from "react-icons/fa6";
 import { IoLogoWechat } from "react-icons/io5";
-import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import { dropdownMotion } from "@/utils/framerUtil";
 
 const Footer = () => {
   const t = useTranslations("Footer");
@@ -60,33 +62,50 @@ const Footer = () => {
               className="mb-3 flex w-full flex-col rounded bg-card shadow-md md:w-auto md:flex-1 md:bg-transparent md:shadow-none"
             >
               <h3
-                onClick={() => toggleDropdown(index)}
                 className="flex cursor-pointer items-center justify-between rounded p-3 font-bold md:block md:cursor-default md:p-1"
+                onClick={() => toggleDropdown(index)}
               >
                 <span>{t(`categories.${link.label}`)}</span>
 
                 <span className="ml-2 md:hidden">
-                  {openDropdown === index ? (
-                    <FaChevronLeft size={14} />
-                  ) : (
-                    <FaChevronDown size={14} />
-                  )}
+                  <div
+                    className={`transition-transform duration-200 ${openDropdown === index ? "rotate-0" : "rotate-90"}`}
+                  >
+                    <FaChevronDown />
+                  </div>
                 </span>
               </h3>
 
-              <div
-                className={`${openDropdown === index ? "block border-t border-gray-300" : "hidden"} md:block md:border-none`}
-              >
+              <div className="block md:hidden">
+                <motion.div
+                  {...dropdownMotion(openDropdown === index)}
+                  className="overflow-hidden"
+                >
+                  <ul className="border-t border-gray-300 py-2 text-sm opacity-80 md:border-none">
+                    {link.items.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="w-full transition duration-200 hover:bg-white/60 md:rounded md:hover:bg-card"
+                      >
+                        <Link href={item.href}>
+                          <p className="px-3 py-1 md:px-1">
+                            {t(`items.${item.name}`)}
+                          </p>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </div>
+              <div className="hidden md:block">
                 <ul className="py-2 text-sm opacity-80">
                   {link.items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="w-full transition duration-200 hover:bg-white/60 md:rounded md:hover:bg-card"
+                      className="w-full rounded transition duration-200 hover:bg-card"
                     >
                       <Link href={item.href}>
-                        <p className="px-3 py-1 md:px-1">
-                          {t(`items.${item.name}`)}
-                        </p>
+                        <p className="p-1">{t(`items.${item.name}`)}</p>
                       </Link>
                     </li>
                   ))}

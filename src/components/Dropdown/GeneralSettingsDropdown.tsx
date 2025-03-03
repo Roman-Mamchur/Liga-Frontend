@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { MdTune } from "react-icons/md";
+import { motion } from "framer-motion";
+import { dropdownMotion } from "@/utils/framerUtil";
 
 const GeneralSettingsDropdown = () => {
   const t = useTranslations("ProfilePage.Settings.General");
@@ -15,12 +17,10 @@ const GeneralSettingsDropdown = () => {
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className="flex flex-col rounded shadow-md">
+    <div className="flex flex-col rounded bg-card shadow-md">
       {/* Header */}
       <div
-        className={`flex cursor-pointer items-center justify-between rounded bg-card px-6 py-3 ${
-          isOpen ? "rounded-b-none border-b border-black/20" : ""
-        }`}
+        className="flex cursor-pointer items-center justify-between rounded bg-card px-6 py-3"
         onClick={toggleDropdown}
       >
         <div className="flex items-center gap-3">
@@ -35,8 +35,8 @@ const GeneralSettingsDropdown = () => {
       </div>
 
       {/* Dropdown Content */}
-      {isOpen && (
-        <div className="flex flex-col gap-6 rounded-b bg-card p-6">
+      <motion.div {...dropdownMotion(isOpen)}>
+        <div className="flex flex-col gap-6 border-t border-gray-300 p-6">
           {/* Email Section */}
           <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">
@@ -123,7 +123,7 @@ const GeneralSettingsDropdown = () => {
             </div>
           </form>
         </div>
-      )}
+      </motion.div>
     </div>
   );
 };

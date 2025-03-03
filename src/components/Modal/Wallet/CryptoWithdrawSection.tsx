@@ -2,6 +2,8 @@ import { cryptoCurrencies } from "@/data/currenciesData";
 import { useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
+import { absoluteDropdownMotion } from "@/utils/framerUtil";
 
 const CryptoWithdrawSection = () => {
   const t = useTranslations("Modal.Wallet.Crypto.Withdraw");
@@ -102,29 +104,36 @@ const CryptoWithdrawSection = () => {
             </div>
           </div>
 
-          {isBalanceDropdownOpen && (
-            <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-              {cryptoCurrencies.map((item) => (
-                <li
-                  key={item.name}
-                  onClick={() => {
-                    setSelectedBalance(item);
-                    setIsBalanceDropdownOpen(false);
-                    setIsCurrencyDropdownOpen(false);
-                    setIsBlockchainDropdownOpen(false);
-                  }}
-                  className="cursor-pointer px-3 py-2 hover:bg-gray-100"
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="py-4 text-xs opacity-80">0.00000000</span>
-                    <div>
-                      <item.Icon style={{ color: item.color }} />
+          <AnimatePresence>
+            {isBalanceDropdownOpen && (
+              <motion.ul
+                className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
+                {...absoluteDropdownMotion}
+              >
+                {cryptoCurrencies.map((item) => (
+                  <li
+                    key={item.name}
+                    onClick={() => {
+                      setSelectedBalance(item);
+                      setIsBalanceDropdownOpen(false);
+                      setIsCurrencyDropdownOpen(false);
+                      setIsBlockchainDropdownOpen(false);
+                    }}
+                    className="cursor-pointer px-3 py-2 hover:bg-gray-100"
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="py-4 text-xs opacity-80">
+                        0.00000000
+                      </span>
+                      <div>
+                        <item.Icon style={{ color: item.color }} />
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
+                  </li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
@@ -161,40 +170,49 @@ const CryptoWithdrawSection = () => {
             </div>
           </div>
 
-          {isCurrencyDropdownOpen && (
-            <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-              {cryptoCurrencies.map((item) => (
-                <li
-                  key={item.name}
-                  onClick={() => {
-                    setSelectedCryptocurrency(item);
-                    setSelectedBalance(item);
-                    setSelectedBlockchain(
-                      item.blockchains.length > 0 ? item.blockchains[0] : null,
-                    );
-                    setIsCurrencyDropdownOpen(false);
-                    setIsBlockchainDropdownOpen(false);
-                  }}
-                  className="cursor-pointer px-3 py-2 hover:bg-gray-100"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="size-8">
-                      <item.Icon
-                        className="size-full"
-                        style={{ color: item.color }}
-                      />
+          <AnimatePresence>
+            {isCurrencyDropdownOpen && (
+              <motion.ul
+                className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
+                {...absoluteDropdownMotion}
+              >
+                {cryptoCurrencies.map((item) => (
+                  <li
+                    key={item.name}
+                    onClick={() => {
+                      setSelectedCryptocurrency(item);
+                      setSelectedBalance(item);
+                      setSelectedBlockchain(
+                        item.blockchains.length > 0
+                          ? item.blockchains[0]
+                          : null,
+                      );
+                      setIsCurrencyDropdownOpen(false);
+                      setIsBlockchainDropdownOpen(false);
+                    }}
+                    className="cursor-pointer px-3 py-2 hover:bg-gray-100"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="size-8">
+                        <item.Icon
+                          className="size-full"
+                          style={{ color: item.color }}
+                        />
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-sm font-semibold">
+                          {item.name}
+                        </span>
+                        <span className="text-xs opacity-80">
+                          {item.fullName}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-1">
-                      <span className="text-sm font-semibold">{item.name}</span>
-                      <span className="text-xs opacity-80">
-                        {item.fullName}
-                      </span>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
+                  </li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
@@ -219,25 +237,30 @@ const CryptoWithdrawSection = () => {
               )}
             </div>
 
-            {isBlockchainDropdownOpen && (
-              <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-                {selectedCryptocurrency.blockchains.map((blockchain) => (
-                  <li
-                    key={blockchain.networkName}
-                    onClick={() => {
-                      setSelectedBlockchain(blockchain);
-                      setIsBlockchainDropdownOpen(false);
-                    }}
-                    className="cursor-pointer px-3 py-4 hover:bg-gray-100"
-                  >
-                    <div className="text-sm">
-                      {blockchain.networkName} - {blockchain.fullName} (
-                      {blockchain.name})
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
+            <AnimatePresence>
+              {isBlockchainDropdownOpen && (
+                <motion.ul
+                  className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
+                  {...absoluteDropdownMotion}
+                >
+                  {selectedCryptocurrency.blockchains.map((blockchain) => (
+                    <li
+                      key={blockchain.networkName}
+                      onClick={() => {
+                        setSelectedBlockchain(blockchain);
+                        setIsBlockchainDropdownOpen(false);
+                      }}
+                      className="cursor-pointer px-3 py-4 hover:bg-gray-100"
+                    >
+                      <div className="text-sm">
+                        {blockchain.networkName} - {blockchain.fullName} (
+                        {blockchain.name})
+                      </div>
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       )}

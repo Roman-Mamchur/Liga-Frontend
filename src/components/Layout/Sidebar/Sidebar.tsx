@@ -9,7 +9,7 @@ import { Link } from "@/i18n/routing";
 import SearchBar from "../../Search/SearchBar";
 import MenuLink from "./MenuLink";
 import MobileSidebar from "./MobileSidebar";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
+import LocaleSwitcherDropdown from "@/components/Dropdown/LocaleSwitcherDropdown";
 import { useTranslations } from "next-intl";
 import { FaHeadset } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
@@ -125,7 +125,7 @@ const Sidebar = () => {
           </div>
 
           {/* Language Switcher */}
-          <LocaleSwitcher
+          <LocaleSwitcherDropdown
             isExpanded={isExpanded}
             setIsExpanded={setIsExpanded}
             device="desktop"
@@ -179,7 +179,7 @@ const Sidebar = () => {
               </div>
 
               {/* Language Switcher */}
-              <LocaleSwitcher
+              <LocaleSwitcherDropdown
                 isExpanded={isExpanded}
                 setIsExpanded={setIsExpanded}
                 device="mobile"

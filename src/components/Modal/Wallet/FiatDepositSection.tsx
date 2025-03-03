@@ -2,6 +2,8 @@ import { currencies } from "@/data/currenciesData";
 import { useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
+import { absoluteDropdownMotion } from "@/utils/framerUtil";
 
 const FiatDepositSection = () => {
   const t = useTranslations("Modal.Wallet.Fiat.Deposit");
@@ -80,36 +82,44 @@ const FiatDepositSection = () => {
             </div>
           </div>
 
-          {isCurrencyDropdownOpen && (
-            <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-              {currencies.map((item) => (
-                <li
-                  key={item.name}
-                  onClick={() => {
-                    setSelectedCurrency(item);
-                    setSelectedBank(
-                      item.banks.length > 0 ? item.banks[0] : null,
-                    );
-                    setIsCurrencyDropdownOpen(false);
-                    setIsBankDropdownOpen(false);
-                  }}
-                  className="cursor-pointer px-3 py-2 hover:bg-gray-100"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="size-8">
-                      <item.Icon className="size-full" />
+          {/* Animated Currency Dropdown List */}
+          <AnimatePresence>
+            {isCurrencyDropdownOpen && (
+              <motion.ul
+                className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
+                {...absoluteDropdownMotion}
+              >
+                {currencies.map((item) => (
+                  <li
+                    key={item.name}
+                    onClick={() => {
+                      setSelectedCurrency(item);
+                      setSelectedBank(
+                        item.banks.length > 0 ? item.banks[0] : null,
+                      );
+                      setIsCurrencyDropdownOpen(false);
+                      setIsBankDropdownOpen(false);
+                    }}
+                    className="cursor-pointer px-3 py-2 hover:bg-gray-100"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="size-8">
+                        <item.Icon className="size-full" />
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-sm font-semibold">
+                          {item.name}
+                        </span>
+                        <span className="text-xs opacity-80">
+                          {item.fullName}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-1">
-                      <span className="text-sm font-semibold">{item.name}</span>
-                      <span className="text-xs opacity-80">
-                        {item.fullName}
-                      </span>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
+                  </li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
@@ -134,22 +144,29 @@ const FiatDepositSection = () => {
               )}
             </div>
 
-            {isBankDropdownOpen && (
-              <ul className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md">
-                {selectedCurrency.banks.map((bank) => (
-                  <li
-                    key={bank.name}
-                    onClick={() => {
-                      setSelectedBank(bank);
-                      setIsBankDropdownOpen(false);
-                    }}
-                    className="cursor-pointer px-3 py-4 hover:bg-gray-100"
-                  >
-                    <div className="text-sm">{bank.name}</div>
-                  </li>
-                ))}
-              </ul>
-            )}
+            {/* Animated Bank Dropdown List */}
+            <AnimatePresence>
+              {isBankDropdownOpen && (
+                <motion.ul
+                  key="bank-dropdown"
+                  className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
+                  {...absoluteDropdownMotion}
+                >
+                  {selectedCurrency.banks.map((bank) => (
+                    <li
+                      key={bank.name}
+                      onClick={() => {
+                        setSelectedBank(bank);
+                        setIsBankDropdownOpen(false);
+                      }}
+                      className="cursor-pointer px-3 py-4 hover:bg-gray-100"
+                    >
+                      <div className="text-sm">{bank.name}</div>
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       )}

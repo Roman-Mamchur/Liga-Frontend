@@ -1,6 +1,8 @@
 "use client";
 
 import { FaChevronDown } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import { dropdownMotion } from "@/utils/framerUtil";
 
 interface FaqDropdownProps {
   question: string;
@@ -16,23 +18,31 @@ const FaqDropdown = ({
   onToggle,
 }: FaqDropdownProps) => {
   return (
-    <div className="flex flex-col rounded shadow-md">
-      <div
-        className={`flex cursor-pointer items-center justify-between gap-3 rounded bg-card px-6 py-3 ${isOpen && "rounded-b-none border-b border-black/20"}`}
-        onClick={onToggle}
-      >
-        <h3 className="text-sm font-bold">{question}</h3>
-        <div
-          className={`transition-transform ${isOpen ? "rotate-0" : "rotate-90"}`}
+    <div>
+      <div className="flex w-full flex-col rounded bg-card shadow-md">
+        <h3
+          className="flex cursor-pointer items-center justify-between gap-3 rounded p-3 font-bold"
+          onClick={onToggle}
         >
-          <FaChevronDown />
-        </div>
+          <span className="text-sm">{question}</span>
+
+          <span className="ml-2">
+            <div
+              className={`transition-transform duration-200 ${isOpen ? "rotate-0" : "rotate-90"}`}
+            >
+              <FaChevronDown />
+            </div>
+          </span>
+        </h3>
+
+        <motion.div {...dropdownMotion(isOpen)} className="overflow-hidden">
+          <ul className="cursor-default border-t border-gray-300 p-3 text-sm opacity-80">
+            <li className="w-full">
+              <p className="text-sm opacity-80">{answer}</p>
+            </li>
+          </ul>
+        </motion.div>
       </div>
-      {isOpen && (
-        <div className="rounded-b bg-card px-6 py-2">
-          <p className="text-sm opacity-80">{answer}</p>
-        </div>
-      )}
     </div>
   );
 };

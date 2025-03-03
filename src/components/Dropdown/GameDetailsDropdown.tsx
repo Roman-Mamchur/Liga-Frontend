@@ -3,34 +3,36 @@
 import Image from "next/image";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import { dropdownMotion } from "@/utils/framerUtil";
 
 const GameDetailsDropdown = () => {
   const [isOpen, setIsOpen] = useState(true);
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className="flex flex-col rounded-lg shadow-md">
-      {/* Header */}
-      <div
-        className={`flex cursor-pointer items-center justify-between rounded-lg bg-card px-6 py-3 ${
-          isOpen ? "rounded-b-none border-b border-black/20" : ""
-        }`}
-        onClick={toggleDropdown}
-      >
-        <div className="flex items-center gap-3">
-          <h2 className="font-semibold">Blackjack</h2>
-          <h3 className="opacity-60">Evolution</h3>
-        </div>
+    <div className="flex flex-col rounded-lg bg-card shadow-md">
+      <div>
+        {/* Header */}
         <div
-          className={`transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}
+          className="flex cursor-pointer items-center justify-between px-6 py-3"
+          onClick={toggleDropdown}
         >
-          <FaChevronDown />
+          <div className="flex items-center gap-3">
+            <h2 className="font-semibold">Blackjack</h2>
+            <h3 className="opacity-60">Evolution</h3>
+          </div>
+          <div
+            className={`transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}
+          >
+            <FaChevronDown />
+          </div>
         </div>
       </div>
 
       {/* Dropdown Content */}
-      {isOpen && (
-        <div className="rounded-b-lg bg-card p-6">
+      <motion.div {...dropdownMotion(isOpen)} className="overflow-hidden">
+        <div className="border-t border-gray-300 p-6">
           <div>
             {/* Game Image */}
             <Image
@@ -121,7 +123,7 @@ const GameDetailsDropdown = () => {
             </div>
           </div>
         </div>
-      )}
+      </motion.div>
     </div>
   );
 };

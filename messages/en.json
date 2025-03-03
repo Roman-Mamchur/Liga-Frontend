@@ -46,6 +46,9 @@
     "description": "Sorry, the page you're looking for doesn't exist.",
     "link": "Go Back Home"
   },
+  "LoadingPage": {
+    "message": "Loading..."
+  },
   "Toast": {
     "authCodeCopied": "Authenticator code copied!",
     "referralLinkCopied": "Referral link copied!",
@@ -805,6 +808,9 @@
       "empty": "How can we help?",
       "rate": "Please rate this conversation",
       "rateButton": "Click to Rate"
+    },
+    "Promotion": {
+      "label": "Promotion"
     }
   },
   "Formik": {

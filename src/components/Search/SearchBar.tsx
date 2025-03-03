@@ -5,6 +5,8 @@ import { FaSearch } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import SearchResults from "./SearchResults";
 import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
+import { absoluteDropdownMotion, overlayMotion } from "@/utils/framerUtil";
 
 interface SearchBarProps {
   triggerType: "header" | "page" | "mobile";
@@ -61,13 +63,16 @@ const SearchBar = ({ triggerType, onClose }: SearchBarProps) => {
   return (
     <>
       {/* Overlay */}
-      {isActive && triggerType !== "mobile" && (
-        <div
-          className={`fixed inset-0 bg-black/30 ${
-            triggerType === "page" ? "z-[3]" : "z-20"
-          }`}
-        />
-      )}
+      <AnimatePresence>
+        {isActive && triggerType !== "mobile" && (
+          <motion.div
+            className={`fixed inset-0 bg-black/30 ${
+              triggerType === "page" ? "z-[3]" : "z-20"
+            }`}
+            {...overlayMotion}
+          />
+        )}
+      </AnimatePresence>
 
       <div
         ref={searchContainerRef}
@@ -104,7 +109,13 @@ const SearchBar = ({ triggerType, onClose }: SearchBarProps) => {
           </div>
         </form>
 
-        {isActive && <SearchResults query={searchTerm} />}
+        <AnimatePresence>
+          {isActive && (
+            <motion.div {...absoluteDropdownMotion}>
+              <SearchResults query={searchTerm} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );

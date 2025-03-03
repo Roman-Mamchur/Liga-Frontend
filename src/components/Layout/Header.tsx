@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import { openModal } from "@/store/slices/authModalSlice";
 import { useTranslations } from "next-intl";
 import BalanceDropdown from "../Dropdown/BalanceDropdown";
+import { AnimatePresence, motion } from "framer-motion";
+import { overlayMotion } from "@/utils/framerUtil";
 
 const Header = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
@@ -70,16 +72,21 @@ const Header = () => {
             </div>
           )}
         </div>
-        {isSearchVisible && (
-          <div className="absolute left-0 top-14 w-full">
-            <div className="container relative mx-auto mt-3">
-              <SearchBar
-                triggerType="header"
-                onClose={() => setIsSearchVisible(false)}
-              />
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isSearchVisible && (
+            <motion.div
+              className="absolute left-0 top-14 w-full"
+              {...overlayMotion}
+            >
+              <div className="container relative mx-auto mt-3">
+                <SearchBar
+                  triggerType="header"
+                  onClose={() => setIsSearchVisible(false)}
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
     </>
   );
