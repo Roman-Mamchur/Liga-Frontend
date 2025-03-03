@@ -2,6 +2,8 @@ import SidebarNav from "@/components/Affiliate/SidebarNav";
 import HeroBanner from "@/components/Layout/HeroBanner";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import LoadingPage from "./loading";
+import { Suspense } from "react";
 
 export async function generateMetadata({
   params,
@@ -37,7 +39,7 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
   ];
 
   return (
-    <div>
+    <Suspense fallback={<LoadingPage />}>
       <HeroBanner title={t("hero")} />
       <div className="container my-8 flex flex-col justify-between gap-6 md:flex-row">
         <div className="md:sticky md:top-4 md:h-fit">
@@ -46,7 +48,7 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
 
         <div className="flex-1">{children}</div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 
