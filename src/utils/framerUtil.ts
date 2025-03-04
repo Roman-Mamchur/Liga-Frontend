@@ -43,6 +43,13 @@ export const absoluteDropdownMotion = {
   transition: { duration: 0.1, ease: "easeInOut" },
 };
 
+export const searchMenuMotion = {
+  initial: { y: "100%", opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  exit: { y: "100%", opacity: 0 },
+  transition: { duration: 0.3, ease: "easeInOut" },
+}
+
 export const headlessUiMotion = {
   hidden: {
     opacity: 0,

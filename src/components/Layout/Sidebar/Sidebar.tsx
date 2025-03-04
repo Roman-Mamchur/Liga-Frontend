@@ -14,6 +14,8 @@ import { useTranslations } from "next-intl";
 import { FaHeadset } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { openModal } from "@/store/slices/supportModalSlice";
+import { AnimatePresence, motion } from "framer-motion";
+import { searchMenuMotion } from "@/utils/framerUtil";
 
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -141,53 +143,59 @@ const Sidebar = () => {
       />
 
       {/* Search Menu */}
-      {searchMenuOpen && (
-        <nav className="sidebar-scrollbar absolute bottom-14 top-14 z-10 w-screen overflow-y-auto bg-primary md:hidden">
-          <div className="container my-5">
-            <SearchBar triggerType="mobile" />
-            <div className="mt-4 text-white">
-              {/* Links from sidebarData */}
-              {links.map((section, index) => (
-                <div key={index}>
-                  {section.items.map((link) => (
-                    <MenuLink
-                      key={link.name}
-                      link={link}
-                      isExpanded={true}
-                      submenuOpen={submenuOpen}
-                      toggleSubmenu={toggleSubmenu}
-                      setIsExpanded={setIsExpanded}
-                    />
-                  ))}
-                  {index !== links.length - 1 && (
-                    <div className="m-3 h-0.5 rounded bg-white/80"></div>
-                  )}
+      <AnimatePresence>
+        {searchMenuOpen && (
+          <motion.nav
+            className="sidebar-scrollbar absolute bottom-14 top-14 z-10 w-screen overflow-y-auto bg-primary md:hidden"
+            key="search-menu"
+            {...searchMenuMotion}
+          >
+            <div className="container my-5">
+              <SearchBar triggerType="mobile" />
+              <div className="mt-4 text-white">
+                {/* Links from sidebarData */}
+                {links.map((section, index) => (
+                  <div key={index}>
+                    {section.items.map((link) => (
+                      <MenuLink
+                        key={link.name}
+                        link={link}
+                        isExpanded={true}
+                        submenuOpen={submenuOpen}
+                        toggleSubmenu={toggleSubmenu}
+                        setIsExpanded={setIsExpanded}
+                      />
+                    ))}
+                    {index !== links.length - 1 && (
+                      <div className="m-3 h-0.5 rounded bg-white/80"></div>
+                    )}
+                  </div>
+                ))}
+
+                <div className="m-3 h-0.5 rounded bg-white/80"></div>
+
+                {/* Live Support Modal Button */}
+                <div
+                  className="my-2 flex w-full cursor-pointer items-center gap-3 text-nowrap rounded p-2 duration-200 hover:bg-white/20"
+                  onClick={() => dispatch(openModal())}
+                >
+                  <span>
+                    <FaHeadset className="size-5" />
+                  </span>
+                  <span>{t("support")}</span>
                 </div>
-              ))}
 
-              <div className="m-3 h-0.5 rounded bg-white/80"></div>
-
-              {/* Live Support Modal Button */}
-              <div
-                className="my-2 flex w-full cursor-pointer items-center gap-3 text-nowrap rounded p-2 duration-200 hover:bg-white/20"
-                onClick={() => dispatch(openModal())}
-              >
-                <span>
-                  <FaHeadset className="size-5" />
-                </span>
-                <span>{t("support")}</span>
+                {/* Language Switcher */}
+                <LocaleSwitcherDropdown
+                  isExpanded={isExpanded}
+                  setIsExpanded={setIsExpanded}
+                  device="mobile"
+                />
               </div>
-
-              {/* Language Switcher */}
-              <LocaleSwitcherDropdown
-                isExpanded={isExpanded}
-                setIsExpanded={setIsExpanded}
-                device="mobile"
-              />
             </div>
-          </div>
-        </nav>
-      )}
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </>
   );
 };
