@@ -5,10 +5,11 @@ import { RootState } from "@/store/index";
 import { closeModal } from "@/store/slices/promotionModalSlice";
 import Image from "next/image";
 import { FaGift, FaXmark } from "react-icons/fa6";
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
 import { modalMotion, overlayMotion } from "@/utils/framerUtil";
+import PromotionImageSkeleton from "../Skeleton/PromotionImageSkeleton";
 
 const PromotionModal = () => {
   const t = useTranslations("Modal");
@@ -18,6 +19,8 @@ const PromotionModal = () => {
     (state: RootState) => state.promotionModal,
   );
   const modalRef = useRef<HTMLDivElement | null>(null);
+
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   // Close modal on ESC key press
   const handleEscPress = useCallback(
@@ -81,12 +84,14 @@ const PromotionModal = () => {
             <div className="w-full border ring-gray-500"></div>
             {promotion && (
               <div className="flex flex-col gap-2.5 overflow-y-auto p-4 md:p-8">
+                {!isImageLoaded && <PromotionImageSkeleton />}
                 <Image
                   src={promotion.image}
                   alt={promotion.title}
                   width={0}
                   height={0}
                   sizes="100vw"
+                  onLoad={() => setIsImageLoaded(true)}
                   className="h-full w-full rounded object-cover"
                 />
                 <p className="mt-4 text-xs opacity-60">{promotion.date}</p>

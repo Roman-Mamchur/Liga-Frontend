@@ -79,7 +79,6 @@ const LocaleSwitcher = ({
           ))}
       </button>
 
-      {/* {isOpen && isExpanded && ( */}
       <motion.div
         className="mt-2 w-full rounded bg-white/10 py-1"
         {...dropdownMotion(isOpen && isExpanded)}
@@ -120,7 +119,6 @@ const LocaleSwitcher = ({
           </button>
         ))}
       </motion.div>
-      {/* )} */}
     </div>
   );
 };
