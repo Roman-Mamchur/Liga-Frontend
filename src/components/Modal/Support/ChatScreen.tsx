@@ -31,11 +31,11 @@ const ChatScreen = () => {
     const initializeChat = async () => {
       try {
         setLoading(true);
-        
+
         await setUpContact();
 
         const fetchedMessages = await setUpConversation();
-        
+
         if (Array.isArray(fetchedMessages)) {
           setMessages(
             fetchedMessages.map((msg) => ({
@@ -52,7 +52,7 @@ const ChatScreen = () => {
 
         // Initialize WebSocket
         const ws = initializeWebSocket(handleNewMessage);
-        
+
         return () => ws.readyState === 1 && ws.close();
       } catch (error) {
         console.error("Error initializing chat:", error);
@@ -100,6 +100,8 @@ const ChatScreen = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
+
+    e.target.value = "";
 
     setFile(selectedFile);
     setPreview(URL.createObjectURL(selectedFile));
