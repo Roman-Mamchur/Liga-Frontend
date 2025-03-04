@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import BalanceDropdownSkeleton from "../Skeleton/BalanceDropdownSkeleton";
 import { AnimatePresence, motion } from "framer-motion";
-import { headlessUiMotion } from "@/utils/framerUtil";
+import { headlessUiMotion, motionVariants } from "@/utils/framerUtil";
 
 export default function BalanceDropdown() {
   const t = useTranslations("Header");
@@ -52,9 +52,7 @@ export default function BalanceDropdown() {
             className="focus:outline-hidden absolute left-0 z-50 mt-5 rounded bg-white shadow-md"
             as={motion.div}
             key="menu-items"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
+            {...motionVariants}
             variants={headlessUiMotion}
           >
             <div className="divide-y text-nowrap py-2">

@@ -5,7 +5,7 @@ import { QRCodeCanvas } from "qrcode.react";
 import AddressCopy from "./AddressCopy";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
-import { absoluteDropdownMotion } from "@/utils/framerUtil";
+import { absoluteDropdownMotion, motionVariants } from "@/utils/framerUtil";
 
 const CryptoDepositSection = () => {
   const t = useTranslations("Modal.Wallet.Crypto.Deposit");
@@ -99,7 +99,8 @@ const CryptoDepositSection = () => {
             {isCurrencyDropdownOpen && (
               <motion.ul
                 className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
-                {...absoluteDropdownMotion}
+                {...motionVariants}
+                variants={absoluteDropdownMotion}
               >
                 {cryptoCurrencies.map((item) => (
                   <li
@@ -165,7 +166,8 @@ const CryptoDepositSection = () => {
               {isBlockchainDropdownOpen && (
                 <motion.ul
                   className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
-                  {...absoluteDropdownMotion}
+                  {...motionVariants}
+                  variants={absoluteDropdownMotion}
                 >
                   {selectedCryptocurrency.blockchains.map((blockchain) => (
                     <li

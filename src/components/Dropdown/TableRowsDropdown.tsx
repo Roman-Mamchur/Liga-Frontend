@@ -1,6 +1,6 @@
 "use client";
 
-import { headlessUiMotion } from "@/utils/framerUtil";
+import { headlessUiMotion, motionVariants } from "@/utils/framerUtil";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa6";
@@ -30,9 +30,7 @@ const RowsDropdown: React.FC<RowsDropdownProps> = ({
           className="absolute right-0 z-10 mt-2 w-14 origin-top-right divide-y rounded bg-card shadow-md"
           as={motion.div}
           key="menu-items"
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
+          {...motionVariants}
           variants={headlessUiMotion}
         >
           <div className="py-1 text-sm">

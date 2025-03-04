@@ -9,7 +9,7 @@ import { Message, messages } from "@/data/messagesMockData";
 import { useTranslations } from "next-intl";
 import { useDispatch } from "react-redux";
 import { openModal } from "@/store/slices/messageModalSlice";
-import { headlessUiMotion } from "@/utils/framerUtil";
+import { headlessUiMotion, motionVariants } from "@/utils/framerUtil";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function NotificationDropdown() {
@@ -40,9 +40,7 @@ export default function NotificationDropdown() {
           className="focus:outline-hidden absolute right-0 z-50 mt-5 w-80 origin-top-right rounded bg-white shadow-lg ring-1 ring-black/5"
           as={motion.div}
           key="menu-items"
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
+          {...motionVariants}
           variants={headlessUiMotion}
         >
           {/* Header */}

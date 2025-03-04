@@ -9,7 +9,7 @@ import { FaChevronDown } from "react-icons/fa6";
 import { useParams } from "next/navigation";
 import flags from "@/utils/flagsUtil";
 import Image from "next/image";
-import { dropdownMotion } from "@/utils/framerUtil";
+import { dropdownMotion, motionVariants } from "@/utils/framerUtil";
 import { motion } from "framer-motion";
 
 interface LocaleSwitcherProps {
@@ -81,7 +81,8 @@ const LocaleSwitcher = ({
 
       <motion.div
         className="mt-2 w-full rounded bg-white/10 py-1"
-        {...dropdownMotion(isOpen && isExpanded)}
+        {...motionVariants}
+        variants={dropdownMotion(isOpen && isExpanded)}
       >
         {routing.locales.map((current) => (
           <button

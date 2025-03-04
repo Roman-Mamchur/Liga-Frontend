@@ -5,7 +5,7 @@ import { FaChevronDown } from "react-icons/fa6";
 import { LuClock4 } from "react-icons/lu";
 import SessionsTable from "../Table/SessionsTable";
 import { useTranslations } from "next-intl";
-import { dropdownMotion } from "@/utils/framerUtil";
+import { dropdownMotion, motionVariants } from "@/utils/framerUtil";
 import { motion } from "framer-motion";
 
 const SessionSettingsDropdown = () => {
@@ -33,7 +33,7 @@ const SessionSettingsDropdown = () => {
       </div>
 
       {/* Dropdown Content */}
-      <motion.div {...dropdownMotion(isOpen)}>
+      <motion.div {...motionVariants} variants={dropdownMotion(isOpen)}>
         <div className="flex flex-col gap-6 border-t border-gray-300 p-6">
           {/* Sessions Section */}
           <div className="rounded bg-white/50 px-1 py-3 sm:px-3 md:px-6">

@@ -15,7 +15,7 @@ import { FaHeadset } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { openModal } from "@/store/slices/supportModalSlice";
 import { AnimatePresence, motion } from "framer-motion";
-import { searchMenuMotion } from "@/utils/framerUtil";
+import { motionVariants, searchMenuMotion } from "@/utils/framerUtil";
 
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -148,7 +148,8 @@ const Sidebar = () => {
           <motion.nav
             className="sidebar-scrollbar absolute bottom-14 top-14 z-10 w-screen overflow-y-auto bg-primary md:hidden"
             key="search-menu"
-            {...searchMenuMotion}
+            {...motionVariants}
+            variants={searchMenuMotion}
           >
             <div className="container my-5">
               <SearchBar triggerType="mobile" />

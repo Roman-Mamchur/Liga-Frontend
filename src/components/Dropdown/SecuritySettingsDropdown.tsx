@@ -6,7 +6,7 @@ import { FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import { QRCodeCanvas } from "qrcode.react";
 import AuthCode from "../Profile/AuthCode";
 import { useTranslations } from "next-intl";
-import { dropdownMotion } from "@/utils/framerUtil";
+import { dropdownMotion, motionVariants } from "@/utils/framerUtil";
 import { motion } from "framer-motion";
 
 const SecuritySettingsDropdown = () => {
@@ -58,7 +58,7 @@ const SecuritySettingsDropdown = () => {
       </div>
 
       {/* Dropdown Content */}
-      <motion.div {...dropdownMotion(isOpen)}>
+      <motion.div {...motionVariants} variants={dropdownMotion(isOpen)}>
         <div className="flex flex-col gap-6 border-t border-gray-300 p-6">
           {/* Password Section */}
           <form className="rounded bg-white/50 px-6 py-3">

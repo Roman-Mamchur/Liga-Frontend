@@ -6,7 +6,7 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { MdTune } from "react-icons/md";
 import { motion } from "framer-motion";
-import { dropdownMotion } from "@/utils/framerUtil";
+import { dropdownMotion, motionVariants } from "@/utils/framerUtil";
 
 const GeneralSettingsDropdown = () => {
   const t = useTranslations("ProfilePage.Settings.General");
@@ -35,7 +35,7 @@ const GeneralSettingsDropdown = () => {
       </div>
 
       {/* Dropdown Content */}
-      <motion.div {...dropdownMotion(isOpen)}>
+      <motion.div {...motionVariants} variants={dropdownMotion(isOpen)}>
         <div className="flex flex-col gap-6 border-t border-gray-300 p-6">
           {/* Email Section */}
           <form className="rounded bg-white/50 px-6 py-3">

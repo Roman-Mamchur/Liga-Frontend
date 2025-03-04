@@ -2,7 +2,7 @@
 
 import { FaChevronDown } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import { dropdownMotion } from "@/utils/framerUtil";
+import { dropdownMotion, motionVariants } from "@/utils/framerUtil";
 
 interface FaqDropdownProps {
   question: string;
@@ -35,7 +35,11 @@ const FaqDropdown = ({
           </span>
         </h3>
 
-        <motion.div {...dropdownMotion(isOpen)} className="overflow-hidden">
+        <motion.div
+          {...motionVariants}
+          variants={dropdownMotion(isOpen)}
+          className="overflow-hidden"
+        >
           <ul className="cursor-default border-t border-gray-300 p-3 text-sm opacity-80">
             <li className="w-full">
               <p className="text-sm opacity-80">{answer}</p>

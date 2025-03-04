@@ -1,6 +1,6 @@
 "use client";
 
-import { dropdownMotion } from "@/utils/framerUtil";
+import { dropdownMotion, motionVariants } from "@/utils/framerUtil";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { BiSolidOffer } from "react-icons/bi";
@@ -32,7 +32,7 @@ const OfferSettingsDropdown = () => {
       </div>
 
       {/* Dropdown Content */}
-      <motion.div {...dropdownMotion(isOpen)}>
+      <motion.div {...motionVariants} variants={dropdownMotion(isOpen)}>
         <div className="flex flex-col gap-6 border-t border-gray-300 p-6">
           <form className="rounded bg-white/50 px-6 py-3">
             <div className="divide-y">

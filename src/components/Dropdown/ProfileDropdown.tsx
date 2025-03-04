@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 import { openModal as walletOpenModal } from "@/store/slices/walletModalSlice";
 import { openModal as supportOpenModal } from "@/store/slices/supportModalSlice";
 import { AnimatePresence, motion } from "framer-motion";
-import { headlessUiMotion } from "@/utils/framerUtil";
+import { headlessUiMotion, motionVariants } from "@/utils/framerUtil";
 
 export default function ProfileDropdown() {
   const t = useTranslations("Header.profileDropdown");
@@ -35,9 +35,7 @@ export default function ProfileDropdown() {
           className="absolute right-0 z-50 mt-5 w-fit origin-top-right rounded bg-white shadow-md"
           as={motion.div}
           key="menu-items"
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
+          {...motionVariants}
           variants={headlessUiMotion}
         >
           <div className="text-nowrap py-1 font-semibold">

@@ -9,7 +9,7 @@ import { IoLogoWechat } from "react-icons/io5";
 import { FaChevronDown } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { dropdownMotion } from "@/utils/framerUtil";
+import { dropdownMotion, motionVariants } from "@/utils/framerUtil";
 
 const Footer = () => {
   const t = useTranslations("Footer");
@@ -78,8 +78,9 @@ const Footer = () => {
 
               <div className="block md:hidden">
                 <motion.div
-                  {...dropdownMotion(openDropdown === index)}
                   className="overflow-hidden"
+                  {...motionVariants}
+                  variants={dropdownMotion(openDropdown === index)}
                 >
                   <ul className="border-t border-gray-300 py-2 text-sm opacity-80 md:border-none">
                     {link.items.map((item, idx) => (

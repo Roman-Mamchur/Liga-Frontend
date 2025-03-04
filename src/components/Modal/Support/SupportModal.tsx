@@ -12,6 +12,7 @@ import ChatScreen from "./ChatScreen";
 import {
   coverPageMotion,
   modalMotion,
+  motionVariants,
   overlayMotion,
 } from "@/utils/framerUtil";
 
@@ -45,12 +46,14 @@ const SupportModal = () => {
         <motion.div
           className="fixed inset-0 z-50 flex h-full w-full items-center justify-center md:items-end md:justify-end md:bg-black/80 md:p-4"
           key="overlay"
-          {...overlayMotion}
+          {...motionVariants}
+          variants={overlayMotion}
         >
           <motion.div
             className="relative flex h-full w-full flex-col bg-white shadow-lg md:max-h-[80vh] md:w-96 md:rounded-lg"
             key="modal"
-            {...modalMotion}
+            {...motionVariants}
+            variants={modalMotion}
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b p-4">
@@ -81,7 +84,8 @@ const SupportModal = () => {
               ) : (
                 <motion.div
                   key="cover"
-                  {...coverPageMotion}
+                  {...motionVariants}
+                  variants={coverPageMotion}
                   className="overflow-auto"
                 >
                   <CoverScreen onStartChat={() => setIsChatOpen(true)} />

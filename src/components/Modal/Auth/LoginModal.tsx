@@ -12,7 +12,7 @@ import { RootState } from "@/store";
 import AlternateSignIn from "./AlternateSignIn";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
-import { modalMotion, overlayMotion } from "@/utils/framerUtil";
+import { modalMotion, motionVariants, overlayMotion } from "@/utils/framerUtil";
 
 const LoginModal = () => {
   const t = useTranslations("Modal");
@@ -55,12 +55,14 @@ const LoginModal = () => {
             event.target === event.currentTarget && dispatch(closeModal())
           }
           key="overlay"
-          {...overlayMotion}
+          {...motionVariants}
+          variants={overlayMotion}
         >
           <motion.div
             className="relative flex h-full w-full flex-col bg-white shadow-lg md:max-h-[90vh] md:w-8/12 md:rounded-lg lg:w-6/12"
             key="modal"
-            {...modalMotion}
+            {...motionVariants}
+            variants={modalMotion}
           >
             <div className="flex items-center justify-between p-4">
               <Image

@@ -6,7 +6,11 @@ import { FaXmark } from "react-icons/fa6";
 import SearchResults from "./SearchResults";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
-import { absoluteDropdownMotion, overlayMotion } from "@/utils/framerUtil";
+import {
+  absoluteDropdownMotion,
+  motionVariants,
+  overlayMotion,
+} from "@/utils/framerUtil";
 
 interface SearchBarProps {
   triggerType: "header" | "page" | "mobile";
@@ -69,7 +73,8 @@ const SearchBar = ({ triggerType, onClose }: SearchBarProps) => {
             className={`fixed inset-0 bg-black/30 ${
               triggerType === "page" ? "z-[3]" : "z-20"
             }`}
-            {...overlayMotion}
+            {...motionVariants}
+            variants={overlayMotion}
           />
         )}
       </AnimatePresence>
@@ -111,7 +116,7 @@ const SearchBar = ({ triggerType, onClose }: SearchBarProps) => {
 
         <AnimatePresence>
           {isActive && (
-            <motion.div {...absoluteDropdownMotion}>
+            <motion.div {...motionVariants} variants={absoluteDropdownMotion}>
               <SearchResults query={searchTerm} />
             </motion.div>
           )}

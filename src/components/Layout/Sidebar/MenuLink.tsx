@@ -5,7 +5,7 @@ import { FaChevronDown } from "react-icons/fa6";
 import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { dropdownMotion } from "@/utils/framerUtil";
+import { dropdownMotion, motionVariants } from "@/utils/framerUtil";
 
 interface MenuLinkProps {
   link: {
@@ -34,7 +34,9 @@ const MenuLink = ({
   const isActive = link.href && pathname.startsWith(link.href);
 
   return (
-    <div className="mb-2 text-nowrap">
+    <div
+      className={`mb-2 overflow-hidden text-nowrap rounded duration-200 ${submenuOpen === link.name ? "bg-white/10" : "hover:bg-white/20"}`}
+    >
       {link.type === "dropdown" ? (
         <>
           <button
@@ -42,7 +44,7 @@ const MenuLink = ({
               if (!isExpanded) setIsExpanded(true);
               toggleSubmenu(link.name);
             }}
-            className={`flex w-full items-center justify-between rounded p-2 duration-200 hover:bg-white/20 ${submenuOpen === link.name ? "bg-white/10" : ""}`}
+            className="flex w-full items-center justify-between p-2"
           >
             <div
               className={`flex items-center gap-3 ${!isExpanded ? "w-full justify-center" : ""}`}
@@ -62,13 +64,14 @@ const MenuLink = ({
           </button>
 
           <motion.div
-            className={`${submenuOpen === link.name && "mt-2 py-1"} flex flex-col rounded bg-white/10`}
-            {...dropdownMotion(submenuOpen === link.name && isExpanded)}
+            className="flex flex-col border-t border-white"
+            {...motionVariants}
+            variants={dropdownMotion(submenuOpen === link.name && isExpanded)}
           >
             {link.items?.map((item) => (
               <div
                 key={typeof item === "object" ? item.name : item}
-                className={`p-2 duration-200 hover:bg-white/20 ${typeof item === "object" && pathname === item.href ? "bg-white/40" : ""}`}
+                className={`p-2 duration-200 last:rounded-b hover:bg-white/20 ${typeof item === "object" && pathname === item.href ? "bg-white/40" : ""}`}
               >
                 {typeof item === "string" ? (
                   item
@@ -87,7 +90,7 @@ const MenuLink = ({
       ) : (
         <Link
           href={link.href || "#"}
-          className={`flex w-full items-center gap-3 rounded p-2 duration-200 hover:bg-white/20 ${isExpanded ? "" : "md:justify-center"} ${isActive ? "bg-white/40" : ""}`}
+          className={`flex w-full items-center gap-3 rounded p-2 ${isExpanded ? "" : "md:justify-center"} ${isActive ? "bg-white/40" : ""}`}
         >
           <span>{link.icon}</span>
           {isExpanded && <span>{t(link.name)}</span>}

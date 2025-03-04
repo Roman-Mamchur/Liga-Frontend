@@ -1,6 +1,6 @@
 "use client";
 
-import { headlessUiMotion } from "@/utils/framerUtil";
+import { headlessUiMotion, motionVariants } from "@/utils/framerUtil";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -59,9 +59,7 @@ const SortByDropdown: React.FC<SortByDropdownProps> = ({
           className="absolute left-0 z-10 mt-2 origin-top-left divide-y rounded bg-card shadow-md"
           as={motion.div}
           key="menu-items"
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
+          {...motionVariants}
           variants={headlessUiMotion}
         >
           <div className="py-1 text-sm">

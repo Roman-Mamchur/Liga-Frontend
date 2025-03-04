@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
-import { absoluteDropdownMotion } from "@/utils/framerUtil";
+import { absoluteDropdownMotion, motionVariants } from "@/utils/framerUtil";
 
 const FiatWithdrawSection = () => {
   const t = useTranslations("Modal.Wallet.Fiat.Withdraw");
@@ -100,7 +100,8 @@ const FiatWithdrawSection = () => {
             {isBalanceDropdownOpen && (
               <motion.ul
                 className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
-                {...absoluteDropdownMotion}
+                {...motionVariants}
+                variants={absoluteDropdownMotion}
               >
                 {currencies.map((item) => (
                   <li
@@ -161,7 +162,8 @@ const FiatWithdrawSection = () => {
             {isCurrencyDropdownOpen && (
               <motion.ul
                 className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
-                {...absoluteDropdownMotion}
+                {...motionVariants}
+                variants={absoluteDropdownMotion}
               >
                 {currencies.map((item) => (
                   <li
@@ -223,7 +225,8 @@ const FiatWithdrawSection = () => {
               {isBankDropdownOpen && (
                 <motion.ul
                   className="absolute z-10 mt-1 w-full divide-y rounded bg-white py-2 shadow-md"
-                  {...absoluteDropdownMotion}
+                  {...motionVariants}
+                  variants={absoluteDropdownMotion}
                 >
                   {selectedCurrency.banks.map((bank) => (
                     <li

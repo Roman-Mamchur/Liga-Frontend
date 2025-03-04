@@ -11,7 +11,7 @@ const SidebarNav = ({ navItems }: SidebarNavProps) => {
 
   return (
     <div className="h-fit w-full flex-grow-0 rounded bg-card py-2 shadow-md md:w-fit">
-      <ul className="font-bold">
+      <ul className="text-nowrap font-bold">
         {navItems.map((item) => (
           <Link key={item.path} href={item.path}>
             <li

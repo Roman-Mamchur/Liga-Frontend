@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import { dropdownMotion } from "@/utils/framerUtil";
+import { dropdownMotion, motionVariants } from "@/utils/framerUtil";
 
 const GameDetailsDropdown = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -31,7 +31,11 @@ const GameDetailsDropdown = () => {
       </div>
 
       {/* Dropdown Content */}
-      <motion.div {...dropdownMotion(isOpen)} className="overflow-hidden">
+      <motion.div
+        {...motionVariants}
+        variants={dropdownMotion(isOpen)}
+        className="overflow-hidden"
+      >
         <div className="border-t border-gray-300 p-6">
           <div>
             {/* Game Image */}

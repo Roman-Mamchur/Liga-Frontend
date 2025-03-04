@@ -8,7 +8,7 @@ import { FaGift, FaXmark } from "react-icons/fa6";
 import { useEffect, useRef, useCallback, useState } from "react";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
-import { modalMotion, overlayMotion } from "@/utils/framerUtil";
+import { modalMotion, motionVariants, overlayMotion } from "@/utils/framerUtil";
 import PromotionImageSkeleton from "../Skeleton/PromotionImageSkeleton";
 
 const PromotionModal = () => {
@@ -58,13 +58,15 @@ const PromotionModal = () => {
           className="fixed inset-0 z-50 flex items-center justify-center md:bg-black/80"
           onClick={handleOverlayClick}
           key="overlay"
-          {...overlayMotion}
+          {...motionVariants}
+          variants={overlayMotion}
         >
           <motion.div
             ref={modalRef}
             className="relative flex h-full w-full flex-col bg-white shadow-lg md:max-h-[90vh] md:w-8/12 md:rounded-lg lg:w-6/12"
             key="modal"
-            {...modalMotion}
+            {...motionVariants}
+            variants={modalMotion}
           >
             <div className="flex items-center justify-between p-4">
               <div className="flex items-center gap-3">
