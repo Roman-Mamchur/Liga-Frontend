@@ -1,5 +1,6 @@
 "use client";
 
+import ChatImageSkeleton from "@/components/Skeleton/ChatImageSkeleton";
 import {
   initializeWebSocket,
   sendMessage,
@@ -155,8 +156,33 @@ const ChatScreen = () => {
     }
   };
 
-  const renderMessageContent = (msg: { text: string }) => {
-    // Check if the message contains a Chatwoot survey link
+  const MessageImage = ({ src, text }: { src: string; text: string }) => {
+    const [imageLoaded, setImageLoaded] = useState(false);
+
+    return (
+      <div className={`${text && "mt-2"} relative`}>
+        {!imageLoaded && <ChatImageSkeleton />}
+
+        <Image
+          src={src}
+          alt="Attachment"
+          width={150}
+          height={150}
+          sizes="100vw"
+          priority={true}
+          className={`h-auto w-64 max-w-xs rounded transition-opacity duration-300 ${
+            !imageLoaded ? "hidden" : "block"
+          }`}
+          onLoad={() => setImageLoaded(true)}
+        />
+      </div>
+    );
+  };
+
+  const renderMessageContent = (msg: {
+    text: string;
+    attachments?: string[];
+  }) => {
     const surveyMatch = msg.text.match(
       /(https:\/\/app\.chatwoot\.com\/survey\/responses\/[a-zA-Z0-9-]+)/,
     );
@@ -178,7 +204,14 @@ const ChatScreen = () => {
       );
     }
 
-    return <p className="whitespace-pre-wrap">{msg.text}</p>;
+    return (
+      <>
+        <p className="whitespace-pre-wrap">{msg.text}</p>
+        {msg.attachments?.map((att, i) => (
+          <MessageImage key={i} src={att} text={msg.text} />
+        ))}
+      </>
+    );
   };
 
   if (loading) {
@@ -207,18 +240,6 @@ const ChatScreen = () => {
                 }`}
               >
                 {renderMessageContent(msg)}
-                {msg.attachments?.map((att, i) => (
-                  <Image
-                    key={i}
-                    src={att}
-                    alt="Attachment"
-                    width={150}
-                    height={150}
-                    sizes="100vw"
-                    priority={true}
-                    className={`${msg.text && "mt-2"} h-auto w-full max-w-xs rounded`}
-                  />
-                ))}
               </div>
             ))}
           </>
@@ -237,6 +258,12 @@ const ChatScreen = () => {
               width={150}
               height={150}
               className="rounded"
+              style={{
+                width: "auto",
+                height: "auto",
+                maxWidth: "100%",
+                maxHeight: "200px",
+              }}
             />
             <button
               className="absolute -right-2 -top-2 rounded-full bg-red-500 p-1 text-white"
