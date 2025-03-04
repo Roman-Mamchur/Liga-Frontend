@@ -9,7 +9,11 @@ import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import CoverScreen from "./CoverScreen";
 import ChatScreen from "./ChatScreen";
-import { modalMotion, overlayMotion } from "@/utils/framerUtil";
+import {
+  coverPageMotion,
+  modalMotion,
+  overlayMotion,
+} from "@/utils/framerUtil";
 
 const SupportModal = () => {
   const t = useTranslations("Modal.Support");
@@ -71,11 +75,19 @@ const SupportModal = () => {
             </div>
 
             {/* Screen Switching */}
-            {!isChatOpen ? (
-              <CoverScreen onStartChat={() => setIsChatOpen(true)} />
-            ) : (
-              <ChatScreen />
-            )}
+            <AnimatePresence mode="wait">
+              {isChatOpen ? (
+                <ChatScreen />
+              ) : (
+                <motion.div
+                  key="cover"
+                  {...coverPageMotion}
+                  className="overflow-hidden"
+                >
+                  <CoverScreen onStartChat={() => setIsChatOpen(true)} />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </motion.div>
       )}
