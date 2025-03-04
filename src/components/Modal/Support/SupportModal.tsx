@@ -82,7 +82,7 @@ const SupportModal = () => {
                 <motion.div
                   key="cover"
                   {...coverPageMotion}
-                  className="overflow-hidden"
+                  className="overflow-auto"
                 >
                   <CoverScreen onStartChat={() => setIsChatOpen(true)} />
                 </motion.div>
