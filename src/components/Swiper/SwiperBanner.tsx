@@ -34,6 +34,8 @@ function SwiperBanner() {
                 height={0}
                 sizes="100vw"
                 priority={index === 0}
+                placeholder="blur"
+                blurDataURL={src}
                 className="h-auto w-full object-contain"
               />
             </SwiperSlide>

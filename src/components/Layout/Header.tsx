@@ -25,7 +25,7 @@ const Header = () => {
     <>
       <header className="sticky top-0 z-10 flex h-14 w-full justify-center bg-white shadow-md">
         <div className="container flex items-center justify-between gap-5">
-          <Link href="/">
+          <Link href="/" as={"image"}>
             <Image
               src="/logo.png"
               alt="Logo"

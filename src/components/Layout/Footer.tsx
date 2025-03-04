@@ -24,7 +24,7 @@ const Footer = () => {
     <div className="mt-5 h-fit w-full bg-white py-4">
       <div className="container flex flex-col">
         <div className="mx-auto mb-2 w-fit md:mx-0 md:mb-0">
-          <Link href="/">
+          <Link href="/" as={"image"}>
             <Image
               src="/logo.png"
               alt="Logo"
