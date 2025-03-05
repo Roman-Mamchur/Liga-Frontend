@@ -20,7 +20,6 @@ import { modalMotion, motionVariants, overlayMotion } from "@/utils/framerUtil";
 const RegisterModal = () => {
   const t = useTranslations("Modal.Register");
   const formikT = useTranslations("Formik.Register");
-  const exitT = useTranslations("Modal");
 
   const dispatch = useDispatch();
   const isOpen = useSelector(
@@ -125,8 +124,7 @@ const RegisterModal = () => {
                 className="text-gray-500 duration-200 hover:text-gray-800"
                 onClick={closeModalHandler}
               >
-                <span className="hidden md:block">{exitT("exit")}</span>
-                <FaXmark className="size-5 md:hidden" />
+                <FaXmark className="size-5" />
               </button>
             </div>
             <div className="w-full border ring-gray-500"></div>

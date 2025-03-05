@@ -711,7 +711,6 @@
     "playing": "{players} 人在线"
   },
   "Modal": {
-    "exit": "退出",
     "Wallet": {
       "label": "钱包",
       "fiat": "法币",

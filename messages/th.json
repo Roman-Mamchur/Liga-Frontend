@@ -691,7 +691,6 @@
     "playing": "{players} กำลังเล่น"
   },
   "Modal": {
-    "exit": "ออก",
     "Wallet": {
       "label": "กระเป๋าเงิน",
       "fiat": "ฟิอัต",

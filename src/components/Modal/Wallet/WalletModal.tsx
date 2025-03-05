@@ -64,8 +64,7 @@ const WalletModal = () => {
                 className="text-gray-500 duration-200 hover:text-gray-800"
                 onClick={() => dispatch(closeModal())}
               >
-                <span className="hidden md:block">{t("exit")}</span>
-                <FaXmark className="size-5 md:hidden" />
+                <FaXmark className="size-5" />
               </button>
             </div>
             <div className="w-full border ring-gray-500"></div>

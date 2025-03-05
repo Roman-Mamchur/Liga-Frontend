@@ -723,7 +723,6 @@
     "playing": "{players} playing"
   },
   "Modal": {
-    "exit": "Exit",
     "Wallet": {
       "label": "Wallet",
       "fiat": "Fiat",
