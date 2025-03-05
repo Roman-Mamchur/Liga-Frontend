@@ -16,7 +16,7 @@ import { motionVariants, overlayMotion } from "@/utils/framerUtil";
 
 const Header = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
-  const mockLogin = true;
+  const mockLogin = false;
   const dispatch = useDispatch();
 
   const t = useTranslations("Header");
