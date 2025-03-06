@@ -6,8 +6,6 @@ import Footer from "@/components/Layout/Footer";
 import ReduxProvider from "@/components/Redux/ReduxProvider";
 import PromotionModal from "@/components/Modal/PromotionModal";
 import { ToastContainer } from "react-toastify";
-import LoginModal from "@/components/Modal/Auth/LoginModal";
-import RegisterModal from "@/components/Modal/Auth/RegisterModal";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -79,8 +77,6 @@ export default async function RootLayout({
               <PromotionModal />
               <MessageModal />
               <WalletModal />
-              <LoginModal />
-              <RegisterModal />
               <SupportModal />
               <SupportBubble />
             </div>

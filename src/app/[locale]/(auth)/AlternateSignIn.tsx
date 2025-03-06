@@ -1,22 +1,21 @@
 import { FaApple, FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { useDispatch } from "react-redux";
-import { openModal } from "@/store/slices/authModalSlice";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/routing";
 
 interface AlternateSignInProps {
   from: "login" | "register";
 }
 
 const AlternateSignIn = ({ from }: AlternateSignInProps) => {
+  const router = useRouter();
   const t = useTranslations("Modal.AlternateSignIn");
 
-  const dispatch = useDispatch();
   const handleRegisterClick = () => {
     if (from === "login") {
-      dispatch(openModal("register"));
+      router.push("/register");
     } else {
-      dispatch(openModal("login"));
+      router.push("/login");
     }
   };
 
@@ -43,6 +42,7 @@ const AlternateSignIn = ({ from }: AlternateSignInProps) => {
       <div className="flex items-center gap-1 text-sm opacity-80">
         <span>{from === "login" ? t("noAccount") : t("haveAccount")}</span>
         <button
+          type="button"
           onClick={handleRegisterClick}
           className="cursor-pointer font-bold hover:underline"
         >

@@ -7,8 +7,6 @@ import { FaSearch } from "react-icons/fa";
 import ProfileDropdown from "../Dropdown/ProfileDropdown";
 import NotificationDropdown from "../Dropdown/NotificationDropdown";
 import SearchBar from "../Search/SearchBar";
-import { useDispatch } from "react-redux";
-import { openModal } from "@/store/slices/authModalSlice";
 import { useTranslations } from "next-intl";
 import BalanceDropdown from "../Dropdown/BalanceDropdown";
 import { AnimatePresence, motion } from "framer-motion";
@@ -17,7 +15,6 @@ import { motionVariants, overlayMotion } from "@/utils/framerUtil";
 const Header = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const mockLogin = false;
-  const dispatch = useDispatch();
 
   const t = useTranslations("Header");
 
@@ -57,18 +54,18 @@ const Header = () => {
             </>
           ) : (
             <div className="flex items-center space-x-4 text-xs font-bold md:text-sm">
-              <button
-                onClick={() => dispatch(openModal("login"))}
+              <Link
+                href="/login"
                 className="rounded border-2 border-foreground p-2 transition-transform duration-200 hover:scale-105 md:px-6 md:py-2"
               >
                 {t("login")}
-              </button>
-              <button
-                onClick={() => dispatch(openModal("register"))}
+              </Link>
+              <Link
+                href="/register"
                 className="rounded border-2 border-primary bg-primary p-2 text-white transition-transform duration-200 hover:scale-105 md:px-6 md:py-2"
               >
                 {t("register")}
-              </button>
+              </Link>
             </div>
           )}
         </div>
