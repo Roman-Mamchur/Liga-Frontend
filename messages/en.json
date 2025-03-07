@@ -163,6 +163,12 @@
     "recentSearch": "Recent Searches",
     "clearSearch": "Clear Search"
   },
+  "LoginPage": {
+    "label": "Sign In"
+  },
+  "RegisterPage": {
+    "label": "Register"
+  },
   "ProfilePage": {
     "Layout": {
       "hero": "Profile",

@@ -42,9 +42,11 @@ export async function generateMetadata({
 
 export default async function RootLayout({
   children,
+  authModal,
   params,
 }: Readonly<{
   children: React.ReactNode;
+  authModal: React.ReactNode;
   params: Promise<{ locale: Locale }>;
 }>) {
   const { locale } = await params;
@@ -73,6 +75,8 @@ export default async function RootLayout({
                   <Footer />
                 </div>
               </main>
+
+              <div className="absolute left-0 top-0 z-50">{authModal}</div>
 
               <PromotionModal />
               <MessageModal />

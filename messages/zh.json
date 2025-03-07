@@ -163,6 +163,12 @@
     "recentSearch": "最近搜索",
     "clearSearch": "清除搜索"
   },
+  "LoginPage": {
+    "label": "登录"
+  },
+  "RegisterPage": {
+    "label": "注册"
+  },
   "ProfilePage": {
     "Layout": {
       "hero": "个人资料",

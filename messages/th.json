@@ -163,6 +163,12 @@
     "recentSearch": "การค้นหาล่าสุด",
     "clearSearch": "ล้างการค้นหา"
   },
+  "LoginPage": {
+    "label": "เข้าสู่ระบบ"
+  },
+  "RegisterPage": {
+    "label": "สมัครสมาชิก"
+  },
   "ProfilePage": {
     "Layout": {
       "hero": "โปรไฟล์",
