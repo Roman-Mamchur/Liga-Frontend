@@ -34,9 +34,7 @@ const MenuLink = ({
   const isActive = link.href && pathname.startsWith(link.href);
 
   return (
-    <div
-      className={`mb-2 overflow-hidden text-nowrap rounded duration-200 ${submenuOpen === link.name ? "bg-white/10" : "hover:bg-white/20"}`}
-    >
+    <div className="mb-2 overflow-hidden text-nowrap duration-200">
       {link.type === "dropdown" ? (
         <>
           <button
@@ -44,7 +42,7 @@ const MenuLink = ({
               if (!isExpanded) setIsExpanded(true);
               toggleSubmenu(link.name);
             }}
-            className="flex w-full items-center justify-between p-2"
+            className={`flex w-full items-center justify-between rounded p-2 ${submenuOpen === link.name ? "bg-white/10" : "hover:bg-white/20"}`}
           >
             <div
               className={`flex items-center gap-3 ${!isExpanded ? "w-full justify-center" : ""}`}
@@ -64,33 +62,39 @@ const MenuLink = ({
           </button>
 
           <motion.div
-            className="flex flex-col border-t border-white"
+            className="flex flex-col"
             {...motionVariants}
             variants={dropdownMotion(submenuOpen === link.name && isExpanded)}
           >
-            {link.items?.map((item) => (
-              <div
-                key={typeof item === "object" ? item.name : item}
-                className={`p-2 duration-200 last:rounded-b hover:bg-white/20 ${typeof item === "object" && pathname === item.href ? "bg-white/40" : ""}`}
-              >
-                {typeof item === "string" ? (
-                  item
-                ) : (
-                  <Link
-                    href={item.href || "#"}
-                    className="flex items-center gap-3"
+            <div
+              className={`my-2 rounded ${submenuOpen === link.name ? "bg-white/10" : "hover:bg-white/20"}`}
+            >
+              <div className="my-1">
+                {link.items?.map((item) => (
+                  <div
+                    key={typeof item === "object" ? item.name : item}
+                    className={`p-2 duration-200 last:rounded-b hover:bg-white/20 ${typeof item === "object" && pathname === item.href ? "bg-white/40" : ""}`}
                   >
-                    {item.name}
-                  </Link>
-                )}
+                    {typeof item === "string" ? (
+                      item
+                    ) : (
+                      <Link
+                        href={item.href || "#"}
+                        className="flex items-center gap-3"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </motion.div>
         </>
       ) : (
         <Link
           href={link.href || "#"}
-          className={`flex w-full items-center gap-3 rounded p-2 ${isExpanded ? "" : "md:justify-center"} ${isActive ? "bg-white/40" : ""}`}
+          className={`flex w-full items-center gap-3 rounded p-2 duration-200 hover:bg-white/20 ${isExpanded ? "" : "md:justify-center"} ${isActive ? "bg-white/40" : ""}`}
         >
           <span>{link.icon}</span>
           {isExpanded && <span>{t(link.name)}</span>}

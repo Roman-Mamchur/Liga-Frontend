@@ -3,9 +3,6 @@
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { links } from "@/data/sidebarData";
-import { GiPokerHand } from "react-icons/gi";
-import { MdSportsBasketball } from "react-icons/md";
-import { Link } from "@/i18n/routing";
 import SearchBar from "../../Search/SearchBar";
 import MenuLink from "./MenuLink";
 import MobileSidebar from "./MobileSidebar";
@@ -16,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { openModal } from "@/store/slices/supportModalSlice";
 import { AnimatePresence, motion } from "framer-motion";
 import { motionVariants, searchMenuMotion } from "@/utils/framerUtil";
+import MainLinks from "./MainLinks";
 
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -43,37 +41,7 @@ const Sidebar = () => {
         <div
           className={`flex ${isExpanded ? "mb-3 h-14 flex-row shadow-md" : "flex-col gap-1"} relative items-center p-3`}
         >
-          {isExpanded ? (
-            <div className="mx-auto flex gap-3 text-nowrap">
-              <Link
-                href="/"
-                className="rounded border border-stroke bg-primary px-3 py-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
-              >
-                {t("casinoButton")}
-              </Link>
-              <Link
-                href="/sports"
-                className="rounded border border-stroke bg-primary px-3 py-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
-              >
-                {t("sportsButton")}
-              </Link>
-            </div>
-          ) : (
-            <>
-              <Link
-                href="/"
-                className="rounded border border-stroke bg-primary p-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
-              >
-                <GiPokerHand size={30} />
-              </Link>
-              <Link
-                href="/sports"
-                className="rounded border border-stroke bg-primary p-1 font-semibold transition duration-200 ease-in hover:bg-white/20"
-              >
-                <MdSportsBasketball size={30} />
-              </Link>
-            </>
-          )}
+          <MainLinks isExpanded={isExpanded} />
           <button
             onClick={() => {
               setIsExpanded(!isExpanded);
