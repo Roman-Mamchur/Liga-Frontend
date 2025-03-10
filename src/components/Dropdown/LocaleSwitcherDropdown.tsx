@@ -106,7 +106,6 @@ const LocaleSwitcher = ({
                 alt={`${current} flag`}
                 width={20}
                 height={20}
-                unoptimized
               />
               <div className="flex w-full items-center justify-between gap-3">
                 {t("locale", { locale: current })}

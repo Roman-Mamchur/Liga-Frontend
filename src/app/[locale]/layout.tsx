@@ -37,6 +37,12 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
+    openGraph: {
+      images: [{ url: "https://icg-taupe.vercel.app/logo.png" }],
+    },
+    twitter: {
+      images: [{ url: "https://icg-taupe.vercel.app/logo.png" }],
+    },
   };
 }
 
