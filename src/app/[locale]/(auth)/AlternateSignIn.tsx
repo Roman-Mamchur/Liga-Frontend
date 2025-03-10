@@ -13,9 +13,9 @@ const AlternateSignIn = ({ from }: AlternateSignInProps) => {
 
   const handleRegisterClick = () => {
     if (from === "login") {
-      router.push("/register");
+      router.replace("/register");
     } else {
-      router.push("/login");
+      router.replace("/login");
     }
   };
 
